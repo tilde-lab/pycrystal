@@ -106,8 +106,8 @@ class CRYSTOUT(object):
             'ncycles':     [], # number of cycles at each optimisation step
 
             'electrons':   {
-                'basis_set':         None, # LCAO Gaussians: {'bs': {}, 'ps': {}}
-                'eigvals':           {}, # raw eigenvalues {k:{alpha:[], beta:[]},}
+                'basis_set':         None, # LCAO Gaussian basis sets in form: {'bs': {...}, 'ecp': {...}}
+                'eigvals':           {}, # raw eigenvalues {k:{alpha:[...], beta:[...]},}
                 'projected':         [], # raw eigenvalues [..., ...] for total DOS smearing
                 'dos':               {}, # in advance pre-computed DOS
                 'bands':             {}  # in advance pre-computed band structure
@@ -246,6 +246,7 @@ class CRYSTOUT(object):
             if os.path.exists(os.path.join(cur_folder, check)):
                 self.related_files.append(os.path.join(cur_folder, check))
 
+
     @staticmethod
     def fingerprints(test_string):
         if "*                              MAIN AUTHORS" in test_string:
@@ -268,6 +269,7 @@ class CRYSTOUT(object):
         f.close()
 
         return False
+
 
     def warning(self, msg):
         self.info['warns'].append(msg)
@@ -806,13 +808,8 @@ class CRYSTOUT(object):
         "\n VIBRATIONAL CONTRIBUTIONS TO THE STATIC POLARIZABILITY TENSOR:\n" in self.data
 
 
-    def __float(self, number):
-        number = number.replace("D","E")
-        return float(number)
-
-
     def get_bs(self):
-        gbasis = { 'bs': {}, 'ps': {} }
+        gbasis = { 'bs': {}, 'ecp': {} }
 
         if " ATOM   X(AU)   Y(AU)   Z(AU)  N. TYPE" in self.data:
             bs = self.data.split(" ATOM   X(AU)   Y(AU)   Z(AU)  N. TYPE") # CRYSTAL<14
@@ -820,7 +817,11 @@ class CRYSTOUT(object):
             bs = self.data.split(" ATOM  X(AU)  Y(AU)  Z(AU)    NO. TYPE  EXPONENT ") # CRYSTAL14
 
         if len(bs) == 1:
-            return self.get_bs_input() # Basis set is absent in output, input may be not enough!
+            if not self.info['input']:
+                self.warning('No basis set found!')
+
+            # NB basis set is absent in output, input may be not enough!
+            return CRYSTOUT.parse_bs_input(self.info['input'], then=self.correct_bs_ghost)
 
         bs = bs[-1].split("*******************************************************************************\n", 1)[-1] # NO BASE FIXINDEX IMPLEMENTED!
         bs = re.sub( ' PROCESS(.{32})WORKING\n', '', bs) # warning! MPI statuses may spoil valuable data
@@ -834,7 +835,7 @@ class CRYSTOUT(object):
                     line = line.strip()
                     if line[:1] != '-':
                         line = ' ' + line
-                    n=0
+                    n = 0
                     gaussians = []
                     for s in line:
                         if not n % 10:
@@ -842,7 +843,7 @@ class CRYSTOUT(object):
                         gaussians[-1] += s
                         n += 1
 
-                    gaussians = [x for x in map( float, gaussians ) if x != 0]
+                    gaussians = [x for x in map(float, gaussians) if x != 0]
                     #for i in range(len(gaussians)-1, -1, -1):
                     #    if gaussians[i] == 0: gaussians.pop()
                     #    else: break
@@ -885,12 +886,12 @@ class CRYSTOUT(object):
                     bs_concurrency = True
 
         # PSEUDOPOTENTIALS
-        ps = self.data.split(" *** PSEUDOPOTENTIAL INFORMATION ***")
-        if len(ps) > 1:
-            ps = ps[-1].split("*******************************************************************************\n", 2)[-2] # NO BASE FIXINDEX IMPLEMENTED
-            ps = re.sub( ' PROCESS(.{32})WORKING\n', '', ps) # warning! MPI statuses may spoil valuable data
-            ps = ps.splitlines()
-            for line in ps:
+        ecp = self.data.split(" *** PSEUDOPOTENTIAL INFORMATION ***")
+        if len(ecp) > 1:
+            ecp = ecp[-1].split("*******************************************************************************\n", 2)[-2] # NO BASE FIXINDEX IMPLEMENTED
+            ecp = re.sub( ' PROCESS(.{32})WORKING\n', '', ecp) # warning! MPI statuses may spoil valuable data
+            ecp = ecp.splitlines()
+            for line in ecp:
                 if 'PSEUDOPOTENTIAL' in line:
                     atnum = int( line.split(',')[0].replace('ATOMIC NUMBER', '') )
                     # int( nc.replace('NUCLEAR CHARGE', '') )
@@ -898,15 +899,15 @@ class CRYSTOUT(object):
                         atnum = int(str(atnum)[-2:])
                     atom_type = chemical_symbols[ atnum ]
                     try:
-                        gbasis['ps'][ atom_type ]
+                        gbasis['ecp'][ atom_type ]
                     except KeyError:
-                        gbasis['ps'][ atom_type ] = []
+                        gbasis['ecp'][ atom_type ] = []
                     else:
                         atom_type += '1'
                         try:
-                            gbasis['ps'][ atom_type ]
+                            gbasis['ecp'][ atom_type ]
                         except KeyError:
-                            gbasis['ps'][ atom_type ] = []
+                            gbasis['ecp'][ atom_type ] = []
                         else:
                             raise RuntimeError( 'More than two pseudopotentials for one element - not supported case!' )
                 else:
@@ -917,24 +918,31 @@ class CRYSTOUT(object):
                         continue
                     else:
                         if 'TMS' in line:
-                            gbasis['ps'][ atom_type ].append( [ lines[0] ] )
+                            gbasis['ecp'][ atom_type ].append( [ lines[0] ] )
                             lines = lines[2:]
                         lines = list(map(float, lines))
                         for i in range(len(lines)//3):
-                            gbasis['ps'][ atom_type ][-1].append( tuple( [lines[0 + i*3], lines[1 + i*3], lines[2 + i*3]] ) )
+                            gbasis['ecp'][ atom_type ][-1].append( tuple( [lines[0 + i*3], lines[1 + i*3], lines[2 + i*3]] ) )
 
         # sometimes ghost basis set is printed without exponents and we should determine what atom was replaced
         if 'X' in gbasis['bs'] and not len(gbasis['bs']['X']):
             replaced = atom_order[ atom_order.index('X') - 1 ]
             gbasis['bs']['X'] = copy.deepcopy(gbasis['bs'][replaced])
 
-        return self.__correct_bs_ghost(gbasis)
+        return self.correct_bs_ghost(gbasis)
 
 
-    def get_bs_input(self):
-        # input is scanned only if nothing in output found
-        # input may contain comments (not expected by CRYSTAL, but user anyway can cheat it) WARNING! block /* */ comments will fail!
-        gbasis = {'bs': {}, 'ps': {}}
+    @staticmethod
+    def parse_bs_input(text, as_d12=True, then=lambda x: x):
+        """
+        Note: input must be scanned only if nothing found in output
+        input may contain comments (not expected by CRYSTAL, but user anyway can cheat it)
+        WARNING the block /* */ comments will fail FIXME?
+        """
+        gbasis = {'bs': {}, 'ecp': {}}
+
+        if not text: return gbasis
+
         comment_signals = '#/*<!'
         bs_sequence = {
             0: 'S',
@@ -944,12 +952,12 @@ class CRYSTOUT(object):
             4: 'F',
             5: 'G'
         }
-        bs_type =     {
+        bs_type = {
             1: 'STO-nG(nd) type ',
             2: '3(6)-21G(nd) type '
         }
         bs_notation = {
-            1:'n-21G outer valence shell',
+            1: 'n-21G outer valence shell',
             2: 'n-21G inner valence shell',
             3: '3-21G core shell',
             6: '6-21G core shell'
@@ -963,14 +971,10 @@ class CRYSTOUT(object):
         }
         ps_sequence = ['W0', 'P0', 'P1', 'P2', 'P3', 'P4']
 
-        if not self.info['input']:
-            self.warning('No basis set found!')
-            return gbasis
-
-        read = False
+        read = not as_d12
         read_pseud, read_bs = False, False
 
-        for line in self.info['input'].splitlines():
+        for line in text.splitlines():
             if line.startswith('END'):
                 read = True
                 continue
@@ -989,45 +993,45 @@ class CRYSTOUT(object):
             if len(parts) == 1 and parts[0].upper() in list(ps_keywords.keys()):
                 # pseudo
                 try:
-                    gbasis['ps'][ atom_type ]
+                    gbasis['ecp'][ atom_type ]
                 except KeyError:
-                    gbasis['ps'][ atom_type ] = []
+                    gbasis['ecp'][ atom_type ] = []
                 else:
                     atom_type += '1'
                     try:
-                        gbasis['ps'][ atom_type ]
+                        gbasis['ecp'][ atom_type ]
                     except KeyError:
-                        gbasis['ps'][ atom_type ] = []
+                        gbasis['ecp'][ atom_type ] = []
                     else:
                         raise RuntimeError( 'More than two pseudopotentials for one element - not supported case!' )
 
                 if parts[0] != 'INPUT':
-                    gbasis['ps'][ atom_type ].append( ps_keywords[ parts[0].upper() ] )
+                    gbasis['ecp'][ atom_type ].append( ps_keywords[ parts[0].upper() ] )
 
             elif len(parts) == 0:
                 continue
 
             else:
                 try:
-                    list(map(self.__float, line.split())) # sanitary check
+                    [float(x.replace("D", "E")) for x in line.split()] # sanitary check
                 except ValueError:
                     read = False
                     continue
 
             if len(parts) in [2, 3]:
-                # what is this ---- atom, exit, ps exponent or bs exponent?
+                # what is this ---- atom, exit, ecp exponent or bs exponent?
                 if parts[0] == '99' and parts[1] == '0':
                     break # this is ---- exit
 
                 elif '.' in parts[0] or '.' in parts[1]:
-                    # this is ---- ps exponent or bs exponent
-                    parts = list(map(self.__float, parts))
+                    # this is ---- ecp exponent or bs exponent
+                    parts = [float(x.replace("D", "E")) for x in parts]
 
                     if read_pseud:
-                        # distribute exponents into ps-types according to counter, that we now calculate
+                        # distribute exponents into ecp-types according to counter, that we now calculate
                         if distrib in list(ps_indeces_map.keys()):
-                            gbasis['ps'][ atom_type ].append( [ ps_indeces_map[distrib] ] )
-                        gbasis['ps'][ atom_type ][-1].append( tuple( parts ) )
+                            gbasis['ecp'][ atom_type ].append( [ ps_indeces_map[distrib] ] )
+                        gbasis['ecp'][ atom_type ][-1].append( tuple( parts ) )
                         distrib += 1
                     elif read_bs:
                         # distribute exponents into orbitals according to counter, that we already defined
@@ -1085,14 +1089,10 @@ class CRYSTOUT(object):
                 distrib = 1
                 read_pseud, read_bs = True, False
 
-        if not gbasis['bs']:
-            self.warning('No basis set found!')
-            return gbasis
-
-        return self.__correct_bs_ghost(gbasis)
+        return then(gbasis)
 
 
-    def __correct_bs_ghost(self, gbasis):
+    def correct_bs_ghost(self, gbasis):
         # ghost cannot be in pseudopotential
         atoms = []
         for atom in self.info['structures'][-1].get_chemical_symbols():
