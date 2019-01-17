@@ -1,6 +1,7 @@
 """
 CRYSTAL cryst.out parser
-Author: Evgeny Blokhin, 2011-2013
+Author: Evgeny Blokhin
+(originally written in 2011-2013)
 """
 from __future__ import division
 import os
@@ -35,6 +36,16 @@ def metric(v):
     Get the direction of a vector
     '''
     return [int(math.copysign(1, x)) if x else 0 for x in v]
+
+
+class CRYSTOUT_Error(Exception):
+    def __init__(self, msg, code=0):
+        Exception.__init__(self)
+        self.msg = msg
+        self.code = code
+
+    def __str__(self):
+        return repr(self.msg)
 
 
 class CRYSTOUT(object):
@@ -75,17 +86,14 @@ class CRYSTOUT(object):
 
     def __init__(self, filename, **kwargs):
 
-        self.data = ''            # file contents
+        self.data = '' # file contents
         self.pdata = None
         self.related_files = []
-        self._starttime = time.time()
         self.properties_calc, self.crystal_calc = False, False
 
         self.info = {
             'warns':       [],
-            'ansatz':      0x0,
-            'framework':   0x0, # code name
-            'prog':        'unknown version', # code version
+            'prog':        None, # code version
             'techs':       [],
             'finished':    0x0,
             'duration':    None,
@@ -94,15 +102,15 @@ class CRYSTOUT(object):
             'structures':  [], # list of valid ASE objects
             'energy':      None, # in eV
             'H':           None,
-            'H_types':     [],
+            'H_types':     [], # can be 0x1, 0x2, 0x4, and 0x5
             'tol':         None,
             'k':           None,
             'smear':       None, # in a.u.
             'smeartype':   None,
             'spin':        False,
             'lockstate':   None,
-            'convergence': [], # zero-point energy convergence (I)
-            'tresholds':   [], # optimization convergence, list of lists, 5 values each (II)
+            'convergence': [], # zero-point energy convergence
+            'optgeom':     [], # optimization convergence, list of lists, 5 values each
             'ncycles':     [], # number of cycles at each optimisation step
 
             'electrons':   {
@@ -134,7 +142,7 @@ class CRYSTOUT(object):
 
         '''if kwargs:
             if not 'basis_set' in kwargs or not 'atomtypes' in kwargs:
-                raise RuntimeError( 'Invalid missing properties defined!' )
+                raise CRYSTOUT_Error( 'Invalid missing properties defined!' )
             missing_props = kwargs
         else:
             missing_props = None
@@ -148,7 +156,7 @@ class CRYSTOUT(object):
         # we do parse them now
         if not missing_props: self._coupler_ = self.is_coupling(filename)'''
 
-        # normalize breaks and get rid of possible odd MPI incusions in important data
+        # normalize breaks and get rid of the possible odd MPI incusions in important data
         raw_data = open(filename).read().replace('\r\n', '\n').replace('\r', '\n').replace('FORTRAN STOP\n', '')
         parts_pointer = list(find_all(raw_data, "*                              MAIN AUTHORS"))
 
@@ -156,7 +164,7 @@ class CRYSTOUT(object):
         if len(parts_pointer) > 1:
             if not self.is_properties(raw_data[ parts_pointer[1]: ]) and \
             len(raw_data[ parts_pointer[1]: ]) > 2000: # in case of empty properties outputs
-                raise RuntimeError( 'File contains several merged outputs, currently not supported!' )
+                raise CRYSTOUT_Error( 'File contains several merged outputs, currently not supported!' )
             else:
                 self.data = raw_data[ parts_pointer[0]: parts_pointer[1] ]
                 self.pdata = raw_data[ parts_pointer[1]: ]
@@ -170,23 +178,20 @@ class CRYSTOUT(object):
                 self.properties_calc = True
 
         if not self.crystal_calc and not self.properties_calc:
-            raise RuntimeError( 'Though this file looks similar to CRYSTAL output, its format is unknown!' )
+            raise CRYSTOUT_Error( 'Though this file looks similar to CRYSTAL output, its format is unknown!' )
 
         if self.crystal_calc:
             self.info['duration'] = self.get_duration()
             self.info['finished'] = self.get_finished()
 
-            self.info['framework'] = 0x3
-            self.info['ansatz'] = 0x3
-
-            self.comment, self.info['input'], self.info['prog'] = self.get_input_and_version(raw_data[ 0:parts_pointer[0] ])
+            self.comment, self.info['input'], self.info['prog'] = self.get_input_and_meta(raw_data[ 0:parts_pointer[0] ])
             self.molecular_case = False if not ' MOLECULAR CALCULATION' in self.data else True
 
             self.info['energy'] = self.get_etot()
             self.info['structures'] = self.get_structures()
 
             self.decide_charges()
-            self.decide_convergence()
+            self.decide_scfdata()
             self.decide_method()
 
             self.info['electrons']['basis_set'] = self.get_bs()
@@ -213,7 +218,7 @@ class CRYSTOUT(object):
                     self.info['phonons']['ph_k_degeneracy'][bz[i]] = d[i]
 
         if self.properties_calc and not self.crystal_calc:
-            raise RuntimeError( 'PROPERTIES output with insufficient information omitted!' )
+            raise CRYSTOUT_Error( 'PROPERTIES output with insufficient information omitted!' )
 
         '''if self.properties_calc:
             if not missing_props:
@@ -224,7 +229,7 @@ class CRYSTOUT(object):
 
             # TODO: this should be workaround-ed with iterative parsing
             #try: self.info['electrons']['eigvals'] = self.get_e_eigvals()
-            #except MemoryError: raise RuntimeError( 'Sorry, the file is too large!' )
+            #except MemoryError: raise CRYSTOUT_Error( 'Sorry, the file is too large!' )
 
             #self.info['electrons']['proj_eigv_impacts'] = self.get_e_impacts(self.get_e_eigvecs(), missing_props['atomtypes'], missing_props['basis_set'])
 
@@ -245,6 +250,14 @@ class CRYSTOUT(object):
         for check in check_files:
             if os.path.exists(os.path.join(cur_folder, check)):
                 self.related_files.append(os.path.join(cur_folder, check))
+
+
+    def __repr__(self):
+        return repr(self.info)
+
+
+    def __getitem__(self, key):
+        return self.info.get(key)
 
 
     @staticmethod
@@ -322,7 +335,7 @@ class CRYSTOUT(object):
                 try: elems[i] = float(elems[i])
                 except ValueError:
                     if i==2: break
-                    else: raise RuntimeError( 'Sym info contains invalid rotational matrix!' )
+                    else: raise CRYSTOUT_Error( 'Sym info contains invalid rotational matrix!' )
             for i in range(2, 11):
                 if elems[i] != 0:
                     if elems[i]>0: s = '+'
@@ -342,7 +355,7 @@ class CRYSTOUT(object):
             sym_pos = ",".join(sym_pos)
             symops.append(sym_pos)
         if len(symops) == 0:
-            raise RuntimeError( 'Sym info is invalid!' )
+            raise CRYSTOUT_Error( 'Sym info is invalid!' )
         return symops'''
 
 
@@ -366,7 +379,7 @@ class CRYSTOUT(object):
                 matrix.append( vector )
         else:
             if not self.molecular_case:
-                raise RuntimeError( 'Unable to extract cartesian vectors!' )
+                raise CRYSTOUT_Error( 'Unable to extract cartesian vectors!' )
 
         return matrix
 
@@ -381,7 +394,7 @@ class CRYSTOUT(object):
         strucs = used_pattern.findall(self.data)
 
         if not strucs:
-            raise RuntimeError( 'No structure was found!' )
+            raise CRYSTOUT_Error( 'No structure was found!' )
 
         cell = self.get_cart2frac()
 
@@ -398,18 +411,18 @@ class CRYSTOUT(object):
             ab_normal = [0, 0, 1] if self.molecular_case else metric(cross(cell[0], cell[1]))
             a_direction = None if self.molecular_case else metric(cell[0])
 
-            oth = self.patterns['crystallographic_cell'].search(crystal_data)
-            if oth is not None:
-                crystal_data = crystal_data.replace(oth.group(), "") # delete other cells info except primitive cell
+            other = self.patterns['crystallographic_cell'].search(crystal_data)
+            if other is not None:
+                crystal_data = crystal_data.replace(other.group(), "") # delete other cells info except primitive cell
 
             lines = crystal_data.splitlines()
             for li in range(len(lines)):
                 if 'ALPHA      BETA       GAMMA' in lines[li]:
-                    parameters = lines[li+1].split()
+                    parameters = lines[li + 1].split()
                     try:
                         parameters = [float(i) for i in parameters]
                     except ValueError:
-                        raise RuntimeError( 'Cell data are invalid: ' + lines[li+1] )
+                        raise CRYSTOUT_Error( 'Cell data are invalid: ' + lines[li + 1] )
 
                 elif self.patterns['at_str'].search(lines[li]):
                     atom = lines[li].split()
@@ -418,7 +431,7 @@ class CRYSTOUT(object):
                             try:
                                 atom[i] = round(float(atom[i]), 10)
                             except ValueError:
-                                raise RuntimeError('Atomic coordinates are invalid!')
+                                raise CRYSTOUT_Error('Atomic coordinates are invalid!')
 
                         # Warning: we lose here the non-equivalency in the same atom types, denoted by integer!
                         # For magmoms refer to the corresponding property!
@@ -431,9 +444,9 @@ class CRYSTOUT(object):
                         atoms.append(atomdata)
 
             if len(atoms) == 0:
-                raise RuntimeError('No atoms found, cell info is corrupted!')
+                raise CRYSTOUT_Error('No atoms found, cell info is corrupted!')
             if parameters and len([x for x in parameters if x > 0.75]) < 6:
-                raise RuntimeError('Cell is collapsed!') # prevent cell collapses known in CRYSTAL RESTART outputs
+                raise CRYSTOUT_Error('Cell is collapsed!') # cell collapses are known in CRYSTAL RESTART outputs
 
             # check whether angstroms are used instead of fractions
             if pbc:
@@ -496,11 +509,11 @@ class CRYSTOUT(object):
 
         bz_modes, bz_irreps, kpoints = {}, {}, []
         ir_active, raman_active = [], []
-        for set in freqdata:
+        for freqset in freqdata:
             modes, irreps = [], []
-            for line in set:
-                if " R( " in line or " C( " in line: # k-coords!
-                    coords = line[20:-18].strip().split()
+            for line in freqset:
+                if " R( " in line or " C( " in line: # k-coords
+                    coords = line.split("(")[-1].split(")")[0].split()
                     kpoints.append( " ".join(coords) )
                     continue
 
@@ -514,14 +527,14 @@ class CRYSTOUT(object):
                         continue # filter lines with freqs: condition 3 from 3
 
                     nmodes = [_f for _f in val[0].split("-") if _f]
-                    if len(nmodes) == 1: # silly CRYSTAL output with fixed place for numericals
+                    if len(nmodes) == 1: # fixed place for numericals
                         mplr = int(val[1]) - int(val[0].replace("-", "")) + 1
                         for i in range( 0, mplr ):
                             modes.append(float(val[3]))
                             irrep = val[5].replace("(", "").replace(")", "").strip()
                             if irrep == '': irrep = val[6].replace("(", "").replace(")", "").strip()
                             irreps.append(irrep)
-                    else: # silly CRYSTAL output with fixed place for numericals
+                    else: # fixed place for numericals
                         mplr = int(nmodes[1]) - int(nmodes[0]) + 1
                         for i in range( 0, mplr ):
                             modes.append(float(val[2]))
@@ -605,7 +618,7 @@ class CRYSTOUT(object):
                     break
 
             if len(ph_eigvecs) != len(self.info['phonons']['modes']['0 0 0']):
-                raise RuntimeError( 'Fatal error! Number of eigenvectors does not correspond to the number of freqs!' )
+                raise CRYSTOUT_Error( 'Fatal error! Number of eigenvectors does not correspond to the number of freqs!' )
 
             if not kpoints:
                 BZ_point_coord = '0 0 0'
@@ -648,7 +661,7 @@ class CRYSTOUT(object):
                     k_vectors.append(k_coords)
 
         if shr_fact is None or k_vectors is None:
-            raise RuntimeError('Invalid format in phonon k-vector degeneracy data!')
+            raise CRYSTOUT_Error('Invalid format in phonon k-vector degeneracy data!')
 
         for vi in range(len(k_vectors)):
             norm_coord = []
@@ -676,8 +689,8 @@ class CRYSTOUT(object):
             try:
                 Z = int( iatomcharges[i][0].strip() )
                 P = float( iatomcharges[i][1].strip() )
-            except:
-                raise RuntimeError('Error in pseudopotential info')
+            except (ValueError, IndexError):
+                raise CRYSTOUT_Error('Error in pseudopotential info')
             p_element = [key for key, value in pseudo_charges.items() if value == Z]
             if len(p_element):
                 pseudo_charges[p_element[0].capitalize()] = P
@@ -695,9 +708,9 @@ class CRYSTOUT(object):
                     if val[1] in symbols:
                         val[3] = pseudo_charges[val[1]] - float(val[3])
                     elif val[1] == 'Xx':
-                        val[3] = -float(val[3]) # this needs checking! TODO
+                        val[3] = -float(val[3]) # TODO this needs checking
                     else:
-                        raise RuntimeError('Unexpected atomic symbol: ' + val[1] )
+                        raise CRYSTOUT_Error('Unexpected atomic symbol: ' + val[1] )
                     charges.append(val[3])
             try:
                 self.info['structures'][-1].set_initial_charges(charges)
@@ -722,9 +735,8 @@ class CRYSTOUT(object):
             self.warning( 'No magmoms available!' )
 
 
-    def get_input_and_version(self, inputdata):
-        # get version
-        version = ''
+    def get_input_and_meta(self, inputdata):
+        version = None
         inputdata = re.sub( ' PROCESS(.{32})WORKING\n', '', inputdata) # warning! MPI statuses may spoil valuable data
         v = self.patterns['version'].search(inputdata)
         if v:
@@ -759,6 +771,7 @@ class CRYSTOUT(object):
             if inputdata[i].startswith("END"):
                 trsh_line_flag = True
                 trsh_line_cnt = 0
+
         if not keywords:
             #self.warning( 'No d12-formatted input data in the beginning found!' )
             return None, None, version
@@ -797,9 +810,9 @@ class CRYSTOUT(object):
                 elif '= ' in n: # TODO CRYSTAL06 !
                     magnitude = float(n.split()[1])
             if magnitude == 0:
-                raise RuntimeError( 'Cannot find displacement magnitude in FREQCALC output!')
+                raise CRYSTOUT_Error( 'Cannot find displacement magnitude in FREQCALC output!')
             if not len(disps):
-                raise RuntimeError( 'Cannot find valid displacement data in FREQCALC output!')
+                raise CRYSTOUT_Error( 'Cannot find valid displacement data in FREQCALC output!')
             return disps, magnitude
 
 
@@ -860,7 +873,7 @@ class CRYSTOUT(object):
                         except KeyError:
                             gbasis['bs'][ atom_type ] = []
                         else:
-                            raise RuntimeError( 'More than two different basis sets for one element - not supported case!' ) # TODO
+                            raise CRYSTOUT_Error( 'More than two different basis sets for one element - not supported case!' ) # TODO
                     gbasis['bs'][ atom_type ].append( [ symb ] )
 
             else: # atom No or end
@@ -909,7 +922,7 @@ class CRYSTOUT(object):
                         except KeyError:
                             gbasis['ecp'][ atom_type ] = []
                         else:
-                            raise RuntimeError( 'More than two pseudopotentials for one element - not supported case!' )
+                            raise CRYSTOUT_Error( 'More than two pseudopotentials for one element - not supported case!' )
                 else:
                     lines = line.split()
                     try:
@@ -1003,7 +1016,7 @@ class CRYSTOUT(object):
                     except KeyError:
                         gbasis['ecp'][ atom_type ] = []
                     else:
-                        raise RuntimeError( 'More than two pseudopotentials for one element - not supported case!' )
+                        raise CRYSTOUT_Error( 'More than two pseudopotentials for one element - not supported case!' )
 
                 if parts[0] != 'INPUT':
                     gbasis['ecp'][ atom_type ].append( ps_keywords[ parts[0].upper() ] )
@@ -1057,7 +1070,7 @@ class CRYSTOUT(object):
                         except KeyError:
                             gbasis['bs'][ atom_type ] = []
                         else:
-                            raise RuntimeError( 'More than two different basis sets for one element - not supported case!' )
+                            raise CRYSTOUT_Error( 'More than two different basis sets for one element - not supported case!' )
                     continue
 
             elif len(parts) == 5:
@@ -1104,7 +1117,7 @@ class CRYSTOUT(object):
             if not len(v) and k != 'X' and 'X' in gbasis['bs']:
                 gbasis['bs'][k] = copy.deepcopy(gbasis['bs']['X'])
 
-        # actually no GHOST deletion will be performed as it breaks orbitals order for band structure plotting!
+        # actually no GHOST deletion must be performed as it breaks orbitals order for band structure plotting!
         '''cmp_atoms = []
         for cmp_atom in gbasis['bs'].keys():
             if cmp_atom[0:2] != 'X':
@@ -1347,14 +1360,15 @@ class CRYSTOUT(object):
 
             start = time.strptime(starting, "%d %m %Y  %H:%M:%S")
             end = time.strptime(ending, "%d %m %Y  %H:%M:%S")
-            duration = "%2.2f" % (  (time.mktime(end) - time.mktime(start))/3600  )
+            duration = "%2.2f" % ((time.mktime(end) - time.mktime(start)) / 3600)
         else:
+            self.warning("No timings available!")
             duration = None
 
         return duration
 
 
-    def decide_convergence(self):
+    def decide_scfdata(self):
         if self.info['input'] is not None and "ONELOG" in self.info['input']:
             self.warning("ONELOG keyword is not supported!")
             return
@@ -1363,7 +1377,7 @@ class CRYSTOUT(object):
         ncycles = []
         energies = []
         criteria = [[], [], [], []]
-        tresholds = []
+        optgeom = []
         zpcycs = self.patterns['cyc'].findall(self.data)
 
         if zpcycs is not None:
@@ -1379,6 +1393,8 @@ class CRYSTOUT(object):
 
         else:
             self.warning( 'SCF not found!' )
+
+        self.info['convergence'] = convergdata
 
         enes = self.patterns['enes'].findall(self.data)
 
@@ -1434,14 +1450,13 @@ class CRYSTOUT(object):
                 ncycles.insert(0, ncycles[0])
 
             if len(criteria[1]) - len(criteria[2]) > 1: # ??
-                raise RuntimeError( 'Number of tresholds during optimization is inconsistent!' )
+                raise CRYSTOUT_Error( 'Number of the optgeom tresholds is inconsistent!' )
 
             for i in range(0, len(criteria[0])):
-                tresholds.append([ criteria[0][i], criteria[1][i], criteria[2][i], criteria[3][i], energies[i] ])
+                optgeom.append([ criteria[0][i], criteria[1][i], criteria[2][i], criteria[3][i], energies[i] ])
 
-        self.info['convergence'] = convergdata
         self.info['ncycles'] = ncycles
-        self.info['tresholds'] = tresholds
+        self.info['optgeom'] = optgeom
 
 
     def get_zpe(self):

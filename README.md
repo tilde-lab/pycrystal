@@ -1,7 +1,7 @@
 CRYSTAL ab initio code utilities
 ==========
 
-```
+```python
 import os, sys
 from pprint import pprint
 
@@ -20,7 +20,7 @@ if __name__ == "__main__":
 
 Also, for any basis set taken from [EMSL](https://bse.pnl.gov) in Gaussian'94 format:
 
-```
+```python
 import os, sys
 
 from pycrystal import parse_bs
