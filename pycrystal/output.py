@@ -84,6 +84,13 @@ class CRYSTOUT(object):
         'T':                     re.compile(r"\n AT \(T =(.*)MPA\):\n"),
     }
 
+    # this is the limiting distance,
+    # if more, the direction is considered non-periodic
+    # be careful, as this has no physical meaning
+    # NB non-periodic component(s) are assigned 500 A in CRYSTAL
+    PERIODIC_LIMIT = 50
+
+
     def __init__(self, filename, **kwargs):
 
         self.data = '' # file contents
@@ -134,11 +141,6 @@ class CRYSTOUT(object):
                 'td':                None
             }
         }
-
-        # this is the limiting distance, after which the direction is considered non-periodic
-        # be careful, as this has no physical meaning and may vary
-        # NB non-periodic component(s) are assigned 500 in CRYSTAL
-        self.PERIODIC_LIMIT = 50
 
         '''if kwargs:
             if not 'basis_set' in kwargs or not 'atomtypes' in kwargs:
@@ -399,7 +401,7 @@ class CRYSTOUT(object):
         cell = self.get_cart2frac()
 
         for crystal_data in strucs:
-            symbols, parameters, atoms, pbc = [], [], [], [True, True, True]
+            symbols, parameters, atompos, pbc = [], [], [], [True, True, True]
 
             if self.molecular_case:
                 pbc = False
@@ -433,18 +435,19 @@ class CRYSTOUT(object):
                             except ValueError:
                                 raise CRYSTOUT_Error('Atomic coordinates are invalid!')
 
-                        # Warning: we lose here the non-equivalency in the same atom types, denoted by integer!
-                        # For magmoms refer to the corresponding property!
+                        # NB we lose here the non-equivalency in the same atom types, denoted by different integers
+                        # For magmoms refer to the corresponding property
                         atom[3] = ''.join([letter for letter in atom[3] if not letter.isdigit()]).capitalize()
                         if atom[3] == 'Xx':
                             atom[3] = 'X'
                         symbols.append( atom[3] )
                         atomdata = atom[4:7]
                         #atomdata.append(atom[1]) # irreducible (T or F)
-                        atoms.append(atomdata)
+                        atompos.append(atomdata)
 
-            if len(atoms) == 0:
+            if len(atompos) == 0:
                 raise CRYSTOUT_Error('No atoms found, cell info is corrupted!')
+
             if parameters and len([x for x in parameters if x > 0.75]) < 6:
                 raise CRYSTOUT_Error('Cell is collapsed!') # cell collapses are known in CRYSTAL RESTART outputs
 
@@ -455,14 +458,14 @@ class CRYSTOUT(object):
                         parameters[i] = self.PERIODIC_LIMIT
                         pbc[i] = False
 
-                        # TODO: account case with not direct angles
-                        for j in range(0, len(atoms)):
-                            atoms[j][i] /= self.PERIODIC_LIMIT
+                        # TODO: account case with not direct angles?
+                        for j in range(0, len(atompos)):
+                            atompos[j][i] /= self.PERIODIC_LIMIT
 
                 matrix = cellpar_to_cell(parameters, ab_normal, a_direction) # TODO: ab_normal, a_direction may in some cases belong to completely other structure!
-                structures.append( Atoms(symbols=symbols, cell=matrix, scaled_positions=atoms, pbc=pbc) )
+                structures.append( Atoms(symbols=symbols, cell=matrix, scaled_positions=atompos, pbc=pbc) )
             else:
-                structures.append( Atoms(symbols=symbols, cell=[self.PERIODIC_LIMIT, self.PERIODIC_LIMIT, self.PERIODIC_LIMIT], positions=atoms, pbc=False) )
+                structures.append( Atoms(symbols=symbols, cell=[self.PERIODIC_LIMIT, self.PERIODIC_LIMIT, self.PERIODIC_LIMIT], positions=atompos, pbc=False) )
 
         return structures
 
@@ -1302,26 +1305,26 @@ class CRYSTOUT(object):
             f3 = int( self.data.split('\n NUMBER OF SCF ITERATIONS AFTER WHICH BROYDEN METHOD IS ACTIVE', 1)[-1].split("\n", 1)[0] )
 
             if    0 < f <= 25:
-                type = 'broyden<25%'
+                value = 'broyden<25%'
             elif 25 < f <= 50:
-                type = 'broyden 25-50%'
+                value = 'broyden 25-50%'
             elif 50 < f <= 75:
-                type = 'broyden 50-75%'
+                value = 'broyden 50-75%'
             elif 75 < f <= 90:
-                type = 'broyden 75-90%'
+                value = 'broyden 75-90%'
             elif 90 < f:
-                type = 'broyden>90%'
+                value = 'broyden>90%'
 
             if round(f2, 4) == 0.0001:
-                type += ' (std.)' # broyden parameter
+                value += ' (std.)' # broyden parameter
             else:
-                type += ' ('+str(round(f2, 5))+')'
+                value += ' ('+str(round(f2, 5))+')'
             if f3 < 5:
-                type += ' start'
+                value += ' start'
             else:
-                type += ' defer.'
+                value += ' defer.'
 
-            self.info['techs'].append(type)
+            self.info['techs'].append(value)
 
         if '\n EIGENVALUE LEVEL SHIFTING OF ' in self.data:
             f = float( self.data.split('\n EIGENVALUE LEVEL SHIFTING OF ', 1)[-1].split("\n", 1)[0].replace('HARTREE', '') )
