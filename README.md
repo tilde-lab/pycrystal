@@ -6,14 +6,14 @@ CRYSTAL ab initio code utilities
 Intro
 ------
 
-The [CRYSTAL17](http://www.crystal.unito.it) is an _ab initio_ solid state modeling suite employing the Gaussian basis sets in the LCAO framework. The `pycrystal` Python utilities are good for:
+The [CRYSTAL](http://www.crystal.unito.it) is an _ab initio_ solid state modeling suite employing the Gaussian basis sets in the LCAO framework. The `pycrystal` Python utilities are good for:
 
 * quick logs parsing, getting the maximum information, and presenting it in a systematic machine-readable way
 * preparing and handling the Gaussian LCAO basis sets, based on the EMSL and own CRYSTAL libraries
 
 All the popular versions of the CRYSTAL code are supported (CRYSTAL03, CRYSTAL06, CRYSTAL09, CRYSTAL14, and CRYSTAL17). Only *Python 2* is now supported (*Python 3* support is almost there).
 
-The `pycrystal` was tested on about 20k in-house simulation logs for about 700 distinct materials systems, produced with the different CRYSTAL versions. Its development was initiated in 2009 by Maxim Losev at the quantum chemistry chair, chemistry dept. of St. Petersburg State University (Russia) under supervision of Professor Robert Evarestov.
+The `pycrystal` was tested on about 20k in-house simulation logs for about 700 distinct materials systems, produced with the different CRYSTAL versions. Its development was initiated in 2009 by [Maxim Losev](https://github.com/mlosev) at the quantum chemistry chair, chemistry dept. of St. Petersburg State University (Russia) under supervision of Professor Robert Evarestov.
 
 Installation
 ------
@@ -63,7 +63,7 @@ if __name__ == "__main__":
 Related work
 ------
 
-There is another Python parser [ejplugins](https://github.com/chrisjsewell/ejplugins) for CRYSTAL14 and CRYSTAL17 by Chris Sewell @chrisjsewell (Imperial College London, UK). The comparison was done using `cmp_unito_crystal_parsers.py` script on the above-mentioned 20k logs, the results are as follows:
+There is another Python parser [ejplugins](https://github.com/chrisjsewell/ejplugins) for CRYSTAL14 and CRYSTAL17 by [Chris Sewell](https://github.com/chrisjsewell) (Imperial College London, UK). The comparison was done using `cmp_unito_crystal_parsers.py` script on the above-mentioned 20k logs, the results are as follows:
 
 * the final total energies and atomic structures are the same in more than 99% cases
 * `pycrystal` supports slightly more CRYSTAL features than `ejplugins`
