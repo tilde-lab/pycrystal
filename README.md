@@ -1,6 +1,30 @@
 CRYSTAL ab initio code utilities
 ==========
 
+![CRYSTAL ab initio code with the LCAO Gaussian basis sets, by Turin university](https://raw.githubusercontent.com/tilde-lab/pycrystal/master/unito_crystal_logo.jpg "CRYSTAL17 ab initio LCAO code with the Gaussian basis sets, Torino")
+
+Intro
+------
+
+The [CRYSTAL17](http://www.crystal.unito.it) is an _ab initio_ solid state modeling suite employing the Gaussian basis sets in the LCAO framework. The `pycrystal` Python utilities are good for:
+
+* quick logs parsing, getting the maximum information, and presenting it in a systematic machine-readable way
+* preparing and handling the Gaussian LCAO basis sets, based on the EMSL and own CRYSTAL libraries
+
+All the popular versions of the CRYSTAL code are supported (CRYSTAL03, CRYSTAL06, CRYSTAL09, CRYSTAL14, and CRYSTAL17). Only *Python 2* is now supported (*Python 3* support is almost there).
+
+The `pycrystal` was tested on about 20k in-house simulation logs for about 700 distinct materials systems, produced with the different CRYSTAL versions. Its development was initiated in 2009 by Maxim Losev at the quantum chemistry chair, chemistry dept. of St. Petersburg State University (Russia) under supervision of Professor Robert Evarestov.
+
+Installation
+------
+
+`pip install pycrystal`
+
+Usage
+------
+
+Parsing is done as follows:
+
 ```python
 import os, sys
 from pprint import pprint
@@ -35,3 +59,13 @@ if __name__ == "__main__":
     for atom in parse_bs(content):
         print atom.crystal_input()
 ```
+
+Related work
+------
+
+There is another Python parser [ejplugins](https://github.com/chrisjsewell/ejplugins) for CRYSTAL14 and CRYSTAL17 by Chris Sewell @chrisjsewell (Imperial College London, UK). The comparison was done using `cmp_unito_crystal_parsers.py` script on the above-mentioned 20k logs, the results are as follows:
+
+* the final total energies and atomic structures are the same in more than 99% cases
+* `pycrystal` supports slightly more CRYSTAL features than `ejplugins`
+* `pycrystal` is more lightweight than `ejplugins` and has less dependencies
+* performance is nearly the same
