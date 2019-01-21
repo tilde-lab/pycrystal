@@ -5,7 +5,8 @@ two different unito CRYSTAL parsers:
     * pycrystal by Evgeny Blokhin
 """
 from __future__ import division
-import os, sys
+import os
+import sys
 import random
 import logging
 import math
@@ -14,11 +15,9 @@ from datetime import timedelta
 
 import numpy as np
 from ase import Atoms
-from ase.spacegroup import crystal
 from ase.geometry import distance
 from ase.ga.standard_comparators import InteratomicDistanceComparator
 from ase.calculators.calculator import Calculator
-import spglib
 
 from ejplugins.crystal import CrystalOutputPlugin
 from pycrystal import CRYSTOUT, CRYSTOUT_Error
@@ -29,6 +28,7 @@ logging.getLogger('ejplugins.crystal').setLevel(logging.ERROR)
 Ejpcry = CrystalOutputPlugin()
 allowed_dt = timedelta(seconds=30)
 cmp_atoms = InteratomicDistanceComparator(mic=True)
+starttime = time.time()
 
 
 class Mock(Calculator):
@@ -37,34 +37,6 @@ class Mock(Calculator):
 
     def get_property(self, *args, **kwargs):
         return 42
-
-
-def refine(ase_obj, accuracy=1E-03):
-    try:
-        symmetry = spglib.get_spacegroup(ase_obj, symprec=accuracy)
-        lattice, positions, numbers = spglib.refine_cell(ase_obj, symprec=accuracy)
-    except:
-        return None, 'Error while structure refinement'
-
-    try:
-        spacegroup = int( symmetry.split()[1].replace("(", "").replace(")", "") )
-    except (ValueError, IndexError):
-        return None, 'Symmetry error (coinciding atoms?) in structure'
-
-    try:
-        return crystal(
-            Atoms(
-                numbers=numbers,
-                cell=lattice,
-                scaled_positions=positions,
-                pbc=True
-            ),
-            spacegroup=spacegroup,
-            primitive_cell=True,
-            onduplicates='replace'
-        ), None
-    except:
-        return None, 'Unrecognized sites or invalid site symmetry in structure'
 
 
 for root, dirs, files in os.walk(sys.argv[1]):
@@ -109,7 +81,7 @@ for root, dirs, files in os.walk(sys.argv[1]):
         # NB conversion accuracy issues (codata vs. ASE)
         if ejp_result['final'].get('energy') and pcy_result['energy'] is not None:
             if abs(ejp_result['final']['energy']['total_corrected']['magnitude'] -
-            pcy_result['energy']) > 0.0001: # eV
+                   pcy_result['energy']) > 0.0001: # eV
                 logging.critical("TOTAL ENERGIES: %s VS. %s" % (
                     ejp_result['final']['energy']['total_corrected']['magnitude'],
                     pcy_result['energy']
@@ -128,7 +100,7 @@ for root, dirs, files in os.walk(sys.argv[1]):
             de = ejp_result['initial']['scf'][tstep - 1]['energy']['total']['magnitude'] - \
                 ejp_result['initial']['scf'][tstep]['energy']['total']['magnitude']
             if de != 0 and not math.isnan(de):
-                power = int( math.floor( math.log( abs(de), 10 ) ) )
+                power = int(math.floor(math.log(abs(de), 10)))
                 if abs(power - pcy_result['convergence'][tstep]) > 1:
                     logging.critical("TOTAL DE IN CONV: %s VS. %s" % (
                         power,
@@ -156,9 +128,12 @@ for root, dirs, files in os.walk(sys.argv[1]):
         # Comparison by opt steps
         if ejp_result['optimisation'] and pcy_result['optgeom']:
             if abs(len(ejp_result['optimisation']) - len(pcy_result['optgeom'])) < 2:
-                tstep = random.randint(0, len(ejp_result['optimisation']) - 1)
+                tstep = random.randint(0, min([
+                    len(ejp_result['optimisation']),
+                    len(pcy_result['optgeom'])
+                ]) - 1)
                 if abs(ejp_result['optimisation'][tstep]['energy']['total_corrected']['magnitude'] -
-                pcy_result['optgeom'][tstep][-1]) > 0.0001: # eV
+                       pcy_result['optgeom'][tstep][-1]) > 0.0001: # eV
                     logging.critical("TOTAL ENERGIES IN OPT: %s VS. %s" % (
                         ejp_result['optimisation'][tstep]['energy']['total_corrected']['magnitude'],
                         pcy_result['optgeom'][tstep][-1]
@@ -169,7 +144,7 @@ for root, dirs, files in os.walk(sys.argv[1]):
                     len(pcy_result['optgeom'])
                 ))
 
-        # Structure comparison; done through ASE / spglib
+        # Structure comparison
         if ejp_result['final']['primitive_cell'].get('cell_vectors') and \
         ejp_result['final']['primitive_cell'].get('ccoords'):
             try:
@@ -188,8 +163,7 @@ for root, dirs, files in os.walk(sys.argv[1]):
                 )
             except KeyError:
                 logging.critical("PROBLEMATIC STRUCTURE: %s" %
-                    ejp_result['final']['primitive_cell']['symbols']
-                )
+                                 ejp_result['final']['primitive_cell']['symbols'])
                 continue
 
             if not all(ejp_struct.get_pbc()): # account non-periodic directions
@@ -203,21 +177,28 @@ for root, dirs, files in os.walk(sys.argv[1]):
             logging.critical("CANNOT GET EJP STRUCTURE")
             continue
 
-        ejp_struct, ejp_error = refine(ejp_struct)
-        pcy_struct, pcy_error = refine(pcy_result['structures'][-1])
-        if ejp_error or pcy_error:
-            logging.critical("REFINE ERROR EJP: %s, PCY: %s" % (ejp_error, pcy_error))
-            continue
+        pcy_struct = pcy_result['structures'][-1]
 
         args = np.argsort(ejp_struct.positions[:, 2])
         ejp_struct = ejp_struct[args]
         args = np.argsort(pcy_struct.positions[:, 2])
         pcy_struct = pcy_struct[args]
 
+        if len(ejp_struct) != len(pcy_struct):
+            logging.critical("N_ATOMS: %s VS. %s" % (len(ejp_struct), len(pcy_struct)))
+            continue
+
+        ejp_symbs, pcy_symbs = set(ejp_struct.get_chemical_symbols()), set(pcy_struct.get_chemical_symbols())
+        if ejp_symbs != pcy_symbs:
+            logging.info("DIFFERENT SYMBOLS: %s VS. %s" % (ejp_symbs, pcy_symbs))
+            continue
+
         ejp_struct.calc, pcy_struct.calc = Mock(), Mock() # code below does not work without this
-        if len(ejp_struct) == len(pcy_struct) and cmp_atoms.looks_like(ejp_struct, pcy_struct):
+        if cmp_atoms.looks_like(ejp_struct, pcy_struct):
             dd = distance(pcy_struct, ejp_struct)
             if dd > 2:
                 logging.info("STRUCTURE DIFF IS VERY BIG: %s" % dd)
         else:
             logging.critical("STRUCTURES ARE DIFFERENT")
+
+logging.info("Done in %1.2f sc" % (time.time() - starttime))
