@@ -1,3 +1,4 @@
 ase == 3.16.2
+pyparsing
 requests
 bs4
