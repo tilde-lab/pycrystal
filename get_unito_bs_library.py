@@ -55,7 +55,7 @@ while True:
             )
 
     for basis in soup.find_all('pre'):
-        parts = filter(lambda x: len(x) > 2, linebreak.split(basis.text))
+        parts = [item for item in linebreak.split(basis.text) if len(item) > 2]
 
         # FIXME! Two mis-formats in the BS library at the CRYSTAL website (reported)
         if page == 'sulphur' and '10.1002/jcc.23153' in parts[1]:
@@ -64,9 +64,9 @@ while True:
             continue
 
         gbasis = CRYSTOUT.parse_bs_input(parts[0], as_d12=False)
-        gbasis['meta'] = " ".join(parts[1:]).replace("\n", " ").replace("\r", "").strip().encode('ascii', 'ignore')
+        gbasis['meta'] = str(" ".join(parts[1:]).replace("\n", " ").replace("\r", "").strip().encode('ascii', 'ignore'))
 
-        element = gbasis['bs'].keys()[0]
+        element = list(gbasis['bs'].keys())[0]
         handle.execute("INSERT INTO lcao(key, value) VALUES (?, ?);", (element, json.dumps(gbasis)))
 
 conn.commit()

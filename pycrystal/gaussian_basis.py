@@ -23,7 +23,7 @@ def convertnum(s, l, toks):
     n = toks[0]
     try:
         return int(n)
-    except ValueError, ve:
+    except ValueError:
         return float(n.replace('d', 'e').replace('D', 'E'))
 
 
@@ -166,7 +166,7 @@ class ECP(object):
 
         assert counter <= 5
 
-        for i in xrange(5 - counter):
+        for i in range(5 - counter):
             output += ' 0'
 
         output += '\n'
@@ -433,11 +433,11 @@ class Basis(object):
             tmax = max(t)
 
             if up:
-                for i in xrange(n):
+                for i in range(n):
                     tmp2.insert(0, GTF(key, [PGTF(tmax * 2 * (i + 1),
                                 1.0)]))
             if down:
-                for i in xrange(n):
+                for i in range(n):
                     ta = tmin / (2.0 * (i + 1))
                     if ta >= a:
                         tmp2.append(GTF(key, [PGTF(ta, 1.0)]))
@@ -982,15 +982,16 @@ def parse_bs(text):
     # Parsing File
     results_raw = grammar.parseString(text)
 
-    # Results, if any
-
     if len(results_raw) == 2:
-        results_list = map(None, results_raw[0], results_raw[1])
+        results_list = zip(results_raw[0], results_raw[1])
     else:
         results_list = results_raw[0]
 
+    # Results, if any
     for results_item in results_list:
         results = results_item[0]
+
+        # FIXME fails in Py3 on some basis sets
         logging.debug('bdescr: %s' % results.bdescr)
         atom = results.bdescr
         gtfs = []
@@ -1012,7 +1013,7 @@ def parse_bs(text):
         basis = Basis(gtfs)
         ecp = None
 
-        if results_item[1]:
+        if len(results_item) > 1:
             results = results_item[1]
 
             logging.debug('edescr: %s' % results.edescr)
@@ -1025,11 +1026,11 @@ def parse_bs(text):
                 'Oops! Wrong number of components in ECP!'
 
             gtfs = []
-            llist = [results.lmax] + [i for i in xrange(results.lmax)]
+            llist = [results.lmax] + [i for i in range(results.lmax)]
 
             assert len(llist) == len(results.ecp)
 
-            for i in xrange(len(llist)):
+            for i in range(len(llist)):
                 l = llist[i]
                 n = results.ecp[i][0]
                 exps = (results.ecp[i])[1:]
