@@ -11,7 +11,7 @@ The [CRYSTAL](http://www.crystal.unito.it) is an _ab initio_ solid state modelin
 * quick logs parsing, getting the maximum information, and presenting it in a systematic machine-readable way
 * preparing and handling the Gaussian LCAO basis sets, based on the EMSL and own CRYSTAL libraries
 
-All the popular versions of the CRYSTAL code are supported (CRYSTAL03, CRYSTAL06, CRYSTAL09, CRYSTAL14, and CRYSTAL17). Only *Python 2* is now supported (*Python 3* support is almost there).
+All the popular versions of the CRYSTAL code are supported (CRYSTAL03, CRYSTAL06, CRYSTAL09, CRYSTAL14, and CRYSTAL17).
 
 The `pycrystal` was tested on about 20k in-house simulation logs for about 700 distinct materials systems, produced with the different CRYSTAL versions. Its development was initiated in 2009 by [Maxim Losev](https://github.com/mlosev) at the quantum chemistry chair, chemistry dept. of St. Petersburg State University (Russia) under supervision of Professor Robert Evarestov.
 
@@ -57,7 +57,7 @@ if __name__ == "__main__":
 
     content = open(sys.argv[1]).read()
     for atom in parse_bs(content):
-        print atom.crystal_input()
+        print(atom.crystal_input())
 ```
 
 Related work
