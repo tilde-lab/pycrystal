@@ -52,6 +52,7 @@ class CRYSTOUT(object):
 
     patterns = {
         'Etot':                  re.compile(r"\n\sTOTAL ENERGY\(.{2,3}\)\(.{2}\)\(.{3,4}\)\s(\S{20})\s{1,10}DE(?!.*\n\sTOTAL ENERGY\(.{2,3}\)\(.{2}\)\(.{3,4}\)\s)", re.DOTALL),
+        'dEtot':                 re.compile(r"\n\sTOTAL ENERGY\(.{2,3}\)\(.{2}\)\(.{3,4}\)\s.{20}\s{1,10}DE.(\S{7})(?!.*\n\sTOTAL ENERGY\(.{2,3}\)\(.{2}\)\(.{3,4}\)\s)",re.DOTALL),
         'pEtot':                 re.compile(r"\n\sTOTAL ENERGY\s(.+?)\sCONVERGENCE"),
         'syminfos':              re.compile(r"SYMMOPS - TRANSLATORS IN FRACTIONA\w{1,2} UNITS(.+?)\n\n", re.DOTALL),
         'frac_primitive_cells':  re.compile(r"\n\sPRIMITIVE CELL(.+?)ATOM BELONGING TO THE ASYMMETRIC UNIT", re.DOTALL),
@@ -108,6 +109,7 @@ class CRYSTOUT(object):
 
             'structures':  [], # list of valid ASE objects
             'energy':      None, # in eV
+            'e_accuracy':  None,
             'H':           None,
             'H_types':     [], # can be 0x1, 0x2, 0x4, and 0x5
             'tol':         None,
@@ -190,6 +192,8 @@ class CRYSTOUT(object):
             self.molecular_case = False if not ' MOLECULAR CALCULATION' in self.data else True
 
             self.info['energy'] = self.get_etot()
+            self.info['e_accuracy'] = self.get_detot()
+            print(self.info['e_accuracy'])
             self.info['structures'] = self.get_structures()
 
             self.decide_charges()
@@ -484,6 +488,12 @@ class CRYSTOUT(object):
                 self.warning('No energy found!')
                 return None
 
+    def get_detot(self):
+        de = self.patterns['dEtot'].search(self.data)
+
+        if de is not None:
+            return float(de.groups()[0]) * Hartree
+        return None
 
     '''def get_etot_props(self):
         e = self.patterns['pEtot'].search(self.pdata)
@@ -1239,7 +1249,7 @@ class CRYSTOUT(object):
             self.info['H'] = "unknown"
 
         # Spin part
-        if ' TYPE OF CALCULATION:  UNRESTRICTED OPEN SHELL' in self.data:
+        if ' TYPE OF CALCULATION :  UNRESTRICTED OPEN SHELL' in self.data:
             self.info['spin'] = True
             if '\n ALPHA-BETA ELECTRONS LOCKED TO ' in self.data:
                 spin_info = self.data.split('\n ALPHA-BETA ELECTRONS LOCKED TO ', 1)[-1].split("\n", 1)[0].replace('FOR', '').split()

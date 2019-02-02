@@ -18,7 +18,7 @@ from pycrystal.tests import TEST_DIR
 DATA_DIR = os.path.join(TEST_DIR, 'data')
 
 
-def test_08():
+def test_single_hf():
     """Single-point calculation; HF; standard AE basis"""
     test_file = os.path.join(DATA_DIR, 'test08.out')
     parser = CRYSTOUT(test_file)
@@ -33,7 +33,7 @@ def test_08():
     assert info['electrons']['basis_set']['bs']['Si']
 
 
-def test_39():
+def test_single_dft():
     """Single-point calculation; DFT; ECP basis"""
     test_file = os.path.join(DATA_DIR, 'test39_dft.out')
     parser = CRYSTOUT(test_file)
@@ -81,3 +81,15 @@ def test_freqcalc():
     assert info['energy'] == -1.3167028008915E+03 * Ha      # energy in eV
     assert info['k'] == '3x3x3'                             # Monkhorst-Pack net
     assert info['phonons']['td']['et'] == [0.005306548296]  # Et in Ha/cell
+
+
+def test_spin():
+    """Phonon dispersion"""
+    test_file = os.path.join(DATA_DIR, 'test37.out')
+    parser = CRYSTOUT(test_file)
+    info = parser.info
+    assert info['prog'] == '17 1.0.1'                         # CRYSTAL version
+    assert info['finished'] == 2                            # finished without errors
+    assert info['energy'] == -3.0283685769288E+03 * Ha      # energy in eV
+    assert info['k'] == '4x4x1'                             # Monkhorst-Pack net
+    assert info['spin']
