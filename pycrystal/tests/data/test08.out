@@ -1,0 +1,626 @@
+/home0/develop/SVN_PUB17/bin/Linux-ifort_openmpi_i64_clut/std/Pcrystal
+/data/develop/alessandro/tmp_p28632
+script started on node14
+TEST08 - SILICON BULK: STO-3G
+CRYSTAL
+0 0 0
+227
+5.42
+1
+14  .125  .125   .125
+END
+14 3
+1 0 3  2.  0.
+1 1 3  8.  0.
+1 1 3  4.  0.
+99 0
+END
+SHRINK
+8 8
+TOLDEE
+7
+END
+Fri May  5 12:23:02 CEST 2017
+ PROCESS            4  OF            8  WORKING
+ PROCESS            0  OF            8  WORKING
+ PROCESS            3  OF            8  WORKING
+ PROCESS            6  OF            8  WORKING
+ PROCESS            1  OF            8  WORKING
+ PROCESS            5  OF            8  WORKING
+ PROCESS            2  OF            8  WORKING
+ PROCESS            7  OF            8  WORKING
+
+         
+ *******************************************************************************
+ *                                                                             *
+ *                               CRYSTAL17                                     *
+ *                      public : 1.0.1 - Feb 1st, 2017                         *
+ *                       HTTP://WWW.CRYSTAL.UNITO.IT                           *
+ *                                                                             *
+ *                              MAIN AUTHORS                                   *
+ *                                                                             *
+ *  R. DOVESI(1,11), V.R. SAUNDERS(2), C. ROETTI(1,11), R. ORLANDO(1,11),      *
+ *  C.M. ZICOVICH-WILSON(1,3), F. PASCALE(4), B. CIVALLERI(1,11),              *
+ *  K. DOLL(5), N.M. HARRISON(2,6), I.J. BUSH(7), Ph. D'ARCO(8),               *
+ *  M. LLUNELL(9), M. CAUSA'(10), Y. NOEL(8), L. MASCHIO(1,11), A. ERBA(1,11)  *
+ *  M. RE'RAT(14), S. CASASSA(1,11)                                            *
+ *                                                                             *
+ *        CONTRIBUTIONS TO THE CODE HAVE ALSO BEEN GIVEN BY                    *
+ *                                                                             *
+ *  M. FERRABONE(1,11), M. DE LA PIERRE(1,11), M. FERRERO(1,11),               *
+ *  J. BAIMA(1,11), E. ALBANESE(1,11), M.F. PEINTINGER(12), R. BAST(13),       *
+ *  B. KIRTMAN(15), V. LACIVITA(1,11), R. DEMICHELIS(1,16)                     *
+ *  G. BRANDEBURG(17), S. SALUSTRO(1,11), G. SANSONE(1,11)                     *
+ *  M.T. RUGGIERO(18)                                                          *
+ *                                                                             *
+ * (1) THEORETICAL CHEMISTRY GROUP - UNIVERSITA' DI TORINO - TORINO (ITALY)    *
+
+ * (2) COMPUTATIONAL SCIENCE & ENGINEERING DEPARTMENT - STFC DARESBURY (UK)    *
+ * (3) UNIVERSIDAD AUTONOMA DEL ESTADO DE MORELOS - CUERNAVACA (MEXICO)        *
+ * (4) UNIVERSITE' DE LORRAINE - NANCY (FRANCE)                                *
+ * (5) UNIVERSITAET STUTTGART- STUTTGART (GERMANY)                             *
+ * (6) IMPERIAL COLLEGE - LONDON (UK)                                          *
+ * (7) OXFORD E-RESEARCH CENTRE - OXFORD (UK)                                  *
+ * (8) UPMC - SORBONNE UNIVERSITES - PARIS (FRANCE)                            *
+ * (9) UNIVERSIDAD DE BARCELONA - BARCELONA (SPAIN)                            *
+ *(10) UNIVERSITA' DI NAPOLI "FEDERICO II" - NAPOLI (ITALY)                    *
+ *(11) NIS - NANOSTRUCTURED INTERFACES AND SURFACES - TORINO (ITALY)           *
+ *(12) MPI FUER CHEMISCHE ENERGIEKONVERSION - MUELHEIM AN DER RUHR (GERMANY)   *
+ *(13) UNIVERSITY OF TROMSO - TROMSO (NORWAY)                                  *
+ *(14) UNIVERSITE' DE PAU ET DES PAYS DE L'ADOUR - PAU (FRANCE)                *
+ *(15) UNIVERSITY OF CALIFORNIA SANTA BARBARA - SANTA BARBARA (USA)            *
+ *(16) CURTIN UNIVERSITY - PERTH (AUSTRALIA)                                   *
+ *(17) UNIVERSITY COLLEGE LONDON - LONDON (UK)                                 *
+ *(18) CAMBRIDGE UNIVERSITY - CAMBRIDGE (UK)                                   *
+ *                                                                             *
+ *******************************************************************************
+ EEEEEEEEEE STARTING  DATE 05 05 2017 TIME 12:23:03.9
+ TEST08 - SILICON BULK: STO-3G                                                   
+
+ CRYSTAL CALCULATION
+ (INPUT ACCORDING TO THE INTERNATIONAL TABLES FOR X-RAY CRYSTALLOGRAPHY)
+ CRYSTAL FAMILY                       :  CUBIC       
+ CRYSTAL CLASS  (GROTH - 1921)        :  CUBIC HEXAKISOCTAHEDRAL              
+
+ SPACE GROUP (CENTROSYMMETRIC)        :  F D 3 M         
+
+ LATTICE PARAMETERS  (ANGSTROMS AND DEGREES) - CONVENTIONAL CELL
+        A           B           C        ALPHA        BETA       GAMMA
+     5.42000     5.42000     5.42000    90.00000    90.00000    90.00000
+
+
+ NUMBER OF IRREDUCIBLE ATOMS IN THE CONVENTIONAL CELL:    1
+
+ INPUT COORDINATES
+
+ ATOM AT. N.              COORDINATES
+   1  14     1.250000000000E-01  1.250000000000E-01  1.250000000000E-01
+
+ *******************************************************************************
+
+ << INFORMATION >>: FROM NOW ON, ALL COORDINATES REFER TO THE PRIMITIVE CELL
+
+ *******************************************************************************
+
+ LATTICE PARAMETERS  (ANGSTROMS AND DEGREES) - PRIMITIVE CELL
+       A          B          C        ALPHA      BETA     GAMMA        VOLUME
+    3.83252    3.83252    3.83252    60.00000  60.00000  60.00000     39.805022
+
+ COORDINATES OF THE EQUIVALENT ATOMS (FRACTIONAL UNITS)
+
+ N. ATOM EQUIV AT. N.          X                  Y                  Z
+
+   1   1   1   14 SI    1.25000000000E-01  1.25000000000E-01  1.25000000000E-01
+   2   1   2   14 SI   -1.25000000000E-01 -1.25000000000E-01 -1.25000000000E-01
+
+ NUMBER OF SYMMETRY OPERATORS         :   48
+ *******************************************************************************
+ * GEOMETRY EDITING - INPUT COORDINATES ARE GIVEN IN ANGSTROM         
+ *******************************************************************************
+
+ GEOMETRY NOW FULLY CONSISTENT WITH THE GROUP
+
+ GCALCO - MAX INDICES DIRECT LATTICE VECTOR    14    14    14
+ NO.OF VECTORS CREATED 6999 STARS  105 RMAX    76.64647 BOHR
+
+ GEOMETRY FOR WAVE FUNCTION - DIMENSIONALITY OF THE SYSTEM    3
+ (NON PERIODIC DIRECTION: LATTICE PARAMETER FORMALLY SET TO 500)
+ *******************************************************************************
+ LATTICE PARAMETERS (ANGSTROMS AND DEGREES) - BOHR = 0.5291772083 ANGSTROM
+ PRIMITIVE CELL - CENTRING CODE 5/0 VOLUME=    39.805022 - DENSITY  2.334 g/cm^3
+         A              B              C           ALPHA      BETA       GAMMA 
+     3.83251875     3.83251875     3.83251875    60.000000  60.000000  60.000000
+ *******************************************************************************
+ ATOMS IN THE ASYMMETRIC UNIT    1 - ATOMS IN THE UNIT CELL:    2
+     ATOM                 X/A                 Y/B                 Z/C    
+ *******************************************************************************
+      1 T  14 SI    1.250000000000E-01  1.250000000000E-01  1.250000000000E-01
+      2 F  14 SI   -1.250000000000E-01 -1.250000000000E-01 -1.250000000000E-01
+
+ TRANSFORMATION MATRIX PRIMITIVE-CRYSTALLOGRAPHIC CELL
+ -1.0000  1.0000  1.0000  1.0000 -1.0000  1.0000  1.0000  1.0000 -1.0000
+
+ *******************************************************************************
+ CRYSTALLOGRAPHIC CELL (VOLUME=        159.22008800)
+         A              B              C           ALPHA      BETA       GAMMA 
+     5.42000000     5.42000000     5.42000000    90.000000  90.000000  90.000000
+
+ COORDINATES IN THE CRYSTALLOGRAPHIC CELL
+     ATOM                 X/A                 Y/B                 Z/C    
+ *******************************************************************************
+      1 T  14 SI    1.250000000000E-01  1.250000000000E-01  1.250000000000E-01
+      2 F  14 SI   -1.250000000000E-01 -1.250000000000E-01 -1.250000000000E-01
+
+ T = ATOM BELONGING TO THE ASYMMETRIC UNIT
+
+ ****   48 SYMMOPS - TRANSLATORS IN FRACTIONAL UNITS
+ **** MATRICES AND TRANSLATORS IN THE CRYSTALLOGRAPHIC REFERENCE FRAME
+   V INV                    ROTATION MATRICES                   TRANSLATORS
+   1   1  1.00  0.00  0.00  0.00  1.00  0.00  0.00  0.00  1.00  0.00  0.00  0.00
+   2   2  0.00  1.00  0.00  1.00  0.00  0.00 -1.00 -1.00 -1.00  0.00  0.00  0.50
+   3   3 -1.00 -1.00 -1.00  0.00  0.00  1.00  0.00  1.00  0.00  0.50  0.00  0.00
+   4   4  0.00  0.00  1.00 -1.00 -1.00 -1.00  1.00  0.00  0.00  0.00  0.50  0.00
+   5   6  0.00  0.00  1.00  1.00  0.00  0.00  0.00  1.00  0.00  0.00  0.00  0.00
+   6   5  0.00  1.00  0.00  0.00  0.00  1.00  1.00  0.00  0.00  0.00  0.00  0.00
+   7   8  1.00  0.00  0.00  0.00  0.00  1.00 -1.00 -1.00 -1.00  0.00  0.00  0.50
+   8   7  1.00  0.00  0.00 -1.00 -1.00 -1.00  0.00  1.00  0.00  0.00  0.50  0.00
+   9  10 -1.00 -1.00 -1.00  0.00  1.00  0.00  1.00  0.00  0.00  0.50  0.00  0.00
+  10   9  0.00  0.00  1.00  0.00  1.00  0.00 -1.00 -1.00 -1.00  0.00  0.00  0.50
+  11  12  0.00  1.00  0.00 -1.00 -1.00 -1.00  0.00  0.00  1.00  0.00  0.50  0.00
+  12  11 -1.00 -1.00 -1.00  1.00  0.00  0.00  0.00  0.00  1.00  0.50  0.00  0.00
+  13  13  0.00 -1.00  0.00 -1.00  0.00  0.00  0.00  0.00 -1.00  0.00  0.00  0.00
+  14  14 -1.00  0.00  0.00  0.00 -1.00  0.00  1.00  1.00  1.00  0.00  0.00  0.50
+  15  16  0.00  0.00 -1.00  1.00  1.00  1.00  0.00 -1.00  0.00  0.00  0.50  0.00
+  16  15  1.00  1.00  1.00  0.00  0.00 -1.00 -1.00  0.00  0.00  0.50  0.00  0.00
+  17  17 -1.00  0.00  0.00  0.00  0.00 -1.00  0.00 -1.00  0.00  0.00  0.00  0.00
+  18  18  0.00  0.00 -1.00  0.00 -1.00  0.00 -1.00  0.00  0.00  0.00  0.00  0.00
+  19  21  0.00  0.00 -1.00 -1.00  0.00  0.00  1.00  1.00  1.00  0.00  0.00  0.50
+  20  22  1.00  1.00  1.00 -1.00  0.00  0.00  0.00 -1.00  0.00  0.50  0.00  0.00
+  21  19  0.00 -1.00  0.00  1.00  1.00  1.00 -1.00  0.00  0.00  0.00  0.50  0.00
+  22  20  0.00 -1.00  0.00  0.00  0.00 -1.00  1.00  1.00  1.00  0.00  0.00  0.50
+  23  23  1.00  1.00  1.00  0.00 -1.00  0.00  0.00  0.00 -1.00  0.50  0.00  0.00
+  24  24 -1.00  0.00  0.00  1.00  1.00  1.00  0.00  0.00 -1.00  0.00  0.50  0.00
+  25  25 -1.00  0.00  0.00  0.00 -1.00  0.00  0.00  0.00 -1.00  0.00  0.00  0.00
+  26  26  0.00 -1.00  0.00 -1.00  0.00  0.00  1.00  1.00  1.00  0.00  0.00  0.50
+  27  27  1.00  1.00  1.00  0.00  0.00 -1.00  0.00 -1.00  0.00  0.50  0.00  0.00
+  28  28  0.00  0.00 -1.00  1.00  1.00  1.00 -1.00  0.00  0.00  0.00  0.50  0.00
+  29  30  0.00  0.00 -1.00 -1.00  0.00  0.00  0.00 -1.00  0.00  0.00  0.00  0.00
+  30  29  0.00 -1.00  0.00  0.00  0.00 -1.00 -1.00  0.00  0.00  0.00  0.00  0.00
+  31  32 -1.00  0.00  0.00  0.00  0.00 -1.00  1.00  1.00  1.00  0.00  0.00  0.50
+  32  31 -1.00  0.00  0.00  1.00  1.00  1.00  0.00 -1.00  0.00  0.00  0.50  0.00
+  33  34  1.00  1.00  1.00  0.00 -1.00  0.00 -1.00  0.00  0.00  0.50  0.00  0.00
+  34  33  0.00  0.00 -1.00  0.00 -1.00  0.00  1.00  1.00  1.00  0.00  0.00  0.50
+  35  36  0.00 -1.00  0.00  1.00  1.00  1.00  0.00  0.00 -1.00  0.00  0.50  0.00
+  36  35  1.00  1.00  1.00 -1.00  0.00  0.00  0.00  0.00 -1.00  0.50  0.00  0.00
+  37  37  0.00  1.00  0.00  1.00  0.00  0.00  0.00  0.00  1.00  0.00  0.00  0.00
+  38  38  1.00  0.00  0.00  0.00  1.00  0.00 -1.00 -1.00 -1.00  0.00  0.00  0.50
+  39  40  0.00  0.00  1.00 -1.00 -1.00 -1.00  0.00  1.00  0.00  0.00  0.50  0.00
+  40  39 -1.00 -1.00 -1.00  0.00  0.00  1.00  1.00  0.00  0.00  0.50  0.00  0.00
+  41  41  1.00  0.00  0.00  0.00  0.00  1.00  0.00  1.00  0.00  0.00  0.00  0.00
+  42  42  0.00  0.00  1.00  0.00  1.00  0.00  1.00  0.00  0.00  0.00  0.00  0.00
+  43  45  0.00  0.00  1.00  1.00  0.00  0.00 -1.00 -1.00 -1.00  0.00  0.00  0.50
+  44  46 -1.00 -1.00 -1.00  1.00  0.00  0.00  0.00  1.00  0.00  0.50  0.00  0.00
+  45  43  0.00  1.00  0.00 -1.00 -1.00 -1.00  1.00  0.00  0.00  0.00  0.50  0.00
+  46  44  0.00  1.00  0.00  0.00  0.00  1.00 -1.00 -1.00 -1.00  0.00  0.00  0.50
+  47  47 -1.00 -1.00 -1.00  0.00  1.00  0.00  0.00  0.00  1.00  0.50  0.00  0.00
+  48  48  1.00  0.00  0.00 -1.00 -1.00 -1.00  0.00  0.00  1.00  0.00  0.50  0.00
+
+ DIRECT LATTICE VECTORS CARTESIAN COMPONENTS (ANGSTROM)
+          X                    Y                    Z
+   0.000000000000E+00   0.271000000000E+01   0.271000000000E+01
+   0.271000000000E+01   0.000000000000E+00   0.271000000000E+01
+   0.271000000000E+01   0.271000000000E+01   0.000000000000E+00
+
+
+ CARTESIAN COORDINATES - PRIMITIVE CELL
+ *******************************************************************************
+ *      ATOM          X(ANGSTROM)         Y(ANGSTROM)         Z(ANGSTROM)
+ *******************************************************************************
+    1    14 SI    6.775000000000E-01  6.775000000000E-01  6.775000000000E-01
+    2    14 SI   -6.775000000000E-01 -6.775000000000E-01 -6.775000000000E-01
+
+ *******************************************************************************
+ LOCAL ATOMIC FUNCTIONS BASIS SET
+ *******************************************************************************
+   ATOM   X(AU)   Y(AU)   Z(AU)  N. TYPE  EXPONENT  S COEF   P COEF   D/F/G COEF
+ *******************************************************************************
+   1 SI   1.280   1.280   1.280
+                                  1 S  
+                                         4.078E+02 1.543E-01 0.000E+00 0.000E+00
+                                         7.428E+01 5.353E-01 0.000E+00 0.000E+00
+                                         2.010E+01 4.446E-01 0.000E+00 0.000E+00
+                           2-     5 SP 
+                                         2.319E+01-9.997E-02 1.559E-01 0.000E+00
+                                         5.390E+00 3.995E-01 6.077E-01 0.000E+00
+                                         1.753E+00 7.001E-01 3.920E-01 0.000E+00
+                           6-     9 SP 
+                                         1.479E+00-2.196E-01 1.059E-02 0.000E+00
+                                         4.126E-01 2.256E-01 5.952E-01 0.000E+00
+                                         1.615E-01 9.004E-01 4.620E-01 0.000E+00
+   2 SI  -1.280  -1.280  -1.280
+ INFORMATION **** SET_MPP **** PCRYSTAL CALCULATION
+ INFORMATION **** READM2 **** NEW DEFAULT: FOCK/KS MATRIX MIXING SET TO 30 %
+ INFORMATION **** READM2 **** NEW DEFAULT: FULL DIRECT SCF MODE
+ INFORMATION **** READM2 **** NEW DEFAULT: COULOMB BIPOLAR BUFFER SET TO 32 Mb
+ INFORMATION **** READM2 **** NEW DEFAULT: EXCHANGE BIPOLAR BUFFER SET TO 32 Mb
+ INFORMATION **** TOLDEE **** SCF TOL ON TOTAL ENERGY SET TO           7
+ *******************************************************************************
+ N. OF ATOMS PER CELL         2  COULOMB OVERLAP TOL         (T1) 10**   -6
+ NUMBER OF SHELLS             6  COULOMB PENETRATION TOL     (T2) 10**   -6
+ NUMBER OF AO                18  EXCHANGE OVERLAP TOL        (T3) 10**   -6
+ N. OF ELECTRONS PER CELL    28  EXCHANGE PSEUDO OVP (F(G))  (T4) 10**   -6
+ CORE ELECTRONS PER CELL     20  EXCHANGE PSEUDO OVP (P(G))  (T5) 10**  -12
+ N. OF SYMMETRY OPERATORS    48  POLE ORDER IN MONO ZONE                  4
+ *******************************************************************************
+ TYPE OF CALCULATION :  RESTRICTED CLOSED SHELL
+ HARTREE-FOCK HAMILTONIAN
+
+ CAPPA:IS1  8;IS2  8;IS3  8; K PTS MONK NET  29; SYMMOPS:K SPACE  48;G SPACE  48
+
+ *******************************************************************************
+ MAX NUMBER OF SCF CYCLES      50  CONVERGENCE ON DELTAP        10**-17
+ WEIGHT OF F(I) IN F(I+1)      30% CONVERGENCE ON ENERGY        10**- 7
+ SHRINK. FACT.(MONKH.)    8  8  8  NUMBER OF K POINTS IN THE IBZ     29
+ SHRINKING FACTOR(GILAT NET)    8  NUMBER OF K POINTS(GILAT NET)     29
+ *******************************************************************************
+ *** K POINTS COORDINATES (OBLIQUE COORDINATES IN UNITS OF IS =  8)
+   1-R(  0  0  0)   2-C(  1  0  0)   3-C(  2  0  0)   4-C(  3  0  0)
+   5-R(  4  0  0)   6-C(  1  1  0)   7-C(  2  1  0)   8-C(  3  1  0)
+   9-C(  4  1  0)  10-C(  5  1  0)  11-C(  6  1  0)  12-C(  7  1  0)
+  13-C(  2  2  0)  14-C(  3  2  0)  15-C(  4  2  0)  16-C(  5  2  0)
+  17-C(  6  2  0)  18-C(  3  3  0)  19-C(  4  3  0)  20-C(  5  3  0)
+  21-R(  4  4  0)  22-C(  3  2  1)  23-C(  4  2  1)  24-C(  5  2  1)
+  25-C(  4  3  1)  26-C(  5  3  1)  27-C(  6  3  1)  28-C(  5  4  1)
+  29-C(  6  4  2)
+
+ DIRECT LATTICE VECTORS COMPON. (A.U.)     RECIP. LATTICE VECTORS COMPON. (A.U.) 
+        X            Y            Z              X            Y            Z
+    0.0000000    5.1211578    5.1211578     -0.6134536    0.6134536    0.6134536
+    5.1211578    0.0000000    5.1211578      0.6134536   -0.6134536    0.6134536
+    5.1211578    5.1211578    0.0000000      0.6134536    0.6134536   -0.6134536
+
+ DISK SPACE FOR EIGENVECTORS (FTN 10)       17820 REALS
+
+ SYMMETRY ADAPTION OF THE BLOCH FUNCTIONS ENABLED
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT gordsh1     TELAPSE        1.04 TCPU        0.02
+
+ MATRIX SIZE: P(G)   12610, F(G)    2402, P(G) IRR     509, F(G) IRR     225
+ MAX G-VECTOR INDEX FOR 1- AND 2-ELECTRON INTEGRALS 177
+
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT INPUT       TELAPSE        1.04 TCPU        0.02
+
+ NEIGHBORS OF THE NON-EQUIVALENT ATOMS
+
+ N = NUMBER OF NEIGHBORS AT DISTANCE R
+    ATOM  N     R/ANG      R/AU   NEIGHBORS (ATOM LABELS AND CELL INDICES)
+   1 SI   4     2.3469     4.4351    2 SI   0 0 0    2 SI   1 0 0    2 SI   0 1 0
+                                     2 SI   0 0 1
+   1 SI  12     3.8325     7.2424    1 SI  -1 0 0    1 SI   1 0 0    1 SI  -1 0 1
+                                     1 SI   1 0-1    1 SI  -1 1 0    1 SI   1-1 0
+                                     1 SI   0-1 0    1 SI   0 1 0    1 SI   0-1 1
+                                     1 SI   0 1-1    1 SI   0 0-1    1 SI   0 0 1
+   1 SI  12     4.4940     8.4925    2 SI   1 0-1    2 SI  -1 0 1    2 SI   1-1 0
+                                     2 SI  -1 1 0    2 SI   0 1-1    2 SI   0-1 1
+                                     2 SI   1 1-1    2 SI   1-1 1    2 SI  -1 1 1
+                                     2 SI   1 1 0    2 SI   1 0 1    2 SI   0 1 1
+   1 SI   6     5.4200    10.2423    1 SI  -1-1 1    1 SI   1 1-1    1 SI  -1 1-1
+                                     1 SI   1-1 1    1 SI  -1 1 1    1 SI   1-1-1
+   1 SI  12     5.9063    11.1613    2 SI  -1 0 0    2 SI   0-1 0    2 SI   0 0-1
+                                     2 SI   2 0-1    2 SI   2-1 0    2 SI  -1 0 2
+                                     2 SI  -1 2 0    2 SI   0 2-1    2 SI   0-1 2
+                                     2 SI   2 0 0    2 SI   0 2 0    2 SI   0 0 2
+   1 SI  24     6.6381    12.5442    1 SI  -2 0 1    1 SI   2 0-1    1 SI  -2 1 0
+                                     1 SI   2-1 0    1 SI  -2 1 1    1 SI   2-1-1
+                                     1 SI  -1-1 0    1 SI   1 1 0    1 SI  -1-1 2
+                                     1 SI   1 1-2    1 SI  -1 0-1    1 SI   1 0 1
+                                     1 SI  -1 0 2    1 SI   1 0-2    1 SI  -1 2-1
+                                     1 SI   1-2 1    1 SI  -1 2 0    1 SI   1-2 0
+                                     1 SI   0-2 1    1 SI   0 2-1    1 SI   0-1-1
+                                     1 SI   0 1 1    1 SI   0-1 2    1 SI   0 1-2
+
+
+ THERE ARE NO SYMMETRY ALLOWED DIRECTIONS
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT SYMM        TELAPSE        1.04 TCPU        0.02
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT INT_SCREEN  TELAPSE        1.04 TCPU        0.02
+ INFORMATION **** EXCBUF **** EXCH. BIPO BUFFER: WORDS USED =       70074
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT INT_CALC    TELAPSE        1.08 TCPU        0.06
+ EEEEEEEEEE INT_CALC TERMINATION  DATE 05 05 2017 TIME 12:23:04.0
+
+ *******************************************************************************
+ TEST08 - SILICON BULK: STO-3G                                                   
+ CRYSTAL - SCF - TYPE OF CALCULATION :  RESTRICTED CLOSED SHELL
+ *******************************************************************************
+
+ CAPPA:IS1  8;IS2  8;IS3  8; K PTS MONK NET  29; SYMMOPS:K SPACE  48;G SPACE  48
+
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT SDIK        TELAPSE        1.08 TCPU        0.06
+
+ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+         ATOMIC WAVEFUNCTION(S)
+
+
+ NUCLEAR CHARGE 14.0  SYMMETRY SPECIES            S    P
+ N. ELECTRONS   14.0  NUMBER OF PRIMITIVE GTOS    9    6
+                      NUMBER OF CONTRACTED GTOS   3    2
+                      NUMBER OF CLOSED SHELLS     3    1
+                      OPEN SHELL OCCUPATION       0    2
+
+  ZNUC SCFIT  TOTAL HF ENERGY   KINETIC ENERGY   VIRIAL THEOREM ACCURACY
+  14.0   4   -2.854661871E+02  2.826751667E+02 -2.009873596E+00  6.8E-07
+
+ AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+
+ CHARGE NORMALIZATION FACTOR   1.00000000
+ TOTAL ATOMIC CHARGES:
+  14.0000000  14.0000000
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT MOQGAD      TELAPSE        1.08 TCPU        0.06
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT SHELLXN     TELAPSE        1.10 TCPU        0.08
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT MONMO3      TELAPSE        1.20 TCPU        0.17
+ CYC   0 ETOT(AU) -5.709386888713E+02 DETOT -5.71E+02 tst  0.00E+00 PX  1.00E+00
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT DIIS        TELAPSE        1.20 TCPU        0.18
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT FDIK        TELAPSE        1.20 TCPU        0.18
+ INSULATING STATE
+ TOP OF VALENCE BANDS -    BAND     14; K    1; EIG  1.1931706E-01 AU
+ BOTTOM OF VIRTUAL BANDS - BAND     15; K    1; EIG  2.0023144E-01 AU
+ DIRECT ENERGY BAND GAP:   2.2018 eV
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT PDIG        TELAPSE        1.20 TCPU        0.18
+ CHARGE NORMALIZATION FACTOR   1.00000000
+ TOTAL ATOMIC CHARGES:
+  14.0000000  14.0000000
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT MOQGAD      TELAPSE        1.20 TCPU        0.18
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT SHELLXN     TELAPSE        1.22 TCPU        0.20
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT MONMO3      TELAPSE        1.32 TCPU        0.29
+ CYC   1 ETOT(AU) -5.713088424331E+02 DETOT -3.70E-01 tst  0.00E+00 PX  1.00E+00
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT DIIS        TELAPSE        1.32 TCPU        0.30
+ DIIS TEST: 0.18867E-03 AT SCF   CYCLE   1 - MIX   30 %
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT FDIK        TELAPSE        1.32 TCPU        0.30
+ INSULATING STATE
+ TOP OF VALENCE BANDS -    BAND     14; K    1; EIG  1.0032999E-02 AU
+ BOTTOM OF VIRTUAL BANDS - BAND     15; K    1; EIG  2.0868855E-01 AU
+ DIRECT ENERGY BAND GAP:   5.4057 eV
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT PDIG        TELAPSE        1.32 TCPU        0.30
+ CHARGE NORMALIZATION FACTOR   1.00000000
+ TOTAL ATOMIC CHARGES:
+  14.0000000  14.0000000
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT MOQGAD      TELAPSE        1.32 TCPU        0.30
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT SHELLXN     TELAPSE        1.34 TCPU        0.32
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT MONMO3      TELAPSE        1.44 TCPU        0.41
+ CYC   2 ETOT(AU) -5.713180361378E+02 DETOT -9.19E-03 tst  5.58E-03 PX  1.18E-01
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT DIIS        TELAPSE        1.44 TCPU        0.42
+ DIIS TEST: 0.27646E-04 AT SCF   CYCLE   2 - DIIS ACTIVE 
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT FDIK        TELAPSE        1.44 TCPU        0.42
+ INSULATING STATE
+ TOP OF VALENCE BANDS -    BAND     14; K    1; EIG -5.8531991E-02 AU
+ BOTTOM OF VIRTUAL BANDS - BAND     15; K    1; EIG  2.4886115E-01 AU
+ DIRECT ENERGY BAND GAP:   8.3646 eV
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT PDIG        TELAPSE        1.44 TCPU        0.42
+ CHARGE NORMALIZATION FACTOR   1.00000000
+ TOTAL ATOMIC CHARGES:
+  14.0000000  14.0000000
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT MOQGAD      TELAPSE        1.44 TCPU        0.42
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT SHELLXN     TELAPSE        1.46 TCPU        0.44
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT MONMO3      TELAPSE        1.56 TCPU        0.53
+ CYC   3 ETOT(AU) -5.713207788682E+02 DETOT -2.74E-03 tst  3.56E-03 PX  9.88E-02
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT DIIS        TELAPSE        1.56 TCPU        0.54
+ DIIS TEST: 0.77558E-07 AT SCF   CYCLE   3 - DIIS ACTIVE 
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT FDIK        TELAPSE        1.56 TCPU        0.54
+ INSULATING STATE
+ TOP OF VALENCE BANDS -    BAND     14; K    1; EIG -6.0658802E-02 AU
+ BOTTOM OF VIRTUAL BANDS - BAND     15; K    1; EIG  2.5304005E-01 AU
+ DIRECT ENERGY BAND GAP:   8.5362 eV
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT PDIG        TELAPSE        1.56 TCPU        0.54
+ CHARGE NORMALIZATION FACTOR   1.00000000
+ TOTAL ATOMIC CHARGES:
+  14.0000000  14.0000000
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT MOQGAD      TELAPSE        1.57 TCPU        0.54
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT SHELLXN     TELAPSE        1.58 TCPU        0.56
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT MONMO3      TELAPSE        1.68 TCPU        0.65
+ CYC   4 ETOT(AU) -5.713208122479E+02 DETOT -3.34E-05 tst  2.72E-05 PX  1.23E-02
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT DIIS        TELAPSE        1.68 TCPU        0.66
+ DIIS TEST: 0.24548E-09 AT SCF   CYCLE   4 - DIIS ACTIVE 
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT FDIK        TELAPSE        1.68 TCPU        0.66
+ INSULATING STATE
+ TOP OF VALENCE BANDS -    BAND     14; K    1; EIG -6.0809860E-02 AU
+ BOTTOM OF VIRTUAL BANDS - BAND     15; K    1; EIG  2.5331911E-01 AU
+ DIRECT ENERGY BAND GAP:   8.5479 eV
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT PDIG        TELAPSE        1.68 TCPU        0.66
+ CHARGE NORMALIZATION FACTOR   1.00000000
+ TOTAL ATOMIC CHARGES:
+  14.0000000  14.0000000
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT MOQGAD      TELAPSE        1.68 TCPU        0.66
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT SHELLXN     TELAPSE        1.71 TCPU        0.68
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT MONMO3      TELAPSE        1.80 TCPU        0.77
+ CYC   5 ETOT(AU) -5.713208121900E+02 DETOT  5.79E-08 tst  1.80E-07 PX  9.71E-04
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT DIIS        TELAPSE        1.80 TCPU        0.78
+ DIIS TEST: 0.73139E-10 AT SCF   CYCLE   5 - DIIS ACTIVE 
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT FDIK        TELAPSE        1.80 TCPU        0.78
+ INSULATING STATE
+ TOP OF VALENCE BANDS -    BAND     14; K    1; EIG -6.0738229E-02 AU
+ BOTTOM OF VIRTUAL BANDS - BAND     15; K    1; EIG  2.5321404E-01 AU
+ DIRECT ENERGY BAND GAP:   8.5431 eV
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT PDIG        TELAPSE        1.80 TCPU        0.78
+ CHARGE NORMALIZATION FACTOR   1.00000000
+ TOTAL ATOMIC CHARGES:
+  14.0000000  14.0000000
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT MOQGAD      TELAPSE        1.81 TCPU        0.78
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT SHELLXN     TELAPSE        1.82 TCPU        0.80
+ +++ ENERGIES IN A.U. +++
+ ::: EXT EL-POLE                                  -5.1906932705159E+02
+ ::: EXT EL-SPHEROPOLE                             5.3436957218682E+00
+ ::: BIELET ZONE E-E                               6.4862373056493E+02
+ ::: TOTAL E-E                                     1.3489809923521E+02
+ ::: TOTAL E-N + N-E                              -1.1665070420025E+03
+ ::: TOTAL N-N                                    -1.0308337123869E+02
+ ::: KINETIC ENERGY                                5.6337150176284E+02
+ ::: TOTAL   ENERGY                               -5.7132081224317E+02
+ ::: VIRIAL COEFFICIENT                            9.9299430305272E-01
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT MONMO3      TELAPSE        1.92 TCPU        0.90
+ CYC   6 ETOT(AU) -5.713208122432E+02 DETOT -5.32E-08 tst  2.14E-08 PX  9.71E-04
+
+ == SCF ENDED - CONVERGENCE ON ENERGY      E(AU) -5.7132081224317E+02 CYCLES   6
+
+ TOTAL ENERGY(HF)(AU)(   6) -5.7132081224317E+02 DE-5.3E-08 tst 2.1E-08 PX 9.7E-04
+ EIGENVECTORS IN FORTRAN UNIT  8
+ TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT END         TELAPSE        1.93 TCPU        0.91
+ EEEEEEEEEE TERMINATION  DATE 05 05 2017 TIME 12:23:04.8
+NODE    0 CPU TIME =         0.908
+NODE    1 CPU TIME =         0.912
+NODE    2 CPU TIME =         0.908
+NODE    3 CPU TIME =         0.908
+NODE    4 CPU TIME =         0.912
+NODE    5 CPU TIME =         0.912
+NODE    6 CPU TIME =         0.912
+NODE    7 CPU TIME =         0.912
+    TOTAL CPU TIME =         7.284
+Fri May  5 12:23:04 CEST 2017
+total 38376
+-rw-r----- 1 develop users      161 May  5 12:23 INPUT
+-rwxr-xr-x 1 develop users 38528159 May  5 12:23 Pcrystal-156692
+lrwxrwxrwx 1 develop users       45 May  5 12:23 SCFOUT.LOG -> /home0/develop/TEST_STD_CRY17/std/test08.out2
+-rw------- 1 develop users    10848 May  5 12:23 diis_Fg
+-rw------- 1 develop users        0 May  5 12:23 diis_Sk.pe0
+-rw------- 1 develop users        0 May  5 12:23 diis_Sk.pe1
+-rw------- 1 develop users        0 May  5 12:23 diis_Sk.pe2
+-rw------- 1 develop users        0 May  5 12:23 diis_Sk.pe3
+-rw------- 1 develop users        0 May  5 12:23 diis_Sk.pe4
+-rw------- 1 develop users        0 May  5 12:23 diis_Sk.pe5
+-rw------- 1 develop users        0 May  5 12:23 diis_Sk.pe6
+-rw------- 1 develop users        0 May  5 12:23 diis_Sk.pe7
+-rw------- 1 develop users        0 May  5 12:23 diis_err1.pe0
+-rw------- 1 develop users        0 May  5 12:23 diis_err1.pe1
+-rw------- 1 develop users        0 May  5 12:23 diis_err1.pe2
+-rw------- 1 develop users        0 May  5 12:23 diis_err1.pe3
+-rw------- 1 develop users      160 May  5 12:23 diis_err1.pe4
+-rw------- 1 develop users      160 May  5 12:23 diis_err1.pe5
+-rw------- 1 develop users      320 May  5 12:23 diis_err1.pe6
+-rw------- 1 develop users      320 May  5 12:23 diis_err1.pe7
+-rw------- 1 develop users        0 May  5 12:23 diis_err2.pe0
+-rw------- 1 develop users        0 May  5 12:23 diis_err2.pe1
+-rw------- 1 develop users        0 May  5 12:23 diis_err2.pe2
+-rw------- 1 develop users        0 May  5 12:23 diis_err2.pe3
+-rw------- 1 develop users      200 May  5 12:23 diis_err2.pe4
+-rw------- 1 develop users      200 May  5 12:23 diis_err2.pe5
+-rw------- 1 develop users      400 May  5 12:23 diis_err2.pe6
+-rw------- 1 develop users      400 May  5 12:23 diis_err2.pe7
+-rw------- 1 develop users        0 May  5 12:23 fort.1.pe0
+-rw------- 1 develop users        0 May  5 12:23 fort.1.pe1
+-rw------- 1 develop users        0 May  5 12:23 fort.1.pe2
+-rw------- 1 develop users        0 May  5 12:23 fort.1.pe3
+-rw------- 1 develop users        0 May  5 12:23 fort.1.pe4
+-rw------- 1 develop users        0 May  5 12:23 fort.1.pe5
+-rw------- 1 develop users        0 May  5 12:23 fort.1.pe6
+-rw------- 1 develop users        0 May  5 12:23 fort.1.pe7
+-rw------- 1 develop users    12864 May  5 12:23 fort.10.pe0
+-rw------- 1 develop users     7104 May  5 12:23 fort.10.pe1
+-rw------- 1 develop users     5704 May  5 12:23 fort.10.pe2
+-rw------- 1 develop users     7896 May  5 12:23 fort.10.pe3
+-rw------- 1 develop users     6304 May  5 12:23 fort.10.pe4
+-rw------- 1 develop users    11280 May  5 12:23 fort.10.pe5
+-rw------- 1 develop users    11088 May  5 12:23 fort.10.pe6
+-rw------- 1 develop users     6288 May  5 12:23 fort.10.pe7
+-rw------- 1 develop users     1808 May  5 12:23 fort.11.pe0
+-rw------- 1 develop users     1808 May  5 12:23 fort.11.pe1
+-rw------- 1 develop users     1808 May  5 12:23 fort.11.pe2
+-rw------- 1 develop users     1808 May  5 12:23 fort.11.pe3
+-rw------- 1 develop users     1808 May  5 12:23 fort.11.pe4
+-rw------- 1 develop users     1808 May  5 12:23 fort.11.pe5
+-rw------- 1 develop users     1808 May  5 12:23 fort.11.pe6
+-rw------- 1 develop users     1808 May  5 12:23 fort.11.pe7
+-rw------- 1 develop users        0 May  5 12:23 fort.19.pe0
+-rw------- 1 develop users        0 May  5 12:23 fort.19.pe1
+-rw------- 1 develop users        0 May  5 12:23 fort.19.pe2
+-rw------- 1 develop users        0 May  5 12:23 fort.19.pe3
+-rw------- 1 develop users        0 May  5 12:23 fort.19.pe4
+-rw------- 1 develop users        0 May  5 12:23 fort.19.pe5
+-rw------- 1 develop users        0 May  5 12:23 fort.19.pe6
+-rw------- 1 develop users        0 May  5 12:23 fort.19.pe7
+-rw------- 1 develop users        0 May  5 12:23 fort.28.pe0
+-rw------- 1 develop users        0 May  5 12:23 fort.28.pe1
+-rw------- 1 develop users        0 May  5 12:23 fort.28.pe2
+-rw------- 1 develop users        0 May  5 12:23 fort.28.pe3
+-rw------- 1 develop users        0 May  5 12:23 fort.28.pe4
+-rw------- 1 develop users        0 May  5 12:23 fort.28.pe5
+-rw------- 1 develop users        0 May  5 12:23 fort.28.pe6
+-rw------- 1 develop users        0 May  5 12:23 fort.28.pe7
+-rw------- 1 develop users        0 May  5 12:23 fort.29.pe0
+-rw------- 1 develop users        0 May  5 12:23 fort.29.pe1
+-rw------- 1 develop users        0 May  5 12:23 fort.29.pe2
+-rw------- 1 develop users        0 May  5 12:23 fort.29.pe3
+-rw------- 1 develop users        0 May  5 12:23 fort.29.pe4
+-rw------- 1 develop users        0 May  5 12:23 fort.29.pe5
+-rw------- 1 develop users        0 May  5 12:23 fort.29.pe6
+-rw------- 1 develop users        0 May  5 12:23 fort.29.pe7
+-rw------- 1 develop users        0 May  5 12:23 fort.3.pe0
+-rw------- 1 develop users        0 May  5 12:23 fort.3.pe1
+-rw------- 1 develop users        0 May  5 12:23 fort.3.pe2
+-rw------- 1 develop users        0 May  5 12:23 fort.3.pe3
+-rw------- 1 develop users        0 May  5 12:23 fort.3.pe4
+-rw------- 1 develop users        0 May  5 12:23 fort.3.pe5
+-rw------- 1 develop users        0 May  5 12:23 fort.3.pe6
+-rw------- 1 develop users        0 May  5 12:23 fort.3.pe7
+-rw------- 1 develop users        0 May  5 12:23 fort.38.pe0
+-rw------- 1 develop users        0 May  5 12:23 fort.38.pe1
+-rw------- 1 develop users        0 May  5 12:23 fort.38.pe2
+-rw------- 1 develop users        0 May  5 12:23 fort.38.pe3
+-rw------- 1 develop users        0 May  5 12:23 fort.38.pe4
+-rw------- 1 develop users        0 May  5 12:23 fort.38.pe5
+-rw------- 1 develop users        0 May  5 12:23 fort.38.pe6
+-rw------- 1 develop users        0 May  5 12:23 fort.38.pe7
+-rw------- 1 develop users        0 May  5 12:23 fort.40.pe0
+-rw------- 1 develop users        0 May  5 12:23 fort.40.pe1
+-rw------- 1 develop users        0 May  5 12:23 fort.40.pe2
+-rw------- 1 develop users        0 May  5 12:23 fort.40.pe3
+-rw------- 1 develop users        0 May  5 12:23 fort.40.pe4
+-rw------- 1 develop users        0 May  5 12:23 fort.40.pe5
+-rw------- 1 develop users        0 May  5 12:23 fort.40.pe6
+-rw------- 1 develop users        0 May  5 12:23 fort.40.pe7
+-rw------- 1 develop users     3200 May  5 12:23 fort.61.pe0
+-rw------- 1 develop users     2416 May  5 12:23 fort.61.pe1
+-rw------- 1 develop users     3616 May  5 12:23 fort.61.pe2
+-rw------- 1 develop users     4440 May  5 12:23 fort.61.pe3
+-rw------- 1 develop users     4540 May  5 12:23 fort.61.pe4
+-rw------- 1 develop users     4288 May  5 12:23 fort.61.pe5
+-rw------- 1 develop users     3920 May  5 12:23 fort.61.pe6
+-rw------- 1 develop users     4200 May  5 12:23 fort.61.pe7
+-rw------- 1 develop users     2560 May  5 12:23 fort.62.pe0
+-rw------- 1 develop users     3024 May  5 12:23 fort.62.pe1
+-rw------- 1 develop users     2960 May  5 12:23 fort.62.pe2
+-rw------- 1 develop users     3504 May  5 12:23 fort.62.pe3
+-rw------- 1 develop users     3320 May  5 12:23 fort.62.pe4
+-rw------- 1 develop users     2896 May  5 12:23 fort.62.pe5
+-rw------- 1 develop users     4016 May  5 12:23 fort.62.pe6
+-rw------- 1 develop users     3656 May  5 12:23 fort.62.pe7
+-rw------- 1 develop users    12864 May  5 12:23 fort.8.pe0
+-rw------- 1 develop users     7104 May  5 12:23 fort.8.pe1
+-rw------- 1 develop users     5704 May  5 12:23 fort.8.pe2
+-rw------- 1 develop users     7896 May  5 12:23 fort.8.pe3
+-rw------- 1 develop users     6304 May  5 12:23 fort.8.pe4
+-rw------- 1 develop users    11280 May  5 12:23 fort.8.pe5
+-rw------- 1 develop users    11088 May  5 12:23 fort.8.pe6
+-rw------- 1 develop users     6288 May  5 12:23 fort.8.pe7
+-rw------- 1 develop users        0 May  5 12:23 fort.82.pe0
+-rw------- 1 develop users        0 May  5 12:23 fort.82.pe1
+-rw------- 1 develop users        0 May  5 12:23 fort.82.pe2
+-rw------- 1 develop users        0 May  5 12:23 fort.82.pe3
+-rw------- 1 develop users        0 May  5 12:23 fort.82.pe4
+-rw------- 1 develop users        0 May  5 12:23 fort.82.pe5
+-rw------- 1 develop users        0 May  5 12:23 fort.82.pe6
+-rw------- 1 develop users        0 May  5 12:23 fort.82.pe7
+-rw------- 1 develop users        0 May  5 12:23 fort.83.pe0
+-rw------- 1 develop users        0 May  5 12:23 fort.83.pe1
+-rw------- 1 develop users        0 May  5 12:23 fort.83.pe2
+-rw------- 1 develop users        0 May  5 12:23 fort.83.pe3
+-rw------- 1 develop users        0 May  5 12:23 fort.83.pe4
+-rw------- 1 develop users        0 May  5 12:23 fort.83.pe5
+-rw------- 1 develop users        0 May  5 12:23 fort.83.pe6
+-rw------- 1 develop users        0 May  5 12:23 fort.83.pe7
+-rw------- 1 develop users   104884 May  5 12:23 fort.9
+-rw------- 1 develop users     5696 May  5 12:23 fort.95.pe0
+-rw------- 1 develop users     5696 May  5 12:23 fort.95.pe1
+-rw------- 1 develop users     5696 May  5 12:23 fort.95.pe2
+-rw------- 1 develop users     5696 May  5 12:23 fort.95.pe3
+-rw------- 1 develop users     5696 May  5 12:23 fort.95.pe4
+-rw------- 1 develop users     5696 May  5 12:23 fort.95.pe5
+-rw------- 1 develop users     5696 May  5 12:23 fort.95.pe6
+-rw------- 1 develop users     5696 May  5 12:23 fort.95.pe7
+-rw------- 1 develop users   265300 May  5 12:23 fort.98
