@@ -23,6 +23,7 @@ def test_single_hf():
     test_file = os.path.join(DATA_DIR, 'test08.out')
     parser = CRYSTOUT(test_file)
     info = parser.info
+    pprint(info)
     assert info['prog'] == '17 1.0.1'                   # CRYSTAL version
     assert info['finished'] == 2                        # finished without errors
     assert info['energy'] == -5.7132081224317E+02 * Ha  # energy in eV
