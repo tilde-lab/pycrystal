@@ -263,11 +263,10 @@ class CRYSTOUT(object):
 
 
     @staticmethod
-    def fingerprints(test_string):
+    def detect(test_string):
         if "*                              MAIN AUTHORS" in test_string:
             return True
-        else:
-            return False
+        return False
 
 
     @staticmethod
@@ -277,7 +276,7 @@ class CRYSTOUT(object):
 
         while counter < 700:
             fingerprint = f.readline()
-            if CRYSTOUT.fingerprints(fingerprint):
+            if CRYSTOUT.detect(fingerprint):
                 f.close()
                 return True
             counter += 1
