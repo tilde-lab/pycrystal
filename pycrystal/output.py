@@ -52,6 +52,7 @@ class CRYSTOUT(object):
 
     patterns = {
         'Etot':                  re.compile(r"\n\sTOTAL ENERGY\(.{2,3}\)\(.{2}\)\(.{3,4}\)\s(\S{20})\s{1,10}DE(?!.*\n\sTOTAL ENERGY\(.{2,3}\)\(.{2}\)\(.{3,4}\)\s)", re.DOTALL),
+        'dEtot':                 re.compile(r"\sTOTAL ENERGY\(.{2,3}\)\(.{2}\)\(.{3,4}\).{21}\s{1,10}DE\s*[\(AU\)]*\s*([-\d.E]*)",re.DOTALL),
         'pEtot':                 re.compile(r"\n\sTOTAL ENERGY\s(.+?)\sCONVERGENCE"),
         'syminfos':              re.compile(r"SYMMOPS - TRANSLATORS IN FRACTIONA\w{1,2} UNITS(.+?)\n\n", re.DOTALL),
         'frac_primitive_cells':  re.compile(r"\n\sPRIMITIVE CELL(.+?)ATOM BELONGING TO THE ASYMMETRIC UNIT", re.DOTALL),
@@ -65,6 +66,12 @@ class CRYSTOUT(object):
         'starting':              re.compile(r"EEEEEEEEEE STARTING(.+?)\n"),
         'ending':                re.compile(r"EEEEEEEEEE TERMINATION(.+?)\n"),
         'freqs':                 re.compile(r"DISPERSION K POINT(.+?)FREQ\(CM\*\*\-1\)", re.DOTALL),
+        'n_atoms':               re.compile(r"\sN. OF ATOMS PER CELL\s*(\d*)", re.DOTALL),
+        'n_shells':              re.compile(r"\sNUMBER OF SHELLS\s*(\d*)", re.DOTALL),
+        'n_ao':                  re.compile(r"\sNUMBER OF AO\s*(\d*)", re.DOTALL),
+        'n_electrons':           re.compile(r"\sN. OF ELECTRONS PER CELL\s*(\d*)", re.DOTALL),
+        'n_core_el':             re.compile(r"\sCORE ELECTRONS PER CELL\s*(\d*)", re.DOTALL),
+        'n_symops':              re.compile(r"\sN. OF SYMMETRY OPERATORS\s*(\d*)", re.DOTALL),
         'gamma_freqs':           re.compile(r"\(HARTREE\*\*2\)   \(CM\*\*\-1\)     \(THZ\)             \(KM\/MOL\)(.+?)NORMAL MODES NORMALIZED TO CLASSICAL AMPLITUDES", re.DOTALL),
         'ph_eigvecs':            re.compile(r"NORMAL MODES NORMALIZED TO CLASSICAL AMPLITUDES(.+?)\*{79}", re.DOTALL),
         'needed_disp':           re.compile(r"\d{1,4}\s{2,6}(\d{1,4})\s{1,3}\w{1,2}\s{11,12}(\w{1,2})\s{11,12}\d{1,2}"),
@@ -108,6 +115,7 @@ class CRYSTOUT(object):
 
             'structures':  [], # list of valid ASE objects
             'energy':      None, # in eV
+            'e_accuracy':  None,
             'H':           None,
             'H_types':     [], # can be 0x1, 0x2, 0x4, and 0x5
             'tol':         None,
@@ -119,6 +127,12 @@ class CRYSTOUT(object):
             'convergence': [], # zero-point energy convergence
             'optgeom':     [], # optimization convergence, list of lists, 5 values each
             'ncycles':     [], # number of cycles at each optimisation step
+            'n_atoms':     None,
+            'n_shells':    None,
+            'n_ao':        None,
+            'n_electrons': None,
+            'n_core_el':   None,
+            'n_symops':    None,
 
             'electrons':   {
                 'basis_set':         None, # LCAO Gaussian basis sets in form: {'bs': {...}, 'ecp': {...}}
@@ -190,6 +204,7 @@ class CRYSTOUT(object):
             self.molecular_case = False if not ' MOLECULAR CALCULATION' in self.data else True
 
             self.info['energy'] = self.get_etot()
+            self.info['e_accuracy'] = self.get_detot()
             self.info['structures'] = self.get_structures()
 
             self.decide_charges()
@@ -218,6 +233,14 @@ class CRYSTOUT(object):
                 self.info['phonons']['ph_k_degeneracy'] = {}
                 for i in range(len(bz)):
                     self.info['phonons']['ph_k_degeneracy'][bz[i]] = d[i]
+
+            # get numbers of electrons, ao, etc
+            self.info['n_atoms'] = self.get_number('n_atoms')
+            self.info['n_shells'] = self.get_number('n_shells')
+            self.info['n_ao'] = self.get_number('n_ao')
+            self.info['n_electrons'] = self.get_number('n_electrons')
+            self.info['n_core_el'] = self.get_number('n_core_el')
+            self.info['n_symops'] = self.get_number('n_symops')
 
         if self.properties_calc and not self.crystal_calc:
             raise CRYSTOUT_Error('PROPERTIES output with insufficient information omitted!')
@@ -483,6 +506,19 @@ class CRYSTOUT(object):
                 self.warning('No energy found!')
                 return None
 
+    def get_number(self, pat_name):
+        num = self.patterns[pat_name].search(self.data)
+
+        if num is not None:
+            return int(num.groups()[0])
+        return None
+
+    def get_detot(self):
+        de = self.patterns['dEtot'].search(self.data)
+
+        if de is not None:
+            return float(de.groups()[0]) * Hartree
+        return None
 
     '''def get_etot_props(self):
         e = self.patterns['pEtot'].search(self.pdata)
@@ -1238,7 +1274,7 @@ class CRYSTOUT(object):
             self.info['H'] = "unknown"
 
         # Spin part
-        if ' TYPE OF CALCULATION:  UNRESTRICTED OPEN SHELL' in self.data:
+        if ' TYPE OF CALCULATION :  UNRESTRICTED OPEN SHELL' in self.data:
             self.info['spin'] = True
             if '\n ALPHA-BETA ELECTRONS LOCKED TO ' in self.data:
                 spin_info = self.data.split('\n ALPHA-BETA ELECTRONS LOCKED TO ', 1)[-1].split("\n", 1)[0].replace('FOR', '').split()
