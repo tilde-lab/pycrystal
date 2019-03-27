@@ -52,7 +52,7 @@ class CRYSTOUT(object):
 
     patterns = {
         'Etot':                  re.compile(r"\n\sTOTAL ENERGY\(.{2,3}\)\(.{2}\)\(.{3,4}\)\s(\S{20})\s{1,10}DE(?!.*\n\sTOTAL ENERGY\(.{2,3}\)\(.{2}\)\(.{3,4}\)\s)", re.DOTALL),
-        'dEtot':                 re.compile(r"\sTOTAL ENERGY\(.{2,3}\)\(.{2}\)\(.{3,4}\).{21}\s{1,10}DE\s*[\(AU\)]*\s*([-\d.E]*)",re.DOTALL),
+        'dEtot':                 re.compile(r"\sTOTAL ENERGY\(.{2,3}\)\(.{2}\)\(.{3,4}\).{21}\s{1,10}DE\s*[\(AU\)]*\s*([-+\d.E]*)",re.DOTALL),
         'pEtot':                 re.compile(r"\n\sTOTAL ENERGY\s(.+?)\sCONVERGENCE"),
         'syminfos':              re.compile(r"SYMMOPS - TRANSLATORS IN FRACTIONA\w{1,2} UNITS(.+?)\n\n", re.DOTALL),
         'frac_primitive_cells':  re.compile(r"\n\sPRIMITIVE CELL(.+?)ATOM BELONGING TO THE ASYMMETRIC UNIT", re.DOTALL),
@@ -64,6 +64,9 @@ class CRYSTOUT(object):
         'magmoms':               re.compile(r"ALPHA-BETA ELECTRONS\n\sMULLIKEN POPULATION ANALYSIS(.+?)OVERLAP POPULATION CONDENSED TO ATOMS", re.DOTALL),
         'icharges':              re.compile(r"\n\sATOMIC NUMBER(.{4}),\sNUCLEAR CHARGE(.{7}),"),
         'starting':              re.compile(r"EEEEEEEEEE STARTING(.+?)\n"),
+        'starting_ion':          re.compile(r"\n STARTING GEOMETRY OPTIMIZATION"),
+        'scf_converge':          re.compile(r" == SCF ENDED - CONVERGENCE ON ENERGY      E\(AU\)\s*([-+\dE.]*)\s*CYCLES\s*([\d]*)", re.DOTALL),
+        'ion_converge':          re.compile(r" \* OPT END - CONVERGED \* E\(AU\):\s*([-+\dE.]*)\s*POINTS\s*([\d]*) \*", re.DOTALL),
         'ending':                re.compile(r"EEEEEEEEEE TERMINATION(.+?)\n"),
         'freqs':                 re.compile(r"DISPERSION K POINT(.+?)FREQ\(CM\*\*\-1\)", re.DOTALL),
         'n_atoms':               re.compile(r"\sN. OF ATOMS PER CELL\s*(\d*)", re.DOTALL),
@@ -112,10 +115,11 @@ class CRYSTOUT(object):
             'finished':    0x0,
             'duration':    None,
             'input':       None,
-
             'structures':  [], # list of valid ASE objects
             'energy':      None, # in eV
             'e_accuracy':  None,
+            'scf_conv':    None,
+            'ion_conv':    None,
             'H':           None,
             'H_types':     [], # can be 0x1, 0x2, 0x4, and 0x5
             'tol':         None,
@@ -210,6 +214,8 @@ class CRYSTOUT(object):
             self.decide_charges()
             self.decide_scfdata()
             self.decide_method()
+
+            self.info['scf_conv'], self.info['ion_conv'] = self.get_convergence()
 
             self.info['electrons']['basis_set'] = self.get_bs()
 
@@ -515,8 +521,8 @@ class CRYSTOUT(object):
 
     def get_detot(self):
         de = self.patterns['dEtot'].search(self.data)
-
-        if de is not None:
+        if de is not None and de.groups()[0]:
+            # it might happen that DE is equal to NaN
             return float(de.groups()[0]) * Hartree
         return None
 
@@ -527,7 +533,21 @@ class CRYSTOUT(object):
             self.warning('No energy in PROPERTIES output!')
             return None'''
 
-
+    def get_convergence(self):
+        """Returns electronic and ionic convergence"""
+        if not self.info['convergence']:
+            return None, None
+        # electronic convergence
+        conv_el_re = self.patterns['scf_converge'].search(self.data)
+        conv_el = False if conv_el_re is None else bool(conv_el_re.groups())
+        # ionic convergence
+        optgeom_re = self.patterns['starting_ion'].search(self.data)
+        if optgeom_re is None:
+            return conv_el, None
+        conv_ion_re = self.patterns['ion_converge'].search(self.data)
+        conv_ion = False if conv_ion_re is None else bool(conv_ion_re.groups())
+        return conv_el, conv_ion
+        
     def get_phonons(self):
 
         if not "U   U  EEEE  N   N   CCC  Y   Y" in self.data:
