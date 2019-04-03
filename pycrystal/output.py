@@ -91,7 +91,10 @@ class CRYSTOUT(object):
         'pv':                    re.compile(r"\n PV            :\s(.*)\n"),
         'ts':                    re.compile(r"\n TS            :\s(.*)\n"),
         'et':                    re.compile(r"\n ET            :\s(.*)\n"),
-        'T':                     re.compile(r"\n AT \(T =(.*)MPA\):\n"),
+        'T':                     re.compile(r"\n AT \(T =(.*)K, P =(.*)MPA\):\n"),
+        'entropy':               re.compile(r"\n ENTROPY       :\s(.*)\n"),
+        'C':                     re.compile(r"\n HEAT CAPACITY :\s(.*)\n"),
+
     }
 
     # this is the limiting distance,
@@ -1532,42 +1535,68 @@ class CRYSTOUT(object):
 
 
     def get_td(self):
-        td = {'t':[], 'pv':[], 'ts':[], 'et':[]}
+        td = {'t': [], 'p': [], 'pv': [], 'ts': [], 'et': [], 'C': [], 'S': []}
         t = self.patterns['T'].findall(self.data)
 
         if t is not None:
             for i in t:
-                td['t'].append(float(i.split('K,')[0]))
+                td['t'].append(float(i[0]))
+                td['p'].append(float(i[1]))
 
         pv = self.patterns['pv'].findall(self.data)
 
         if pv is not None:
             for i in pv:
-                td['pv'].append(float(i.split()[0])) # AU/CELL
+                td['pv'].append(float(i.split()[1])) # EV/CELL
 
         ts = self.patterns['ts'].findall(self.data)
 
         if ts is not None:
             for i in ts:
-                i = i.split()[0]
+                i = i.split()[1]
                 try:
                     i = float(i)
                     if math.isnan(i): i = 0.0
                 except ValueError:
                     i = 0.0
-                td['ts'].append(float(i)) # AU/CELL
+                td['ts'].append(float(i)) # EV/CELL
 
         et = self.patterns['et'].findall(self.data)
 
         if et is not None:
             for i in et:
-                i = i.split()[0]
+                i = i.split()[1]
                 try:
                     i = float(i)
                     if math.isnan(i): i = 0.0
                 except ValueError:
                     i = 0.0
-                td['et'].append(float(i)) # AU/CELL
+                td['et'].append(float(i)) # EV/CELL
+
+        s = self.patterns['entropy'].findall(self.data)
+
+        if s is not None:
+            for i in s:
+                i = i.split()[2]
+                try:
+                    i = float(i)
+                    if math.isnan(i): i = 0.0
+                except ValueError:
+                    i = 0.0
+                td['S'].append(float(i)) # J/(MOL*K)
+
+
+        c = self.patterns['C'].findall(self.data)
+
+        if c is not None:
+            for i in c:
+                i = i.split()[2]
+                try:
+                    i = float(i)
+                    if math.isnan(i): i = 0.0
+                except ValueError:
+                    i = 0.0
+                td['C'].append(float(i)) # J/(MOL*K)
 
         if td['t'] and td['pv'] and td['ts'] and td['et']:
             return td
