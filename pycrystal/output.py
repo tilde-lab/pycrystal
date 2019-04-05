@@ -94,7 +94,21 @@ class CRYSTOUT(object):
         'T':                     re.compile(r"\n AT \(T =(.*)K, P =(.*)MPA\):\n"),
         'entropy':               re.compile(r"\n ENTROPY       :\s(.*)\n"),
         'C':                     re.compile(r"\n HEAT CAPACITY :\s(.*)\n"),
-
+        'elastic_constants':     re.compile(r" SYMMETRIZED ELASTIC CONSTANTS .*\n\n"
+                                            r" \| ([.\d\s]*) \|\n"
+                                            r" \| ([.\d\s]*) \|\n"
+                                            r" \| ([.\d\s]*) \|\n"
+                                            r" \| ([.\d\s]*) \|\n"
+                                            r" \| ([.\d\s]*) \|\n"
+                                            r" \| ([.\d\s]*) \|\n"), 
+        'elastic_moduli':        re.compile(r" ELASTIC MODULI .*\n\n"
+                                            r" \| ([-.\d\s]*) \|\n"
+                                            r" \| ([-.\d\s]*) \|\n"
+                                            r" \| ([-.\d\s]*) \|\n"
+                                            r" \| ([-.\d\s]*) \|\n"
+                                            r" \| ([-.\d\s]*) \|\n"
+                                            r" \| ([-.\d\s]*) \|\n"),
+        'effective_moduli':      re.compile(r"K_V\s*G_V.*\n\n([.\d\s]*)"),
     }
 
     # this is the limiting distance,
@@ -160,7 +174,20 @@ class CRYSTOUT(object):
                 'dielectric_tensor': False,
                 'zpe':               None,
                 'td':                None
-            }
+            },
+            'elastic': {
+                'elastic_constants': [],
+                'elastic_moduli': [],
+                'K_V': None,
+                'G_V': None,
+                'K_R': None,
+                'G_R': None,
+                'K': None,
+                'G': None,
+                'E': None,
+                'v': None,
+                # 'seismic_velocities': {}
+            },
         }
 
         '''if kwargs:
@@ -250,6 +277,19 @@ class CRYSTOUT(object):
             self.info['n_electrons'] = self.get_number('n_electrons')
             self.info['n_core_el'] = self.get_number('n_core_el')
             self.info['n_symops'] = self.get_number('n_symops')
+
+            # get elastic constants
+            self.info['elastic']['elastic_constants'] = self.get_elastic('elastic_constants')
+            self.info['elastic']['elastic_moduli'] = self.get_elastic('elastic_moduli')
+            k_v, g_v, k_r, g_r, k, g, e, v = self.get_effective_elastic_moduli()
+            self.info['elastic']['K_V'] = k_v
+            self.info['elastic']['G_V'] = g_v
+            self.info['elastic']['K_R'] = k_r
+            self.info['elastic']['G_R'] = g_r
+            self.info['elastic']['K'] = k
+            self.info['elastic']['G'] = g
+            self.info['elastic']['E'] = e
+            self.info['elastic']['v'] = v
 
         if self.properties_calc and not self.crystal_calc:
             raise CRYSTOUT_Error('PROPERTIES output with insufficient information omitted!')
@@ -732,6 +772,24 @@ class CRYSTOUT(object):
 
         return k_degeneracy_data
 
+    def get_elastic(self, pattern):
+        constants = []
+        const_rows = self.patterns[pattern].findall(self.data)
+        if not const_rows:
+            return None
+        for i_row, row in enumerate(const_rows[0]):
+            constants.append([])
+            for ec in range(i_row):
+                constants[-1].append(constants[ec][i_row])
+            for ec in row.split():
+                constants[-1].append(float(ec))
+        return constants
+
+    def get_effective_elastic_moduli(self):
+        moduli = self.patterns['effective_moduli'].findall(self.data)
+        if not moduli:
+            return None, None, None, None, None, None, None, None
+        return [float(x) for x in moduli[0].split()]        
 
     def decide_charges(self):
         charges, magmoms = [], []
