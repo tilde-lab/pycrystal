@@ -64,7 +64,7 @@ class CRYSTOUT(object):
         'magmoms':               re.compile(r"ALPHA-BETA ELECTRONS\n\sMULLIKEN POPULATION ANALYSIS(.+?)OVERLAP POPULATION CONDENSED TO ATOMS", re.DOTALL),
         'icharges':              re.compile(r"\n\sATOMIC NUMBER(.{4}),\sNUCLEAR CHARGE(.{7}),"),
         'starting':              re.compile(r"EEEEEEEEEE STARTING(.+?)\n"),
-        'starting_ion':          re.compile(r"\n STARTING GEOMETRY OPTIMIZATION"),
+        'starting_ion':          re.compile(r"\n OPTOPTOPTOPTOPT"),
         'scf_converge':          re.compile(r" == SCF ENDED - CONVERGENCE ON ENERGY      E\(AU\)\s*([-+\dE.]*)\s*CYCLES\s*([\d]*)", re.DOTALL),
         'ion_converge':          re.compile(r" \* OPT END - CONVERGED \* E\(AU\):\s*([-+\dE.]*)\s*POINTS\s*([\d]*) \*", re.DOTALL),
         'ending':                re.compile(r"EEEEEEEEEE TERMINATION(.+?)\n"),
