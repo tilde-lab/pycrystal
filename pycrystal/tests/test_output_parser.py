@@ -81,7 +81,7 @@ def test_freqcalc():
     assert info['finished'] == 2                            # finished without errors
     assert info['energy'] == -1.3167028008915E+03 * Ha      # energy in eV
     assert info['k'] == '3x3x3'                             # Monkhorst-Pack net
-    assert info['phonons']['td']['et'] == [0.005306548296]  # Et in Ha/cell
+    assert info['phonons']['td']['et'] == [0.144398520226]  # Et in eV/cell
 
 
 def test_spin():
