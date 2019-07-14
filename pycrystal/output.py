@@ -87,13 +87,13 @@ class CRYSTOUT(object):
         'n_electrons': re.compile(r"\sN. OF ELECTRONS PER CELL\s*(\d*)", re.DOTALL),
         'n_core_el': re.compile(r"\sCORE ELECTRONS PER CELL\s*(\d*)", re.DOTALL),
         'n_symops': re.compile(r"\sN. OF SYMMETRY OPERATORS\s*(\d*)", re.DOTALL),
-        'gamma_freqs': re.compile(r"\(HARTREE\*\*2\)   \(CM\*\*\-1\)     \(THZ\)             \(KM\/MOL\)(.+?)"
+        'gamma_freqs': re.compile(r"\(HARTREE\*\*2\) {3}\(CM\*\*-1\) {5}\(THZ\)  {13}KM/MOL\)(.+?)"
                                   r"NORMAL MODES NORMALIZED TO CLASSICAL AMPLITUDES", re.DOTALL),
         'ph_eigvecs': re.compile(r"NORMAL MODES NORMALIZED TO CLASSICAL AMPLITUDES(.+?)\*{79}", re.DOTALL),
         'needed_disp': re.compile(r"\d{1,4}\s{2,6}(\d{1,4})\s{1,3}\w{1,2}\s{11,12}(\w{1,2})\s{11,12}\d{1,2}"),
-        'symdisps': re.compile(r"N   LABEL SYMBOL DISPLACEMENT     SYM.(.*)NUMBER OF IRREDUCIBLE ATOMS",
+        'symdisps': re.compile(r"N {3}LABEL SYMBOL DISPLACEMENT {5} SYM.(.*)NUMBER OF IRREDUCIBLE ATOMS",
                                re.DOTALL),
-        'ph_k_degeneracy': re.compile(r"K       WEIGHT       COORD(.*)AND RECIPROCAL LATTICE VECTORS", re.DOTALL),
+        'ph_k_degeneracy': re.compile(r"K {7}WEIGHT {7}COORD(.*)AND RECIPROCAL LATTICE VECTORS", re.DOTALL),
         'supmatrix': re.compile(r"EXPANSION MATRIX OF PRIMITIVE CELL(.+?)\sNUMBER OF ATOMS PER SUPERCELL",
                                 re.DOTALL),
         'cyc': re.compile(r"\n\sCYC\s(.+?)\n"),
@@ -123,7 +123,7 @@ class CRYSTOUT(object):
                                      r" \| ([-.\d\s]*) \|\n"
                                      r" \| ([-.\d\s]*) \|\n"
                                      r" \| ([-.\d\s]*) \|\n"),
-        'effective_moduli': re.compile(r"K_V\s*G_V.*\n\n([.\d\s]*)"),
+        'effective_moduli': re.compile(r"K_V\s*G_V.*\n\n([-.\d\s]*)"),
     }
 
     # this is the limiting distance,

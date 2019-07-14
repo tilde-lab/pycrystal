@@ -85,7 +85,7 @@ def test_freqcalc():
 
 
 def test_spin():
-    """Phonon dispersion"""
+    """Spin calculation"""
     test_file = os.path.join(DATA_DIR, 'test37.out')
     parser = CRYSTOUT(test_file)
     info = parser.info
@@ -94,3 +94,15 @@ def test_spin():
     assert info['energy'] == -3.0283685769288E+03 * Ha      # energy in eV
     assert info['k'] == '4x4x1'                             # Monkhorst-Pack net
     assert info['spin']
+
+
+def test_elastic():
+    """Elastic constants calculation"""
+    test_file = os.path.join(DATA_DIR, '1674.out')
+    parser = CRYSTOUT(test_file)
+    info = parser.info
+    assert info['prog'] == '17 1.0.2'                         # CRYSTAL version
+    assert info['finished'] == 2                            # finished without errors
+    assert info['energy'] == -6.2238169993737E+02 * Ha      # energy in eV
+    assert info['k'] == '8x8x8'                             # Monkhorst-Pack net
+    assert info['elastic']['K_V'] == 33.87
