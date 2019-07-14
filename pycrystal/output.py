@@ -797,8 +797,10 @@ class CRYSTOUT(object):
             constants.append([])
             for ec in range(i_row):
                 constants[-1].append(constants[ec][i_row])
-            for ec in row.split():
-                constants[-1].append(float(ec))
+            # as number width is 9 in EC output, the numbers can glue together, which is undesirable
+            # we can not just split a row
+            row = row.strip().rjust((6-i_row)*9, ' ')
+            constants[-1] += [float(row[i:i + 9]) for i in range(0, 9*(6-i_row), 9)]
         return constants
 
     def get_effective_elastic_moduli(self):

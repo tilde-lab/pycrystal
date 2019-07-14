@@ -106,3 +106,7 @@ def test_elastic():
     assert info['energy'] == -6.2238169993737E+02 * Ha      # energy in eV
     assert info['k'] == '8x8x8'                             # Monkhorst-Pack net
     assert info['elastic']['K_V'] == 33.87
+    test_file = os.path.join(DATA_DIR, '2324.out')
+    parser = CRYSTOUT(test_file)
+    info = parser.info
+    assert info['elastic']['elastic_moduli'][0] == [659.2238, -404.2543, -249.8055, 0.0, 0.0, 0.0]
