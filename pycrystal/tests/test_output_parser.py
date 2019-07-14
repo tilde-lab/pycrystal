@@ -110,3 +110,16 @@ def test_elastic():
     parser = CRYSTOUT(test_file)
     info = parser.info
     assert info['elastic']['elastic_moduli'][0] == [659.2238, -404.2543, -249.8055, 0.0, 0.0, 0.0]
+
+
+def test_band_gap():
+    """Elastic constants calculation"""
+    test_file = os.path.join(DATA_DIR, '1674.out')
+    parser = CRYSTOUT(test_file)
+    info = parser.info
+    assert info['prog'] == '17 1.0.2'                         # CRYSTAL version
+    assert info['conduction'][0] == {'state': 'INSULATING',
+                                     'top_valence': 14,
+                                     'bottom_virtual': 15,
+                                     'band_gap': 6.2079,
+                                     'band_gap_type': 'INDIRECT'}

@@ -80,6 +80,11 @@ class CRYSTOUT(object):
         'ion_converge': re.compile(r" \* OPT END - CONVERGED \* E\(AU\):\s*([-+\dE.]*)\s*POINTS\s*([\d]*) \*",
                                    re.DOTALL),
         'ending': re.compile(r"EEEEEEEEEE TERMINATION(.+?)\n"),
+        'conduction_states': re.compile(r"(INSULATING|CONDUCTING) STATE(.*?)TTTTTTT", re.DOTALL),
+        'top_valence': re.compile(r"TOP OF VALENCE BANDS - {4}BAND\s*(\d*)", re.DOTALL),
+        'bottom_virtual': re.compile(r"BOTTOM OF VIRTUAL BANDS - BAND\s*(\d*)", re.DOTALL),
+        'band_gap': re.compile(r"(DIRECT|INDIRECT) ENERGY BAND GAP:\s*([.\d]*)", re.DOTALL),
+        'e_fermi': re.compile(r"EFERMI\(AU\)\s*([-.E\d]*)", re.DOTALL),
         'freqs': re.compile(r"DISPERSION K POINT(.+?)FREQ\(CM\*\*-1\)", re.DOTALL),
         'n_atoms': re.compile(r"\sN. OF ATOMS PER CELL\s*(\d*)", re.DOTALL),
         'n_shells': re.compile(r"\sNUMBER OF SHELLS\s*(\d*)", re.DOTALL),
@@ -134,34 +139,35 @@ class CRYSTOUT(object):
 
     def __init__(self, filename, **kwargs):
 
-        self.data = ''  # file contents
+        self.data = ''              # file contents
         self.pdata = None
         self.related_files = []
         self.properties_calc, self.crystal_calc = False, False
 
         self.info = {
             'warns': [],
-            'prog': None,  # code version
+            'prog': None,           # code version
             'techs': [],
             'finished': 0x0,
             'duration': None,
             'input': None,
-            'structures': [],  # list of valid ASE objects
-            'energy': None,  # in eV
+            'structures': [],       # list of valid ASE objects
+            'energy': None,         # in eV
             'e_accuracy': None,
             'scf_conv': None,
             'ion_conv': None,
             'H': None,
-            'H_types': [],  # can be 0x1, 0x2, 0x4, and 0x5
+            'H_types': [],          # can be 0x1, 0x2, 0x4, and 0x5
             'tol': None,
             'k': None,
-            'smear': None,  # in a.u.
+            'smear': None,          # in a.u.
             'smeartype': None,
             'spin': False,
             'lockstate': None,
-            'convergence': [],  # zero-point energy convergence
-            'optgeom': [],  # optimization convergence, list of lists, 5 values each
-            'ncycles': [],  # number of cycles at each optimisation step
+            'convergence': [],      # zero-point energy convergence
+            'conduction': [],
+            'optgeom': [],          # optimization convergence, list of lists, 5 values each
+            'ncycles': [],          # number of cycles at each optimisation step
             'n_atoms': None,
             'n_shells': None,
             'n_ao': None,
@@ -171,10 +177,10 @@ class CRYSTOUT(object):
 
             'electrons': {
                 'basis_set': None,  # LCAO Gaussian basis sets in form: {'bs': {...}, 'ecp': {...}}
-                'eigvals': {},  # raw eigenvalues {k:{alpha:[...], beta:[...]},}
-                'projected': [],  # raw eigenvalues [..., ...] for total DOS smearing
-                'dos': {},  # in advance pre-computed DOS
-                'bands': {}  # in advance pre-computed band structure
+                'eigvals': {},      # raw eigenvalues {k:{alpha:[...], beta:[...]},}
+                'projected': [],    # raw eigenvalues [..., ...] for total DOS smearing
+                'dos': {},          # in advance pre-computed DOS
+                'bands': {}         # in advance pre-computed band structure
             },
             'phonons': {
                 'modes': {},
@@ -259,6 +265,7 @@ class CRYSTOUT(object):
             self.decide_method()
 
             self.info['scf_conv'], self.info['ion_conv'] = self.get_convergence()
+            self.info['conduction'] = self.get_conduction()
 
             self.info['electrons']['basis_set'] = self.get_bs()
 
@@ -555,6 +562,25 @@ class CRYSTOUT(object):
                           positions=atompos, pbc=False))
 
         return structures
+
+    def get_conduction(self):
+        res = []
+        states = self.patterns['conduction_states'].findall(self.data)
+        for state in states:
+            state_dict = {'state': state[0]}
+            if state[0] == "INSULATING":
+                # dealing with band gaps
+                state_dict['top_valence'] = int(self.patterns['top_valence'].search(self.data).groups()[0])
+                state_dict['bottom_virtual'] = int(self.patterns['bottom_virtual'].search(self.data).groups()[0])
+                bg_type, bg = self.patterns['band_gap'].search(self.data).groups()
+                state_dict['band_gap'] = float(bg)
+                state_dict['band_gap_type'] = bg_type
+            else:
+                # dealing with Fermi energies
+                state_dict['e_fermi'] = float(self.patterns['e_fermi'].search(self.data).groups()[0])
+                state_dict['e_fermi_units'] = 'Ha'
+            res.append(state_dict)
+        return res
 
     def get_etot(self):
         e = self.patterns['Etot'].search(self.data)
