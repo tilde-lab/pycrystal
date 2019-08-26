@@ -81,11 +81,11 @@ def test_freqcalc():
     assert info['finished'] == 2                            # finished without errors
     assert info['energy'] == -1.3167028008915E+03 * Ha      # energy in eV
     assert info['k'] == '3x3x3'                             # Monkhorst-Pack net
-    assert info['phonons']['td']['et'] == [0.005306548296]  # Et in Ha/cell
+    assert info['phonons']['td']['et'] == [0.144398520226]  # Et in eV/cell
 
 
 def test_spin():
-    """Phonon dispersion"""
+    """Spin calculation"""
     test_file = os.path.join(DATA_DIR, 'test37.out')
     parser = CRYSTOUT(test_file)
     info = parser.info
@@ -94,3 +94,32 @@ def test_spin():
     assert info['energy'] == -3.0283685769288E+03 * Ha      # energy in eV
     assert info['k'] == '4x4x1'                             # Monkhorst-Pack net
     assert info['spin']
+
+
+def test_elastic():
+    """Elastic constants calculation"""
+    test_file = os.path.join(DATA_DIR, '1674.out')
+    parser = CRYSTOUT(test_file)
+    info = parser.info
+    assert info['prog'] == '17 1.0.2'                         # CRYSTAL version
+    assert info['finished'] == 2                            # finished without errors
+    assert info['energy'] == -6.2238169993737E+02 * Ha      # energy in eV
+    assert info['k'] == '8x8x8'                             # Monkhorst-Pack net
+    assert info['elastic']['K_V'] == 33.87
+    test_file = os.path.join(DATA_DIR, '2324.out')
+    parser = CRYSTOUT(test_file)
+    info = parser.info
+    assert info['elastic']['elastic_moduli'][0] == [659.2238, -404.2543, -249.8055, 0.0, 0.0, 0.0]
+
+
+def test_band_gap():
+    """Elastic constants calculation"""
+    test_file = os.path.join(DATA_DIR, '1674.out')
+    parser = CRYSTOUT(test_file)
+    info = parser.info
+    assert info['prog'] == '17 1.0.2'                         # CRYSTAL version
+    assert info['conduction'][0] == {'state': 'INSULATING',
+                                     'top_valence': 14,
+                                     'bottom_virtual': 15,
+                                     'band_gap': 6.2079,
+                                     'band_gap_type': 'INDIRECT'}
