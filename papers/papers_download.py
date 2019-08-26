@@ -43,17 +43,20 @@ if __name__ == "__main__":
 
     for key, item in els2bib['paperids2bib'].items():
 
+        file_name = 'data/' + key + '.pdf'
+        if os.path.exists(file_name):
+            #paperids2data[key] = (file_name, doi, authors, title, true_pubdata, pubyear)
+            continue
+
+        logging.info('='*75 + key)
+
         result = mine_doi(*item)
         if not result:
             logging.critical('DOI ERROR WITH %s (%s)' % (key, item))
             continue
 
         doi, authors, title, true_pubdata, pubyear = result
-        file_name = 'data/' + key + '.pdf'
-
-        if os.path.exists(file_name):
-            paperids2data[key] = (file_name, doi, authors, title, true_pubdata, pubyear)
-            continue
+        logging.info('DOI FOR %s: %s' % (key, doi))
 
         retrieved = retrieve_paper(doi, file_name, solve_captcha=True)
         if not retrieved:

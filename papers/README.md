@@ -12,6 +12,5 @@ pip install requests bs4 pylev python3_anticaptcha
 Check anti-captcha balance:
 ```
 #!/usr/bin/env python3
-from python3_anticaptcha import AntiCaptchaControl
-print(AntiCaptchaControl.AntiCaptchaControl(anticaptcha_key="").get_balance())
+from python3_anticaptcha import AntiCaptchaControl; print(AntiCaptchaControl.AntiCaptchaControl(anticaptcha_key="").get_balance())
 ```
