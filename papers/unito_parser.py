@@ -91,12 +91,13 @@ def mine_unito():
         title = pub_content.split('``', 1)[1].split("'',")[0].replace('  ', ' ')
         title = regex.sub('', title)
 
-        pubdata = pub_content.split('``', 1)[1].split("'',", 1)[1].replace('  ', ' ').strip()
+        pubdata = pub_content.split('``', 1)[1].split("'',", 1)[1].replace('  ', ' ')
         pubyear = pubdata.split('(')[-1].split(')')[0]
         try: pubyear = int(pubyear)
         except ValueError:
             logging.warning("CANNOT GET YEAR FROM: %s" % pubdata)
         pubdata = regex.sub('', pubdata.split('(')[0])
+        pubdata = pubdata.strip()
 
         _paperids2bib[anchor] = (authors, title, pubyear, pubdata)
 
