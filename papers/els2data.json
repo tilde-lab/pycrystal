@@ -1,0 +1,4010 @@
+{
+    "sto91": [
+        "data/sto91.pdf",
+        "10.1021/j100190a047",
+        "Hess, Saunders",
+        "Periodic ab initio Hartree-Fock calculations of the low-symmetry mineral kaolinite",
+        "The Journal of Physical Chemistry; 11, 4367-4374",
+        1992
+    ],
+    "calatayud2001": [
+        "data/calatayud2001.pdf",
+        "10.1103/physrevb.64.184113",
+        "Andres, Beltran, Calatayud, Francisco, Martin pendas, Mori-sanchez, Recio",
+        "Quantum-mechanical analysis of the equation of state of anataseTiO2",
+        "Physical Review B; 18",
+        2001
+    ],
+    "moore2000": [
+        "data/moore2000.pdf",
+        "10.1039/a909011h",
+        "Johnson, Moore, Mortimer, Wigglesworth",
+        "A comparison of ab initio cluster and periodic calculations of the electric field gradient at sodium in NaNO2",
+        "Physical Chemistry Chemical Physics; 6, 1325-1331",
+        2000
+    ],
+    "zhukovskii00": [
+        "data/zhukovskii00.pdf",
+        "10.1088/0953-8984/12/1/305",
+        "Harding, Jacobs, Kotomin, Stoneham, Zhukovskii",
+        "Modelling of silver adhesion on MgO(100) surface with defects",
+        "Journal of Physics: Condensed Matter; 1, 55-66",
+        2000
+    ],
+    "gibbs2007": [
+        "data/gibbs2007.pdf",
+        "10.1021/jp065086i",
+        "Cox, Downs, Gibbs, Ross, Rosso, Spackman",
+        "Theoretical Electron Density Distributions for Fe- and Cu-Sulfide Earth Materials:  A Connection between Bond Length, Bond Critical Point Properties, Local Energy Densities, and Bonded Interactions",
+        "The Journal of Physical Chemistry B; 8, 1923-1931",
+        2007
+    ],
+    "to150": [
+        "data/to150.pdf",
+        "10.1103/physrevb.47.11717",
+        "Causa, Fahmi, Minot, Silvi",
+        "Theoretical analysis of the structures of titanium dioxide crystals",
+        "Physical Review B; 18, 11717-11724",
+        1993
+    ],
+    "to102": [
+        "data/to102.pdf",
+        "10.1016/0039-6028(89)90390-7",
+        "Dovesi, Nada, Pisani, Tamiro",
+        "Ab-initio Hartree-Fock perturbed-cluster treatment of local chemisorption",
+        "Surface Science; 3, 489-504",
+        1989
+    ],
+    "almeida2003": [
+        "data/almeida2003.pdf",
+        "10.1002/qua.10399",
+        "Almeida, Causa, Fiolhais",
+        "Properties of simple metals beyond the local density approximation of density functional theory",
+        "International Journal of Quantum Chemistry; 2, 224-229",
+        2003
+    ],
+    "sto85": [
+        "data/sto85.pdf",
+        "10.1021/jp953513e",
+        "Chacon-taylor, Mccarthy",
+        "Ab InitioBased Classical Electrostatic Potentials for the Interaction between Molecules and Surfaces",
+        "The Journal of Physical Chemistry; 18, 7610-7616",
+        1996
+    ],
+    "sto53": [
+        "data/sto53.pdf",
+        "10.1063/1.474774",
+        "Allan, Barrera, Barron, Kantorovich, Mackrodt, Taylor",
+        "Ionic solids at elevated temperatures and high pressures: MgF2",
+        "The Journal of Chemical Physics; 11, 4337-4344",
+        1997
+    ],
+    "swamy2002": [
+        "data/swamy2002.pdf",
+        "10.1016/s0039-6028(01)01925-2",
+        "Gale, Harrison, Muscat, Swamy",
+        "Simulation of low index rutile surfaces with a transferable variable-charge TiO interatomic potential and comparison with ab initio results",
+        "Surface Science; 115-124",
+        2002
+    ],
+    "baranek99": [
+        "data/baranek99.pdf",
+        "10.1021/jp982114r",
+        "Baranek, Schamps",
+        "Influence of Electronic Correlation on Structural, Dynamic, and Elastic Properties of Mg2Si",
+        "The Journal of Physical Chemistry B; 14, 2601-2606",
+        1999
+    ],
+    "maslyuk2006": [
+        "data/maslyuk2006.pdf",
+        "10.1002/cphc.200500486",
+        "Bredow, Maslyuk, Pfnur, Tegenkamp",
+        "Adsorption of Functionalized Benzoic Acids on MgSO4H2O (100)",
+        "ChemPhysChem; 5, 1055-1061",
+        2006
+    ],
+    "to195": [
+        "data/to195.pdf",
+        "10.1063/1.467882",
+        "Gatti, Roetti, Saunders",
+        "Crystal field effects on the topological properties of the electron density in molecular crystals: The case of urea",
+        "The Journal of Chemical Physics; 12, 10686-10696",
+        1994
+    ],
+    "to236": [
+        "data/to236.pdf",
+        "10.1007/bf03185375",
+        "Dovesi, Zicovich-wilson",
+        "On the structure and stability ofTi-zeolites. A comparison of cluster and periodicab initio calculations",
+        "Il Nuovo Cimento D; 11, 1785-1790",
+        1997
+    ],
+    "sto44": [
+        "data/sto44.pdf",
+        "10.1103/physrevb.57.4327",
+        "Doll, Stoll",
+        "Ground-state properties of heavy alkali halides",
+        "Physical Review B; 8, 4327-4331",
+        1998
+    ],
+    "to244": [
+        "data/to244.pdf",
+        "10.1063/1.475260",
+        "Birkenheuer, Pisani, Scorza",
+        "The oxygen vacancy at the surface and in bulk MgO: An embedded-cluster study",
+        "The Journal of Chemical Physics; 22, 9645-9658",
+        1997
+    ],
+    "to111": [
+        "data/to111.pdf",
+        "10.1016/0039-6028(90)90133-s",
+        "Causa, Dovesi, Kotomin, Ricca, Shluger",
+        "The adsorption of SiO molecules on MgO Surfaces as a model for the silicon lever atomic force microscope (AFM)",
+        "Surface Science; 3, 399-406",
+        1990
+    ],
+    "to172": [
+        "data/to172.pdf",
+        "10.1103/physrevb.49.14179",
+        "Catti, Causa, Dovesi, Valerio",
+        "Quantum-mechanical calculation of the solid-state equilibrium MgO+-Al2O3MgAl2O4(spinel) versus pressure",
+        "Physical Review B; 20, 14179-14187",
+        1994
+    ],
+    "to247": [
+        "data/to247.pdf",
+        "10.1016/s0166-1280(97)00252-2",
+        "Bianchi, Milanesio, Roetti, Ugliengo, Viterbo",
+        "VitaminC at 120K: experimental and theoretical study of the charge density",
+        "Journal of Molecular Structure: THEOCHEM; 1-3, 139-154",
+        1997
+    ],
+    "to145": [
+        "data/to145.pdf",
+        "10.1103/physrevb.48.799",
+        "Causa, Dovesi, Petek, Zupan",
+        "Elastic constants, phase transition, and electronic structure of strontium oxide SrO: Anab initioHartree-Fock study",
+        "Physical Review B; 2, 799-806",
+        1993
+    ],
+    "sto26": [
+        "data/sto26.pdf",
+        "10.1002/bbpc.199700033",
+        "Allan, Gotsis, Mackrodt",
+        "First Principles Calculations of Solute-Hole Interactions in the HighTcOxyfluoride Superconductor Sr2CuO2F2",
+        "Berichte der Bunsengesellschaft f\u00fcr physikalische Chemie; 9, 1242-1244",
+        1997
+    ],
+    "evarestov97": [
+        "data/evarestov97.pdf",
+        "10.1002/1521-3951(199705)201:1<75::aid-pssb75>3.0.co;2-3",
+        "Evarestov, Smirnov",
+        "Symmetry of the Model of a Crystal with a Periodic Defect: Point Defects in MgO Crystal",
+        "physica status solidi (b); 1, 75-87",
+        1997
+    ],
+    "muscat2003": [
+        "data/muscat2003.pdf",
+        "10.1016/s0016-7037(02)00978-x",
+        "Gale, Muscat",
+        "First principles studies of the surface of galena PbS",
+        "Geochimica et Cosmochimica Acta; 5, 799-805",
+        2003
+    ],
+    "perry2002": [
+        "data/perry2002.pdf",
+        "10.1103/physrevb.65.144501",
+        "Goddard, Perry, Tahir-kheli",
+        "Ab initioevidence for the formation of impurityd3z2r2holes in dopedLa2xSrxCuO4",
+        "Physical Review B; 14",
+        2002
+    ],
+    "to80": [
+        "data/to80.pdf",
+        "10.1103/physrevb.34.2939",
+        "Causa, Dovesi, Pisani, Roetti",
+        "Directional Compton profiles and autocorrelation function of magnesium oxide",
+        "Physical Review B; 4, 2939-2941",
+        1986
+    ],
+    "Linnolahti2006": [
+        "data/Linnolahti2006.pdf",
+        "10.1021/jp060256c",
+        "Linnolahti, Pakkanen",
+        "Quantum Chemical Treatment of Large Nanotubes via Use of Line Group Symmetry:  Structural Preferences of Magnesium Dichloride Nanotubes",
+        "The Journal of Physical Chemistry B; 10, 4675-4678",
+        2006
+    ],
+    "gali2003": [
+        "data/gali2003.pdf",
+        "10.1103/physrevb.67.155203",
+        "Carlsson, Choyke, Deak, Gali, Ivanov, Janzen, Rauls, Son",
+        "Correlation between the antisite pair and theDIcenter in SiC",
+        "Physical Review B; 15",
+        2003
+    ],
+    "prencipe2002": [
+        "data/prencipe2002.pdf",
+        "10.1007/s00269-002-0256-4",
+        "Prencipe",
+        "Ab initio Hartree-Fock study and charge density analysis of beryl (Al 4 Be 6 Si 12 O 36 )",
+        "Physics and Chemistry of Minerals; 8, 552-561",
+        2002
+    ],
+    "zhukovskii2004": [
+        "data/zhukovskii2004.pdf",
+        "10.1016/j.apsusc.2003.11.044",
+        "Borstel, Dorfman, Fuks, Kotomin, Marshall stoneham, Sychev, Zhukovskii",
+        "First principles simulations of 2D Cu superlattices on the MgO(0 0 1) surface",
+        "Applied Surface Science; 1-3, 298-305",
+        2004
+    ],
+    "to129": [
+        "data/to129.pdf",
+        "10.1098/rspa.1992.0031",
+        "Catlow, Dovesi, Nada, Saunders",
+        "An ab initio Hartree-Fock Study of the Ilmenite-Structured MgSiOFormula",
+        "Proceedings of the Royal Society A: Mathematical, Physical and Engineering Sciences; 1898, 499-509",
+        1992
+    ],
+    "gibbs2003": [
+        "data/gibbs2003.pdf",
+        "10.1021/jp030583+",
+        "Carducci, Downs, Gibbs, Spackman, Stimpfl, Whitten",
+        "An Exploration of Theoretical and Experimental Electron Density Distributions and SiO Bonded Interactions for the Silica Polymorph Coesite",
+        "The Journal of Physical Chemistry B; 47, 12996-13006",
+        2003
+    ],
+    "to218": [
+        "data/to218.pdf",
+        "10.1016/s0022-3697(97)00117-0",
+        "Dovesi, Larrieu, Lichanot, Orlando",
+        "Lithium trapped-hole centre in magnesium oxide. An ab initio supercell study",
+        "Journal of Physics and Chemistry of Solids; 1, 7-12",
+        1998
+    ],
+    "marinelli2000a": [
+        "data/marinelli2000a.pdf",
+        "10.1016/s0022-3697(00)00049-4",
+        "Dupin, Lichanot, Marinelli",
+        "Comparison of elastic constants and electronic structures in the series of the alkaline-earth selenides: a quantum chemical approach",
+        "Journal of Physics and Chemistry of Solids; 10, 1707-1715",
+        2000
+    ],
+    "gibbs1999": [
+        "data/gibbs1999.pdf",
+        "10.1016/s0022-2860(99)00179-9",
+        "Boisen, Bukowinski, Gibbs, Rosso, Teter",
+        "Model structures and properties of the electron density distribution for low quartz at pressure: a study of the SiO bond",
+        "Journal of Molecular Structure; 13-25",
+        1999
+    ],
+    "to252": [
+        "data/to252.pdf",
+        "10.1016/s0022-3697(97)00249-7",
+        "Dovesi, Larrieu, Lichanot, Orlando, Roetti, Zicovich-wilson",
+        "Trapped-hole centres containing lithium and sodium in MgO, CaO and SrO. An ab initio supercell study",
+        "Journal of Physics and Chemistry of Solids; 6-7, 1119-1124",
+        1998
+    ],
+    "baxter00": [
+        "data/baxter00.pdf",
+        "10.1016/s0039-6028(99)01108-5",
+        "Baxter, Illas, Lopez, Reinhardt",
+        "The extent of relaxation of the -Al2O3 (0001) surface and the reliability of empirical potentials",
+        "Surface Science; 2-3, 448-460",
+        2000
+    ],
+    "ugliengo2002": [
+        "data/ugliengo2002.pdf",
+        "10.1016/s0009-2614(02)01657-3",
+        "Damin, Ugliengo",
+        "Are dispersive forces relevant for CO adsorption on the MgO(001) surface?",
+        "Chemical Physics Letters; 5-6, 683-690",
+        2002
+    ],
+    "to248": [
+        "data/to248.pdf",
+        "10.1021/jp972343y",
+        "Dovesi, Zicovich-wilson",
+        "Titanium-Containing Zeolites. A Periodic ab Initio HartreeFock Characterization",
+        "The Journal of Physical Chemistry B; 8, 1411-1417",
+        1998
+    ],
+    "to309": [
+        "data/to309.pdf",
+        "10.1103/physrevb.67.134513",
+        "De p. r. moreira, Dovesi",
+        "Ab initioperiodic approach to electronic structure and magnetic exchange inA2CuO2X2(A=Ca,Sr andX=F,Cl)high-Tcsuperconductor parent compounds",
+        "Physical Review B; 13",
+        2003
+    ],
+    "bredow2004b": [
+        "data/bredow2004b.pdf",
+        "10.1103/physrevb.70.035419",
+        "Bredow, Cinquini, Giordano, Pacchioni",
+        "Electronic properties of rutileTiO2ultrathin films: Odd-even oscillations with the number of layers",
+        "Physical Review B; 3",
+        2004
+    ],
+    "gnani2000": [
+        "data/gnani2000.pdf",
+        "10.1109/16.870550",
+        "Colle, Gnani, Reggiani, Rudan",
+        "Band-structure calculations of SiO/sub 2/ by means of Hartree-Fock and density-functional techniques",
+        "IEEE Transactions on Electron Devices; 10, 1795-1803",
+        2000
+    ],
+    "sto75": [
+        "data/sto75.pdf",
+        "10.1007/bf03185367",
+        "Ahdjoudj, Markovits, Minot",
+        "Theoretical study of the adsorption of acids and bases on TiO2 and MgO surfaces",
+        "Il Nuovo Cimento D; 11, 1719-1726",
+        1997
+    ],
+    "pandey99": [
+        "data/pandey99.pdf",
+        "10.1063/1.125558",
+        "Causa, Pandey, Rerat",
+        "First-principles study of stability, band structure, and optical properties of the ordered Ge0.50Sn0.50 alloy",
+        "Applied Physics Letters; 26, 4127-4129",
+        1999
+    ],
+    "to185": [
+        "data/to185.pdf",
+        "10.1080/01411599408201207",
+        "Dovesi, Orlando",
+        "Convergence properties of the supercell approach in the study of local defects in solids",
+        "Phase Transitions; 2-3, 151-167",
+        1994
+    ],
+    "goumans2007": [
+        "data/goumans2007.pdf",
+        "10.1039/b701176h",
+        "Brown, Catlow, Goumans, Wander",
+        "Structure and stability of the (001) -quartz surface",
+        "Phys. Chem. Chem. Phys.; 17, 2146-2152",
+        2007
+    ],
+    "munoz2007": [
+        "data/munoz2007.pdf",
+        "10.1103/physrevb.75.205336",
+        "Bersuker, Gavartin, Munoz ramo, Shluger",
+        "Spectroscopic properties of oxygen vacancies in monoclinicHfO2calculated with periodic and embedded cluster density functional theory",
+        "Physical Review B; 20",
+        2007
+    ],
+    "to193": [
+        "data/to193.pdf",
+        "10.1088/0953-8984/7/41/009",
+        "Dovesi, Orlando, Ricart, Saunders",
+        "Superexchange interaction in K2NiF4: an ab initio Hartree-Fock study",
+        "Journal of Physics: Condensed Matter; 41, 7997-8007",
+        1995
+    ],
+    "to137": [
+        "data/to137.pdf",
+        "10.1103/physrevb.46.12974",
+        "Apra, Dovesi, Lepetit, Malrieu",
+        "Toward a magnetic description of metals in terms of interstitial molecular orbitals. II. One-dimensional infinite system: The lithium chain",
+        "Physical Review B; 20, 12974-12980",
+        1992
+    ],
+    "puchin2001": [
+        "data/puchin2001.pdf",
+        "10.1088/0953-8984/13/10/304",
+        "Huisinga, Puchin, Puchina, Reichling",
+        "Theoretical modelling of steps on the CaF2(111) surface",
+        "Journal of Physics: Condensed Matter; 10, 2081-2094",
+        2001
+    ],
+    "cinquini2006": [
+        "data/cinquini2006.pdf",
+        "10.1103/physrevb.74.165403",
+        "Cinquini, Ferrari, Giordano, Pacchioni, Pisani, Roetti",
+        "Electronic structure ofNiOAg(100)thin films fromDFT+Uand hybrid functional DFT approaches",
+        "Physical Review B; 16",
+        2006
+    ],
+    "perottoni2000": [
+        "data/perottoni2000.pdf",
+        "10.1088/0953-8984/12/32/305",
+        "Jornada, Pereira, Perottoni",
+        "Periodic Hartree-Fock linear combination of crystalline orbitals calculation of the structure, equation of state and elastic properties of titanium diboride",
+        "Journal of Physics: Condensed Matter; 32, 7205-7222",
+        2000
+    ],
+    "pandey2000": [
+        "data/pandey2000.pdf",
+        "10.1063/1.1287225",
+        "Causa, Darrigan, Pandey, Rerat",
+        "A theoretical study of stability, electronic, and optical properties of GeC and SnC",
+        "Journal of Applied Physics; 11, 6462-6466",
+        2000
+    ],
+    "to303": [
+        "data/to303.pdf",
+        "10.1016/s0009-2614(02)01787-6",
+        "Dovesi, Gelize-duvignau, Llunell, Merawa, Orlando",
+        "Structural, electronic and elastic properties of some fluoride crystals: an ab initio study",
+        "Chemical Physics Letters; 1-2, 7-11",
+        2003
+    ],
+    "sto34": [
+        "data/sto34.pdf",
+        "10.1002/bbpc.19971010203",
+        "Mackrodt",
+        "The nature of valence band holes in pure and Fe-doped NiO: An ab initio Hartree-Fock study",
+        "Berichte der Bunsengesellschaft f\u00fcr physikalische Chemie; 2, 169-175",
+        1997
+    ],
+    "bredow2000": [
+        "data/bredow2000.pdf",
+        "10.1103/physrevb.61.5194",
+        "Bredow, Gerson",
+        "Effect of exchange and correlation on bulk properties of MgO, NiO, and CoO",
+        "Physical Review B; 8, 5194-5201",
+        2000
+    ],
+    "doll2004": [
+        "data/doll2004.pdf",
+        "10.1016/j.susc.2004.10.015",
+        "Doll",
+        "CO adsorption on the Pt(111) surface: a comparison of a gradient corrected functional and a hybrid functional",
+        "Surface Science; 3, 464-473",
+        2004
+    ],
+    "bermudez2005": [
+        "data/bermudez2005.pdf",
+        "10.1016/j.susc.2005.01.025",
+        "Bermudez",
+        "Theoretical study of the electronic structure of the Si3N4(0001) surface",
+        "Surface Science; 1, 11-20",
+        2005
+    ],
+    "to146": [
+        "data/to146.pdf",
+        "10.1088/0953-8984/5/27/024",
+        "Dovesi, Freyria-fava, Leslie, Roetti, Saunders",
+        "Ca and Be substitution in bulk MgO: 'ab initio' Hartree-Fock and ionic model supercell calculations",
+        "Journal of Physics: Condensed Matter; 27, 4793-4804",
+        1993
+    ],
+    "sto82": [
+        "data/sto82.pdf",
+        "10.2138/am-1996-11-1201",
+        "Apra, Becker, Hochella",
+        "The electronic structure of hematite {001} surfaces; applications to the interpretation of STM images and heterogeneous surface reactions",
+        "American Mineralogist; 11-12, 1301-1314",
+        1996
+    ],
+    "perry2001": [
+        "data/perry2001.pdf",
+        "10.1103/physrevb.63.144510",
+        "Goddard, Perry, Tahir-kheli",
+        "Antiferromagnetic band structure ofLa2CuO4: Becke-3Lee-Yang-Parr calculations",
+        "Physical Review B; 14",
+        2001
+    ],
+    "sonnet1999": [
+        "data/sonnet1999.pdf",
+        "10.1142/s0218625x99001116",
+        "Minot, Sonnet, Stauffer",
+        "PERIODIC HARTREEFOCK CALCULATION OF THE OXIDATION OF Si(111)",
+        "Surface Review and Letters; 06, 1031-1036",
+        1999
+    ],
+    "abdurahman00": [
+        "data/abdurahman00.pdf",
+        "10.1063/1.481036",
+        "Abdurahman, Dolg, Shukla",
+        "Ab initiotreatment of electron correlations in polymers: Lithium hydride chain and beryllium hydride polymer",
+        "The Journal of Chemical Physics; 10, 4801-4805",
+        2000
+    ],
+    "armenta2000": [
+        "data/armenta2000.pdf",
+        "10.1103/physrevb.62.4890",
+        "Avalos borja, Moreno armenta, Reyes-serrato",
+        "Ab initio determination of the electronic structure of beryllium-, aluminum-, and magnesium-nitrides: A comparative study",
+        "Physical Review B; 8, 4890-4898",
+        2000
+    ],
+    "starikov2000a": [
+        "data/starikov2000a.pdf",
+        "10.1016/s0301-0104(00)00113-0",
+        "Starikov",
+        "HartreeFock crystal orbital calculation on sodium-intercalated fullerites C60Na10 and C60Na11",
+        "Chemical Physics; 2, 149-158",
+        2000
+    ],
+    "prencipe2003": [
+        "data/prencipe2003.pdf",
+        "10.1007/s00269-003-0343-1",
+        "Nestola, Prencipe, Tribaudino",
+        "Charge-density analysis of spodumene (LiAlSi2O6), from ab initio Hartree?Fock calculations",
+        "Physics and Chemistry of Minerals; 10, 606-614",
+        2003
+    ],
+    "Zhukovskii2001": [
+        "data/Zhukovskii2001.pdf",
+        "10.1016/s0039-6028(00)01010-4",
+        "Dorfman, Fuks, Gordon, Kotomin, Zhukovskii",
+        "HartreeFock study of adhesion and charge redistribution on the Ag/MgO(0 0 1) interface",
+        "Surface Science; 66-72",
+        2001
+    ],
+    "morisanchez2003": [
+        "data/morisanchez2003.pdf",
+        "10.1103/physrevb.68.064115",
+        "Beltran, Gerward, Jiang, Marques, Mori-sanchez, Recio",
+        "Origin of the low compressibility in hard nitride spinels",
+        "Physical Review B; 6",
+        2003
+    ],
+    "to86": [
+        "data/to86.pdf",
+        "10.1016/s0039-6028(87)80048-1",
+        "Dovesi, Orlando, Ricca, Roetti",
+        "Co adsoprtion on MgO crystals: Hartree-fock calculations for regular adlayers on a (001) lattice plane",
+        "Surface Science; 1-2, 267-278",
+        1987
+    ],
+    "bermudez2004": [
+        "data/bermudez2004.pdf",
+        "10.1016/j.susc.2004.06.209",
+        "Bermudez",
+        "Theoretical study of hydrogen adsorption on the GaN(0001) surface",
+        "Surface Science; 1, 89-102",
+        2004
+    ],
+    "to299": [
+        "data/to299.pdf",
+        "10.1063/1.1476006",
+        "Casassa, Pisani",
+        "Interaction of HOCl with a chlorinated ice surface to produce molecular chlorine: An ab-initio study",
+        "The Journal of Chemical Physics; 22, 9856-9864",
+        2002
+    ],
+    "asthalter2001": [
+        "data/asthalter2001.pdf",
+        "10.1524/zpch.2001.215.10.1277",
+        "Asthalter, Walter",
+        "Visualizing Covalency and Multiple Bonds in Terms of the Electronic Single-Particle Density Matrix",
+        "Zeitschrift f\u00fcr Physikalische Chemie; 10",
+        2001
+    ],
+    "kreitlow2005": [
+        "data/kreitlow2005.pdf",
+        "10.1103/physrevb.72.134418",
+        "Doll, Feyerherm, Kreitlow, Menzel, Schoenes, Sullow, Wolter",
+        "Pressure dependence ofC4N2H4-mediated superexchange inXCl2(C4N2H4)2(X=Fe,Co,Ni)",
+        "Physical Review B; 13",
+        2005
+    ],
+    "fuks2002": [
+        "data/fuks2002.pdf",
+        "10.1016/s0039-6028(01)01692-2",
+        "Dorfman, Fuks, Kotomin, Marshall stoneham, Zhukovskii",
+        "Theory of the growth mode for a thin metallic film on an insulating substrate",
+        "Surface Science; 1, 24-40",
+        2002
+    ],
+    "to268": [
+        "data/to268.pdf",
+        "10.1016/s0009-2614(99)00410-8",
+        "Dovesi, Illas, Neyman, Pacchioni, Pelmenschikov, Pettersson, Pisani, Rosch",
+        "Comment on First-principles determination of the bonding mechanism and adsorption energy for CO/MgO(001) [Chem. Phys. Lett. 290 (1998) 255]",
+        "Chemical Physics Letters; 3-4, 202-204",
+        1999
+    ],
+    "kokalj99a": [
+        "data/kokalj99a.pdf",
+        "10.1088/0953-8984/11/39/304",
+        "Causa, Kokalj",
+        "Periodic density functional theory study of Pt(111): surface features of slabs of different thicknesses",
+        "Journal of Physics: Condensed Matter; 39, 7463-7480",
+        1999
+    ],
+    "zhang2000": [
+        "data/zhang2000.pdf",
+        "10.1016/s0166-1280(00)00435-8",
+        "Li, Wu, Zhang",
+        "A density functional study on the electronic structures of TiX (X=C, N, O). Part II. Investigations on the electronic structures of TiC bulk and surfaces",
+        "Journal of Molecular Structure: THEOCHEM; 1-3, 1-8",
+        2000
+    ],
+    "to127": [
+        "data/to127.pdf",
+        "10.1103/physrevb.45.592",
+        "Orlando, Pisani, Roetti, Stefanovich",
+        "Ab initioHartree-Fock study of tetragonal and cubic phases of zirconium dioxide",
+        "Physical Review B; 2, 592-601",
+        1992
+    ],
+    "deak2005": [
+        "data/deak2005.pdf",
+        "10.1088/0953-8984/17/22/001",
+        "Buruzs, Deak, Frauenheim, Gali, Solyom",
+        "Electronic structure of boron-interstitial clusters in silicon",
+        "Journal of Physics: Condensed Matter; 22, S2141-S2153",
+        2005
+    ],
+    "chizmeshya2003": [
+        "data/chizmeshya2003.pdf",
+        "10.1016/s0254-0584(02)00020-2",
+        "Bearat, Carpenter, Chizmeshya, Mckelvy, Sharma",
+        "Density functional theory study of the decomposition of Mg(OH)2: a lamellar dehydroxylation model",
+        "Materials Chemistry and Physics; 2, 416-425",
+        2003
+    ],
+    "muscat2002b": [
+        "data/muscat2002b.pdf",
+        "10.1103/physrevb.65.224112",
+        "Harrison, Muscat, Swamy",
+        "First-principles calculations of the phase stability ofTiO2",
+        "Physical Review B; 22",
+        2002
+    ],
+    "doll2000a": [
+        "data/doll2000a.pdf",
+        "10.1016/s0009-2614(99)01362-7",
+        "Doll, Harrison",
+        "Chlorine adsorption on the Cu(111) surface",
+        "Chemical Physics Letters; 3-5, 282-289",
+        2000
+    ],
+    "to255": [
+        "data/to255.pdf",
+        "10.1088/0953-8984/10/31/008",
+        "Dovesi, Habas, Lichanot",
+        "The phase transition in alkaline-earth oxides: a comparison ofab initioHartree-Fock and density functional calculations",
+        "Journal of Physics: Condensed Matter; 31, 6897-6909",
+        1998
+    ],
+    "to124": [
+        "data/to124.pdf",
+        "10.1016/0009-2614(91)90187-e",
+        "Apra, Dovesi, Roetti, Stefanovich",
+        "An ab initio HartreeFock study of silver chloride",
+        "Chemical Physics Letters; 4-5, 329-335",
+        1991
+    ],
+    "noguera2000": [
+        "data/noguera2000.pdf",
+        "10.1088/0953-8984/12/10/303",
+        "Mackrodt, Noguera",
+        "Ab initiostudy of ground and excited states of NiO(100) monolayer",
+        "Journal of Physics: Condensed Matter; 10, 2163-2181",
+        2000
+    ],
+    "sto8": [
+        "data/sto8.pdf",
+        "10.1088/0953-8984/4/15/003",
+        "Harrison, Saunders",
+        "The structural properties of beta -MgCl2; an ab initio study",
+        "Journal of Physics: Condensed Matter; 15, 3873-3882",
+        1992
+    ],
+    "rosso99c": [
+        "data/rosso99c.pdf",
+        "10.2138/am-1999-1008",
+        "Becker, Hochella, Rosso",
+        "The interaction of pyrite {100} surfaces with O2and H2O; fundamental oxidation mechanisms",
+        "American Mineralogist; 10, 1549-1561",
+        1999
+    ],
+    "to182": [
+        "data/to182.pdf",
+        "10.1088/0953-8984/6/41/019",
+        "Azavant, Dovesi, Harrison, Orlando, Saunders",
+        "A super-cell approach for the study of localized defects in solids: carbon substitution in bulk silicon",
+        "Journal of Physics: Condensed Matter; 41, 8573-8583",
+        1994
+    ],
+    "to75": [
+        "data/to75.pdf",
+        "10.1103/physrevb.32.1196",
+        "Causa, Dovesi, Pisani, Roetti",
+        "Ab initiostudy of the autocorrelation function for lithium nitride",
+        "Physical Review B; 2, 1196-1202",
+        1985
+    ],
+    "elgridani2000a": [
+        "data/elgridani2000a.pdf",
+        "10.1016/s0166-1280(00)00512-1",
+        "El gridani, El mouhtadi",
+        "Electronic and structural properties of CaH 2 : a pseudopotential study",
+        "Journal of Molecular Structure: THEOCHEM; 1-3, 183-193",
+        2000
+    ],
+    "marquez2001": [
+        "data/marquez2001.pdf",
+        "10.1021/jp012095c",
+        "Corma, Garcia, Marquez, Palomares, Zicovich-wilson",
+        "Naphthalene Included within All-Silica Zeolites:  Influence of the Host on the Naphthalene Photophysics",
+        "The Journal of Physical Chemistry B; 41, 9973-9979",
+        2001
+    ],
+    "to67": [
+        "data/to67.pdf",
+        "10.1103/physrevb.30.972",
+        "Dovesi, Pisani, Ricca, Roetti, Saunders",
+        "Hartree-Fock study of crystalline lithium nitride",
+        "Physical Review B; 2, 972-979",
+        1984
+    ],
+    "sto99": [
+        "data/sto99.pdf",
+        "10.1103/physrevb.56.10121",
+        "Doll, Stoll",
+        "Cohesive properties of alkali halides",
+        "Physical Review B; 16, 10121-10127",
+        1997
+    ],
+    "to201": [
+        "data/to201.pdf",
+        "10.1103/physrevb.52.2422",
+        "Catti, Dovesi, Orlando, Valerio",
+        "Ab initiostudy of antiferromagnetic rutile-typeFeF2",
+        "Physical Review B; 4, 2422-2427",
+        1995
+    ],
+    "to46": [
+        "data/to46.pdf",
+        "10.1080/01418638108223564",
+        "Caus, Dovesi, Pisani, Roetti",
+        "Exactexchange HartreeFock calculations for periodic systems",
+        "Philosophical Magazine B; 3, 419-425",
+        1981
+    ],
+    "cruz2006": [
+        "data/cruz2006.pdf",
+        "10.1063/1.2198528",
+        "Cruz hernandez, Fdez. sanz, Zicovich-wilson",
+        "The constrained space orbital variation analysis for periodic ab initio calculations",
+        "The Journal of Chemical Physics; 19, 194105",
+        2006
+    ],
+    "to356": [
+        "data/to356.pdf",
+        "10.1016/j.susc.2005.10.032",
+        "Civalleri, Giorgianni, Harrison, Mallia, Scaranto, Zicovich-wilson",
+        "A quantum-mechanical study of the vinyl fluoride adsorbed on the rutile TiO2(110) surface",
+        "Surface Science; 2, 305-317",
+        2006
+    ],
+    "to188": [
+        "data/to188.pdf",
+        "10.1016/0039-6028(95)00499-8",
+        "Hess, Nada, Pisani",
+        "Topological defects at the (001) surface of MgO: energetics and reactivity",
+        "Surface Science; 3, 353-361",
+        1995
+    ],
+    "bermudez2002": [
+        "data/bermudez2002.pdf",
+        "10.1016/s0927-0256(02)00217-3",
+        "Bermudez",
+        "HartreeFock study of near-edge gap states in CaF2 with Na+, Cl or Sr2+ impurities",
+        "Computational Materials Science; 4, 501-512",
+        2002
+    ],
+    "buljan99": [
+        "data/buljan99.pdf",
+        "10.1021/jp984420a",
+        "Alemany, Buljan, Ruiz",
+        "Electronic Structure and Bonding in CuMO2(M = Al, Ga, Y) Delafossite-Type Oxides:  An Ab Initio Study",
+        "The Journal of Physical Chemistry B; 38, 8060-8066",
+        1999
+    ],
+    "catti2002": [
+        "data/catti2002.pdf",
+        "10.1103/physrevb.65.224115",
+        "Catti",
+        "First-principles study of the orthorhombic mechanism for theB3/B1high-pressure phase transition of ZnS",
+        "Physical Review B; 22",
+        2002
+    ],
+    "olenev2003": [
+        "data/olenev2003.pdf",
+        "10.1002/chem.200204687",
+        "Kloo, Lindsjo, Olenev, Oleneva, Shevelkov",
+        "Coordinated and Clathrated Guests in the [Hg6As4]4+ Bicompartmental Framework: Synthesis, Crystal and Electronic Structure, and Properties of the Novel Supramolecular Complexes [Hg6As4](CrBr6)Br and [Hg6As4](FeBr6)Hg0.6",
+        "Chemistry - A European Journal; 14, 3201-3208",
+        2003
+    ],
+    "wander2006": [
+        "data/wander2006.pdf",
+        "10.1039/b600273k",
+        "Bailey, Harrison, Mukhopadhyay, Searle, Wander",
+        "Ab initio studies of aluminium fluoride surfaces",
+        "Journal of Materials Chemistry; 20, 1906",
+        2006
+    ],
+    "alexiev2000": [
+        "data/alexiev2000.pdf",
+        "10.1039/a909293e",
+        "Alexiev, Prins, Weber",
+        "Ab initio study of MoS2 and Li adsorbed on the (1010) face of MoS2",
+        "Physical Chemistry Chemical Physics; 8, 1815-1827",
+        2000
+    ],
+    "sto10": [
+        "data/sto10.pdf",
+        "10.1016/0039-6028(95)00486-6",
+        "Frechard, Sautet",
+        "Hartree-Fock ab initio study of the geometric and electronic structure of RuS2 and its (100) and (111) surfaces",
+        "Surface Science; 1-2, 149-165",
+        1995
+    ],
+    "erikson1993": [
+        "data/erikson1993.pdf",
+        "10.1063/1.465811",
+        "Eary, Erikson, Hostetler",
+        "Energetics, structure, and compressibility of NaF determined by the periodic HartreeFock method",
+        "The Journal of Chemical Physics; 1, 336-344",
+        1993
+    ],
+    "sto22": [
+        "data/sto22.pdf",
+        "10.1006/jssc.1997.7732",
+        "Catlow, Cora, Konigstein",
+        "Anab InitioHartreeFock Study of the Energies of Mixing of MnONiO, MgOMnO, and CaOMnO Solid Solutions",
+        "Journal of Solid State Chemistry; 2, 261-275",
+        1998
+    ],
+    "to179": [
+        "data/to179.pdf",
+        "10.1002/qua.560520856",
+        "Caus, Zupan",
+        "Density-FunctionalLCAO calculations for solids: Comparison between Hartree-Fock and Kohn-Sham structural properties",
+        "International Journal of Quantum Chemistry; S28, 633-644",
+        1994
+    ],
+    "droubay2007": [
+        "data/droubay2007.pdf",
+        "10.1103/physrevb.75.104412",
+        "Chambers, Droubay, Heald, Mccready, Rosso, Wang",
+        "Structure, magnetism, and conductivity in epitaxialTi-dopedFe2O3hematite: Experiment and density functional theory calculations",
+        "Physical Review B; 10",
+        2007
+    ],
+    "to296": [
+        "data/to296.pdf",
+        "10.1080/00150190211078",
+        "Baranek, Dovesi",
+        "AB Initio Approach to the Ferroelectric Properties of ABO 3 Perovskites: The Case of KNbO 3",
+        "Ferroelectrics; 1, 155-162",
+        2002
+    ],
+    "franco2003": [
+        "data/franco2003.pdf",
+        "10.1103/physrevb.68.195208",
+        "Franco, Mori-sanchez, Pandey, Recio",
+        "Theoretical compressibilities of high-pressure ZnTe polymorphs",
+        "Physical Review B; 19",
+        2003
+    ],
+    "hill1993": [
+        "data/hill1993.pdf",
+        "10.1016/0022-3697(93)90322-i",
+        "Catlow, Hill",
+        "A Hartree-Fock periodic study of bulk ceria",
+        "Journal of Physics and Chemistry of Solids; 4, 411-419",
+        1993
+    ],
+    "to346": [
+        "data/to346.pdf",
+        "10.1080/00268970500180865",
+        "Busco, Civalleri, Ugliengo, Zicovich-wilson",
+        "Carbon monoxide adsorption on alkali and proton-exchanged chabazite: anab-initioperiodic study using the CRYSTAL code",
+        "Molecular Physics; 18, 2559-2571",
+        2005
+    ],
+    "to202": [
+        "data/to202.pdf",
+        "10.1016/0022-3697(96)00034-0",
+        "Catti, Dovesi, Sandrone, Valerio",
+        "Electronic, magnetic and crystal structure of Cr 2 O 3  by theoretical methods",
+        "Journal of Physics and Chemistry of Solids; 11, 1735-1741",
+        1996
+    ],
+    "persson00": [
+        "data/persson00.pdf",
+        "10.1016/s0009-2614(00)00347-x",
+        "Ojamae, Persson",
+        "Periodic HartreeFock study of the adsorption of formic acid on ZnO(1010)",
+        "Chemical Physics Letters; 3-4, 302-308",
+        2000
+    ],
+    "to373": [
+        "data/to373.pdf",
+        "10.2138/am.2007.2213",
+        "Civalleri, Ottonello, Zicovich-wilson, Zuccolini",
+        "Ab-initio thermal physics and Cr-isotopic fractionation of MgCr2O4",
+        "American Mineralogist; 1, 98-108",
+        2007
+    ],
+    "alexiev2001": [
+        "data/alexiev2001.pdf",
+        "10.1039/b105048f",
+        "Alexiev, Prins, Weber",
+        "DFT study of MoS2 and hydrogen adsorbed on the (1010) face of MoS2",
+        "Physical Chemistry Chemical Physics; 23, 5326-5336",
+        2001
+    ],
+    "tappero2001": [
+        "data/tappero2001.pdf",
+        "10.1016/s0009-2614(01)00044-6",
+        "Lichanot, Tappero, Wolfers",
+        "Electronic, magnetic structures and neutron diffraction in B1 and B3 phases of MnS: a density functional approach",
+        "Chemical Physics Letters; 5-6, 449-457",
+        2001
+    ],
+    "muscat2001": [
+        "data/muscat2001.pdf",
+        "10.1016/s0039-6028(01)01408-x",
+        "Klauber, Muscat",
+        "A combined ab initio and photoelectron study of galena (PbS)",
+        "Surface Science; 1-2, 226-238",
+        2001
+    ],
+    "li2006": [
+        "data/li2006.pdf",
+        "10.1016/j.chemphys.2006.07.004",
+        "Chen, Li, Li, Wu, Xu, Zhang",
+        "A theoretical study on the dissociation of Cl2 on MgO(001) surface: Prompted by silver atoms supported on surface",
+        "Chemical Physics; 1-3, 236-242",
+        2006
+    ],
+    "sto45": [
+        "data/sto45.pdf",
+        "10.1103/physrevb.58.8949",
+        "Blanco, Gerward, Luana, Pandey, Recio, Staun olsen",
+        "Compressibility of the high-pressure rocksalt phase of ZnO",
+        "Physical Review B; 14, 8949-8954",
+        1998
+    ],
+    "rosso99b": [
+        "data/rosso99b.pdf",
+        "10.2138/am-1999-1007",
+        "Becker, Hochella, Rosso",
+        "Atomically resolved electronic structure of pyrite {100} surfaces; an experimental and theoretical investigation with implications for reactivity",
+        "American Mineralogist; 10, 1535-1548",
+        1999
+    ],
+    "damin2003": [
+        "data/damin2003.pdf",
+        "10.1063/1.1571516",
+        "Bordiga, Damin, Doll, Lamberti, Zecchina",
+        "Ti-chabazite as a model system of Ti(IV) in Ti-zeolites: A periodic approach",
+        "The Journal of Chemical Physics; 22, 10183-10194",
+        2003
+    ],
+    "to186": [
+        "data/to186.pdf",
+        "10.1002/qua.560560419",
+        "Causa, Zupan",
+        "Density functionalLCAOcalculations for solids: Comparison among Hartree-Fock,DFTlocal density approximation, andDFTgeneralized gradient approximation structural properties",
+        "International Journal of Quantum Chemistry; 4, 337-344",
+        1995
+    ],
+    "to64": [
+        "data/to64.pdf",
+        "10.1103/physrevb.29.3591",
+        "Dovesi, Ermondi, Ferrero, Pisani, Roetti",
+        "Hartree-Fock study of lithium hydride with the use of a polarizable basis set",
+        "Physical Review B; 6, 3591-3600",
+        1984
+    ],
+    "evarestov2004": [
+        "data/evarestov2004.pdf",
+        "10.1002/qua.10645",
+        "Evarestov, Smirnov, Usvyat",
+        "Chemical bonding in crystalline silver halides: Wannier-type atomic functions approach",
+        "International Journal of Quantum Chemistry; 2, 95-105",
+        2004
+    ],
+    "heifets2004": [
+        "data/heifets2004.pdf",
+        "10.1103/physrevb.69.035408",
+        "Borstel, Eglitis, Goddard, Heifets, Kotomin",
+        "Ab initiocalculations of theSrTiO3(110) polar surface",
+        "Physical Review B; 3",
+        2004
+    ],
+    "to333": [
+        "data/to333.pdf",
+        "10.1007/s00214-004-0595-y",
+        "Doll, Dovesi, Orlando",
+        "Analytical Hartree?Fock gradients with respect to the cell parameter for systems periodic in three dimensions",
+        "Theoretical Chemistry Accounts; 5-6, 394-402",
+        2004
+    ],
+    "mian96": [
+        "data/mian96.pdf",
+        "10.1016/0009-2614(96)00591-x",
+        "Flavell, Harrison, Mian, Saunders",
+        "An ab initio Hartree-Fock investigation of galena (PbS)",
+        "Chemical Physics Letters; 5-6, 627-632",
+        1996
+    ],
+    "joshi2007": [
+        "data/joshi2007.pdf",
+        "10.1016/j.jallcom.2007.01.125",
+        "Joshi, Sharma",
+        "Electronic structure and momentum density distribution of titanium dioxide",
+        "Journal of Alloys and Compounds; 1-2, 51-56",
+        2007
+    ],
+    "to200": [
+        "data/to200.pdf",
+        "10.1103/physrevb.52.10150",
+        "Dovesi, Saunders, Towler",
+        "Magnetic interactions and the cooperative Jahn-Teller effect inKCuF3",
+        "Physical Review B; 14, 10150-10159",
+        1995
+    ],
+    "wang2006": [
+        "data/wang2006.pdf",
+        "10.1016/j.apsusc.2005.03.233",
+        "Li, Wang, Zhang",
+        "The orbital interaction of adsorbed CO on NiO (001;111) surface: A periodic density functional theory study",
+        "Applied Surface Science; 8, 2673-2683",
+        2006
+    ],
+    "zheng2003": [
+        "data/zheng2003.pdf",
+        "10.1103/physrevb.67.220404",
+        "Patterson, Zheng",
+        "Ferromagnetic polarons inLa0.5Ca0.5MnO3andLa0.33Ca0.67MnO3",
+        "Physical Review B; 22",
+        2003
+    ],
+    "clerc97": [
+        "data/clerc97.pdf",
+        "10.1021/jp9618789",
+        "Clerc, Hess, Poshusta",
+        "Periodic HartreeFock Study of LixTiS2, 0 x 1:  The Structural, Elastic, and Electronic Effects of Lithium Intercalation in TiS2",
+        "The Journal of Physical Chemistry A; 47, 8926-8931",
+        1997
+    ],
+    "koudriachova2002": [
+        "data/koudriachova2002.pdf",
+        "10.1103/physrevb.65.235423",
+        "De leeuw, Harrison, Koudriachova",
+        "Density-functional simulations of lithium intercalation in rutile",
+        "Physical Review B; 23",
+        2002
+    ],
+    "islam2005": [
+        "data/islam2005.pdf",
+        "10.1021/jp044715q",
+        "Bredow, Islam, Maslyuk, Minot",
+        "Structural and Electronic Properties of Li2B4O7",
+        "The Journal of Physical Chemistry B; 28, 13597-13604",
+        2005
+    ],
+    "evarestov2004b": [
+        "data/evarestov2004b.pdf",
+        "10.1002/qua.10764",
+        "Bandura, Evarestov",
+        "Hartree-Fock calculations of electronic structure of (110)-surface of rutile TiO2: Comparison of single (2D) and periodic (3D) slab models",
+        "International Journal of Quantum Chemistry; 3, 282-291",
+        2004
+    ],
+    "to91": [
+        "data/to91.pdf",
+        "10.1063/1.453964",
+        "Causa, Dovesi, Pisani, Roetti, Saunders",
+        "HartreeFock study of polysulphur nitride II. Threedimensional structures and interchain interactions",
+        "The Journal of Chemical Physics; 5, 3196-3203",
+        1988
+    ],
+    "gomes2002": [
+        "data/gomes2002.pdf",
+        "10.1063/1.1429642",
+        "Gomes, Harrison, Hernandez, Illas, Sanz, Wander",
+        "Surface model and exchange-correlation functional effects on the description of Pd/-Al2O3(0001)",
+        "The Journal of Chemical Physics; 4, 1684-1691",
+        2002
+    ],
+    "islam2006c": [
+        "data/islam2006c.pdf",
+        "10.1016/j.cplett.2005.11.037",
+        "Bredow, Islam, Minot",
+        "Comparison of trigonal B2O3 structures with high and low space-group symmetry",
+        "Chemical Physics Letters; 4-6, 565-568",
+        2006
+    ],
+    "to291": [
+        "data/to291.pdf",
+        "10.1016/s0039-6028(01)01374-7",
+        "Chiesa, D'ercole, Diwald, Giamello, Paganini, Pinarello, Pisani",
+        "O radical ions on MgO as a tool to unravel structure and location of ionic vacancies at the surface of oxides: a coupled experimental and theoretical investigation",
+        "Surface Science; 2, 95-110",
+        2001
+    ],
+    "sto41": [
+        "data/sto41.pdf",
+        "10.1103/physrevb.50.5041",
+        "Allan, Apra, Harrison, Mackrodt, Saunders, Towler",
+        "Ab initiostudy of MnO and NiO",
+        "Physical Review B; 8, 5041-5054",
+        1994
+    ],
+    "smirnov2005b": [
+        "data/smirnov2005b.pdf",
+        "10.1103/physrevb.72.075138",
+        "Evarestov, Smirnov",
+        "Symmetry analysis for localized function generation and chemical bonding in crystals:SrZrO3and MgO as examples",
+        "Physical Review B; 7",
+        2005
+    ],
+    "bredow2004c": [
+        "data/bredow2004c.pdf",
+        "10.1002/zaac.200400166",
+        "Bredow, Lerch",
+        "Anion Distribution in Zr2ON2",
+        "Zeitschrift f\ufffdr anorganische und allgemeine Chemie; 13-14, 2262-2266",
+        2004
+    ],
+    "sto35": [
+        "data/sto35.pdf",
+        "10.1021/ja9708629",
+        "Hagfeldt, Lindstrom, Lunell, Ojamae, Stashans",
+        "Li and Na Diffusion in TiO2from Quantum Chemical Theory versus Electrochemical Experiment",
+        "Journal of the American Chemical Society; 31, 7374-7380",
+        1997
+    ],
+    "maslyuk2005": [
+        "data/maslyuk2005.pdf",
+        "10.1103/physrevb.72.125101",
+        "Bredow, Islam, Maslyuk",
+        "Electronic properties of compounds of theLi2OB2O3system",
+        "Physical Review B; 12",
+        2005
+    ],
+    "to175": [
+        "data/to175.pdf",
+        "10.1016/0038-1098(94)90056-6",
+        "Cora, Pisani, Sokolov, Sulimov",
+        "Isolated and embedded cluster modelling of the oxygen vacancy in -quartz",
+        "Solid State Communications; 8, 511-514",
+        1994
+    ],
+    "doll2006": [
+        "data/doll2006.pdf",
+        "10.1016/j.susc.2006.10.025",
+        "Doll",
+        "Calculation of the work function with a local basis set",
+        "Surface Science; 24, L321-L325",
+        2006
+    ],
+    "to242": [
+        "data/to242.pdf",
+        "10.1016/s0009-2614(97)00888-9",
+        "Dovesi, Zicovich-wilson",
+        "Periodic ab initio study of silico-faujasite",
+        "Chemical Physics Letters; 1-3, 227-233",
+        1997
+    ],
+    "su2000": [
+        "data/su2000.pdf",
+        "10.1103/physrevb.61.1324",
+        "Harrison, Kaplan, Mahanti, Su",
+        "Electronic structure ofLaMnO3in theab initiocrystal Hartree-Fock approximation",
+        "Physical Review B; 2, 1324-1329",
+        2000
+    ],
+    "to142": [
+        "data/to142.pdf",
+        "10.1088/0965-0393/1/3/004",
+        "Apra, Dovesi, Freyria-fava, Pisani, Roetti, Saunders",
+        "Ab initioHartree-Fock modelling of zeolites: application to silico-chabazite",
+        "Modelling and Simulation in Materials Science and Engineering; 3, 297-306",
+        1993
+    ],
+    "to269": [
+        "data/to269.pdf",
+        "10.1063/1.480310",
+        "Dercole, Pisani",
+        "Ab initio study of hydrogen dissociation at a surface divacancy on the (001) MgO surface",
+        "The Journal of Chemical Physics; 21, 9743-9753",
+        1999
+    ],
+    "mikajlo2003": [
+        "data/mikajlo2003.pdf",
+        "10.1088/0953-8984/15/13/302",
+        "Ford, Mikajlo, Nixon",
+        "Electron momentum spectroscopy and linear combination of atomic orbitals calculation of bulk Na2O",
+        "Journal of Physics: Condensed Matter; 13, 2155-2168",
+        2003
+    ],
+    "piskunov2004": [
+        "data/piskunov2004.pdf",
+        "10.1016/j.commatsci.2003.08.036",
+        "Borstel, Eglitis, Heifets, Piskunov",
+        "Bulk properties and electronic structure of SrTiO3, BaTiO3, PbTiO3 perovskites: an ab initio HF/DFT study",
+        "Computational Materials Science; 2, 165-178",
+        2004
+    ],
+    "rinaudo2002": [
+        "data/rinaudo2002.pdf",
+        "10.1016/s0022-0248(02)01586-5",
+        "Causa, Orione, Rinaudo",
+        "Verneuil corundum: an integrated PBC and white beam synchrotron radiation X-ray topography analysis",
+        "Journal of Crystal Growth; 1, 53-62",
+        2002
+    ],
+    "borstel2003": [
+        "data/borstel2003.pdf",
+        "10.1002/pssb.200301664",
+        "Borstel, Eglitis, Heifets, Kotomin",
+        "Modelling of defects and surfaces in perovskite ferroelectrics",
+        "physica status solidi (b); 2, 253-264",
+        2003
+    ],
+    "paszkowicz2004": [
+        "data/paszkowicz2004.pdf",
+        "10.1103/physrevb.69.052103",
+        "Bahtz, Gerward, Jiang, Knapp, Marques, Minikayev, Mori-sanchez, Paszkowicz, Piszora, Recio",
+        "Thermal expansion of spinel-typeSi3N4",
+        "Physical Review B; 5",
+        2004
+    ],
+    "palmer94a": [
+        "data/palmer94a.pdf",
+        "10.1515/zna-1994-1-222",
+        "Blair-fish, Palmer",
+        "Quadrupole Coupling Assignments in Inorganic Periodic Systems by ab initio Calculation of Electric Field Gradients",
+        "Zeitschrift f\u00fcr Naturforschung A; 1-2",
+        1994
+    ],
+    "ellman2006": [
+        "data/ellman2006.pdf",
+        "10.1063/1.2335440",
+        "Ellman",
+        "Ab initio study of the electronic structure of the crystalline high-mobility organic semiconductor 1,4-diiodobenzene",
+        "The Journal of Chemical Physics; 7, 074702",
+        2006
+    ],
+    "cora2003c": [
+        "data/cora2003c.pdf",
+        "10.1016/s0022-4596(03)00275-5",
+        "Alfredsson, Barker, Bell, Catlow, Cora, Foster, Saadoune, Simperler",
+        "Modeling the framework stability and catalytic activity of pure and transition metal-doped zeotypes",
+        "Journal of Solid State Chemistry; 2, 496-529",
+        2003
+    ],
+    "doll2002": [
+        "data/doll2002.pdf",
+        "10.1103/physrevb.66.155421",
+        "Doll",
+        "Density-functional study of the adsorption of K on the Ag(111) surface",
+        "Physical Review B; 15",
+        2002
+    ],
+    "lindsay98": [
+        "data/lindsay98.pdf",
+        "10.1016/s0039-6028(98)80036-8",
+        "Harrison, Lindsay, Thornton, Wincott",
+        "The electronic structure of Si(100) 2  1Cl: reinterpreting ARP measurements",
+        "Surface Science; 3, 301-307",
+        1998
+    ],
+    "larina2002": [
+        "data/larina2002.pdf",
+        "10.1016/s0167-2991(02)80378-0",
+        "Larin, Vercauteren",
+        "Comparison of small size alumino-and borosilicates optimised by periodic Hartree-Fock",
+        "Studies in Surface Science and Catalysis; 1987-1994",
+        2002
+    ],
+    "kotomin2003": [
+        "data/kotomin2003.pdf",
+        "10.4028/www.scientific.net/ddf.218-220.67",
+        "Kotomin, Zhukovskii",
+        "Ab Initio Modelling of Metal Adhesion to Ceramics with Surface Defects",
+        "Defect and Diffusion Forum; 67-78",
+        2003
+    ],
+    "to87": [
+        "data/to87.pdf",
+        "10.1016/0009-2614(87)80800-x",
+        "Causa, Dovesi, Kotomin, Roetti, Saunders",
+        "A periodic ab initio Hartree-Fock calculation on corundum",
+        "Chemical Physics Letters; 2, 120-123",
+        1987
+    ],
+    "to256": [
+        "data/to256.pdf",
+        "10.1063/1.477693",
+        "Brandle, Dovesi, Harrison, Sauer",
+        "Comparison of a combined quantum mechanics/interatomic potential function approach with its periodic quantum-mechanical limit: Proton siting and ammonia adsorption in zeolite chabazite",
+        "The Journal of Chemical Physics; 23, 10379-10389",
+        1998
+    ],
+    "ochs97": [
+        "data/ochs97.pdf",
+        "10.1016/s0039-6028(97)00153-2",
+        "Brause, Kempter, Krischok, Maus-friedrichs, Ochs, Puchin, Shluger, Stracke, Wiegershaus",
+        "The surface electronic structure of stoichiometric and defective LiF surfaces studied with MIES and UPS in combination with ab-initio calculations",
+        "Surface Science; 2-3, 162-172",
+        1997
+    ],
+    "to220": [
+        "data/to220.pdf",
+        "10.1107/s0108767398004048",
+        "Ayma, Lichanot, Orlando, Rerat",
+        "Ab InitioCalculation of the Structure Factors and Compton Profiles of Cubic Silicon Carbide",
+        "Acta Crystallographica Section A Foundations of Crystallography; 6, 1019-1027",
+        1998
+    ],
+    "piskunov2005": [
+        "data/piskunov2005.pdf",
+        "10.1016/j.susc.2004.11.008",
+        "Borstel, Eglitis, Heifets, Kotomin, Maier, Piskunov",
+        "Hybrid DFT calculations of the atomic and electronic structure for ABO3 perovskite (001) surfaces",
+        "Surface Science; 1-2, 75-88",
+        2005
+    ],
+    "usvyat2004": [
+        "data/usvyat2004.pdf",
+        "10.1002/qua.10817",
+        "Evarestov, Smirnov, Usvyat",
+        "Wannier functions and chemical bonding in crystals with the perovskite-like structure: SrTiO3, BaTiO3, PbTi3, and LaMnO3",
+        "International Journal of Quantum Chemistry; 4, 352-359",
+        2004
+    ],
+    "zhukovskii2004b": [
+        "data/zhukovskii2004b.pdf",
+        "10.1016/j.vacuum.2003.12.131",
+        "Borstel, Kotomin, Zhukovskii",
+        "Adsorption of single Ag and Cu atoms on regular and defective MgO(001) substrates: an ab initio study",
+        "Vacuum; 2, 235-240",
+        2004
+    ],
+    "mukhopadhyay2004": [
+        "data/mukhopadhyay2004.pdf",
+        "10.1063/1.1695329",
+        "Dolg, Mukhopadhyay, Oligschleger",
+        "Ab initio many-body investigation of structure and stability of two-fold rings in silicates",
+        "The Journal of Chemical Physics; 18, 8734-8739",
+        2004
+    ],
+    "to214": [
+        "data/to214.pdf",
+        "10.1088/0953-8984/8/49/031",
+        "Causa, Lichanot, Rerat",
+        "LCAO-LDA calculation of Compton profiles in hexagonal BN; comparison with experiments",
+        "Journal of Physics: Condensed Matter; 49, 10425-10434",
+        1996
+    ],
+    "to53": [
+        "data/to53.pdf",
+        "10.1007/bf01686178",
+        "Dovesi, Pisani, Ricca, Roetti",
+        "Hartree-Fock investigation of the electron momentum distribution in metallic beryllium",
+        "Zeitschrift f\u00fcr Physik B Condensed Matter; 1, 19-26",
+        1982
+    ],
+    "catti2003": [
+        "data/catti2003.pdf",
+        "10.1103/physrevb.68.100101",
+        "Catti",
+        "Ab initiopredicted metastable TlI-like phase in theB1toB2high-pressure transition of CaO",
+        "Physical Review B; 10",
+        2003
+    ],
+    "sto29": [
+        "data/sto29.pdf",
+        "10.1016/s0009-2614(97)00591-5",
+        "D'arco, Lichanot, Tappero",
+        "Electronic structure of -MnS (alabandite): an ab initio study",
+        "Chemical Physics Letters; 1-2, 83-90",
+        1997
+    ],
+    "to267": [
+        "data/to267.pdf",
+        "10.1007/s002690050199",
+        "Catti, Dovesi, Fava, Zicovich",
+        "High-pressure decomposition of MCr 2 O 4 spinels (M=Mg, Mn, Zn) by ab initio methods",
+        "Physics and Chemistry of Minerals; 5, 389-395",
+        1999
+    ],
+    "clerc96": [
+        "data/clerc96.pdf",
+        "10.1021/jp952264r",
+        "Clerc, Hess, Poshusta",
+        "Periodic HartreeFock Study of TiS2",
+        "The Journal of Physical Chemistry; 39, 15735-15747",
+        1996
+    ],
+    "to254": [
+        "data/to254.pdf",
+        "10.1021/jp982916m",
+        "Corma, Dovesi, Zicovich-wilson",
+        "Interaction of Ti-Zeolites with Water. A PeriodicabInitioStudy",
+        "The Journal of Physical Chemistry B; 6, 988-994",
+        1999
+    ],
+    "zhukovskii2002": [
+        "data/zhukovskii2002.pdf",
+        "10.1016/s0039-6028(02)01778-8",
+        "Hermansson, Herschend, Jacobs, Kotomin, Zhukovskii",
+        "The adhesion properties of the Ag/-Al2O3() interface: an ab initio study",
+        "Surface Science; 2, 343-358",
+        2002
+    ],
+    "janetzko2004": [
+        "data/janetzko2004.pdf",
+        "10.1002/pssb.200301961",
+        "Bredow, Evarestov, Janetzko, Jug",
+        "First-principles periodic and semiempirical cyclic cluster calculations for single oxygen vacancies in crystalline Al2O3",
+        "physica status solidi (b); 5, 1032-1040",
+        2004
+    ],
+    "to284": [
+        "data/to284.pdf",
+        "10.1016/s0009-2614(01)00381-5",
+        "Baranek, Dovesi, Lichanot, Orlando",
+        "Structural and vibrational properties of solid Mg(OH)2 and Ca(OH)2  performances of various hamiltonians",
+        "Chemical Physics Letters; 3-4, 362-369",
+        2001
+    ],
+    "martinsky2000": [
+        "data/martinsky2000.pdf",
+        "10.1016/s0039-6028(00)00748-2",
+        "Martinsky, Minot",
+        "A theoretical investigation of structure of dinuclear titanium complexes",
+        "Surface Science; 1-3, 152-168",
+        2000
+    ],
+    "to100": [
+        "data/to100.pdf",
+        "10.1016/s0167-2991(08)60701-6",
+        "Causa, Dovesi, Pisani, Roetti",
+        "AB Initio Study of the Periodic Carbon Monoxide Adsorption on the Basal Plane of Alpha-Alumina",
+        "Structure and Reactivity of Surfaces; 385-393",
+        1989
+    ],
+    "weihrich2003b": [
+        "data/weihrich2003b.pdf",
+        "10.1016/s1293-2558(03)00057-8",
+        "Betranhandy, Eyert, Matar, Weihrich",
+        "A model study for the breaking of N2 from CNx within DFT",
+        "Solid State Sciences; 5, 701-703",
+        2003
+    ],
+    "heifets2002": [
+        "data/heifets2002.pdf",
+        "10.1016/s0039-6028(02)01730-2",
+        "Borstel, Eglitis, Heifets, Kotomin, Maier",
+        "First-principles calculations for SrTiO3() surface structure",
+        "Surface Science; 1, 211-220",
+        2002
+    ],
+    "evarestov2003b": [
+        "data/evarestov2003b.pdf",
+        "10.1103/physrevb.67.064101",
+        "Borstel, Evarestov, Kotomin, Piskunov",
+        "Single impurities in insulators: Ab initiostudy of Fe-dopedSrTiO3",
+        "Physical Review B; 6",
+        2003
+    ],
+    "sto19": [
+        "data/sto19.pdf",
+        "10.1088/0953-8984/10/38/006",
+        "Dou, Egdell, Harrison, Law, Searle",
+        "An experimental and theoretical investigation of the electronic structure of CdO",
+        "Journal of Physics: Condensed Matter; 38, 8447-8458",
+        1998
+    ],
+    "huisinga98": [
+        "data/huisinga98.pdf",
+        "10.1016/s0168-583x(98)00044-5",
+        "Huisinga, Puchin, Reichling",
+        "Photoemission from pure and electron irradiated CaF2",
+        "Nuclear Instruments and Methods in Physics Research Section B: Beam Interactions with Materials and Atoms; 1-4, 528-532",
+        1998
+    ],
+    "to138": [
+        "data/to138.pdf",
+        "10.1098/rsta.1992.0094",
+        "Dovesi, Roetti, Freyria Fava, Apra, Saunders, Harrison",
+        "Ab initio Hartree-Fock treatment of ionic and semi-ionic compounds: state of the art",
+        "Philosophical Transactions of the Royal Society of London. Series A: Physical and Engineering Sciences; 1661, 203-210",
+        1992
+    ],
+    "pisani2007": [
+        "data/pisani2007.pdf",
+        "10.1103/physrevb.75.064418",
+        "Chan, Harrison, Montanari, Pisani",
+        "Electronic structure and magnetic properties of graphitic ribbons",
+        "Physical Review B; 6",
+        2007
+    ],
+    "nicastro2000": [
+        "data/nicastro2000.pdf",
+        "10.1016/s0927-0256(00)00066-5",
+        "Kuzmin, Nicastro, Patterson",
+        "Spin and orbital ordering in CaMnO3 and LaMnO3: UHF calculations and the Goodenough model",
+        "Computational Materials Science; 2-4, 445-449",
+        2000
+    ],
+    "zur2007": [
+        "data/zur2007.pdf",
+        "10.1103/physrevb.75.165103",
+        "Doll, Jursic, Menzel, Neef, Patthey, Schoenes, Zur, Zwicknagl",
+        "Absence of Kondo resonance in high-resolution photoemission spectra of monocrystallineFe1xCoxSi",
+        "Physical Review B; 16",
+        2007
+    ],
+    "gali2005": [
+        "data/gali2005.pdf",
+        "10.1103/physrevb.71.035213",
+        "Deak, Gali, Janzen, Son",
+        "Possibility for the electrical activation of the carbon antisite by hydrogen inSiC",
+        "Physical Review B; 3",
+        2005
+    ],
+    "to192": [
+        "data/to192.pdf",
+        "10.1063/1.467303",
+        "Dovesi, Jansen, Orlando, Teunissen, Van santen",
+        "Adsorption energies of NH3 and NH+4 in zeolites corrected for the longrange electrostatic potential of the crystal",
+        "The Journal of Chemical Physics; 7, 5865-5874",
+        1994
+    ],
+    "sto6": [
+        "data/sto6.pdf",
+        "10.1103/physrevb.49.8574",
+        "Harrison, Mccarthy",
+        "Ab initiodetermination of the bulk properties of MgO",
+        "Physical Review B; 13, 8574-8582",
+        1994
+    ],
+    "sto28": [
+        "data/sto28.pdf",
+        "10.1039/a702781h",
+        "Mackrodt, Williamson",
+        "First-principles description of the valence charge states in rutile MnO2",
+        "Journal of the Chemical Society, Faraday Transactions; 18, 3295-3300",
+        1997
+    ],
+    "to297": [
+        "data/to297.pdf",
+        "10.1063/1.1499477",
+        "Civalleri, Darco, Dovesi, Orlando, Pascale, Ugliengo",
+        "Hydrogarnet defect in chabazite and sodalite zeolites: A periodic HartreeFock and B3-LYP study",
+        "The Journal of Chemical Physics; 11, 5337-5346",
+        2002
+    ],
+    "sto59": [
+        "data/sto59.pdf",
+        "10.1088/0953-8984/10/3/009",
+        "Ayma, Lichanot, Rerat",
+        "Ab initioself-consistent calculations of the Compton profiles and polarizabilities of diamond and cubic boron nitride",
+        "Journal of Physics: Condensed Matter; 3, 557-575",
+        1998
+    ],
+    "to77": [
+        "data/to77.pdf",
+        "10.1103/physrevb.33.1308",
+        "Causa, Dovesi, Pisani, Roetti",
+        "Electronic structure and stability of different crystal phases of magnesium oxide",
+        "Physical Review B; 2, 1308-1316",
+        1986
+    ],
+    "marabello2004": [
+        "data/marabello2004.pdf",
+        "10.1107/s0108767304015260",
+        "Bianchi, Cargnoni, Gervasio, Marabello",
+        "An experimental (120 K) and theoretical electron-density study of KMnO4and KClO4",
+        "Acta Crystallographica Section A Foundations of Crystallography; 5, 494-501",
+        2004
+    ],
+    "doll2001d": [
+        "data/doll2001d.pdf",
+        "10.1007/s100510170118",
+        "Doll",
+        "Density functional study of the adsorption of K on the Cu(111) surface",
+        "The European Physical Journal B; 3, 389-393",
+        2001
+    ],
+    "doll2000b": [
+        "data/doll2000b.pdf",
+        "10.1088/0953-8984/11/26/305",
+        "Doll, Harrison, Saunders",
+        "A density functional study of lithium bulk and surfaces",
+        "Journal of Physics: Condensed Matter; 26, 5007-5019",
+        1999
+    ],
+    "sto96": [
+        "data/sto96.pdf",
+        "10.13182/fst98-a11963722",
+        "Tanaka, Tanigawa, Taniguchi",
+        "Interaction of Hydrogen Isotopes with Defects in Li2O",
+        "Fusion Technology; 3P2, 872-876",
+        1998
+    ],
+    "calatayud99": [
+        "data/calatayud99.pdf",
+        "10.1016/s0039-6028(99)00507-5",
+        "Andres, Beltran, Calatayud",
+        "A theoretical analysis of adsorption and dissociation of CH3OH on the stoichiometric SnO2(110) surface",
+        "Surface Science; 1-3, 213-222",
+        1999
+    ],
+    "to274": [
+        "data/to274.pdf",
+        "10.1016/s0009-2614(00)00018-x",
+        "Civalleri, Dovesi, Ugliengo, Zicovich-wilson",
+        "H-Chabazite with variable Si/Al ratio: stability and OH vibrational frequency computed in a periodic LCAO B3-LYP approach",
+        "Chemical Physics Letters; 1-3, 247-255",
+        2000
+    ],
+    "to149": [
+        "data/to149.pdf",
+        "10.1088/0953-8984/5/18/019",
+        "Apra, Causa, Dovesi, Prencipe, Saunders",
+        "On the structural properties of NaCl: an ab initio study of the B1-B2 phase transition",
+        "Journal of Physics: Condensed Matter; 18, 2969-2976",
+        1993
+    ],
+    "middlemiss2005": [
+        "data/middlemiss2005.pdf",
+        "10.1080/00268970500179537",
+        "Mackrodt, Middlemiss",
+        "First principles study of dd excitations in bulk NiO",
+        "Molecular Physics; 18, 2513-2525",
+        2005
+    ],
+    "puchina98": [
+        "data/puchina98.pdf",
+        "10.1016/s0039-6028(97)00950-3",
+        "Bennewitz, Huisinga, Puchin, Puchina, Reichling",
+        "Theoretical modelling of steps and surface oxidation on CaF2(111)",
+        "Surface Science; 687-691",
+        1998
+    ],
+    "sto2": [
+        "data/sto2.pdf",
+        "10.1107/s0108767392006342",
+        "Azavant, Lichanot",
+        "X-ray scattering factors of oxygen and sulfur ions: anabinitioHartreeFock calculation",
+        "Acta Crystallographica Section A Foundations of Crystallography; 1, 91-97",
+        1993
+    ],
+    "sto47": [
+        "data/sto47.pdf",
+        "10.1021/jp981431v",
+        "Dixon, Sandrone",
+        "A Periodic Density Functional Theory and HartreeFock Study of Alkali Halides with Gaussian Orbitals",
+        "The Journal of Physical Chemistry A; 50, 10310-10317",
+        1998
+    ],
+    "gibbs2006": [
+        "data/gibbs2006.pdf",
+        "10.1021/jp062992m",
+        "Cox, Gibbs, Jayatilaka, Rosso, Spackman",
+        "Bond Length and Local Energy Density Property Connections for Non-Transition-Metal Oxide-Bonded Interactions",
+        "The Journal of Physical Chemistry A; 44, 12259-12266",
+        2006
+    ],
+    "to168": [
+        "data/to168.pdf",
+        "10.1103/physrevb.45.592",
+        "Orlando, Pisani, Roetti, Stefanovich",
+        "Ab initioHartree-Fock study of tetragonal and cubic phases of zirconium dioxide",
+        "Physical Review B; 2, 592-601",
+        1992
+    ],
+    "ramirez2006": [
+        "data/ramirez2006.pdf",
+        "10.1063/1.2208363",
+        "Kirtman, Ramirez-solis, Zicovich-wilson",
+        "Periodic Hartree-Fock and density functional theory calculations for Li-doped polyacetylene chains",
+        "The Journal of Chemical Physics; 24, 244703",
+        2006
+    ],
+    "evarestov99b": [
+        "data/evarestov99b.pdf",
+        "10.1002/(sici)1521-3951(199910)215:2<949::aid-pssb949>3.3.co;2-d",
+        "Evarestov, Smirnov",
+        "Supercell Model of V-Doped TiO2: Unrestricted Hartree-Fock Calculations",
+        "physica status solidi (b); 2, 949-956",
+        1999
+    ],
+    "ahdjoudj99": [
+        "data/ahdjoudj99.pdf",
+        "10.1016/s0039-6028(99)01008-0",
+        "Ahdjoudj, Martinsky, Minot, Somorjai, Van hove",
+        "Theoretical study of the termination of the Fe3O4 (111) surface",
+        "Surface Science; 1-2, 133-153",
+        1999
+    ],
+    "waskowska2004": [
+        "data/waskowska2004.pdf",
+        "10.1088/0953-8984/16/1/006",
+        "Feliz, Gerward, Gracia, Llusar, Marques, Olsen, Recio, Wa kowska",
+        "High-pressure behaviour of selenium-based spinels and related structuresan experimental and theoretical study",
+        "Journal of Physics: Condensed Matter; 1, 53-63",
+        2004
+    ],
+    "to288": [
+        "data/to288.pdf",
+        "10.1103/physrevb.64.125102",
+        "Baranek, Dovesi, Orlando, Roetti, Zicovich-wilson",
+        "Well localized crystalline orbitals obtained from Bloch functions: The case ofKNbO3",
+        "Physical Review B; 12",
+        2001
+    ],
+    "sto11": [
+        "data/sto11.pdf",
+        "10.1103/physrevb.59.10521",
+        "Harrison, Kaplan, Mahanti, Su",
+        "Crystal Hartree-Fock calculations forLa2NiO4andLa2CuO4",
+        "Physical Review B; 16, 10521-10529",
+        1999
+    ],
+    "catti2001a": [
+        "data/catti2001a.pdf",
+        "10.1103/physrevlett.87.035504",
+        "Catti",
+        "Orthorhombic Intermediate State in the Zinc Blende to Rocksalt Transformation Path of SiC at High Pressure",
+        "Physical Review Letters; 3",
+        2001
+    ],
+    "evarestov2005c": [
+        "data/evarestov2005c.pdf",
+        "10.1002/qua.20407",
+        "Evarestov, Smirnov, Usvyat",
+        "Wannier functions and chemical bonding in a slab model: MgO (001) and TiO2 (110) surfaces",
+        "International Journal of Quantum Chemistry; 2, 102-109",
+        2005
+    ],
+    "johnson2000": [
+        "data/johnson2000.pdf",
+        "10.1039/b001724h",
+        "Johnson, Moore, Mortimer",
+        "An assignment of the 23Na MAS NMR spectrum of Na5P3O106H2O using a general ab initio method",
+        "Chemical Communications; 9, 791-792",
+        2000
+    ],
+    "neef2006": [
+        "data/neef2006.pdf",
+        "10.1016/j.susc.2005.12.036",
+        "Doll, Neef",
+        "CO adsorption on the Cu(111) surface: A density functional study",
+        "Surface Science; 5, 1085-1092",
+        2006
+    ],
+    "to153": [
+        "data/to153.pdf",
+        "10.1080/01418619308213989",
+        "Allan, Apra, Dovesi, Harrison, Mackrodt, Saunders, Towler",
+        "Ab initioHartree-Fock calculations of CaO, VO, MnO and NiO",
+        "Philosophical Magazine A; 4, 653-666",
+        1993
+    ],
+    "carrasco2005": [
+        "data/carrasco2005.pdf",
+        "10.1002/pssc.200460134",
+        "Carrasco, Hermansson, Illas, Kotomin, Lopez, Maier, Piskunov, Zhukovskii",
+        "First principles simulations ofF centers in cubic SrTiO3",
+        "physica status solidi (c); 1, 153-158",
+        2005
+    ],
+    "sto15": [
+        "data/sto15.pdf",
+        "10.1006/jssc.1998.7902",
+        "Baert, Baranek, Danede, Noiret, Odou, Schamps",
+        "Rubidium Tetrachlorocadmate: X-Ray Diffraction Measurements and an Electronic Structure Study",
+        "Journal of Solid State Chemistry; 2, 371-376",
+        1998
+    ],
+    "gracia2002": [
+        "data/gracia2002.pdf",
+        "10.1103/physrevb.66.224114",
+        "Andres, Beltran, Franco, Gracia, Recio",
+        "Quantum-mechanical simulation ofMgAl2O4under high pressure",
+        "Physical Review B; 22",
+        2002
+    ],
+    "harrison97": [
+        "data/harrison97.pdf",
+        "10.1016/s0009-2614(97)00033-x",
+        "Harrison, Searle, Seddon",
+        "An ab initio study of the magnetic coupling in bi-metallic CrIII cyanides",
+        "Chemical Physics Letters; 5-6, 507-511",
+        1997
+    ],
+    "to174": [
+        "data/to174.pdf",
+        "10.1088/0965-0393/2/5/002",
+        "Cora, Pisani",
+        "A quantum-mechanical ab initio simulation of neutral and charged point defects in alpha-quartz",
+        "Modelling and Simulation in Materials Science and Engineering; 5, 965-974",
+        1994
+    ],
+    "to120": [
+        "data/to120.pdf",
+        "10.1088/0953-8984/3/23/004",
+        "Catti, Pavese, Saunders",
+        "Elastic constants and electronic structure of fluorite (CaF2): an ab initio Hartree-Fock study",
+        "Journal of Physics: Condensed Matter; 23, 4151-4164",
+        1991
+    ],
+    "to62": [
+        "data/to62.pdf",
+        "10.1016/0039-6028(84)90495-3",
+        "Angonoa, Ermoshkin, Koutecky, Pisani",
+        "Ab initio hartree-fock investigation of the interaction between hydrogen monolayers and beryllium slabs",
+        "Surface Science; 1, 51-74",
+        1984
+    ],
+    "puchina98b": [
+        "data/puchina98b.pdf",
+        "10.1016/s0038-1098(98)00027-1",
+        "Kotomin, Puchin, Puchina, Reichling",
+        "Ab initio study of the F centers in CaF2: Calculations of the optical absorption, diffusion and binding energies",
+        "Solid State Communications; 5, 285-288",
+        1998
+    ],
+    "sto1": [
+        "data/sto1.pdf",
+        "10.1063/1.474101",
+        "Burke, Ernzerhof, Perdew, Zupan",
+        "Distributions and averages of electron density parameters: Explaining the effects of gradient corrections",
+        "The Journal of Chemical Physics; 24, 10184-10193",
+        1997
+    ],
+    "to359": [
+        "data/to359.pdf",
+        "10.1021/jp060843y",
+        "Civalleri, Pisani, Torres, Ugliengo",
+        "An Ab Initio Periodic Study of Acidic Chabazite as a Candidate for Dihydrogen Storage",
+        "The Journal of Physical Chemistry B; 21, 10467-10474",
+        2006
+    ],
+    "to177": [
+        "data/to177.pdf",
+        "10.1016/0022-3697(93)90356-v",
+        "Lichanot, Ouazzani, Plsani, Roetti",
+        "Relaxation and electronic structure of surfaces in lithium sulphide: A Hartree-Fock ab initio approach",
+        "Journal of Physics and Chemistry of Solids; 11, 1603-1611",
+        1993
+    ],
+    "to379": [
+        "data/to379.pdf",
+        "10.1039/b617858h",
+        "Civalleri, Corno, Malavasi, Menziani, Pedone, Segre, Ugliengo",
+        "An ab initio parameterized interatomic force field for hydroxyapatite",
+        "Journal of Materials Chemistry; 20, 2061",
+        2007
+    ],
+    "sto16": [
+        "data/sto16.pdf",
+        "10.1080/014186399257483",
+        "C. mackrodt, f. jollet, m. gautier-",
+        "A first-principles Hartree-Fock interpretation of the Xray oxygen K-edge spectrum of haematite (alpha-Fe2O3)",
+        "Philosophical Magazine B; 1, 25-36",
+        1999
+    ],
+    "to190": [
+        "data/to190.pdf",
+        "10.1103/physrevb.51.7441",
+        "Catti, Dovesi, Valerio",
+        "Theoretical study of electronic, magnetic, and structural properties of -Fe2O3(hematite)",
+        "Physical Review B; 12, 7441-7450",
+        1995
+    ],
+    "masunov2000": [
+        "data/masunov2000.pdf",
+        "10.1021/jp993078e",
+        "Dannenberg, Masunov",
+        "Theoretical Study of Urea and Thiourea. 2. Chains and Ribbons",
+        "The Journal of Physical Chemistry B; 4, 806-810",
+        2000
+    ],
+    "melle2000": [
+        "data/melle2000.pdf",
+        "10.1016/s0039-6028(00)00528-8",
+        "Melle-franco, Pacchioni",
+        "CO adsorption on SnO2(110): cluster and periodic ab initio calculations",
+        "Surface Science; 1-3, 54-66",
+        2000
+    ],
+    "graucrespo2006": [
+        "data/graucrespo2006.pdf",
+        "10.1103/physrevb.73.035116",
+        "Catlow, Cora, De leeuw, Grau-crespo, Sokol",
+        "Electronic structure and magnetic coupling inFeSbO4: A DFT study using hybrid functionals andGGA+Umethods",
+        "Physical Review B; 3",
+        2006
+    ],
+    "to338": [
+        "data/to338.pdf",
+        "10.1088/0953-8984/17/3/012",
+        "Brown, Civalleri, Dovesi, Merawa, Noel",
+        "Raman and infrared vibrational frequencies and elastic properties of solid BaFCl calculated with various Hamiltonians: anab initiostudy",
+        "Journal of Physics: Condensed Matter; 3, 535-548",
+        2005
+    ],
+    "to155": [
+        "data/to155.pdf",
+        "10.1103/physrevb.47.9189",
+        "Catti, Dovesi, Pavese, Saunders",
+        "Static lattice and electron properties ofMgCO3(magnesite) calculated byab initioperiodic Hartree-Fock methods",
+        "Physical Review B; 15, 9189-9198",
+        1993
+    ],
+    "to328": [
+        "data/to328.pdf",
+        "10.1002/qua.10862",
+        "Dovesi, Moreira",
+        "Periodic approach to the electronic structure and magnetic coupling in KCuF3, K2CuF4, and Sr2CuO2Cl2 low-dimensional magnetic systems",
+        "International Journal of Quantum Chemistry; 5, 805-823",
+        2004
+    ],
+    "sto56": [
+        "data/sto56.pdf",
+        "10.1063/1.466259",
+        "Allan, Hines, Mackrodt, Towler",
+        "Calculated pressureinduced phase transition in MgF2",
+        "The Journal of Chemical Physics; 6, 4710-4711",
+        1994
+    ],
+    "herschend2003": [
+        "data/herschend2003.pdf",
+        "10.1021/jp030305a",
+        "Alfredsson, Hermansson, Herschend, Jacobs, Kotomin, Zhukovskii",
+        "Characterization of the MetalCeramic Bonding in the Ag/MgO(001) Interface from ab Initio Calculations",
+        "The Journal of Physical Chemistry B; 43, 11893-11899",
+        2003
+    ],
+    "gennard99": [
+        "data/gennard99.pdf",
+        "10.1021/jp9913923",
+        "Catlow, Cora, Gennard",
+        "Comparison of the Bulk and Surface Properties of Ceria and Zirconia by ab Initio Investigations",
+        "The Journal of Physical Chemistry B; 46, 10158-10170",
+        1999
+    ],
+    "luhtanen2004": [
+        "data/luhtanen2004.pdf",
+        "10.1021/ic0499143",
+        "Linnolahti, Luhtanen, Pakkanen",
+        "Molecular Structures of Magnesium Dichloride Sheets and Nanoballs",
+        "Inorganic Chemistry; 14, 4482-4486",
+        2004
+    ],
+    "to271": [
+        "data/to271.pdf",
+        "10.1103/physrevb.60.14042",
+        "Chartier, Darco, Dovesi, Saunders",
+        "Ab initioHartree-Fock investigation of the structural, electronic, and magnetic properties ofMn3O4",
+        "Physical Review B; 20, 14042-14048",
+        1999
+    ],
+    "vybishchikov2001": [
+        "data/vybishchikov2001.pdf",
+        "10.1021/jp012294w",
+        "Sauer, Vyboishchikov",
+        "(V2O5)nGas-Phase Clusters (n= 112) Compared to V2O5Crystal:  DFT Calculations",
+        "The Journal of Physical Chemistry A; 37, 8588-8598",
+        2001
+    ],
+    "to114": [
+        "data/to114.pdf",
+        "10.1016/0039-6028(90)90543-h",
+        "Causa, Dovesi, Ricca",
+        "Ab-mitio Hartree-Fock investigation of the surface features of LiH slabs of different thickness",
+        "Surface Science; 1-3, 312-320",
+        1990
+    ],
+    "to183": [
+        "data/to183.pdf",
+        "10.1016/0038-1098(94)90339-5",
+        "Dargelos, Larrieu, Lichanot, Orlando",
+        "Electronic structure and phase transition in magnesium sulphide",
+        "Solid State Communications; 3, 189-193",
+        1994
+    ],
+    "to354": [
+        "data/to354.pdf",
+        "10.1021/jp052394s",
+        "Agnoli, Ferrari, Ferrero, Granozzi, Netzer, Pisani, Sambi, Schoiswohl, Surnev",
+        "Experimental and Theoretical Study of a Surface Stabilized Monolayer Phase of Nickel Oxide on Pd(100)",
+        "The Journal of Physical Chemistry B; 36, 17197-17204",
+        2005
+    ],
+    "sto21": [
+        "data/sto21.pdf",
+        "10.1103/physrevb.58.1236",
+        "Baraille, Lichanot, Tappero",
+        "Electronic structure of pyrite-type manganese disulphide(pMnS2): Anab initiostudy",
+        "Physical Review B; 3, 1236-1242",
+        1998
+    ],
+    "to196": [
+        "data/to196.pdf",
+        "10.1103/physrevb.51.3391",
+        "Apra, Dovesi, Prencipe, Saunders, Zupan",
+        "Ab initiostudy of the structural properties of LiF, NaF, KF, LiCl, NaCl, and KCl",
+        "Physical Review B; 6, 3391-3396",
+        1995
+    ],
+    "to49": [
+        "data/to49.pdf",
+        "10.1080/01418638208227613",
+        "Angonoa, Causa, Dovesi",
+        "On the core expansion of metallic beryllium",
+        "Philosophical Magazine B; 6, 601-606",
+        1982
+    ],
+    "doll2003": [
+        "data/doll2003.pdf",
+        "10.1016/j.susc.2003.07.008",
+        "Doll",
+        "Density functional study of Ni bulk, surfaces and the adsorbate systems Ni(111)R30Cl, and Ni(111)(22)K",
+        "Surface Science; 1, 103-120",
+        2003
+    ],
+    "souledebas2003": [
+        "data/souledebas2003.pdf",
+        "10.1016/s0022-3697(02)00356-6",
+        "Dorsett, Ford, Soule de bas",
+        "The electronic structure of Be and BeO: benchmark EMS measurements and LCAO calculations",
+        "Journal of Physics and Chemistry of Solids; 3, 495-505",
+        2003
+    ],
+    "sto55": [
+        "data/sto55.pdf",
+        "10.1016/0022-3697(94)90221-6",
+        "Harrison, Jaffe, Pandey",
+        "Ab initio study of high pressure phase transition in GaN",
+        "Journal of Physics and Chemistry of Solids; 11, 1357-1361",
+        1994
+    ],
+    "catti1996": [
+        "data/catti1996.pdf",
+        "10.1107/s0108767395017181",
+        "Catti, Pavese",
+        "Theoretical Structure Factors and Electron Density of Magnesite(MgCO3)",
+        "Acta Crystallographica Section A Foundations of Crystallography; 3, 413-418",
+        1996
+    ],
+    "zwijnenburg2006": [
+        "data/zwijnenburg2006.pdf",
+        "10.1016/j.jssc.2006.07.011",
+        "Bell, Cora, Huenerbein, Zwijnenburg",
+        "A computational study into the (tetrahedral) distortion of TX2 -quartz materials: The effect of changing the chemical composition away from SiO2",
+        "Journal of Solid State Chemistry; 11, 3429-3436",
+        2006
+    ],
+    "sto25": [
+        "data/sto25.pdf",
+        "10.1039/a701580a",
+        "Catti, Sandrone",
+        "Ab initio study of corundum-like Me2O3oxides (Me=Ti, V, Cr, Fe, Co, Ni)",
+        "Faraday Discussions; 189-203",
+        1997
+    ],
+    "allouche1997": [
+        "data/allouche1997.pdf",
+        "10.1016/s0039-6028(96)01189-2",
+        "Allouche",
+        "Quantum ab initio study of acetylene adsorption on NaCl(100) I. Topology and adsorption energy",
+        "Surface Science; 1-3, 117-124",
+        1997
+    ],
+    "rosso99a": [
+        "data/rosso99a.pdf",
+        "10.1016/s0039-6028(98)00941-8",
+        "Hochella, Rosso",
+        "A UHV STM/STS and ab initio investigation of covellite {001} surfaces",
+        "Surface Science; 2-3, 364-374",
+        1999
+    ],
+    "evarestov96": [
+        "data/evarestov96.pdf",
+        "10.1103/physrevb.54.8969",
+        "Evarestov, Jacobs, Leko",
+        "Oxygen interstitials in magnesium oxide: A band-model study",
+        "Physical Review B; 13, 8969-8972",
+        1996
+    ],
+    "to54": [
+        "data/to54.pdf",
+        "10.1016/0039-6028(82)90084-x",
+        "Angonoa, Koutecky, Pisani",
+        "Ab initio hartree-fock investigation of beryllium slabs",
+        "Surface Science; 2, 355-370",
+        1982
+    ],
+    "jiang2003": [
+        "data/jiang2003.pdf",
+        "10.1088/0953-8984/15/4/310",
+        "Darrigan, Jiang, Pandey, R rat",
+        "First-principles study of structural, electronic and optical properties of BaF2in its cubic, orthorhombic and hexagonal phases",
+        "Journal of Physics: Condensed Matter; 4, 709-718",
+        2003
+    ],
+    "catti2000a": [
+        "data/catti2000a.pdf",
+        "10.1103/physrevb.61.1795",
+        "Catti",
+        "Ab initiostudy ofLi+diffusion paths in the monoclinicLi0.5CoO2intercalate",
+        "Physical Review B; 3, 1795-1803",
+        2000
+    ],
+    "to295": [
+        "data/to295.pdf",
+        "10.1088/0965-0393/10/1/303",
+        "Busso, Casassa, Pisani, Sulimov",
+        "Ab initiosimulation of the oxygen vacancy bistability in pure and Ge-doped -quartz",
+        "Modelling and Simulation in Materials Science and Engineering; 1, 21-33",
+        2002
+    ],
+    "to239": [
+        "data/to239.pdf",
+        "10.1039/a701528c",
+        "Dovesi, Freyria fava, Roetti, Saunders",
+        "Structural, electronic and magnetic properties of KMF3(M=Mn, Fe, Co, Ni)",
+        "Faraday Discussions; 173-187",
+        1997
+    ],
+    "zhukovskii99": [
+        "data/zhukovskii99.pdf",
+        "10.1016/s0039-6028(99)00847-x",
+        "Harding, Jacobs, Kotomin, Stoneham, Zhukovskii",
+        "Comparative theoretical study of the AgMgO (100) and (110) interfaces",
+        "Surface Science; 2-3, 373-383",
+        1999
+    ],
+    "to134": [
+        "data/to134.pdf",
+        "10.1088/0953-8984/4/16/002",
+        "Apra, Causa, Dovesi, Harrison, Saunders",
+        "Correlation functional estimates of the dispersion intraction in semi-ionic compounds",
+        "Journal of Physics: Condensed Matter; 16, L261-L264",
+        1992
+    ],
+    "islam2005b": [
+        "data/islam2005b.pdf",
+        "10.1021/jp044715q",
+        "Bredow, Islam, Maslyuk, Minot",
+        "Structural and Electronic Properties of Li2B4O7",
+        "The Journal of Physical Chemistry B; 28, 13597-13604",
+        2005
+    ],
+    "to180": [
+        "data/to180.pdf",
+        "10.1039/jm9940400825",
+        "Causa, Heath, Mackrodt, Saunders",
+        "Calculated enthalpies of mixing of MnO/MgO and NiO/MgO",
+        "J. Mater. Chem.; 6, 825-829",
+        1994
+    ],
+    "sto79": [
+        "data/sto79.pdf",
+        "10.1021/jp970567a",
+        "Hess, Mccarthy, Taylor",
+        "Structure and Energetics of the Water/NaCl(100) Interface",
+        "The Journal of Physical Chemistry B; 38, 7455-7463",
+        1997
+    ],
+    "sto40": [
+        "data/sto40.pdf",
+        "10.1103/physrevb.52.5375",
+        "Harrison, Mccarthy, Towler",
+        "Ab initiostudy of the surface and interfacial properties of a layered MgO/NiO film",
+        "Physical Review B; 7, 5375-5384",
+        1995
+    ],
+    "gatti2003": [
+        "data/gatti2003.pdf",
+        "10.1002/jcc.10205",
+        "Bertini, Cargnoni, Gatti",
+        "Chemical information from the source function",
+        "Journal of Computational Chemistry; 4, 422-436",
+        2003
+    ],
+    "marinelli2001": [
+        "data/marinelli2001.pdf",
+        "10.1016/s0022-3697(00)00089-5",
+        "Habas, Lichanot, Marinelli",
+        "HartreeFock and density functional calculations of the elastic constants of CaO",
+        "Journal of Physics and Chemistry of Solids; 4, 661-663",
+        2001
+    ],
+    "white97": [
+        "data/white97.pdf",
+        "10.1021/jp9623094",
+        "Hess, Nicholas, White",
+        "Periodic HartreeFock Characterization of the Structure and Electronic Properties of Zeolite NaCaA",
+        "The Journal of Physical Chemistry B; 4, 590-595",
+        1997
+    ],
+    "to194": [
+        "data/to194.pdf",
+        "10.1088/0953-8984/8/9/005",
+        "Azavant, Dovesi, Orlando, Roetti, Towler",
+        "Cluster and supercell calculations for carbon-doped silicon",
+        "Journal of Physics: Condensed Matter; 9, 1123-1133",
+        1996
+    ],
+    "soehnel2005": [
+        "data/soehnel2005.pdf",
+        "10.1002/chin.200513006",
+        "Hermann, Schwerdtfeger, Soehnel",
+        "Solid State Density Functional Calculations for the Group 11 Monohalides.",
+        "ChemInform; 13",
+        2005
+    ],
+    "feng2004c": [
+        "data/feng2004c.pdf",
+        "10.1103/physrevb.69.132502",
+        "Feng, Harrison",
+        "Electronic structure ofCaCuO2from the B3LYP hybrid density functional",
+        "Physical Review B; 13",
+        2004
+    ],
+    "evarestov2003a": [
+        "data/evarestov2003a.pdf",
+        "10.1016/s0038-1098(03)00440-x",
+        "Borstel, Evarestov, Heifets, Kotomin, Maier",
+        "Ab initio Hartree-Fock calculations of LaMnO3 (110) surfaces",
+        "Solid State Communications; 5, 367-371",
+        2003
+    ],
+    "to116": [
+        "data/to116.pdf",
+        "10.1103/physrevb.43.11937",
+        "Causa, Dovesi, Roetti",
+        "Pseudopotential Hartree-Fock study of seventeen III-V and IV-IV semiconductors",
+        "Physical Review B; 14, 11937-11943",
+        1991
+    ],
+    "sto66": [
+        "data/sto66.pdf",
+        "10.1002/(sici)1097-461x(1998)70:2<341::aid-qua10>3.0.co;2-f",
+        "Benco, Li?ka, Mach, Micov, Tunega, Turi nagy",
+        "Electronic structure of alumina surface",
+        "International Journal of Quantum Chemistry; 2, 341-350",
+        1998
+    ],
+    "sto30": [
+        "data/sto30.pdf",
+        "10.1088/0953-8984/9/34/005",
+        "Allan, Bell, Hines, Mackrodt",
+        "Anab initioHartree - Fock study of the magnetic states of the polymorphs of MnS",
+        "Journal of Physics: Condensed Matter; 34, 7105-7118",
+        1997
+    ],
+    "to355": [
+        "data/to355.pdf",
+        "10.1021/jp053602j",
+        "Dovesi, Orlando, Pascale, Torres, Ugliengo, Zicovich-wilson",
+        "Vibrational Spectrum of Katoite Ca3Al2[(OH)4]3:  A Periodic ab Initio Study",
+        "The Journal of Physical Chemistry B; 2, 692-701",
+        2006
+    ],
+    "to154": [
+        "data/to154.pdf",
+        "10.1002/pssb.2221770111",
+        "Apra, Dovesi, Lichanot",
+        "Quantum Mechnical Hartree-Fock Study of the Elastic Properties of Li2S and Na2S",
+        "physica status solidi (b); 1, 157-163",
+        1993
+    ],
+    "knaup2005": [
+        "data/knaup2005.pdf",
+        "10.1103/physrevb.72.115323",
+        "Choyke, Deak, Frauenheim, Gali, Hajnal, Knaup",
+        "Defects inSiO2as the possible origin of near interface traps in theSiCSiO2system: A systematic theoretical study",
+        "Physical Review B; 11",
+        2005
+    ],
+    "to253": [
+        "data/to253.pdf",
+        "10.1016/s0009-2614(98)00749-0",
+        "Civalleri, Dovesi, Saunders, Ugliengo, Zicovich-wilson",
+        "A periodic ab initio study of the structure and relative stability of silica polymorphs",
+        "Chemical Physics Letters; 4-6, 394-402",
+        1998
+    ],
+    "sto9": [
+        "data/sto9.pdf",
+        "10.1103/physrevb.49.11153",
+        "Harrison, Hess, Jaffe",
+        "Ab initio study of ZnO (101 0) surface relaxation",
+        "Physical Review B; 16, 11153-11158",
+        1994
+    ],
+    "to50": [
+        "data/to50.pdf",
+        "10.1103/physrevb.25.3731",
+        "Dovesi, Pisani, Ricca, Roetti",
+        "Ab initiostudy of metallic beryllium",
+        "Physical Review B; 6, 3731-3739",
+        1982
+    ],
+    "to117": [
+        "data/to117.pdf",
+        "10.1007/bf00202237",
+        "D'arco, Dovesi, Saunders, Silvi",
+        "Periodic Hartree-Fock study of minerals: Tetracoordinated silica polymorphs",
+        "Physics and Chemistry of Minerals; 8",
+        1991
+    ],
+    "montanari2002": [
+        "data/montanari2002.pdf",
+        "10.1016/s0009-2614(02)01401-x",
+        "Harrison, Montanari",
+        "Lattice dynamics of TiO2 rutile: influence of gradient corrections in density functional calculations",
+        "Chemical Physics Letters; 5-6, 528-534",
+        2002
+    ],
+    "to241": [
+        "data/to241.pdf",
+        "10.1039/a607439a",
+        "Catlow, Cora, Harrison, Patel, Roetti",
+        "Anab initio HartreeFock study of -MoO3",
+        "Journal of Materials Chemistry; 6, 959-967",
+        1997
+    ],
+    "to337bis": [
+        "data/to337bis.pdf",
+        "10.1023/b:orig.0000009829.11244.d1",
+        "Barbaglia, Bolis, Broyer, Busco, Civalleri, Ugliengo",
+        "Entrapping Molecules in Zeolites Nanocavities: A Thermodynamic and Ab-Initio Study",
+        "Origins of Life and Evolution of the Biosphere; 1/2, 69-77",
+        2004
+    ],
+    "gomes2001": [
+        "data/gomes2001.pdf",
+        "10.1016/s0009-2614(01)00500-0",
+        "Gomes, Harrison, Illas, Moreira, Reinhardt, Searle, Wander",
+        "The structural relaxation of the -Al2O3(0001)  an investigation of potential errors",
+        "Chemical Physics Letters; 5-6, 412-418",
+        2001
+    ],
+    "alfredsson2002": [
+        "data/alfredsson2002.pdf",
+        "10.1080/08927020290030198",
+        "Alfredsson, Hermansson",
+        "OH frequency calculations for the hydroxylated MgO(001) surface",
+        "Molecular Simulation; 6-7, 663-681",
+        2002
+    ],
+    "muscat2000": [
+        "data/muscat2000.pdf",
+        "10.1016/s0039-6028(99)01125-5",
+        "Harrison, Muscat",
+        "The physical and electronic structure of the rutile (001) surface",
+        "Surface Science; 1-2, 119-127",
+        2000
+    ],
+    "veryazov99": [
+        "data/veryazov99.pdf",
+        "10.1134/1.1130983",
+        "Evarestov, Leko, Veryazov",
+        "Local characteristics of crystal electronic structure in the Hartree-Fock method",
+        "Physics of the Solid State; 8, 1286-1290",
+        1999
+    ],
+    "nieber2005": [
+        "data/nieber2005.pdf",
+        "10.1140/epjb/e2005-00116-5",
+        "Doll, Nieber, Zwicknagl",
+        "Electronic and magnetic properties of a hexanuclear ferric wheel",
+        "The European Physical Journal B; 2, 209-215",
+        2005
+    ],
+    "to258": [
+        "data/to258.pdf",
+        "10.1016/s0009-2614(97)01393-6",
+        "Causa, Heifets, Kotomin, Zhukovskii",
+        "The adhesion nature of the Ag/MgO(100) interface: an ab initio study",
+        "Chemical Physics Letters; 5-6, 395-401",
+        1998
+    ],
+    "to43": [
+        "data/to43.pdf",
+        "10.1103/physrevb.24.4170",
+        "Dellarole, Dovesi, Pisani, Roetti",
+        "Exact-exchange Hartree-Fock calculations for periodic systems. IV. Ground-state properties of cubic boron nitride.",
+        "Physical Review B; 8, 4170-4176",
+        1981
+    ],
+    "sto38": [
+        "data/sto38.pdf",
+        "10.1039/ft9969202043",
+        "Mackrodt, Simson",
+        "Cation valence charge states of MnFe2O4: an ab initio HartreeFock study",
+        "J. Chem. Soc., Faraday Trans.; 12, 2043-2047",
+        1996
+    ],
+    "zhukovskii2003": [
+        "data/zhukovskii2003.pdf",
+        "10.1016/s0022-3697(03)00156-2",
+        "Causa, Jacobs, Zhukovskii",
+        "On the mechanism of the interaction between oxygen and close-packed single-crystal aluminum surfaces",
+        "Journal of Physics and Chemistry of Solids; 8, 1317-1331",
+        2003
+    ],
+    "to156": [
+        "data/to156.pdf",
+        "10.1007/bf00207203",
+        "Apr, Catti, Pavese, Roetti",
+        "Quantum-mechanical Hartree-Fock study of calcite (CaCO3) at variable pressure, and comparison with magnesite (MgCO3)",
+        "Physics and Chemistry of Minerals; 2",
+        1993
+    ],
+    "to44": [
+        "data/to44.pdf",
+        "10.1103/physrevb.24.4177",
+        "Angonoa, Causa, Dovesi",
+        "Exact-exchange Hartree-Fock calculations for periodic systems. V. Ground-state properties of silicon",
+        "Physical Review B; 8, 4177-4183",
+        1981
+    ],
+    "zhukovski2005": [
+        "data/zhukovski2005.pdf",
+        "10.1016/j.commatsci.2004.12.046",
+        "Kotomin, Maier, Mastrikov, Zhukovskii",
+        "Ab initio simulations on AgCl(111) surface and AgCl(111)/-Al2O3(0001) interface",
+        "Computational Materials Science; 1-3, 276-281",
+        2005
+    ],
+    "sto81": [
+        "data/sto81.pdf",
+        "10.1016/s0039-6028(96)01147-8",
+        "Bredow, Pacchioni",
+        "Comparative periodic and cluster ab initio study on",
+        "Surface Science; 1, 21-32",
+        1997
+    ],
+    "herschend2004": [
+        "data/herschend2004.pdf",
+        "10.1063/1.1635802",
+        "Baudin, Hermansson, Herschend",
+        "A combined molecular dynamics+quantum mechanics method for investigation of dynamic effects on local surface structures",
+        "The Journal of Chemical Physics; 10, 4939-4948",
+        2004
+    ],
+    "bredow2006": [
+        "data/bredow2006.pdf",
+        "10.1002/pssb.200541403",
+        "Bredow, Evarestov, Jug",
+        "Electronic and magnetic structure of ScMnO3",
+        "physica status solidi (b); 2, R10-R12",
+        2006
+    ],
+    "fu99a": [
+        "data/fu99a.pdf",
+        "10.1016/s0038-1098(99)00309-9",
+        "Fu, Resca, Resta, Yaschenko",
+        "Polarization properties of KNbO: comparison between HartreeFock and density-functional calculations",
+        "Solid State Communications; 8, 465-470",
+        1999
+    ],
+    "to66": [
+        "data/to66.pdf",
+        "10.1063/1.447957",
+        "Dovesi, Pisani, Roetti, Saunders",
+        "HartreeFock study of polysulphurnitride. I. The isolated infinite chain",
+        "The Journal of Chemical Physics; 6, 2839-2844",
+        1984
+    ],
+    "catti2005": [
+        "data/catti2005.pdf",
+        "10.1103/physrevb.72.064105",
+        "Catti",
+        "Kinetic mechanisms of the pressure-driven phase transitions of AgI",
+        "Physical Review B; 6",
+        2005
+    ],
+    "gunhold2003": [
+        "data/gunhold2003.pdf",
+        "10.1002/sia.1638",
+        "Beuermann, Borchardt, Dorfman, Gomann, Gunhold, Kempter, Kotomin, Maus-friedrichs, Piskunov",
+        "Study of the electronic and atomic structure of thermally treated SrTiO3(110) surfaces",
+        "Surface and Interface Analysis; 12, 998-1003",
+        2003
+    ],
+    "mackrodt96": [
+        "data/mackrodt96.pdf",
+        "10.1016/0009-2614(95)01415-2",
+        "Allan, Harrison, Mackrodt, Saunders, Towler",
+        "Direct evidence of O(p) holes in Li-doped NiO from Hartree-Fock calculations",
+        "Chemical Physics Letters; 1, 66-70",
+        1996
+    ],
+    "to206": [
+        "data/to206.pdf",
+        "10.1063/1.472623",
+        "Cora, Dovesi, Millini, Orlando, Perego",
+        "Hydrogen abstraction from methane by Li doped MgO: A periodic quantum mechanical study",
+        "The Journal of Chemical Physics; 19, 8937-8943",
+        1996
+    ],
+    "hong2004": [
+        "data/hong2004.pdf",
+        "10.1021/ja046921h",
+        "Alvarez, Camblor, Hong, Lee, Shin, Woo, Zicovich-wilson",
+        "In Situ DisorderOrder Transformation in Synthetic Gallosilicate Zeolites with the NAT Topology",
+        "Journal of the American Chemical Society; 42, 13742-13751",
+        2004
+    ],
+    "sto70": [
+        "data/sto70.pdf",
+        "10.1016/s0039-6028(98)00125-3",
+        "Allouche",
+        "Water adsorption on NaCl(100): a quantum ab-initio cluster calculation",
+        "Surface Science; 1-3, 279-293",
+        1998
+    ],
+    "to357": [
+        "data/to357.pdf",
+        "10.1002/qua.20938",
+        "Civalleri, Dovesi, Montanari, Zicovich-wilson",
+        "Influence of the exchange-correlation functional in all-electron calculations of the vibrational frequencies of corundum (-Al2O3)",
+        "International Journal of Quantum Chemistry; 7, 1703-1714",
+        2006
+    ],
+    "to222": [
+        "data/to222.pdf",
+        "10.1103/physrevb.55.16122",
+        "Catti, Dovesi, Sandrone",
+        "Periodic unrestricted Hartree-Fock study of corundumlikeTi2O3andV2O3",
+        "Physical Review B; 24, 16122-16131",
+        1997
+    ],
+    "bredow2004": [
+        "data/bredow2004.pdf",
+        "10.1103/physrevb.70.115111",
+        "Bredow, Heitjans, Wilkening",
+        "Electric field gradient calculations forLixTiS2and comparison withLi7NMR results",
+        "Physical Review B; 11",
+        2004
+    ],
+    "to313": [
+        "data/to313.pdf",
+        "10.1016/s0022-3697(03)00219-1",
+        "Catti, Dovesi, Noel",
+        "Full piezoelectric tensors of wurtzite and zinc blende ZnO and ZnS by first-principles calculations",
+        "Journal of Physics and Chemistry of Solids; 11, 2183-2190",
+        2003
+    ],
+    "bredow2005": [
+        "data/bredow2005.pdf",
+        "10.1007/s00214-005-0643-2",
+        "Bredow, Pacchioni",
+        "NO adsorption on the stoichiometric and reduced SnO2(110) surface",
+        "Theoretical Chemistry Accounts; 1-3, 52-59",
+        2005
+    ],
+    "mueller2005": [
+        "data/mueller2005.pdf",
+        "10.1016/j.chemphys.2005.06.012",
+        "Baudin, Freysoldt, Hermansson, Muller",
+        "An ab initio study of CO adsorption on ceria(110)",
+        "Chemical Physics; 3, 180-190",
+        2005
+    ],
+    "sto48": [
+        "data/sto48.pdf",
+        "10.1103/physrevb.57.11164",
+        "Allan, Barrera, Mackrodt, Sims",
+        "Thermodynamics and mechanism of theB1-B2phase transition in group-I halides and group-II oxides",
+        "Physical Review B; 18, 11164-11172",
+        1998
+    ],
+    "broadley2005": [
+        "data/broadley2005.pdf",
+        "10.1021/ic051240o",
+        "Broadley, Clarke, Cora, Gal, Smura",
+        "Vertex-Linked ZnO2S2Tetrahedra in the Oxysulfide BaZnOS:  a New Coordination Environment for Zinc in a Condensed Solid",
+        "Inorganic Chemistry; 24, 9092-9096",
+        2005
+    ],
+    "hung2002": [
+        "data/hung2002.pdf",
+        "10.1016/s0039-6028(02)02294-x",
+        "Hung, Muscat, Russo, Yarovsky",
+        "Density-functional theory studies of pyrite FeS2 () and () surfaces",
+        "Surface Science; 1-2, 111-119",
+        2002
+    ],
+    "to307": [
+        "data/to307.pdf",
+        "10.1016/s0166-1280(02)00609-7",
+        "Baraille, Cardy, Lacombe, Loudet, Pisani",
+        "Chemisorption of HSi(OH)3 on silica surfaces: an ab initio periodic study",
+        "Journal of Molecular Structure: THEOCHEM; 2-3, 291-300",
+        2003
+    ],
+    "to60": [
+        "data/to60.pdf",
+        "10.1007/bf01307674",
+        "Dovesi, Ferrero, Pisani, Roetti",
+        "Ab initio study of the Electron Momentum Distribution of metallic lithium",
+        "Zeitschrift f\ufffdr Physik B Condensed Matter; 3, 195-203",
+        1983
+    ],
+    "Gibbs99a": [
+        "data/Gibbs99a.pdf",
+        "10.1016/s0022-2860(99)00179-9",
+        "Boisen, Bukowinski, Gibbs, Rosso, Teter",
+        "Model structures and properties of the electron density distribution for low quartz at pressure: a study of the SiO bond",
+        "Journal of Molecular Structure; 13-25",
+        1999
+    ],
+    "sto57": [
+        "data/sto57.pdf",
+        "10.1080/08927029208050609",
+        "Harrison, Leslie",
+        "The Derivation of Shell Model Potentials for MgCl2FromAb InitioTheory",
+        "Molecular Simulation; 2, 171-174",
+        1992
+    ],
+    "to212": [
+        "data/to212.pdf",
+        "10.1088/0953-8984/8/22/004",
+        "Causa', Harrison, Pandey, Seel",
+        "The high-pressure phase transitions of silicon and gallium nitride: a comparative study of Hartree - Fock and density functional calculations",
+        "Journal of Physics: Condensed Matter; 22, 3993-4000",
+        1996
+    ],
+    "sto74": [
+        "data/sto74.pdf",
+        "10.1016/s0039-6028(98)00301-x",
+        "Alfredsson, Hermansson",
+        "N2 and HF vibrations on LiF(001): the effect of surface coverage",
+        "Surface Science; 1-2, 23-34",
+        1998
+    ],
+    "feng2004a": [
+        "data/feng2004a.pdf",
+        "10.1103/physrevb.69.035114",
+        "Feng, Harrison",
+        "Metal-insulator and magnetic transition of NiO at high pressures",
+        "Physical Review B; 3",
+        2004
+    ],
+    "to99": [
+        "data/to99.pdf",
+        "10.1080/00268978900101521",
+        "Causa, Dovesi, Roetti, Silvi",
+        "Non-empirical pseudopotentials in the HF-LCAO approach to crystalline solids",
+        "Molecular Physics; 4, 891-901",
+        1989
+    ],
+    "to162": [
+        "data/to162.pdf",
+        "10.1007/bf00203110",
+        "D'arco, Dovesi, Orlando, Sandrone, Saunders",
+        "A quantum mechanical study of the perovskite structure type of MgSiO3",
+        "Physics and Chemistry of Minerals; 6",
+        1993
+    ],
+    "to42": [
+        "data/to42.pdf",
+        "10.1103/physrevb.22.5936",
+        "Dovesi, Pisani, Ricca, Roetti",
+        "Exact-exchange Hartree-Fock calculations for periodic systems. III. Ground-state properties of diamond",
+        "Physical Review B; 12, 5936-5944",
+        1980
+    ],
+    "knaup2005c": [
+        "data/knaup2005c.pdf",
+        "10.1103/physrevb.71.235321",
+        "Choyke, Deak, Frauenheim, Gali, Hajnal, Knaup",
+        "Theoretical study of the mechanism of dry oxidation of4H-SiC",
+        "Physical Review B; 23",
+        2005
+    ],
+    "catti2001": [
+        "data/catti2001.pdf",
+        "10.1007/s002690100190",
+        "Catti",
+        "High-pressure stability, structure and compressibility of Cmcm  -MgAl 2 O 4 : an ab initio study",
+        "Physics and Chemistry of Minerals; 10, 729-736",
+        2001
+    ],
+    "cora2005": [
+        "data/cora2005.pdf",
+        "10.1080/00268970500179651",
+        "Cora",
+        "The performance of hybrid density functionals in solid state chemistry: the case of BaTiO3",
+        "Molecular Physics; 18, 2483-2496",
+        2005
+    ],
+    "schon2001": [
+        "data/schon2001.pdf",
+        "10.1039/b002956o",
+        "Jansen, Schon, Wevers",
+        "Prediction of high pressure phases in the systems Li3N, Na3N, (Li,Na)3N, Li2S and Na2S",
+        "Journal of Materials Chemistry; 1, 69-77",
+        2001
+    ],
+    "sto42": [
+        "data/sto42.pdf",
+        "10.1021/cm980704w",
+        "Alvarez, Ibarz, Ruiz",
+        "Electronic Structure of Host Lattices for Intercalation Compounds:  SnS2, SnSe2, ZrS2, and TaS2",
+        "Chemistry of Materials; 11, 3422-3428",
+        1998
+    ],
+    "to315": [
+        "data/to315.pdf",
+        "10.1021/cm0342804",
+        "Civalleri, Ferrari, Llunell, Merawa, Orlando, Ugliengo",
+        "Cation Selectivity in Alkali-Exchanged Chabazite:  An ab Initio Periodic Study",
+        "Chemistry of Materials; 21, 3996-4004",
+        2003
+    ],
+    "to79": [
+        "data/to79.pdf",
+        "10.1016/0039-6028(86)90012-9",
+        "Causa, Dovesi, Pisani, Roetti",
+        "AB initio hartree-fock study of the MgO(001) surface",
+        "Surface Science; 3, 551-560",
+        1986
+    ],
+    "to243": [
+        "data/to243.pdf",
+        "10.1103/physrevb.56.10105",
+        "Dallolio, Dovesi, Resta",
+        "Spontaneous polarization as a Berry phase of the Hartree-Fock wave function: The case ofKNbO3",
+        "Physical Review B; 16, 10105-10114",
+        1997
+    ],
+    "to181": [
+        "data/to181.pdf",
+        "10.1016/0009-2614(94)00930-9",
+        "Dovesi, Orlando, Roetti, Saunders",
+        "Convergence properties of the cluster model in the study of local perturbations in ionic systems. The case of bulk defects in MgO",
+        "Chemical Physics Letters; 1-3, 225-232",
+        1994
+    ],
+    "mackrodt2000": [
+        "data/mackrodt2000.pdf",
+        "10.1016/s0039-6028(00)00405-2",
+        "Mackrodt, Noguera",
+        "Bulk and (100) surface dd excitation energies in NiO from first-principles HartreeFock calculations",
+        "Surface Science; 1-2, L386-L390",
+        2000
+    ],
+    "beltran2001": [
+        "data/beltran2001.pdf",
+        "10.1016/s0009-2614(01)00238-x",
+        "Andres, Beltran, Calatayud, Martins",
+        "Theoretical study of ZnO (1010) and Cu/ZnO (1010) surfaces",
+        "Chemical Physics Letters; 4-6, 224-230",
+        2001
+    ],
+    "zhukovski2004b": [
+        "data/zhukovski2004b.pdf",
+        "10.1016/j.susc.2004.05.033",
+        "Dorfman, Fuks, Kotomin, Zhukovskii",
+        "First principles slab calculations of the regular Cu/MgO(001) interface",
+        "Surface Science; 122-129",
+        2004
+    ],
+    "to141": [
+        "data/to141.pdf",
+        "10.1016/0039-6028(93)90621-p",
+        "Cora, Nada, Orlando, Pisani",
+        "Ab-initio perturbed-cluster study of carbon monoxide adsorption at a stepped LiF(001) surface",
+        "Surface Science; 1-2, 185-194",
+        1993
+    ],
+    "to176": [
+        "data/to176.pdf",
+        "10.1016/0039-6028(94)00766-7",
+        "Allouche, Cora, Ferro, Girardet, Pisani",
+        "Adsorption of NH3 on MgO(100): a comparative study of ab initio and semi-classical calculations",
+        "Surface Science; 1-2, 139-150",
+        1995
+    ],
+    "to83": [
+        "data/to83.pdf",
+        "10.1063/1.452344",
+        "Dovesi, Pisani, Roetti, Silvi",
+        "The electronic structure of quartz: A periodic HartreeFock calculation",
+        "The Journal of Chemical Physics; 12, 6967-6971",
+        1987
+    ],
+    "puchin97": [
+        "data/puchin97.pdf",
+        "10.1016/s0039-6028(96)00971-5",
+        "Brause, Gale, Gunster, Kempter, Kotomin, Puchin, Shluger",
+        "Atomic and electronic structure of the corundum (0001) surface: comparison with surface spectroscopies",
+        "Surface Science; 2-3, 190-200",
+        1997
+    ],
+    "to45": [
+        "data/to45.pdf",
+        "10.1080/01418638108223563",
+        "Angonoa, Dovesi, Pisani, Roetti",
+        "Exact-exchange HartreeFock calculations for periodic systems",
+        "Philosophical Magazine B; 3, 413-418",
+        1981
+    ],
+    "sto31": [
+        "data/sto31.pdf",
+        "10.1002/bbpc.199700028",
+        "Mackrodt, Williamson",
+        "First Principles Description of the Valence States in Manganese Oxides",
+        "Berichte der Bunsengesellschaft f\u00fcr physikalische Chemie; 9, 1215-1221",
+        1997
+    ],
+    "zhukovski2004": [
+        "data/zhukovski2004.pdf",
+        "10.1088/0953-8984/16/28/009",
+        "Borstel, Dorfman, Fuks, Kotomin, Stoneham, Zhukovskii",
+        "Adhesion trends and growth mode of ultra-thin copper films on MgO",
+        "Journal of Physics: Condensed Matter; 28, 4881-4896",
+        2004
+    ],
+    "to287": [
+        "data/to287.pdf",
+        "10.1016/s0039-6028(01)00946-3",
+        "Dercole, Giamello, Maria ferrari, Pacchioni, Pisani, Soave",
+        "Theoretical characterization of charge-transfer reactions between N2 and O2 molecules and paramagnetic oxygen vacancies on the MgO surface",
+        "Surface Science; 1-3, 83-97",
+        2001
+    ],
+    "cora2002": [
+        "data/cora2002.pdf",
+        "10.1002/anie.200290013",
+        "Catlow, Cora, Saadoune",
+        "Lewis Acidity in Transition-Metal-Doped Microporous Aluminophosphates",
+        "Angewandte Chemie International Edition; 24, 4677-4680",
+        2002
+    ],
+    "catti2000": [
+        "data/catti2000.pdf",
+        "10.1021/jp000160x",
+        "Catti, Civalleri, Ugliengo",
+        "Structure and Energetics of SiO2Polymorphs by Quantum-Mechanical and Semiclassical Approaches",
+        "The Journal of Physical Chemistry B; 31, 7259-7265",
+        2000
+    ],
+    "ruiz2003": [
+        "data/ruiz2003.pdf",
+        "10.1016/s0022-4596(03)00238-x",
+        "Alemany, Llunell, Ruiz",
+        "Calculation of exchange coupling constants in solid state transition metal compounds using localized atomic orbital basis sets",
+        "Journal of Solid State Chemistry; 2, 400-411",
+        2003
+    ],
+    "to148": [
+        "data/to148.pdf",
+        "10.1103/physrevb.47.3522",
+        "Causa, Darco, Roetti, Silvi",
+        "Periodic Hartree-Fock study of a weakly bonded layer structure: Brucite Mg(OH)2",
+        "Physical Review B; 7, 3522-3529",
+        1993
+    ],
+    "to140": [
+        "data/to140.pdf",
+        "10.1016/0039-6028(93)90351-j",
+        "Causa, Dovesi, Ricca",
+        "Regular adsorption of CO molecules on LiF(001)",
+        "Surface Science; 1-2, 1-13",
+        1993
+    ],
+    "zapol2000": [
+        "data/zapol2000.pdf",
+        "10.1063/1.1286220",
+        "Curtiss, Erdemir, Zapol",
+        "Periodic ab initio calculations of orthoboric acid",
+        "The Journal of Chemical Physics; 8, 3338-3343",
+        2000
+    ],
+    "sto89": [
+        "data/sto89.pdf",
+        "10.1007/s002690050186",
+        "Boisen, Gibbs, Rosso",
+        "SiO bonded interactions in coesite: a comparison of crystalline, molecular and experimental electron density distributions",
+        "Physics and Chemistry of Minerals; 3, 264-272",
+        1999
+    ],
+    "cora2003": [
+        "data/cora2003.pdf",
+        "10.1021/jp035553l",
+        "Catlow, Civalleri, Cora, Orlando",
+        "Acid Strength of Low-Valence Dopant Ions in Microporous Zeolites and AlPOs",
+        "The Journal of Physical Chemistry B; 43, 11866-11870",
+        2003
+    ],
+    "hung2004": [
+        "data/hung2004.pdf",
+        "10.1063/1.1645790",
+        "Hung, Mcculloch, Prawer, Russo",
+        "An ab initio study of structural properties and single vacancy defects in Wurtzite AlN",
+        "The Journal of Chemical Physics; 10, 4890-4896",
+        2004
+    ],
+    "bermudez2001": [
+        "data/bermudez2001.pdf",
+        "10.1016/s0038-1098(01)00194-6",
+        "Bermudez",
+        "Ab-initio HartreeFock study of Mg+2 as a substitutional impurity in CaF2",
+        "Solid State Communications; 11, 569-574",
+        2001
+    ],
+    "jiang2002": [
+        "data/jiang2002.pdf",
+        "10.1103/physrevb.65.161202",
+        "Carlson, Dooryhee, Fitch, Frost, Gerward, Jiang, Lindelov, Mezouar, Mori-sanchez, Recio, Stahl",
+        "Compressibility and thermal expansion of cubic silicon nitride",
+        "Physical Review B; 16",
+        2002
+    ],
+    "doll2001a": [
+        "data/doll2001a.pdf",
+        "10.1103/physrevb.63.165410",
+        "Doll, Harrison",
+        "Theoretical study of chlorine adsorption on the Ag(111) surface",
+        "Physical Review B; 16",
+        2001
+    ],
+    "sto23": [
+        "data/sto23.pdf",
+        "10.1080/13642819808206406",
+        "Mackrodt, Williamson",
+        "First-principles Hartree-Fock description of the electronic structure of monoclinic C2/m LixMnO2 (1  x  0)",
+        "Philosophical Magazine B; 4, 1077-1092",
+        1998
+    ],
+    "to322": [
+        "data/to322.pdf",
+        "10.1016/j.cplett.2004.01.123",
+        "Doll, Dovesi, Labeguerie, Merawa, Ugliengo",
+        "The structural, electronic and vibrational properties of LiOH and NaOH: an ab initio study",
+        "Chemical Physics Letters; 4-6, 453-459",
+        2004
+    ],
+    "to133": [
+        "data/to133.pdf",
+        "10.1016/0038-1098(92)90152-y",
+        "Asthalter, Harker, Kunz, Orlando, Pisani, Weyrich",
+        "Comparison of quasi-Hartree-Fock wave-functions for lithium hydride",
+        "Solid State Communications; 9, 725-730",
+        1992
+    ],
+    "bredow98": [
+        "data/bredow98.pdf",
+        "10.1016/s0039-6028(98)00712-2",
+        "Apra, Bredow, Catti, Pacchioni",
+        "Cluster and periodic ab-initio calculations on K/TiO2(110)",
+        "Surface Science; 1, 150-165",
+        1998
+    ],
+    "persson2002": [
+        "data/persson2002.pdf",
+        "10.1016/s0009-2614(02)01370-2",
+        "Lunell, Ojamae, Persson",
+        "Electronic interactions between aromatic adsorbates and metal oxide substrates calculated from first principles",
+        "Chemical Physics Letters; 5-6, 469-474",
+        2002
+    ],
+    "to199": [
+        "data/to199.pdf",
+        "10.1002/qua.560560824",
+        "Birkenheuer, Pisani",
+        "Embedded-cluster approach to the study of catalytic reactions in zeolite cavities",
+        "International Journal of Quantum Chemistry; S29, 221-234",
+        1995
+    ],
+    "to326": [
+        "data/to326.pdf",
+        "10.1063/1.1760075",
+        "Civalleri, Darco, Dovesi, Orlando, Pascale, Ugliengo",
+        "The katoite hydrogarnet Si-free Ca3Al2([OH]4)3: A periodic HartreeFock and B3-LYP study",
+        "The Journal of Chemical Physics; 2, 1005-1013",
+        2004
+    ],
+    "marinelli2000": [
+        "data/marinelli2000.pdf",
+        "10.1016/s0022-3697(99)00250-4",
+        "Lichanot, Marinelli, Masri",
+        "Ab initio calculations of elastic properties and electronic structure of calcium selenide",
+        "Journal of Physics and Chemistry of Solids; 4, 603-608",
+        2000
+    ],
+    "to71": [
+        "data/to71.pdf",
+        "10.1016/0039-6028(84)90578-8",
+        "Dovesi, Illas, Pisani, Ricart, Roetti",
+        "Periodic MINDO/3 study of the unreconstructed (111) surface of diamond and of hydrogen chemisorption thereon",
+        "Surface Science; 2-3, 225-236",
+        1984
+    ],
+    "yang2005": [
+        "data/yang2005.pdf",
+        "10.1007/s00214-005-0629-0",
+        "Dolg, Yang",
+        "Valence basis sets for lanthanide 4f-in-core pseudopotentials adapted for crystal orbital ab initio calculations",
+        "Theoretical Chemistry Accounts; 4, 212-224",
+        2005
+    ],
+    "to310": [
+        "data/to310.pdf",
+        "10.1002/jcc.10274",
+        "Darrigan, Dovesi, Mallia, Rerat",
+        "Implementation of the finite field perturbation method in the CRYSTAL program for calculating the dielectric constant of periodic systems",
+        "Journal of Computational Chemistry; 11, 1305-1312",
+        2003
+    ],
+    "montanari2004": [
+        "data/montanari2004.pdf",
+        "10.1088/0953-8984/16/3/008",
+        "Harrison, Montanari",
+        "Pressure-induced instabilities in bulk TiO2rutile",
+        "Journal of Physics: Condensed Matter; 3, 273-292",
+        2004
+    ],
+    "sto17": [
+        "data/sto17.pdf",
+        "10.1006/jssc.1998.8058",
+        "Mackrodt",
+        "First Principles HartreeFock Description of Lithium Insertion in Oxides",
+        "Journal of Solid State Chemistry; 2, 428-439",
+        1999
+    ],
+    "lindsay2003": [
+        "data/lindsay2003.pdf",
+        "10.1016/j.susc.2003.10.014",
+        "Daniels, Floreano, Harrison, Lindsay, Michelangeli, Morgante, Muscat, Polcik, Thornton, Verdini",
+        "Surface to bulk charge transfer at an alkali metal/metal oxide interface",
+        "Surface Science; 1-2, L859-L864",
+        2003
+    ],
+    "mackrodt97a": [
+        "data/mackrodt97a.pdf",
+        "10.1016/s0039-6028(97)00219-7",
+        "Harrison, Mackrodt, Simson",
+        "An ab initio Hartree-Fock study of the electron-excess gap states in oxygen-deficient rutile TiO2",
+        "Surface Science; 1-3, 192-200",
+        1997
+    ],
+    "schon2000": [
+        "data/schon2000.pdf",
+        "10.1016/s1293-2558(00)00153-9",
+        "Jansen, Schon, Wevers",
+        "Investigation of the possible ternary nitrides in the system Li3N/Na3N",
+        "Solid State Sciences; 4, 449-456",
+        2000
+    ],
+    "wander2000d": [
+        "data/wander2000d.pdf",
+        "10.1016/s0039-6028(00)00794-9",
+        "Harrison, Wander",
+        "An ab-initio study of ZnO(1120)",
+        "Surface Science; 1-3, L851-L855",
+        2000
+    ],
+    "saadoune2004": [
+        "data/saadoune2004.pdf",
+        "10.1080/08927020410001717227",
+        "Catlow, Cora, Doll, Saadoune",
+        "Water Adsorption and Acidity in MnIIHAlPO-34 Catalysts",
+        "Molecular Simulation; 9, 607-615",
+        2004
+    ],
+    "kokalj99b": [
+        "data/kokalj99b.pdf",
+        "10.1021/jp990788b",
+        "Causa, Hodoscek, Kokalj, Lesar",
+        "Periodic DFT Study of the Pt(111):  A p(11) Atomic Oxygen Interaction with the Surface",
+        "The Journal of Physical Chemistry B; 34, 7222-7232",
+        1999
+    ],
+    "to251": [
+        "data/to251.pdf",
+        "10.1098/rsta.1998.0150",
+        "Dovesi, Harrison, Mackrodt, Saunders",
+        "Transition metal materials: a first principles approach to the electronic structure of the insulating phase",
+        "Philosophical Transactions of the Royal Society of London. Series A: Mathematical, Physical and Engineering Sciences; 1735, 75-88",
+        1998
+    ],
+    "to161": [
+        "data/to161.pdf",
+        "10.1016/0301-0104(93)e0328-s",
+        "Baraille, Causa, Pisani, Pouchan",
+        "An ab initio HartreeFock study of electronic and structural properties of MgH2",
+        "Chemical Physics; 1, 39-46",
+        1994
+    ],
+    "sto51": [
+        "data/sto51.pdf",
+        "10.1016/s0009-2614(97)00985-8",
+        "Allan, Barrera, Soriano",
+        "The stability of polymorphs of MgCl2  an ab initio study",
+        "Chemical Physics Letters; 4-6, 267-271",
+        1997
+    ],
+    "sto58": [
+        "data/sto58.pdf",
+        "10.1209/epl/i1998-00530-3",
+        "Daniel, Geue, Pietsch, Pucher, Stahn",
+        "Electric-fieldinduced electron density response of GaAs and ZnSe",
+        "Europhysics Letters (EPL); 6, 714-720",
+        1998
+    ],
+    "feyerherm2004": [
+        "data/feyerherm2004.pdf",
+        "10.1103/physrevb.69.134427",
+        "Baabe, Doll, Feyerherm, Ishida, Klauss, Kreitlow, Litterst, Loose, Nogami, Sullow",
+        "Weak ferromagnetism with very large canting in a chiral lattice:Fe(pyrimidine)2Cl2",
+        "Physical Review B; 13",
+        2004
+    ],
+    "cora2003b": [
+        "data/cora2003b.pdf",
+        "10.1021/jp035552t",
+        "Catlow, Cora",
+        "Influence of the Counterion on the Local Environment and Electronic Structure of Active Sites in Zeotypes",
+        "The Journal of Physical Chemistry B; 43, 11861-11865",
+        2003
+    ],
+    "to147": [
+        "data/to147.pdf",
+        "10.1016/0301-0104(93)85100-m",
+        "Nada, Pisani, Saunders",
+        "Super-cell versus embedded cluster simulation of a lithium vacancy in a lithium fluoride monolayer",
+        "Chemical Physics; 3, 297-303",
+        1993
+    ],
+    "to260": [
+        "data/to260.pdf",
+        "10.1021/jp980639d",
+        "Causa, Lee, Park",
+        "Ab Initio Periodic HartreeFock Calculations for Interpretation of the Scanning Tunneling Microscope (STM) Images of Graphite",
+        "The Journal of Physical Chemistry B; 31, 6020-6024",
+        1998
+    ],
+    "sto3": [
+        "data/sto3.pdf",
+        "10.1103/physrevb.48.7903",
+        "Hess, Jaffe",
+        "Hartree-Fock study of phase changes in ZnO at high pressure",
+        "Physical Review B; 11, 7903-7909",
+        1993
+    ],
+    "to88": [
+        "data/to88.pdf",
+        "10.1016/s0079-6816(87)80009-6",
+        "Causa, Dovesi, Pisani, Roetti",
+        "Hartree-fock ab-initio characterization of ionic crystal surfaces with a slab model. The (0001) face of -Al2O3",
+        "Progress in Surface Science; 1-4, 119-137",
+        1987
+    ],
+    "to131": [
+        "data/to131.pdf",
+        "10.1016/0039-6028(92)90821-m",
+        "Orlando, Pisani, Ruiz, Sautet",
+        "Ab initio study of the bare and hydrated (001) surface of tetragonal zirconia",
+        "Surface Science; 3, 482-492",
+        1992
+    ],
+    "karpov2003": [
+        "data/karpov2003.pdf",
+        "10.1002/anie.200352314",
+        "Jansen, Karpov, Nuss, Wedig",
+        "Cs2Pt: A Platinide(-II) Exhibiting Complete Charge Separation",
+        "Angewandte Chemie International Edition; 39, 4818-4821",
+        2003
+    ],
+    "sto14": [
+        "data/sto14.pdf",
+        "10.1063/1.476801",
+        "Doll, Pyykko, Stoll",
+        "Closed-shell interaction in silver and gold chlorides",
+        "The Journal of Chemical Physics; 6, 2339-2345",
+        1998
+    ],
+    "hung2002a": [
+        "data/hung2002a.pdf",
+        "10.1016/s0039-6028(02)01849-6",
+        "Hung, Muscat, Russo, Yarovsky",
+        "Density-functional theory studies of pyrite FeS2() and () surfaces",
+        "Surface Science; 3, 511-524",
+        2002
+    ],
+    "carrasco2006": [
+        "data/carrasco2006.pdf",
+        "10.1103/physrevb.73.064106",
+        "Carrasco, Evarestov, Illas, Kotomin, Lopez, Maier, Mastrikov, Piskunov, Zhukovskii",
+        "First-principles calculations of the atomic and electronic structure ofFcenters in the bulk and on the (001) surface ofSrTiO3",
+        "Physical Review B; 6",
+        2006
+    ],
+    "to246": [
+        "data/to246.pdf",
+        "10.1088/0953-8984/9/15/007",
+        "Causa, Lichanot",
+        "Compared electron charge densities for the series of solid phosphide compounds; anab initiostudy",
+        "Journal of Physics: Condensed Matter; 15, 3139-3149",
+        1997
+    ],
+    "beltran2002": [
+        "data/beltran2002.pdf",
+        "10.1080/08957950212783",
+        "Andres, Beltran, Franco, Gracia, Recio",
+        "Stability of MgAl 2 O 4 Under High-Pressure Conditions",
+        "High Pressure Research; 2, 447-450",
+        2002
+    ],
+    "muscat2002a": [
+        "data/muscat2002a.pdf",
+        "10.1103/physrevb.65.054107",
+        "Hung, Muscat, Russo, Yarovsky",
+        "First-principles studies of the structural and electronic properties of pyriteFeS2",
+        "Physical Review B; 5",
+        2002
+    ],
+    "ross2003": [
+        "data/ross2003.pdf",
+        "10.2138/am-2003-1009",
+        "Gibbs, Ross, Rosso",
+        "Potential docking sites and positions of hydrogen in high-pressure silicates",
+        "American Mineralogist; 10, 1452-1459",
+        2003
+    ],
+    "giordano2001": [
+        "data/giordano2001.pdf",
+        "10.1016/s0039-6028(00)00879-7",
+        "Bredow, Giordano, Pacchioni, Sanz",
+        "Cu, Ag, and Au atoms adsorbed on TiO2(110): cluster and periodic calculations",
+        "Surface Science; 1-3, 21-31",
+        2001
+    ],
+    "to285": [
+        "data/to285.pdf",
+        "10.1103/physrevb.63.235102",
+        "Dovesi, Mallia, Orlando, Roetti, Ugliengo",
+        "Fcenter in LiF: A quantum mechanicalab initioinvestigation of the hyperfine interaction between the unpaired electron at the vacancy and its first seven neighbors",
+        "Physical Review B; 23",
+        2001
+    ],
+    "sto18": [
+        "data/sto18.pdf",
+        "10.1002/bbpc.19981021205",
+        "Asthalter, Springborg, Weyrich",
+        "Electronic properties of the two rutiles TiO2 and VF2: A comparative study",
+        "Berichte der Bunsengesellschaft f\u00fcr physikalische Chemie; 12, 1760-1771",
+        1998
+    ],
+    "chandler2000": [
+        "data/chandler2000.pdf",
+        "10.1039/b003222k",
+        "Chandler, Figgis, Li",
+        "Ab initio calculation of experimental structure factors for Ni(NH3)4(NO2)2",
+        "Physical Chemistry Chemical Physics; 17, 3743-3751",
+        2000
+    ],
+    "to273": [
+        "data/to273.pdf",
+        "10.1016/s0009-2614(00)00006-3",
+        "Dovesi, Lichanot, Mallia, Merawa, Orlando",
+        "VOH center in magnesium oxide: an ab initio supercell study",
+        "Chemical Physics Letters; 1-3, 240-246",
+        2000
+    ],
+    "to283": [
+        "data/to283.pdf",
+        "10.1016/s0039-6028(01)00986-4",
+        "Damin, Dovesi, Ugliengo, Zecchina",
+        "CO/MgO(001) at different CO coverages: a periodic ab initio HartreeFock and B3-LYP study",
+        "Surface Science; 1-3, 255-272",
+        2001
+    ],
+    "to81": [
+        "data/to81.pdf",
+        "10.1016/s0039-6028(87)80617-9",
+        "Dovesi, Pisani, Ricart, Roetti",
+        "Periodic mindo/3 study of the reconstructed (111) surface of diamond",
+        "Surface Science; 1-2, 120-124",
+        1987
+    ],
+    "to110": [
+        "data/to110.pdf",
+        "10.1116/1.576430",
+        "Orlando, Pisani, Roetti, Shluger",
+        "Ab initio simulation of the interaction between ionic crystal surfaces and the atomic force microscope tip",
+        "Journal of Vacuum Science & Technology A: Vacuum, Surfaces, and Films; 6, 3967-3972",
+        1990
+    ],
+    "sto24": [
+        "data/sto24.pdf",
+        "10.1080/13642819808206405",
+        "Allan, Mackrodt, Williams, Williamson",
+        "A first-principles Hartree-Fock description of MnO at high pressures",
+        "Philosophical Magazine B; 4, 1063-1075",
+        1998
+    ],
+    "davaa2001": [
+        "data/davaa2001.pdf",
+        "10.1524/zkri.216.1.22.18997",
+        "Daniel, Davaasambuu, Pietsch, Stahn",
+        "Harmonic and anharmonic thermal vibrations in cubic ZnSe",
+        "Zeitschrift f\u00fcr Kristallographie - Crystalline Materials; 1",
+        2001
+    ],
+    "to160": [
+        "data/to160.pdf",
+        "10.1107/s0108768193013849",
+        "Azavant, Lichanot, Pisani, Rerat",
+        "Ab initio HartreeFock study of lithium and sodium sulfides: electronic and scattering properties",
+        "Acta Crystallographica Section B Structural Science; 3, 279-290",
+        1994
+    ],
+    "sto80": [
+        "data/sto80.pdf",
+        "10.1103/physrevb.56.9925",
+        "Brown, Chacon-taylor, Mccarthy, Rehr, Schenter",
+        "Prediction of extended x-ray-absorption fine-structure spectra from molecular interaction models:Na+(H2O)nMgO(100) interface",
+        "Physical Review B; 15, 9925-9936",
+        1997
+    ],
+    "zhukovski2005b": [
+        "data/zhukovski2005b.pdf",
+        "10.1016/j.mee.2005.03.048",
+        "Borstel, Kotomin, Piskunov, Sychev, Zhukovskii",
+        "Ab initio modeling of copper adhesion on regular BaTiO3(001) surfaces",
+        "Microelectronic Engineering; 2-4, 467-471",
+        2005
+    ],
+    "ruiz2006": [
+        "data/ruiz2006.pdf",
+        "10.1021/jp056386n",
+        "Cano, Drillon, Llunell, Massobrio, Rabu, Ruiz",
+        "Theoretical Determination of Multiple Exchange Couplings and Magnetic Susceptibility Data in Inorganic Solids:  The Prototypical Case of Cu2(OH)3NO3",
+        "The Journal of Physical Chemistry B; 1, 115-118",
+        2006
+    ],
+    "to210": [
+        "data/to210.pdf",
+        "10.1016/s0039-6028(96)01184-3",
+        "Birkenheuer, Cora, Perego, Pisani, Scorza",
+        "Embedded-cluster study of core-level binding energies of magnesium and alkali impurities at the surface of MgO",
+        "Surface Science; 2-3, 393-408",
+        1997
+    ],
+    "sto36": [
+        "data/sto36.pdf",
+        "10.1002/1521-3951(199709)203:1<r3::aid-pssb99993>3.0.co;2-8",
+        "Evarestov, Leko, Veryazov",
+        "Hartree-Fock Study of the Chemical Bonding in Crystalline Titanium Oxides: TiO2, Ti2O3, TiO",
+        "physica status solidi (b); 1, R3-R4",
+        1997
+    ],
+    "to112": [
+        "data/to112.pdf",
+        "10.1007/bf00200131",
+        "Catlow, Dovesi, Nada, Pisani",
+        "An ab-initio Hartree-Fock study of ?-quartz and stishovite",
+        "Physics and Chemistry of Minerals; 4",
+        1990
+    ],
+    "evarestov2006": [
+        "data/evarestov2006.pdf",
+        "10.1002/qua.20855",
+        "Evarestov, Kotomin, Zhukovskii",
+        "DFT study of a singleF center in cubic SrTiO3 perovskite",
+        "International Journal of Quantum Chemistry; 10, 2173-2183",
+        2006
+    ],
+    "weihrich2003": [
+        "data/weihrich2003.pdf",
+        "10.1002/zaac.200300138",
+        "Rau, Stuckl, Weihrich",
+        "Charge Transfer and Chemical Hardness along a Substitution Path in Metastable Au-Sb Alloys",
+        "Zeitschrift f\u00fcr anorganische und allgemeine Chemie; 10, 1812-1824",
+        2003
+    ],
+    "to230": [
+        "data/to230.pdf",
+        "10.1007/978-3-642-61478-1_3",
+        "Pisani",
+        "Ab-Initio Approaches to the Quantum-Mechanical Treatment of periodic Systems",
+        "Lecture Notes in Chemistry; 47-75",
+        1996
+    ],
+    "sto86": [
+        "data/sto86.pdf",
+        "10.1021/jp953108n",
+        "Hess, Mccarthy, Peterson",
+        "Electronic Structure of Sodium Nitrate:  Investigations of Laser Desorption Mechanisms",
+        "The Journal of Physical Chemistry; 16, 6708-6714",
+        1996
+    ],
+    "sto7": [
+        "data/sto7.pdf",
+        "10.1103/physrevb.52.5375",
+        "Harrison, Mccarthy, Towler",
+        "Ab initiostudy of the surface and interfacial properties of a layered MgO/NiO film",
+        "Physical Review B; 7, 5375-5384",
+        1995
+    ],
+    "li2000a": [
+        "data/li2000a.pdf",
+        "10.1016/s0166-1280(00)00337-7",
+        "Chiu, Li, Xiang, Zhang",
+        "A density functional study on the electronic structures of TiX (X=C, N, O). Part I. The electronic structures and bonding properties of TiN bulk and (001) surface",
+        "Journal of Molecular Structure: THEOCHEM; 1-2, 209-216",
+        2000
+    ],
+    "patterson2006b": [
+        "data/patterson2006b.pdf",
+        "10.1103/physrevb.74.144432",
+        "Patterson",
+        "Role of defects in ferromagnetism inZn1xCoxO: A hybrid density-functional study",
+        "Physical Review B; 14",
+        2006
+    ],
+    "sto68": [
+        "data/sto68.pdf",
+        "10.1016/s0039-6028(97)00950-3",
+        "Bennewitz, Huisinga, Puchin, Puchina, Reichling",
+        "Theoretical modelling of steps and surface oxidation on CaF2(111)",
+        "Surface Science; 687-691",
+        1998
+    ],
+    "to132": [
+        "data/to132.pdf",
+        "10.1016/0301-0104(92)87076-l",
+        "Chaillet, Dovesi, Larrieu, Lichanot, Pisani",
+        "Ab initio Hartree-Fock study of solid beryllium oxide: structure and electronic properties",
+        "Chemical Physics; 3, 383-394",
+        1992
+    ],
+    "to275": [
+        "data/to275.pdf",
+        "10.1016/s0009-2614(00)00183-4",
+        "De graaf, Dovesi, Illas, Moreira, Reinhardt",
+        "Detailed ab-initio analysis of the magnetic coupling in CuF2",
+        "Chemical Physics Letters; 5-6, 625-630",
+        2000
+    ],
+    "to157": [
+        "data/to157.pdf",
+        "10.1016/s0368-2048(14)80003-0",
+        "Cora, Dovesi, Orlando, Pisani",
+        "Embedded-cluster and super-cell treatment of charged defects in crystals",
+        "Journal of Electron Spectroscopy and Related Phenomena; 1, 1-12",
+        1994
+    ],
+    "sto20": [
+        "data/sto20.pdf",
+        "10.1016/s0301-0104(98)00175-x",
+        "Lichanot, Tappero",
+        "A comparative study of the electronic structure of -MnS (alabandite) calculated at the Hartree-Fock and Density Functional levels of theory",
+        "Chemical Physics; 1-3, 97-105",
+        1998
+    ],
+    "puchin97b": [
+        "data/puchin97b.pdf",
+        "10.4028/www.scientific.net/msf.239-241.633",
+        "Brause, Gale, Gunster, Kempter, Kotomin, Puchin, Shluger",
+        "Atomic Structure of the (0001) Corundum Surface",
+        "Materials Science Forum; 633-636",
+        1997
+    ],
+    "elgridani2000b": [
+        "data/elgridani2000b.pdf",
+        "10.1016/s0166-1280(00)00443-7",
+        "Drissi el bouzaidi, El gridani, El mouhtadi",
+        "Elastic, electronic and crystal structure of SrH 2 by the method of pseudopotentials",
+        "Journal of Molecular Structure: THEOCHEM; 1-3, 193-210",
+        2000
+    ],
+    "to279": [
+        "data/to279.pdf",
+        "10.1088/0965-0393/8/5/309",
+        "Casassa, Garapon, Pisani, Poumellec, Sulimov",
+        "Embedded clusterab initiostudy of the neutral oxygen vacancy in quartz and cristobalite",
+        "Modelling and Simulation in Materials Science and Engineering; 5, 763-773",
+        2000
+    ],
+    "to374": [
+        "data/to374.pdf",
+        "10.1021/jp067631l",
+        "Civalleri, Pisani, Terentyev, Torres, Ugliengo",
+        "Theoretical Study of Molecular Hydrogen Adsorption in Mg-Exchanged Chabazite",
+        "The Journal of Physical Chemistry C; 5, 1871-1873",
+        2007
+    ],
+    "to109": [
+        "data/to109.pdf",
+        "10.1063/1.458592",
+        "Causa, Dovesi, Orlando, Roetti, Saunders",
+        "Ab initio approach to molecular crystals: A periodic HartreeFock study of crystalline urea",
+        "The Journal of Chemical Physics; 12, 7402-7411",
+        1990
+    ],
+    "to225": [
+        "data/to225.pdf",
+        "10.1021/ja961514u",
+        "Catlow, Cora, Dovesi, Harrison, Patel",
+        "Anab InitioHartreeFock Study of the Cubic and Tetragonal Phases of Bulk Tungsten Trioxide",
+        "Journal of the American Chemical Society; 48, 12174-12182",
+        1996
+    ],
+    "to48": [
+        "data/to48.pdf",
+        "10.1016/0039-6028(81)90279-x",
+        "Dovesi, Pisani, Roetti",
+        "Calculations of nickel band structure and adsorption on nickel thin films, using an extension of the CNDO formalism",
+        "Surface Science; 2-3, 482-495",
+        1981
+    ],
+    "to73": [
+        "data/to73.pdf",
+        "10.1016/0038-1098(85)91148-2",
+        "Dovesi",
+        "Ab initio Hartree-Fock extended basis set calculation of the electronic structure of crystalline lithium oxide",
+        "Solid State Communications; 2, 183-185",
+        1985
+    ],
+    "sto65": [
+        "data/sto65.pdf",
+        "10.1103/physrevb.59.2320",
+        "Harrison, Muscat, Thornton",
+        "Effects of exchange, correlation, and numerical approximations on the computed properties of the rutileTiO2(100) surface",
+        "Physical Review B; 3, 2320-2326",
+        1999
+    ],
+    "buth2006": [
+        "data/buth2006.pdf",
+        "10.1103/physrevb.74.045122",
+        "Buth, Paulus",
+        "Hydrogen bonding in infinite hydrogen fluoride and hydrogen chloride chains",
+        "Physical Review B; 4",
+        2006
+    ],
+    "to261": [
+        "data/to261.pdf",
+        "10.1088/0953-8984/10/48/017",
+        "Baraille, Causa, Marinelli, Pouchan",
+        "Comparison between Hartree-Fock and Kohn-Sham electronic and structural properties for hexagonal-close-packed magnesium",
+        "Journal of Physics: Condensed Matter; 48, 10969-10977",
+        1998
+    ],
+    "to370": [
+        "data/to370.pdf",
+        "10.1103/physrevb.74.195123",
+        "Amzallag, Baraille, Blanco, He, Orlando, Pandey, Rerat",
+        "First-principles study of the structural, electronic, and optical properties ofGa2O3in its monoclinic and hexagonal phases",
+        "Physical Review B; 19",
+        2006
+    ],
+    "sto78": [
+        "data/sto78.pdf",
+        "10.1039/a702103h",
+        "Bates, Gillan, Harrison, Lindan, Muscat",
+        "Ab initio simulation of molecular processes on oxide surfaces",
+        "Faraday Discussions; 135-154",
+        1997
+    ],
+    "schmidt2004": [
+        "data/schmidt2004.pdf",
+        "10.1103/physrevlett.92.056402",
+        "Cheong, Harrison, Radaelli, Ratcliff, Refson, Schmidt",
+        "Spin Singlet Formation inMgTi2O4: Evidence of a Helical Dimerization Pattern",
+        "Physical Review Letters; 5",
+        2004
+    ],
+    "to178": [
+        "data/to178.pdf",
+        "10.1007/bf00202092",
+        "Apr, D'arco, Dovesi, Sandrone, Saunders",
+        "A quantum-mechanical study of the relative stability under pressure of MgSiO3-ilmenite, MgSiO3-perovskite, and MgO-periclase+SiO2-stishovite assemblage",
+        "Physics and Chemistry of Minerals; 5",
+        1994
+    ],
+    "wander2003": [
+        "data/wander2003.pdf",
+        "10.1103/physrevb.68.233405",
+        "Bush, Harrison, Wander",
+        "Stability of rocksalt polar surfaces:  Anab initiostudy of MgO(111) and NiO(111)",
+        "Physical Review B; 23",
+        2003
+    ],
+    "to311": [
+        "data/to311.pdf",
+        "10.1063/1.1577538",
+        "Civalleri, Lichanot, Merawa, Noel, Ugliengo",
+        "Structural, electronic, and vibrational properties of solid Sr(OH)2, calculated with different Hamiltonians",
+        "The Journal of Chemical Physics; 2, 1045-1052",
+        2003
+    ],
+    "sto27": [
+        "data/sto27.pdf",
+        "10.1103/physrevb.56.7189",
+        "Alemany, Alvarez, Evarestov, Ruiz",
+        "Electronic structure and properties ofCu2O",
+        "Physical Review B; 12, 7189-7196",
+        1997
+    ],
+    "patterson2005": [
+        "data/patterson2005.pdf",
+        "10.1080/00268970500179826",
+        "Patterson",
+        "Charge ordered oxygen ions and bi- and tri-Mn polarons in La0.5Ca0.5MnO3",
+        "Molecular Physics; 18, 2507-2512",
+        2005
+    ],
+    "to63": [
+        "data/to63.pdf",
+        "10.1002/qua.560260205",
+        "Dovesi",
+        "Ab initio Hartree-Fock approach to the study of polymers: Application to polyacetylenes",
+        "International Journal of Quantum Chemistry; 2, 197-212",
+        1984
+    ],
+    "to353": [
+        "data/to353.pdf",
+        "10.1016/j.susc.2005.05.043",
+        "Altieri, Casassa, Ferrari, Pisani, Rota, Valeri",
+        "Polar and non-polar domain borders in MgO ultrathin films on Ag(001)",
+        "Surface Science; 1-3, 160-166",
+        2005
+    ],
+    "sto52": [
+        "data/sto52.pdf",
+        "10.1007/bf00203298",
+        "Benco, Smrcok",
+        "Ab initio calculated electron densities for tetrahedral sheet [H2Si2O5] in phyllosilicates",
+        "Physics and Chemistry of Minerals; 6, 401-406",
+        1994
+    ],
+    "patterson2006": [
+        "data/patterson2006.pdf",
+        "10.1002/qua.21136",
+        "Patterson",
+        "Comparison of hybrid density functional, HartreeFock, and GW calculations on NiO",
+        "International Journal of Quantum Chemistry; 15, 3383-3386",
+        2006
+    ],
+    "zhukovskii00a": [
+        "data/zhukovskii00a.pdf",
+        "10.1103/physrevlett.84.1256",
+        "Jacobs, Kotomin, Stoneham, Zhukovskii",
+        "Ab InitioModeling of Metal Adhesion on Oxide Surfaces with Defects",
+        "Physical Review Letters; 6, 1256-1259",
+        2000
+    ],
+    "wander2000a": [
+        "data/wander2000a.pdf",
+        "10.1016/s0039-6028(00)00418-0",
+        "Harrison, Wander",
+        "An ab initio study of ZnO(1010)",
+        "Surface Science; 1-2, L342-L346",
+        2000
+    ],
+    "soriano2001": [
+        "data/soriano2001.pdf",
+        "10.1016/s0009-2614(01)01332-x",
+        "Allan, Barrera, Soriano",
+        "Vibrational energies and thermal expansion of layered compounds: MgCl2",
+        "Chemical Physics Letters; 5-6, 543-550",
+        2001
+    ],
+    "sto83": [
+        "data/sto83.pdf",
+        "10.1021/jp961373i",
+        "Mccarthy, Nicholas, Scamehorn, Schenter",
+        "Structure and Dynamics of the Water/MgO Interface",
+        "The Journal of Physical Chemistry; 42, 16989-16995",
+        1996
+    ],
+    "to221": [
+        "data/to221.pdf",
+        "10.1016/s1381-1169(96)00508-0",
+        "Dovesi, Zicovich-wilson",
+        "Periodic ab initio study of the oxidizing sites in Ti-containing zeolites",
+        "Journal of Molecular Catalysis A: Chemical; 1-3, 449-458",
+        1997
+    ],
+    "to321": [
+        "data/to321.pdf",
+        "10.3390/i5030093",
+        "Arrais, Civalleri, Croce, Diana, Milanesio, Viterbo",
+        "The Interpretation of the Short Range Disorder in the Fluorene-TCNE Crystal Structure",
+        "International Journal of Molecular Sciences; 3, 93-100",
+        2004
+    ],
+    "becker2001": [
+        "data/becker2001.pdf",
+        "10.2138/am-2001-0709",
+        "Becker, Rosso",
+        "Step edges on galena (100): Probing the basis for defect driven surface reactivity at the atomic scale",
+        "American Mineralogist; 7-8, 862-870",
+        2001
+    ],
+    "to47": [
+        "data/to47.pdf",
+        "10.1016/0009-2614(81)80450-2",
+        "Dovesi, Pisani, Roetti",
+        "Ab initio HF versus semi-empirical results of chemisorption calculations of hydrogen on graphite",
+        "Chemical Physics Letters; 3, 498-502",
+        1981
+    ],
+    "to339": [
+        "data/to339.pdf",
+        "10.1021/jp045531e",
+        "Branchadell, Orlando, Sauer, Sodupe, Solans-monfort, Ugliengo",
+        "Adsorption of NH3and H2O in Acidic Chabazite. Comparison of ONIOM Approach with Periodic Calculations",
+        "The Journal of Physical Chemistry B; 8, 3539-3545",
+        2005
+    ],
+    "sto64": [
+        "data/sto64.pdf",
+        "10.1016/s0009-2614(99)00195-5",
+        "M. zicovich-wilson, Sanz",
+        "A periodic HartreeFock study of Na adsorption on the TiO2(110) rutile surface",
+        "Chemical Physics Letters; 1-2, 111-116",
+        1999
+    ],
+    "to378": [
+        "data/to378.pdf",
+        "10.1039/b700526a",
+        "Ferrari, Pisani, Roetti",
+        "Water dissociation at MgO sub-monolayers on silver: a periodic model study",
+        "Physical Chemistry Chemical Physics; 19, 2350",
+        2007
+    ],
+    "to41": [
+        "data/to41.pdf",
+        "10.1002/qua.560170312",
+        "Dovesi, Pisani, Roetti",
+        "Exact-exchange Hartree-Fock calculations for periodic systems. II. Results for graphite and hexagonal boron nitride",
+        "International Journal of Quantum Chemistry; 3, 517-529",
+        1980
+    ],
+    "to264": [
+        "data/to264.pdf",
+        "10.1021/jp9829187",
+        "Casassa, Civalleri, Garrone, Pisani, Ugliengo",
+        "Quantum Mechanical ab Initio Characterization of a Simple Periodic Model of the Silica Surface",
+        "The Journal of Physical Chemistry B; 12, 2165-2171",
+        1999
+    ],
+    "maresca2004": [
+        "data/maresca2004.pdf",
+        "10.1063/1.1814072",
+        "Conard, Maresca, Marinelli, Pellenq",
+        "A search for a strong physisorption site for H[sub 2] in Li-doped porous carbons",
+        "The Journal of Chemical Physics; 24, 12548",
+        2004
+    ],
+    "to139": [
+        "data/to139.pdf",
+        "10.1088/0965-0393/1/2/005",
+        "Catlow, Nada, Orlando, Pisani",
+        "An ab-initio Hartree-Fock perturbed-cluster study of neutral defects in LiF",
+        "Modelling and Simulation in Materials Science and Engineering; 2, 165-187",
+        1993
+    ],
+    "bredow2006a": [
+        "data/bredow2006a.pdf",
+        "10.1002/zaac.200500407",
+        "Bredow, Dronskowski, Lerch, Lumey, Pickardt, Schilling",
+        "Structure and Stability of TaON Polymorphs",
+        "Zeitschrift f\u00fcr anorganische und allgemeine Chemie; 7, 1157-1162",
+        2006
+    ],
+    "arrais2003": [
+        "data/arrais2003.pdf",
+        "10.1039/b308380b",
+        "Arrais, Boccaleri, Croce, Diana, Milanesio, Orlando",
+        "Synthesis, structural and spectroscopic study of the donoracceptor complexes between fluorene and D2hcyano molecular building blocks",
+        "CrystEngComm; 68, 388-394",
+        2003
+    ],
+    "to122": [
+        "data/to122.pdf",
+        "10.1016/0301-0104(91)87032-q",
+        "Dovesi, Freyria-fava, Prencipe, Roetti, Saunders",
+        "On the elastic properties of lithium, sodium and potassium oxide. An ab initio study",
+        "Chemical Physics; 1, 11-19",
+        1991
+    ],
+    "bredow2007": [
+        "data/bredow2007.pdf",
+        "10.1103/physrevb.75.144102",
+        "Bredow",
+        "Theoretical investigation of nitrogen substitution in cubic zirconia",
+        "Physical Review B; 14",
+        2007
+    ],
+    "evarestov99": [
+        "data/evarestov99.pdf",
+        "10.1002/(sici)1521-3951(199910)215:2<949::aid-pssb949>3.3.co;2-d",
+        "Evarestov, Smirnov",
+        "Supercell Model of V-Doped TiO2: Unrestricted Hartree-Fock Calculations",
+        "physica status solidi (b); 2, 949-956",
+        1999
+    ],
+    "to308": [
+        "data/to308.pdf",
+        "10.1021/jp026931+",
+        "Busso, Lopez-gejo, Pisani",
+        "Quantum Mechanical ab Initio Study of Mixed SiO2-GeO2Crystals as Reference Models for Ge-Doped Silica Glasses",
+        "The Journal of Physical Chemistry B; 13, 2944-2952",
+        2003
+    ],
+    "chan2004": [
+        "data/chan2004.pdf",
+        "10.1103/physrevb.70.041403",
+        "Bennington, Chan, Gale, Harrison, Montanari, Taylor",
+        "Magnetic properties of polymerizedC60: The influence of defects and hydrogen",
+        "Physical Review B; 4",
+        2004
+    ],
+    "to76": [
+        "data/to76.pdf",
+        "10.1107/s0108768186098270",
+        "Causa, Dovesi, Pisani, Roetti",
+        "Electron charge density and electron momentum distribution in magnesium oxide",
+        "Acta Crystallographica Section B Structural Science; 3, 247-253",
+        1986
+    ],
+    "zwijnenburg2007": [
+        "data/zwijnenburg2007.pdf",
+        "10.1021/jp071060v",
+        "Bell, Cora, Zwijnenburg",
+        "On the Performance of DFT and Interatomic Potentials in Predicting the Energetics of (Three-Membered Ring-Containing) Siliceous Materials",
+        "The Journal of Physical Chemistry B; 22, 6156-6160",
+        2007
+    ],
+    "to125": [
+        "data/to125.pdf",
+        "10.1016/0022-3697(91)90049-6",
+        "Gelize, Larrieu, Lichanot, Pisani",
+        "Hartree-fock ab initio study of relaxation and electronic structure of lithium oxide slabs",
+        "Journal of Physics and Chemistry of Solids; 9, 1155-1164",
+        1991
+    ],
+    "labeguerie2005": [
+        "data/labeguerie2005.pdf",
+        "10.1140/epjb/e2005-00078-6",
+        "Dovesi, Labguerie, Makhouki, Mrawa, Pascale, Zicovich-wilson",
+        "Phonon vibrational frequencies and elastic properties of solid SrFCl. An ab initio study",
+        "The European Physical Journal B; 4, 453-461",
+        2005
+    ],
+    "labat2007": [
+        "data/labat2007.pdf",
+        "10.1063/1.2717168",
+        "Adamo, Baranek, Domain, Labat, Minot",
+        "Density functional theory analysis of the structural and electronic properties of TiO2 rutile and anatase polytypes: Performances of different exchange-correlation functionals",
+        "The Journal of Chemical Physics; 15, 154703",
+        2007
+    ],
+    "to197": [
+        "data/to197.pdf",
+        "10.1002/(sici)1097-461x(1996)58:3<297::aid-qua6>3.3.co;2-1",
+        "Causa, He, Reinhardt",
+        "Electronic and geometrical structure of bulk rutile studied with HartreeFock and density functional methods",
+        "International Journal of Quantum Chemistry; 3, 297-306",
+        1996
+    ],
+    "schwerdtfeger01": [
+        "data/schwerdtfeger01.pdf",
+        "10.1063/1.1398095",
+        "Laerdahl, Pernpointner, Schwerdtfeger, Sohnel, Wagner",
+        "Comparison ofab initioand density functional calculations of electric field gradients: The 57Fe nuclear quadrupole moment from Mossbauer data",
+        "The Journal of Chemical Physics; 13, 5913-5924",
+        2001
+    ],
+    "luana2003": [
+        "data/luana2003.pdf",
+        "10.1021/jp022374f",
+        "Costales, Luana, Mori-sanchez, Pendas",
+        "Ions in Crystals:  The Topology of the Electron Density in Ionic Materials. 4. The Danburite (CaB2Si2O8) Case and the Occurrence of OxideOxide Bond Paths in Crystals",
+        "The Journal of Physical Chemistry B; 21, 4912-4921",
+        2003
+    ],
+    "to205": [
+        "data/to205.pdf",
+        "10.1016/0009-2614(95)01098-t",
+        "Causa, Lichanot, Merawa",
+        "Density functional LCAO calculations of periodic systems. Effect of an a posteriori correction of the Hartree-Fock energy on the physical properties of ionic sulfur compounds",
+        "Chemical Physics Letters; 3, 263-268",
+        1995
+    ],
+    "to263": [
+        "data/to263.pdf",
+        "10.1103/physrevb.59.1016",
+        "De p. r. moreira, Dovesi, Habas, Illas, Reinhardt",
+        "Magnetic coupling in the weak ferromagnetCuF2",
+        "Physical Review B; 2, 1016-1023",
+        1999
+    ],
+    "lichanot1995": [
+        "data/lichanot1995.pdf",
+        "10.1107/s0108767394012675",
+        "Catti, Lichanot, Rerat",
+        "Theoretical ab initio calculations of the structure factors of fluorite (CaF2)",
+        "Acta Crystallographica Section A Foundations of Crystallography; 3, 323-328",
+        1995
+    ],
+    "real2006": [
+        "data/real2006.pdf",
+        "10.1063/1.2361293",
+        "Flament, Real, Schamps, Vallet",
+        "Ab initio study of a Bi3+ impurity in Cs2NaYCl6 and Y2O3: Comparison of perturbative and variational electron correlation methods",
+        "The Journal of Chemical Physics; 17, 174709",
+        2006
+    ],
+    "to126": [
+        "data/to126.pdf",
+        "10.1002/qua.560420104",
+        "Pisani, Dovesi, Orlando",
+        "Near-Hartree-Fock wave functions for solids: The case of crystalline silicon",
+        "International Journal of Quantum Chemistry; 42(1), 5–33",
+        1992
+    ],
+    "knaup2005b": [
+        "data/knaup2005b.pdf",
+        "10.4028/www.scientific.net/msf.483-485.569",
+        "Knaup, Deak, Gali, Hajnal, Frauenheim, Choyke",
+        "The Search for Near Interface Oxide Traps - First-Principles Calculations on Intrinsic SiO2 Defects",
+        "Materials Science Forum; 483-485, 569–572",
+        2005
+    ],
+    "gibbs2000": [
+        "data/gibbs2000.pdf",
+        "10.1021/jp002113a",
+        "Gibbs, Boisen, Rosso, Teter, Bukowinski",
+        "Model structure and electron density distribution of the silica polymorph coesite at pressure: An assessment of OO bonded interactions",
+        "The Journal of Physical Chemistry B; 104(45), 10534–10542",
+        2000
+    ],
+    "sto72": [
+        "data/sto72.pdf",
+        "10.1016/S0166-1280(98)00360-1",
+        "Markovits, Favaro, Minot",
+        "Hartree–Fock study of the Si(l00) reconstruction",
+        "Journal of Molecular Structure: THEOCHEM; 458(1-2), 171–189",
+        1998
+    ],
+    "sto92": [
+        "data/sto92.pdf",
+        "10.1021/j100007a017",
+        "Tse, Dahn, Buda",
+        "Electronic Structures of Layered Polysilanes",
+        "The Journal of Physical Chemistry; 99(7), 1896–1899",
+        1995
+    ],
+    "sto5": [
+        "data/sto5.pdf",
+        "10.1088/0953-8984/7/31/007",
+        "Towler, Allan, Harrison, Saunders, Mackrodt",
+        "Localized electron behaviour within band theory a Hartree-Fock description of MxMg1-xO(M=Mn, Ni)",
+        "Journal of Physics: Condensed Matter; 7(31), 6231–6239",
+        1995
+    ],
+    "to320": [
+        "data/to320.pdf",
+        "10.1021/jp036902e",
+        "Damin, Llabres i Xamena, Lamberti, Civalleri, Zicovich-Wilson, Zecchina",
+        "Structural, Electronic, and Vibrational Properties of the Ti−O−Ti Quantum Wires in the Titanosilicate ETS-10",
+        "The Journal of Physical Chemistry B; 108(4), 1328–1336",
+        2004
+    ]
+}
