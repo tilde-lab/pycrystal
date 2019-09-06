@@ -123,3 +123,12 @@ def test_band_gap():
                                      'bottom_virtual': 15,
                                      'band_gap': 6.2079,
                                      'band_gap_type': 'INDIRECT'}
+    test_file = os.path.join(DATA_DIR, 'mgo_sto3g.out')
+    parser = CRYSTOUT(test_file)
+    info = parser.info
+    assert info['prog'] == '14 1.0.1'                         # CRYSTAL version
+    assert info['conduction'][0] == {'state': 'INSULATING',
+                                     'top_valence': 10,
+                                     'bottom_virtual': 11,
+                                     'band_gap': 19.72174073396588,
+                                     'band_gap_type': 'DIRECT'}

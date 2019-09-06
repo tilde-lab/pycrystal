@@ -81,8 +81,9 @@ class CRYSTOUT(object):
                                    re.DOTALL),
         'ending': re.compile(r"EEEEEEEEEE TERMINATION(.+?)\n"),
         'conduction_states': re.compile(r"(INSULATING|CONDUCTING) STATE(.*?)TTTTTTT", re.DOTALL),
-        'top_valence': re.compile(r"TOP OF VALENCE BANDS - {4}BAND\s*(\d*)", re.DOTALL),
-        'bottom_virtual': re.compile(r"BOTTOM OF VIRTUAL BANDS - BAND\s*(\d*)", re.DOTALL),
+        'top_valence': re.compile(r"TOP OF VALENCE BANDS - {4}BAND\s*(\d*); K\s*(\d*); EIG\s*([-.E\d]*) AU", re.DOTALL),
+        'bottom_virtual': re.compile(r"BOTTOM OF VIRTUAL BANDS - BAND\s*(\d*); K\s*(\d*); EIG\s*([-.E\d]*) AU",
+                                     re.DOTALL),
         'band_gap': re.compile(r"(DIRECT|INDIRECT) ENERGY BAND GAP:\s*([.\d]*)", re.DOTALL),
         'e_fermi': re.compile(r"EFERMI\(AU\)\s*([-.E\d]*)", re.DOTALL),
         'freqs': re.compile(r"DISPERSION K POINT(.+?)FREQ\(CM\*\*-1\)", re.DOTALL),
@@ -570,11 +571,19 @@ class CRYSTOUT(object):
             state_dict = {'state': state[0]}
             if state[0] == "INSULATING":
                 # dealing with band gaps
-                state_dict['top_valence'] = int(self.patterns['top_valence'].search(self.data).groups()[0])
-                state_dict['bottom_virtual'] = int(self.patterns['bottom_virtual'].search(self.data).groups()[0])
-                bg_type, bg = self.patterns['band_gap'].search(self.data).groups()
-                state_dict['band_gap'] = float(bg)
-                state_dict['band_gap_type'] = bg_type
+                top = self.patterns['top_valence'].search(self.data).groups()
+                bottom = self.patterns['bottom_virtual'].search(self.data).groups()
+                state_dict['top_valence'] = int(top[0])
+                state_dict['bottom_virtual'] = int(bottom[0])
+                gap_re = self.patterns['band_gap'].search(self.data)
+                if gap_re is not None:
+                    bg_type, bg = gap_re.groups()
+                    state_dict['band_gap'] = float(bg)
+                    state_dict['band_gap_type'] = bg_type
+                else:
+                    # try to deduce band gap from eigenvalues
+                    state_dict['band_gap_type'] = "DIRECT" if top[1] != bottom[1] else "DIRECT"
+                    state_dict["band_gap"] = (float(bottom[2]) - float(top[2])) * Hartree
             else:
                 # dealing with Fermi energies
                 state_dict['e_fermi'] = float(self.patterns['e_fermi'].search(self.data).groups()[0])
