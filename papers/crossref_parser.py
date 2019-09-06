@@ -6,6 +6,9 @@ import json
 import re
 from unicodedata import normalize
 
+try: from HTMLParser import HTMLParser
+except ImportError: from html.parser import HTMLParser
+
 try: from urllib import urlencode
 except ImportError: from urllib.parse import urlencode
 
@@ -14,21 +17,30 @@ from pylev import levenshtein
 
 
 req = httplib2.Http()
+h = HTMLParser()
 logging.basicConfig(level=logging.INFO)
 
 STOPWORDS = ['sub', 'sup', 'alpha', 'beta', 'gamma', 'delta', 'epsilon', 'zeta', 'theta', 'iota', 'kappa', 'lambda', 'omicron', 'sigma', 'upsilon', 'omega', 'minus', 'plus', 'degc']
 
 def clean_chars(name):
-    return normalize('NFKD', name).encode('ascii', 'ignore').decode('utf-8')
+    return normalize('NFKD', h.unescape(name)).encode('ascii', 'ignore').decode('utf-8')
+
+def format_name(name):
+    if '.' not in name:
+        return name
+    return name.split('.')[-1].strip()
 
 def mine_doi(authors, title, pubyear, pubdata):
 
     broken = False
     sought_doi = None
+
+    authors = [format_name(clean_chars(x.strip("."))) for x in authors.replace(" and ", ",").split(",")]
     pubyear = int(pubyear)
+
     failed_attempts = 0
 
-    trial = '%s, "%s", %s, %s' % (clean_chars(authors), clean_chars(title), clean_chars(pubdata), pubyear)
+    trial = '%s, "%s", %s, %s' % (", ".join(authors), clean_chars(title), clean_chars(pubdata), pubyear)
 
     while True:
         try:
@@ -61,7 +73,7 @@ def mine_doi(authors, title, pubyear, pubdata):
     if res_year == pubyear:
         sought_doi = content[0]['doi'] #.decode('string-escape')
     else:
-        logging.error("DOI is unknown")
+        logging.error("YEARS NOT MATCH: %s vs. %s, STOPPING" % (pubyear, res_year))
         return False
 
     while True:
@@ -82,18 +94,17 @@ def mine_doi(authors, title, pubyear, pubdata):
     if broken:
         return False
 
-    existing_title = re.sub(r"[^a-zA-Z]", "", title.lower())
+    existing_title = re.sub(r"[^a-zA-Z]", "", title.replace(' the ', '').lower())
     for word in STOPWORDS:
         existing_title = existing_title.replace(word, "")
     existing_title = existing_title.replace('i', '')
 
-    existing_authors = [clean_chars(x) for x in authors.split(', ')]
-    existing_authors.sort()
+    existing_authors = sorted(authors)
 
     try:
         payload = json.loads(content.decode('utf-8'))
     except:
-        logging.error("UNEXPECTED ANSWER")
+        logging.error("UNEXPECTED ANSWER: %s" % content)
         return False
 
     found_authors, true_authors = [], []
@@ -112,7 +123,7 @@ def mine_doi(authors, title, pubyear, pubdata):
         return False
 
     true_title = found_title
-    found_title = re.sub(r"[^a-zA-Z]", "", found_title.lower())
+    found_title = re.sub(r"[^a-zA-Z]", "", found_title.replace(' the ', '').lower())
     for word in STOPWORDS:
         found_title = found_title.replace(word, "")
     found_title = found_title.replace('i', '')
@@ -145,11 +156,13 @@ def mine_doi(authors, title, pubyear, pubdata):
             break
 
     if not titles_match and not authors_match:
-        logging.critical("ALL INCORRECT DOI")
+        logging.critical("ALL INCORRECT DOI, STOPPING:")
+        logging.info("TITLS: %s --- %s" % (existing_title, found_title))
+        logging.info("AUTHS: %s --- %s" % (str(existing_authors), str(found_authors)))
         return False
 
     elif not titles_match:
-        logging.critical("Unmatching titles:\n%s\n%s" % (existing_title, found_title))
+        logging.critical("UNMATCHING TITLES, STOPPING:\n%s\n%s" % (existing_title, found_title))
         return False
 
     elif not authors_match:
@@ -161,10 +174,9 @@ def mine_doi(authors, title, pubyear, pubdata):
     logging.info("FOUND: %s, %s, %s (%s)" % (true_authors, true_title, true_pubdata, pubyear))
 
     authors = ", ".join(true_authors)
-    title = true_title
     true_pubdata = journal + '; ' + true_pubdata
 
-    return sought_doi, authors, title, true_pubdata, pubyear
+    return sought_doi, authors, true_title, true_pubdata, pubyear
 
 
 if __name__ == "__main__":

@@ -26,8 +26,8 @@ def retrieve_paper(doi, file_name, solve_captcha=False):
         if mirror.startswith('//'):
             mirror = mirror[2:]
             mirror = 'https://' + mirror
-    except Exception:
-        logging.error("Mirror not found")
+    except Exception as ex:
+        logging.error("Mirror not found: %s" % ex)
         return False
 
     try:

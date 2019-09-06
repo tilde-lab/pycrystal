@@ -53,8 +53,9 @@ def mine_unito():
                 _els2paperids[last_key] = []
 
             elif '<a href="node2' in item:
-                anchor = item.split('<a href="node2.html#')[-1].split('">')[0]
-                if last_key:
+                for anchor in item.split('<a href="node2.html#')[1:]:
+                    anchor = anchor.split('">')[0]
+                    assert last_key
                     _els2paperids[last_key].append(anchor)
 
 
@@ -69,7 +70,7 @@ def mine_unito():
         pub_content = item.split('<DD>')[1]
 
         if '``' not in pub_content or "''," not in pub_content:
-            logging.warning("CANNOT PARSE: %s" % pub_content)
+            logging.warning("CANNOT PARSE >>> %s" % pub_content)
 
             # unparsable cases
             if 'R. Dovesi, C. Roetti, M. Caus&#224; and C. Pisani' in pub_content and '<EM>Structure and Reactivity of Surfaces</EM>, edited by C. Morterra' in pub_content:
@@ -78,22 +79,25 @@ def mine_unito():
                 _paperids2bib['to168'] = ('R. Orlando, C. Pisani, C. Roetti and E. Stefanovich', 'Ab initio Hartree-Fock study of tetragonal and cubic phases of zirconium dioxide', 1992, 'Defects in insulating materials, 630-632, World Scientific, Nordkirchen, Germany')
             elif 'Ab-initio approaches to the quantum-mechanical treatment of' in pub_content:
                 _paperids2bib['to230'] = ('C. Pisani', 'Ab-initio approaches to the quantum-mechanical treatment of periodic systems', 1996, 'Quantum-Mechanical Ab-initio Calculation of the Properties of Crystalline Materials, Springer Verlag, Berlin')
+            elif 'CRYSTAL88, An ab initio all-electron LCAO-Hartree-Fock program' in pub_content:
+                _paperids2bib['to98'] = ('R. Dovesi, C. Pisani, C. Roetti, M. Causa and V.R. Saunders', 'CRYSTAL88, An ab initio all-electron LCAO-Hartree-Fock program for periodic systems', 1989, 'QCPE Pgm N. 577, Quantum Chemistry Program Exchange, Indiana University, Bloomington, Indiana')
             continue
 
         anchor = anchor.split('NAME="')[-1].split('">')[0]
 
-        authors = pub_content.split('``')[0].strip().replace('&#246;', 'oe').replace('&#224;', 'a').replace('&#225;', 'a').replace('&#228;', 'a').replace('&#230;', 'ae').replace('&#252;', 'u')
+        authors = pub_content.split('``')[0].strip().replace('&#246;', 'oe').replace('&#224;', 'a').replace('&#225;', 'a').replace('&#228;', 'a').replace('&#230;', 'ae').replace('&#252;', 'u').replace('&#233;', 'e')
         authors = authors.strip(',')
 
         title = pub_content.split('``', 1)[1].split("'',")[0].replace('  ', ' ')
         title = regex.sub('', title)
 
-        pubdata = pub_content.split('``', 1)[1].split("'',", 1)[1].replace('  ', ' ').strip()
+        pubdata = pub_content.split('``', 1)[1].split("'',", 1)[1].replace('  ', ' ')
         pubyear = pubdata.split('(')[-1].split(')')[0]
         try: pubyear = int(pubyear)
         except ValueError:
             logging.warning("CANNOT GET YEAR FROM: %s" % pubdata)
         pubdata = regex.sub('', pubdata.split('(')[0])
+        pubdata = pubdata.strip()
 
         _paperids2bib[anchor] = (authors, title, pubyear, pubdata)
 
