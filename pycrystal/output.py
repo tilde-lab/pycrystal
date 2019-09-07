@@ -93,7 +93,7 @@ class CRYSTOUT(object):
         'n_electrons': re.compile(r"\sN. OF ELECTRONS PER CELL\s*(\d*)", re.DOTALL),
         'n_core_el': re.compile(r"\sCORE ELECTRONS PER CELL\s*(\d*)", re.DOTALL),
         'n_symops': re.compile(r"\sN. OF SYMMETRY OPERATORS\s*(\d*)", re.DOTALL),
-        'gamma_freqs': re.compile(r"\(HARTREE\*\*2\) {3}\(CM\*\*-1\) {5}\(THZ\)  {13}KM/MOL\)(.+?)"
+        'gamma_freqs': re.compile(r"\(HARTREE\*\*2\)\s*\(CM\*\*-1\)\s*\(THZ\)\s*\(KM/MOL\)(.+?)"
                                   r"NORMAL MODES NORMALIZED TO CLASSICAL AMPLITUDES", re.DOTALL),
         'ph_eigvecs': re.compile(r"NORMAL MODES NORMALIZED TO CLASSICAL AMPLITUDES(.+?)\*{79}", re.DOTALL),
         'needed_disp': re.compile(r"\d{1,4}\s{2,6}(\d{1,4})\s{1,3}\w{1,2}\s{11,12}(\w{1,2})\s{11,12}\d{1,2}"),
@@ -571,7 +571,11 @@ class CRYSTOUT(object):
             state_dict = {'state': state[0]}
             if state[0] == "INSULATING":
                 # dealing with band gaps
-                top = self.patterns['top_valence'].search(self.data).groups()
+                try:
+                    top = self.patterns['top_valence'].search(self.data).groups()
+                except AttributeError:
+                    # old CRYSTAL version, may be?
+                    continue
                 bottom = self.patterns['bottom_virtual'].search(self.data).groups()
                 state_dict['top_valence'] = int(top[0])
                 state_dict['bottom_virtual'] = int(bottom[0])
@@ -657,7 +661,7 @@ class CRYSTOUT(object):
                 return None, None, None, None
             else:
                 freqdata.append([_f for _f in freqsp.group(1).strip().splitlines() if _f])
-
+        print(freqdata)
         bz_modes, bz_irreps, kpoints = {}, {}, []
         ir_active, raman_active = [], []
         for freqset in freqdata:
@@ -1652,9 +1656,10 @@ class CRYSTOUT(object):
             return None
 
     def get_td(self):
+        print("HERE")
         td = {'t': [], 'p': [], 'pv': [], 'ts': [], 'et': [], 'C': [], 'S': []}
         t = self.patterns['T'].findall(self.data)
-
+        print('T = {}'.format(t))
         if t is not None:
             for i in t:
                 td['t'].append(float(i[0]))
