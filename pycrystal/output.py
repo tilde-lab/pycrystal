@@ -1655,10 +1655,8 @@ class CRYSTOUT(object):
             return None
 
     def get_td(self):
-        print("HERE")
         td = {'t': [], 'p': [], 'pv': [], 'ts': [], 'et': [], 'C': [], 'S': []}
         t = self.patterns['T'].findall(self.data)
-        print('T = {}'.format(t))
         if t is not None:
             for i in t:
                 td['t'].append(float(i[0]))
