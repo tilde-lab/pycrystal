@@ -82,7 +82,13 @@ def test_freqcalc():
     assert info['energy'] == -1.3167028008915E+03 * Ha      # energy in eV
     assert info['k'] == '3x3x3'                             # Monkhorst-Pack net
     assert info['phonons']['td']['et'] == [0.144398520226]  # Et in eV/cell
-
+    test_file = os.path.join(DATA_DIR, 'raman.out')
+    parser = CRYSTOUT(test_file)
+    info = parser.info
+    assert info['prog'] == '14 1.0.1'                         # CRYSTAL version
+    assert info['energy'] == -7473.993352557831
+    assert info['phonons']['zpe'] == 0.09020363263183974
+    assert info['phonons']['td']['t'][0] == 298.15
 
 def test_spin():
     """Spin calculation"""
