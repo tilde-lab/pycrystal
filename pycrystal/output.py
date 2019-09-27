@@ -81,8 +81,9 @@ class CRYSTOUT(object):
                                    re.DOTALL),
         'ending': re.compile(r"EEEEEEEEEE TERMINATION(.+?)\n"),
         'conduction_states': re.compile(r"(INSULATING|CONDUCTING) STATE(.*?)TTTTTTT", re.DOTALL),
-        'top_valence': re.compile(r"TOP OF VALENCE BANDS - {4}BAND\s*(\d*)", re.DOTALL),
-        'bottom_virtual': re.compile(r"BOTTOM OF VIRTUAL BANDS - BAND\s*(\d*)", re.DOTALL),
+        'top_valence': re.compile(r"TOP OF VALENCE BANDS - {4}BAND\s*(\d*); K\s*(\d*); EIG\s*([-.E\d]*) AU", re.DOTALL),
+        'bottom_virtual': re.compile(r"BOTTOM OF VIRTUAL BANDS - BAND\s*(\d*); K\s*(\d*); EIG\s*([-.E\d]*) AU",
+                                     re.DOTALL),
         'band_gap': re.compile(r"(DIRECT|INDIRECT) ENERGY BAND GAP:\s*([.\d]*)", re.DOTALL),
         'e_fermi': re.compile(r"EFERMI\(AU\)\s*([-.E\d]*)", re.DOTALL),
         'freqs': re.compile(r"DISPERSION K POINT(.+?)FREQ\(CM\*\*-1\)", re.DOTALL),
@@ -92,7 +93,7 @@ class CRYSTOUT(object):
         'n_electrons': re.compile(r"\sN. OF ELECTRONS PER CELL\s*(\d*)", re.DOTALL),
         'n_core_el': re.compile(r"\sCORE ELECTRONS PER CELL\s*(\d*)", re.DOTALL),
         'n_symops': re.compile(r"\sN. OF SYMMETRY OPERATORS\s*(\d*)", re.DOTALL),
-        'gamma_freqs': re.compile(r"\(HARTREE\*\*2\) {3}\(CM\*\*-1\) {5}\(THZ\)  {13}KM/MOL\)(.+?)"
+        'gamma_freqs': re.compile(r"\(HARTREE\*\*2\)\s*\(CM\*\*-1\)\s*\(THZ\)\s*\(KM/MOL\)(.+?)"
                                   r"NORMAL MODES NORMALIZED TO CLASSICAL AMPLITUDES", re.DOTALL),
         'ph_eigvecs': re.compile(r"NORMAL MODES NORMALIZED TO CLASSICAL AMPLITUDES(.+?)\*{79}", re.DOTALL),
         'needed_disp': re.compile(r"\d{1,4}\s{2,6}(\d{1,4})\s{1,3}\w{1,2}\s{11,12}(\w{1,2})\s{11,12}\d{1,2}"),
@@ -570,11 +571,23 @@ class CRYSTOUT(object):
             state_dict = {'state': state[0]}
             if state[0] == "INSULATING":
                 # dealing with band gaps
-                state_dict['top_valence'] = int(self.patterns['top_valence'].search(self.data).groups()[0])
-                state_dict['bottom_virtual'] = int(self.patterns['bottom_virtual'].search(self.data).groups()[0])
-                bg_type, bg = self.patterns['band_gap'].search(self.data).groups()
-                state_dict['band_gap'] = float(bg)
-                state_dict['band_gap_type'] = bg_type
+                try:
+                    top = self.patterns['top_valence'].search(self.data).groups()
+                except AttributeError:
+                    # old CRYSTAL version, may be?
+                    continue
+                bottom = self.patterns['bottom_virtual'].search(self.data).groups()
+                state_dict['top_valence'] = int(top[0])
+                state_dict['bottom_virtual'] = int(bottom[0])
+                gap_re = self.patterns['band_gap'].search(self.data)
+                if gap_re is not None:
+                    bg_type, bg = gap_re.groups()
+                    state_dict['band_gap'] = float(bg)
+                    state_dict['band_gap_type'] = bg_type
+                else:
+                    # try to deduce band gap from eigenvalues
+                    state_dict['band_gap_type'] = "DIRECT" if top[1] != bottom[1] else "DIRECT"
+                    state_dict["band_gap"] = (float(bottom[2]) - float(top[2])) * Hartree
             else:
                 # dealing with Fermi energies
                 state_dict['e_fermi'] = float(self.patterns['e_fermi'].search(self.data).groups()[0])
@@ -648,7 +661,6 @@ class CRYSTOUT(object):
                 return None, None, None, None
             else:
                 freqdata.append([_f for _f in freqsp.group(1).strip().splitlines() if _f])
-
         bz_modes, bz_irreps, kpoints = {}, {}, []
         ir_active, raman_active = [], []
         for freqset in freqdata:
@@ -1643,9 +1655,10 @@ class CRYSTOUT(object):
             return None
 
     def get_td(self):
+        print("HERE")
         td = {'t': [], 'p': [], 'pv': [], 'ts': [], 'et': [], 'C': [], 'S': []}
         t = self.patterns['T'].findall(self.data)
-
+        print('T = {}'.format(t))
         if t is not None:
             for i in t:
                 td['t'].append(float(i[0]))
