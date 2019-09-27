@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 """
 This script downloads the entire
 CRYSTAL basis sets library
@@ -55,6 +56,10 @@ while True:
             )
 
     for basis in soup.find_all('pre'):
+        title = basis.findPrevious('p').text.strip()
+        if not title:
+            title = basis.findPrevious('font').text.strip()
+
         parts = [item for item in linebreak.split(basis.text) if len(item) > 2]
 
         # FIXME! Two mis-formats in the BS library at the CRYSTAL website (reported)
@@ -63,10 +68,13 @@ while True:
         elif page == 'titanium' and 'Mahmoud' in parts[1]:
             continue
 
-        gbasis = CRYSTOUT.parse_bs_input(parts[0], as_d12=False)
+        parsed = CRYSTOUT.parse_bs_input(parts[0], as_d12=False)
+        gbasis = {}
+        gbasis['data'] = parts[0]
         gbasis['meta'] = str(" ".join(parts[1:]).replace("\n", " ").replace("\r", "").strip().encode('ascii', 'ignore'))
+        gbasis['title'] = title
 
-        element = list(gbasis['bs'].keys())[0]
+        element = list(parsed['bs'].keys())[0]
         handle.execute("INSERT INTO lcao(key, value) VALUES (?, ?);", (element, json.dumps(gbasis)))
 
 conn.commit()
