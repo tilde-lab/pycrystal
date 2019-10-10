@@ -1,6 +1,6 @@
 """
-CRYSTAL cryst.out parser
-Author: Evgeny Blokhin
+CRYSTAL logs parser
+Authors: Evgeny Blokhin and Andrey Sobolev
 (originally written in 2011-2013)
 """
 from __future__ import division
