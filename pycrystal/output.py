@@ -104,10 +104,10 @@ class CRYSTOUT(object):
                                 re.DOTALL),
         'cyc': re.compile(r"\n\sCYC\s(.+?)\n"),
         'enes': re.compile(r"\n\sTOTAL ENERGY\((.+?)\n"),
-        'k1': re.compile(r"\n\sMAX\sGRADIENT(.+?)\n"),
-        'k2': re.compile(r"\n\sRMS\sGRADIENT(.+?)\n"),
-        'k3': re.compile(r"\n\sMAX\sDISPLAC.(.+?)\n"),
-        'k4': re.compile(r"\n\sRMS\sDISPLAC.(.+?)\n"),
+        't1': re.compile(r"\n\sMAX\sGRADIENT(.+?)\n"),
+        't2': re.compile(r"\n\sRMS\sGRADIENT(.+?)\n"),
+        't3': re.compile(r"\n\sMAX\sDISPLAC.(.+?)\n"),
+        't4': re.compile(r"\n\sRMS\sDISPLAC.(.+?)\n"),
         'version': re.compile(r"\s\s\s\s\sCRYSTAL\d{2}(.*)\*\n", re.DOTALL),
         'pv': re.compile(r"\n PV {12}:\s(.*)\n"),
         'ts': re.compile(r"\n TS {12}:\s(.*)\n"),
@@ -162,7 +162,6 @@ class CRYSTOUT(object):
             'tol': None,
             'k': None,
             'smear': None,          # in a.u.
-            'smeartype': None,
             'spin': False,
             'lockstate': None,
             'convergence': [],      # zero-point energy convergence
@@ -565,7 +564,7 @@ class CRYSTOUT(object):
         return structures
 
     def get_conduction(self):
-        res = []
+        result = []
         states = self.patterns['conduction_states'].findall(self.data)
         for state in states:
             state_dict = {'state': state[0]}
@@ -592,8 +591,8 @@ class CRYSTOUT(object):
                 # dealing with Fermi energies
                 state_dict['e_fermi'] = float(self.patterns['e_fermi'].search(self.data).groups()[0])
                 state_dict['e_fermi_units'] = 'Ha'
-            res.append(state_dict)
-        return res
+            result.append(state_dict)
+        return result
 
     def get_etot(self):
         e = self.patterns['Etot'].search(self.data)
@@ -844,7 +843,7 @@ class CRYSTOUT(object):
     def get_effective_elastic_moduli(self):
         moduli = self.patterns['effective_moduli'].findall(self.data)
         if not moduli:
-            return None, None, None, None, None, None, None, None
+            return [None, None, None, None, None, None, None, None]
         return [float(x) for x in moduli[0].split()]
 
     def decide_charges(self):
@@ -1519,7 +1518,6 @@ class CRYSTOUT(object):
             f = float(
                 self.data.split('\n FERMI SMEARING - TEMPERATURE SMEARING OF FERMI SURFACE ', 1)[-1].split("\n", 1)[0])
             self.info['smear'] = f
-            self.info['smeartype'] = 'Mermin'
 
             if 0 < f <= 0.005:
                 self.info['techs'].append('smearing<0.005au')
@@ -1596,7 +1594,7 @@ class CRYSTOUT(object):
                 energies.append(ene)
 
         n = 0
-        for cr in [self.patterns['k1'], self.patterns['k2'], self.patterns['k3'], self.patterns['k4']]:
+        for cr in [self.patterns['t1'], self.patterns['t2'], self.patterns['t3'], self.patterns['t4']]:
             kd = cr.findall(self.data)
             if kd is not None:
                 for i in kd:
@@ -1615,12 +1613,12 @@ class CRYSTOUT(object):
         # ORDER of values: geometry, then energy, then tolerances
         if criteria[-1]:
             if len(criteria[0]) - len(criteria[2]) == 1 and len(criteria[1]) - len(
-                    criteria[3]) == 1:  # if no restart, then 1st cycle has no treshold k3 and k4
+                    criteria[3]) == 1:  # if no restart, then 1st cycle has no treshold t3 and t4
                 criteria[2].insert(0, 0)
                 criteria[3].insert(0, 0)
 
             if len(criteria[0]) - len(criteria[2]) == 2 and len(criteria[1]) - len(
-                    criteria[3]) == 2:  # convergence achieved without k3 and k4 at the last cycle
+                    criteria[3]) == 2:  # convergence achieved without t3 and t4 at the last cycle
                 criteria[2].insert(0, 0)
                 criteria[2].append(criteria[2][-1])
                 criteria[3].insert(0, 0)
@@ -1628,12 +1626,17 @@ class CRYSTOUT(object):
 
             if len(criteria[0]) - len(energies) == 1:  # ??
                 self.warning(
-                    'Energy was not printed at intermediate step, so the correspondence is partly lost (tried to fix)!')
+                    'Energy was not printed at the intermediate step, so the correspondence is partially lost!')
                 energies.insert(0, energies[0])
                 ncycles.insert(0, ncycles[0])
 
             if len(criteria[1]) - len(criteria[2]) > 1:  # ??
                 raise CRYSTOUT_Error('Number of the optgeom tresholds is inconsistent!')
+
+            if len(criteria[2]) > len(energies):
+                self.warning(
+                    'Energy was not printed at the intermediate step, so the correspondence is partially lost!')
+                energies = energies + [None] * (len(criteria[2]) - len(energies))
 
             for i in range(len(criteria[0])):
                 optgeom.append([criteria[0][i], criteria[1][i], criteria[2][i], criteria[3][i], energies[i]])
