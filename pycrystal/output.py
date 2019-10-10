@@ -142,7 +142,6 @@ class CRYSTOUT(object):
 
         self.data = ''              # file contents
         self.pdata = None
-        self.related_files = []
         self.properties_calc, self.crystal_calc = False, False
 
         self.info = {
@@ -252,8 +251,6 @@ class CRYSTOUT(object):
 
         if self.crystal_calc:
             self.info['duration'] = self.get_duration()
-            self.info['finished'] = self.get_finished()
-
             self.comment, self.info['input'], self.info['prog'] = self.get_input_and_meta(raw_data[0:parts_pointer[0]])
             self.molecular_case = ' MOLECULAR CALCULATION' in self.data
             self.info['energy'] = self.get_etot()
@@ -261,8 +258,9 @@ class CRYSTOUT(object):
             self.info['structures'] = self.get_structures()
 
             self.decide_charges()
-            self.decide_scfdata()
+            self.decide_finished()
             self.decide_method()
+            self.decide_scfdata()
 
             self.info['scf_conv'], self.info['ion_conv'] = self.get_convergence()
             self.info['conduction'] = self.get_conduction()
@@ -331,20 +329,6 @@ class CRYSTOUT(object):
             #if self.info['electrons']['proj_eigv_impacts'] and self.crystal_calc:
             #    self.info['prog'] += '+PROPERTIES'
         '''
-
-        self.related_files.append(filename)
-        cur_folder = os.path.dirname(filename)
-        check_files = []
-
-        if filename.endswith('.cryst.out'):
-            check_files = [filename.replace('.cryst.out', '') + '.d12', filename.replace('.cryst.out', '') + '.gui']
-
-        elif filename.endswith('.out'):
-            check_files = [filename.replace('.out', '') + '.d12', filename.replace('.out', '') + '.gui']
-
-        for check in check_files:
-            if os.path.exists(os.path.join(cur_folder, check)):
-                self.related_files.append(os.path.join(cur_folder, check))
 
     def __repr__(self):
         return repr(self.info)
@@ -955,11 +939,14 @@ class CRYSTOUT(object):
 
         return comment, keywords, version
 
-    def get_finished(self):
+    def decide_finished(self):
         if self.info['duration'] and not 'TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT ERR' in self.data:
-            return 0x2
+            self.info['finished'] = 0x2
         else:
-            return 0x1
+            err = self.data.split(' ERROR **** ')
+            if len(err) > 1:
+                self.warning(err[1].split('\n')[0] + '!')
+            self.info['finished'] = 0x1
 
     def get_ph_sym_disps(self):
         symdisps = self.patterns['symdisps'].search(self.data)
@@ -1658,10 +1645,9 @@ class CRYSTOUT(object):
             return None
 
     def get_td(self):
-        print("HERE")
         td = {'t': [], 'p': [], 'pv': [], 'ts': [], 'et': [], 'C': [], 'S': []}
         t = self.patterns['T'].findall(self.data)
-        print('T = {}'.format(t))
+
         if t is not None:
             for i in t:
                 td['t'].append(float(i[0]))
