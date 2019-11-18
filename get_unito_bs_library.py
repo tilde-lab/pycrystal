@@ -62,11 +62,16 @@ while True:
 
         parts = [item for item in linebreak.split(basis.text) if len(item) > 2]
 
-        # FIXME! Two mis-formats in the BS library at the CRYSTAL website (reported)
+        # Correct three mis-formats in the BS library at the CRYSTAL website
         if page == 'sulphur' and '10.1002/jcc.23153' in parts[1]:
-            continue
+            # "1 0" -> "1.0"
+            parts[0] = parts[0].replace("\r\n0 3 1 0.0 1 0\r\n 0.5207010100 1.00000000000000", "\r\n0 3 1 0.0 1.0\r\n 0.5207010100 1.00000000000000")
+        elif page == 'sulphur' and '10.1002/jcc.26013' in parts[1]:
+            # "1 0" -> "1.0"
+            parts[0] = parts[0].replace("\r\n0 3 1 0.0 1 0\r\n  0.4107010100     1.0000000000000", "\r\n0 3 1 0.0 1.0\r\n  0.4107010100     1.0000000000000")
         elif page == 'titanium' and 'Mahmoud' in parts[1]:
-            continue
+            # remove "Ti"
+            parts[0] = parts[0].replace("Ti\r\n22 9\r\n", "22 9\r\n")
 
         parsed = CRYSTOUT.parse_bs_input(parts[0], as_d12=False)
         gbasis = {}
