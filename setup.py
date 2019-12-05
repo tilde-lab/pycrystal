@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='pycrystal',
-    version='1.0.2',
+    version='1.0.4',
     author='Evgeny Blokhin, Maxim Losev, Andrey Sobolev',
     author_email='support@tilde.pro',
     description='Utilities for ab initio modeling suite CRYSTAL',
@@ -10,7 +10,7 @@ setup(
     url='https://github.com/tilde-lab/pycrystal',
     license='MIT',
     classifiers=[
-        'Development Status :: 3 - Alpha',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Science/Research',
         'Topic :: Scientific/Engineering :: Chemistry',
         'Topic :: Scientific/Engineering :: Physics',
@@ -20,7 +20,6 @@ setup(
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7'

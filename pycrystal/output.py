@@ -4,7 +4,6 @@ Authors: Evgeny Blokhin and Andrey Sobolev
 (originally written in 2011-2013)
 """
 from __future__ import division
-import os
 import math
 import re
 
@@ -231,7 +230,7 @@ class CRYSTOUT(object):
 
         # determine whether to deal with the CRYSTAL and/or PROPERTIES output formats
         if len(parts_pointer) > 1:
-            if (not self.is_properties(raw_data[parts_pointer[1]:]) and
+            if (not CRYSTOUT.is_properties(raw_data[parts_pointer[1]:]) and
                     len(raw_data[parts_pointer[1]:]) > 2000): # in case of empty properties outputs
                 raise CRYSTOUT_Error('File contains several merged outputs, currently not supported!')
             else:
@@ -239,7 +238,7 @@ class CRYSTOUT(object):
                 self.pdata = raw_data[parts_pointer[1]:]
                 self.properties_calc, self.crystal_calc = True, True
         else:
-            if not self.is_properties(raw_data[parts_pointer[0]:]):
+            if not CRYSTOUT.is_properties(raw_data[parts_pointer[0]:]):
                 self.data = raw_data[parts_pointer[0]:]
                 self.crystal_calc = True
             else:
@@ -380,7 +379,7 @@ class CRYSTOUT(object):
                 return None # CRYSTAL-type output marker
             elif not e and str.startswith(" TOTAL ENERGY "):
                 e = float(str.split("CONVERGENCE")[0][-23:])
-            elif not crit_1 and self.is_properties(str):
+            elif not crit_1 and CRYSTOUT.is_properties(str):
                 crit_1 = True
             elif not crit_2 and " EIGENVALUES - K=" in str:
                 crit_2 = True
@@ -392,7 +391,8 @@ class CRYSTOUT(object):
 
         return None
 
-    def is_properties(self, piece_of_data):
+    @staticmethod
+    def is_properties(piece_of_data):
         if (" RESTART WITH NEW K POINTS NET" in piece_of_data
                 or " CRYSTAL - PROPERTIES" in piece_of_data
                 or "Wavefunction file can not be found" in piece_of_data):
@@ -1006,10 +1006,13 @@ class CRYSTOUT(object):
         bs = bs.splitlines()
 
         atom_order = []
+        atom_type = None
 
         for line in bs:
             if line.startswith(" " * 20): # gau type or exponents
                 if line.startswith(" " * 40): # exponents
+                    if not atom_type or not len(gbasis['bs'][atom_type]):
+                        raise CRYSTOUT_Error('Unexpected or corrupted basis output - gaussian type or atom not given!')
                     line = line.strip()
                     if line[:1] != '-':
                         line = ' ' + line
@@ -1039,10 +1042,10 @@ class CRYSTOUT(object):
                             gbasis['bs'][atom_type] = []
                         else:
                             raise CRYSTOUT_Error(
-                                'More than two different basis sets for one element - not supported case!') # TODO
+                                'More than two different basis sets for one element - not supported case!')
                     gbasis['bs'][atom_type].append([symb])
 
-            else: # atom No or end
+            else: # atom N or end
                 test = line.split()
                 if test and test[0] == 'ATOM':
                     continue # C03: can be odd string ATOM  X(AU)  Y(AU)  Z(AU)
