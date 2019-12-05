@@ -208,22 +208,6 @@ class CRYSTOUT(object):
             },
         }
 
-        '''if kwargs:
-            if not 'basis_set' in kwargs or not 'atomtypes' in kwargs:
-                raise CRYSTOUT_Error('Invalid missing properties defined!')
-            missing_props = kwargs
-        else:
-            missing_props = None
-
-        # If we have got pure PROPERTIES output,
-        # we shouldn't process it right away
-        # Instead we postpone parsing until
-        # it matches other (parent) CRYSTAL output
-        # by _coupler_ property (E_tot).
-        # However if we have received *missing_props*,
-        # we do parse them now
-        if not missing_props: self._coupler_ = self.is_coupling(filename)'''
-
         # normalize breaks and get rid of the possible odd MPI incusions in important data
         raw_data = open(filename).read().replace('\r\n', '\n').replace('\r', '\n').replace('FORTRAN STOP\n', '')
         parts_pointer = list(find_all(raw_data, "*                              MAIN AUTHORS"))
@@ -312,22 +296,8 @@ class CRYSTOUT(object):
         if self.properties_calc and not self.crystal_calc:
             raise CRYSTOUT_Error('PROPERTIES output with insufficient information omitted!')
 
-        '''if self.properties_calc:
-            if not missing_props:
-                missing_props = {
-                    'atomtypes': [i[0] for i in self.info['structures'][-1]['atoms']],
-                    'basis_set': self.info['electrons']['basis_set']['bs']
-                    }
-
-            # TODO: this should be workaround-ed with iterative parsing
-            #try: self.info['electrons']['eigvals'] = self.get_e_eigvals()
-            #except MemoryError: raise CRYSTOUT_Error('Sorry, the file is too large!')
-
-            #self.info['electrons']['proj_eigv_impacts'] = self.get_e_impacts(self.get_e_eigvecs(), missing_props['atomtypes'], missing_props['basis_set'])
-
-            #if self.info['electrons']['proj_eigv_impacts'] and self.crystal_calc:
-            #    self.info['prog'] += '+PROPERTIES'
-        '''
+    def warning(self, msg):
+        self.info['warns'].append(msg)
 
     def __repr__(self):
         return repr(self.info)
@@ -356,41 +326,6 @@ class CRYSTOUT(object):
 
         return False
 
-    def warning(self, msg):
-        self.info['warns'].append(msg)
-
-    def is_coupling(self, filename):
-        '''
-        Determines if this output should be *coupled* with another one, i.e. needed information is present there (which may be expensive to extract).
-        This should be done as early as possible, because the file may be very large. So there are 4 criteria:
-        (1) PROPERTIES-type output
-        (2) present eigenvalues
-        (3) present eigenvectors
-        (4) absent CRYSTAL-type output
-        '''
-        e, crit_1, crit_2, crit_3 = None, False, False, False
-        f = open(filename, 'r')
-        while True:
-            str = f.readline()
-            if not str:
-                break
-
-            if " BASIS SET" in str:
-                return None # CRYSTAL-type output marker
-            elif not e and str.startswith(" TOTAL ENERGY "):
-                e = float(str.split("CONVERGENCE")[0][-23:])
-            elif not crit_1 and CRYSTOUT.is_properties(str):
-                crit_1 = True
-            elif not crit_2 and " EIGENVALUES - K=" in str:
-                crit_2 = True
-            elif not crit_3 and " HAMILTONIAN EIGENVECTORS - K=" in str:
-                crit_3 = True
-
-            if e and crit_1 and crit_2 and crit_3:
-                return e
-
-        return None
-
     @staticmethod
     def is_properties(piece_of_data):
         if (" RESTART WITH NEW K POINTS NET" in piece_of_data
@@ -399,44 +334,6 @@ class CRYSTOUT(object):
             return True
         else:
             return False
-
-    '''def get_symops(self):
-        syms = self.patterns['syminfos'].findall(self.data)
-        if not syms:
-            self.warning('No sym info found, assuming P1!')
-            return ['+x,+y,+z']
-        lines = syms[-1].splitlines()
-        symops = []
-        for line in lines:
-            elems = line.split()
-            if len(elems) != 14: continue
-            sym_pos = ['', '', '']
-            for i in range(2, 14):
-                try: elems[i] = float(elems[i])
-                except ValueError:
-                    if i==2: break
-                    else: raise CRYSTOUT_Error('Sym info contains invalid rotational matrix!')
-            for i in range(2, 11):
-                if elems[i] != 0:
-                    if elems[i]>0: s = '+'
-                    else: s = '-'
-
-                    if i == 2 or i == 5 or i == 8:  s += 'x'
-                    if i == 3 or i == 6 or i == 9:  s += 'y'
-                    if i == 4 or i == 7 or i == 10: s += 'z'
-
-                    if 1<i<5:  sym_pos[0] += s
-                    if 4<i<8:  sym_pos[1] += s
-                    if 7<i<11: sym_pos[2] += s
-            if elems[11] != 0: sym_pos[0] += '+'+str(elems[11])
-            if elems[12] != 0: sym_pos[1] += '+'+str(elems[12])
-            if elems[13] != 0: sym_pos[2] += '+'+str(elems[13])
-
-            sym_pos = ",".join(sym_pos)
-            symops.append(sym_pos)
-        if len(symops) == 0:
-            raise CRYSTOUT_Error('Sym info is invalid!')
-        return symops'''
 
     def get_cart2frac(self):
         matrix = []
@@ -550,7 +447,7 @@ class CRYSTOUT(object):
 
         return structures
 
-    def get_conduction(self):
+    def get_conduction(self): # FIXME: check for errors in CRYSTAL17 outputs
         result = []
         states = self.patterns['conduction_states'].findall(self.data)
         for state in states:
@@ -572,7 +469,7 @@ class CRYSTOUT(object):
                     state_dict['band_gap_type'] = bg_type
                 else:
                     # try to deduce band gap from eigenvalues
-                    state_dict['band_gap_type'] = "DIRECT" if top[1] != bottom[1] else "DIRECT"
+                    state_dict['band_gap_type'] = "INDIRECT" if top[1] != bottom[1] else "DIRECT"
                     state_dict["band_gap"] = (float(bottom[2]) - float(top[2])) * Hartree
             else:
                 # dealing with Fermi energies
@@ -609,15 +506,10 @@ class CRYSTOUT(object):
             return float(de.groups()[0]) * Hartree
         return None
 
-    '''def get_etot_props(self):
-        e = self.patterns['pEtot'].search(self.pdata)
-        if e is not None: return float(e.groups()[0])
-        else:
-            self.warning('No energy in PROPERTIES output!')
-            return None'''
-
     def get_convergence(self):
-        """Returns electronic and ionic convergence"""
+        """
+        Returns electronic and ionic convergence
+        """
         if not self.info['convergence']:
             return None, None
         # electronic convergence
@@ -632,7 +524,6 @@ class CRYSTOUT(object):
         return conv_el, conv_ion
 
     def get_phonons(self):
-
         if not "U   U  EEEE  N   N   CCC  Y   Y" in self.data:
             return None, None, None, None
 
@@ -982,6 +873,7 @@ class CRYSTOUT(object):
             return disps, magnitude
 
     def get_static_dielectric_tensor(self):
+        # TODO
         return "\n VIBRATIONAL CONTRIBUTIONS TO THE STATIC DIELECTRIC TENSOR:\n" in self.data or \
                "\n VIBRATIONAL CONTRIBUTIONS TO THE STATIC POLARIZABILITY TENSOR:\n" in self.data
 
@@ -1120,7 +1012,7 @@ class CRYSTOUT(object):
         """
         Note: input must be scanned only if nothing found in output
         input may contain comments (not expected by CRYSTAL, but user anyway can cheat it)
-        WARNING the block /* */ comments will fail FIXME?
+        WARNING the block /* */ comments will fail TODO?
         """
         gbasis = {'bs': {}, 'ecp': {}}
 
@@ -1290,31 +1182,6 @@ class CRYSTOUT(object):
             if not len(v) and k != 'X' and 'X' in gbasis['bs']:
                 gbasis['bs'][k] = copy.deepcopy(gbasis['bs']['X'])
 
-        # actually no GHOST deletion must be performed as it breaks orbitals order for band structure plotting!
-        '''cmp_atoms = []
-        for cmp_atom in gbasis['bs'].keys():
-            if cmp_atom[0:2] != 'X':
-                cmp_atom = ''.join([letter for letter in cmp_atom if not letter.isdigit()]) # remove doubling types with numbers (all GHOSTs will be deleted anyway!)
-            if not cmp_atom in cmp_atoms: cmp_atoms.append(cmp_atom)
-
-        diff = list(set(atoms) - set(cmp_atoms)) + list(set(cmp_atoms) - set(atoms)) # difference between two lists
-        print "diff in atoms and bs:", diff
-        if diff:
-            if len(diff) == 1 and diff[0] == 'X':
-                del gbasis['bs']['X']
-            elif len(diff) == 2 and 'X' in diff:
-                replace = [i for i in diff if i != 'X'][0]
-                if replace == 'X1':
-                    # if two ghosts, both will be deleted without proper replacement! TODO: fixme
-                    for i in diff:
-                        del gbasis['bs'][i]
-                else:
-                    gbasis['bs'][replace] = gbasis['bs']['X']
-                    del gbasis['bs']['X']
-            elif len(diff) >= 3:
-                # if two ghosts, both will be deleted without proper replacement! TODO: fixme
-                for i in diff:
-                    if i[0:2] == 'X': del gbasis['bs'][i]'''
         return gbasis
 
     def decide_method(self):
@@ -1643,7 +1510,6 @@ class CRYSTOUT(object):
         self.info['optgeom'] = optgeom
 
     def get_zpe(self):
-
         if "\n E0            :" in self.data:
             zpe = self.data.split("\n E0            :")[1].split("\n", 1)[0].split()[0] # AU
             try:
