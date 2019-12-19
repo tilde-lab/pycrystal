@@ -164,9 +164,9 @@ class ECP(object):
             counter += 1
             output += ' ' + str(len(gtf.pgtfs))
 
-        assert counter <= 5
+        assert counter <= 6
 
-        for i in range(5 - counter):
+        for i in range(6 - counter):
             output += ' 0'
 
         output += '\n'

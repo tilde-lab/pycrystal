@@ -73,6 +73,10 @@ while True:
             # remove "Ti"
             parts[0] = parts[0].replace("Ti\r\n22 9\r\n", "22 9\r\n")
 
+        # NB. Hg and Bi have unexpected comments
+        # NB. Tl has wrong INPUT
+        # NB. sometimes the comments get included afterwards
+
         parsed = CRYSTOUT.parse_bs_input(parts[0], as_d12=False)
         gbasis = {}
         gbasis['data'] = parts[0]
