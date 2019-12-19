@@ -1489,22 +1489,28 @@ class CRYSTOUT(object):
                 criteria[3].insert(0, 0)
                 criteria[3].append(criteria[3][-1])
 
-            if len(criteria[0]) - len(energies) == 1: # ??
+            if len(criteria[0]) - len(energies) == 1:
                 self.warning(
                     'Energy was not printed at the intermediate step, so the correspondence is partially lost!')
                 energies.insert(0, energies[0])
                 ncycles.insert(0, ncycles[0])
 
-            if len(criteria[1]) - len(criteria[2]) > 1: # ??
-                raise CRYSTOUT_Error('Number of the optgeom tresholds is inconsistent!')
+            if len(criteria[1]) - len(criteria[2]) > 1:
+                self.warning('Number of the optgeom tresholds is inconsistent!')
 
             if len(criteria[2]) > len(energies):
                 self.warning(
                     'Energy was not printed at the intermediate step, so the correspondence is partially lost!')
-                energies = energies + [None] * (len(criteria[2]) - len(energies))
 
-            for i in range(len(criteria[0])):
-                optgeom.append([criteria[0][i], criteria[1][i], criteria[2][i], criteria[3][i], energies[i]])
+            lengths = [len(criteria[0]), len(criteria[1]), len(criteria[2]), len(criteria[3]), len(energies)]
+            for i in range(max(lengths)):
+                optgeom.append([
+                    criteria[0][i] if i < len(lengths[0]) else None,
+                    criteria[1][i] if i < len(lengths[1]) else None,
+                    criteria[2][i] if i < len(lengths[2]) else None,
+                    criteria[3][i] if i < len(lengths[3]) else None,
+                    energies[i]    if i < len(lengths[4]) else None
+                ])
 
         self.info['ncycles'] = ncycles
         self.info['optgeom'] = optgeom
