@@ -1505,11 +1505,11 @@ class CRYSTOUT(object):
             lengths = [len(criteria[0]), len(criteria[1]), len(criteria[2]), len(criteria[3]), len(energies)]
             for i in range(max(lengths)):
                 optgeom.append([
-                    criteria[0][i] if i < len(lengths[0]) else None,
-                    criteria[1][i] if i < len(lengths[1]) else None,
-                    criteria[2][i] if i < len(lengths[2]) else None,
-                    criteria[3][i] if i < len(lengths[3]) else None,
-                    energies[i]    if i < len(lengths[4]) else None
+                    criteria[0][i] if i < lengths[0] else None,
+                    criteria[1][i] if i < lengths[1] else None,
+                    criteria[2][i] if i < lengths[2] else None,
+                    criteria[3][i] if i < lengths[3] else None,
+                    energies[i]    if i < lengths[4] else None
                 ])
 
         self.info['ncycles'] = ncycles
