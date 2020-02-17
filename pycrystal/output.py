@@ -283,6 +283,10 @@ class CRYSTOUT(object):
             # get elastic constants
             self.info['elastic']['elastic_constants'] = self.get_elastic('elastic_constants')
             self.info['elastic']['elastic_moduli'] = self.get_elastic('elastic_moduli')
+
+            if self.info['elastic']['elastic_moduli'] and ' OPTIMIZE THE STRUCTURE AND RE-RUN\n' in self.data:
+                raise CRYSTOUT_Error('Inadequate elastic calculation: additional optimization needed')
+
             k_v, g_v, k_r, g_r, k, g, e, v = self.get_effective_elastic_moduli()
             self.info['elastic']['K_V'] = k_v
             self.info['elastic']['G_V'] = g_v
@@ -380,7 +384,7 @@ class CRYSTOUT(object):
                 pbc = False
 
             crystal_data = re.sub(' PROCESS(.{32})WORKING\n', '',
-                                  crystal_data) # warning! MPI statuses may spoil valuable data
+                                  crystal_data) # Warning! MPI statuses may spoil valuable data
 
             # this is to account correct cart->frac atomic coords conversion using cellpar_to_cell ASE routine
             # 3x3 cell is used only here to obtain ab_normal and a_direction
@@ -793,7 +797,7 @@ class CRYSTOUT(object):
 
     def get_input_and_meta(self, inputdata):
         version = None
-        inputdata = re.sub(' PROCESS(.{32})WORKING\n', '', inputdata) # warning! MPI statuses may spoil valuable data
+        inputdata = re.sub(' PROCESS(.{32})WORKING\n', '', inputdata) # Warning! MPI statuses may spoil valuable data
         v = self.patterns['version'].search(inputdata)
         if v:
             v = v.group().split("\n")
@@ -894,7 +898,7 @@ class CRYSTOUT(object):
 
         # NO BASE FIXINDEX IMPLEMENTED
         bs = bs[-1].split("*******************************************************************************\n", 1)[-1]
-        bs = re.sub(' PROCESS(.{32})WORKING\n', '', bs) # warning! MPI statuses may spoil valuable data
+        bs = re.sub(' PROCESS(.{32})WORKING\n', '', bs) # Warning! MPI statuses may spoil valuable data
         bs = bs.splitlines()
 
         atom_order = []
@@ -964,7 +968,7 @@ class CRYSTOUT(object):
         if len(ecp) > 1:
             # NO BASE FIXINDEX IMPLEMENTED
             ecp = ecp[-1].split("*******************************************************************************\n", 2)[-2]
-            ecp = re.sub(' PROCESS(.{32})WORKING\n', '', ecp) # warning! MPI statuses may spoil valuable data
+            ecp = re.sub(' PROCESS(.{32})WORKING\n', '', ecp) # Warning! MPI statuses may spoil valuable data
             ecp = ecp.splitlines()
             for line in ecp:
                 if 'PSEUDOPOTENTIAL' in line:
