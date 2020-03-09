@@ -1,18 +1,12 @@
-"""
-CRYSTAL logs parser
-Authors: Evgeny Blokhin and Andrey Sobolev
-(originally written in 2011-2013)
-"""
-from __future__ import division
+
 import math
 import re
-
 import time
 import copy
 from fractions import Fraction
+from pathlib import PurePath
 
 from numpy import cross
-
 from ase.data import chemical_symbols, atomic_numbers
 from ase.geometry import cellpar_to_cell
 from ase.units import Hartree
@@ -208,8 +202,14 @@ class CRYSTOUT(object):
             },
         }
 
+        open_close = isinstance(filename, (str, PurePath))
+        if open_close:
+            raw_data = open(filename).read()
+        else:
+            raw_data = filename.read()
+
         # normalize breaks and get rid of the possible odd MPI incusions in important data
-        raw_data = open(filename).read().replace('\r\n', '\n').replace('\r', '\n').replace('FORTRAN STOP\n', '')
+        raw_data = raw_data.replace('\r\n', '\n').replace('\r', '\n').replace('FORTRAN STOP\n', '')
         parts_pointer = list(find_all(raw_data, "*                              MAIN AUTHORS"))
 
         # determine whether to deal with the CRYSTAL and/or PROPERTIES output formats
@@ -252,7 +252,7 @@ class CRYSTOUT(object):
 
             self.info['phonons']['ph_k_degeneracy'] = self.get_k_degeneracy()
             self.info['phonons']['modes'], self.info['phonons']['irreps'], self.info['phonons']['ir_active'], \
-            self.info['phonons']['raman_active'] = self.get_phonons()
+                self.info['phonons']['raman_active'] = self.get_phonons()
             self.info['phonons']['ph_eigvecs'] = self.get_ph_eigvecs()
             self.info['phonons']['dfp_disps'], self.info['phonons']['dfp_magnitude'] = self.get_ph_sym_disps()
             self.info['phonons']['dielectric_tensor'] = self.get_static_dielectric_tensor()
@@ -317,16 +317,23 @@ class CRYSTOUT(object):
 
     @staticmethod
     def acceptable(filename):
-        f = open(filename, 'r')
+        open_close = isinstance(filename, (str, PurePath))
+        if open_close:
+            f = open(filename, 'r')
+        else:
+            f = filename
+
         counter = 0
 
         while counter < 700:
             fingerprint = f.readline()
             if CRYSTOUT.detect(fingerprint):
-                f.close()
+                if open_close:
+                    f.close()
                 return True
             counter += 1
-        f.close()
+        if open_close:
+            f.close()
 
         return False
 
@@ -567,14 +574,18 @@ class CRYSTOUT(object):
                         for i in range(mplr):
                             modes.append(float(val[3]))
                             irrep = val[5].replace("(", "").replace(")", "").strip()
-                            if irrep == '': irrep = val[6].replace("(", "").replace(")", "").strip()
+                            if not irrep:
+                                irrep = val[6].replace("(", "").replace(")", "").strip()
+                            irrep = irrep.replace('"', "''")
                             irreps.append(irrep)
                     else: # fixed place for numericals
                         mplr = int(nmodes[1]) - int(nmodes[0]) + 1
                         for i in range(mplr):
                             modes.append(float(val[2]))
                             irrep = val[4].replace("(", "").replace(")", "").strip()
-                            if irrep == '': irrep = val[5].replace("(", "").replace(")", "").strip()
+                            if not irrep:
+                                irrep = val[5].replace("(", "").replace(")", "").strip()
+                            irrep = irrep.replace('"', "''")
                             irreps.append(irrep)
                     # IR / RAMAN data ( * mplr )
                     c = 0
