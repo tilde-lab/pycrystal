@@ -75,8 +75,7 @@ class CRYSTOUT(object):
         'ending': re.compile(r"EEEEEEEEEE TERMINATION(.+?)\n"),
         'conduction_states': re.compile(r"(INSULATING|CONDUCTING) STATE(.*?)TTTTTTT", re.DOTALL),
         'top_valence': re.compile(r"TOP OF VALENCE BANDS - {4}BAND\s*(\d*); K\s*(\d*); EIG\s*([-.E\d]*) AU", re.DOTALL),
-        'bottom_virtual': re.compile(r"BOTTOM OF VIRTUAL BANDS - BAND\s*(\d*); K\s*(\d*); EIG\s*([-.E\d]*) AU",
-                                     re.DOTALL),
+        'bottom_virtual': re.compile(r"BOTTOM OF VIRTUAL BANDS - BAND\s*(\d*); K\s*(\d*); EIG\s*([-.E\d]*) AU", re.DOTALL),
         'band_gap': re.compile(r"(DIRECT|INDIRECT) ENERGY BAND GAP:\s*([.\d]*)", re.DOTALL),
         'e_fermi': re.compile(r"EFERMI\(AU\)\s*([-+.E\d]*)", re.DOTALL),
         'freqs': re.compile(r"DISPERSION K POINT(.+?)FREQ\(CM\*\*-1\)", re.DOTALL),
@@ -467,10 +466,9 @@ class CRYSTOUT(object):
                 # dealing with band gaps
                 try:
                     top = self.patterns['top_valence'].search(self.data).groups()
+                    bottom = self.patterns['bottom_virtual'].search(self.data).groups()
                 except AttributeError:
-                    # old CRYSTAL version, may be?
                     continue
-                bottom = self.patterns['bottom_virtual'].search(self.data).groups()
                 state_dict['top_valence'] = int(top[0])
                 state_dict['bottom_virtual'] = int(bottom[0])
                 gap_re = self.patterns['band_gap'].search(self.data)
@@ -984,7 +982,6 @@ class CRYSTOUT(object):
             for line in ecp:
                 if 'PSEUDOPOTENTIAL' in line:
                     atnum = int(line.split(',')[0].replace('ATOMIC NUMBER', ''))
-                    # int(nc.replace('NUCLEAR CHARGE', ''))
                     if 200 < atnum < 1000:
                         atnum = int(str(atnum)[-2:])
                     atom_type = chemical_symbols[atnum]
@@ -1001,7 +998,7 @@ class CRYSTOUT(object):
                         else:
                             raise CRYSTOUT_Error('More than two pseudopotentials for one element - not supported case!')
                 else:
-                    lines = line.split()
+                    lines = line.replace('-', ' -').split() # account merged fixed-width fields
                     try:
                         float(lines[-2])
                     except (ValueError, IndexError):
@@ -1013,7 +1010,8 @@ class CRYSTOUT(object):
                         lines = list(map(float, lines))
                         for i in range(len(lines) // 3):
                             gbasis['ecp'][atom_type][-1].append(
-                                tuple([lines[0 + i * 3], lines[1 + i * 3], lines[2 + i * 3]]))
+                                tuple([lines[0 + i * 3], lines[1 + i * 3], lines[2 + i * 3]])
+                            )
 
         # sometimes ghost basis set is printed without exponents and we should determine what atom was replaced
         if 'X' in gbasis['bs'] and not len(gbasis['bs']['X']):
