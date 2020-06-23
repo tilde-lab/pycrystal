@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='pycrystal',
-    version='1.0.6',
+    version='1.0.7',
     author='Evgeny Blokhin, Maxim Losev, Andrey Sobolev',
     author_email='support@tilde.pro',
     description='Utilities for ab initio modeling suite CRYSTAL',
@@ -20,9 +20,12 @@ setup(
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7'
+        'Programming Language :: Python :: 3.7',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9'
     ],
     keywords='materials informatics crystal structures crystal-structure crystallography CRYSTAL ab-initio ab-initio-simulations first-principles materials-science',
     packages=['pycrystal'],
-    install_requires=['ase', 'pyparsing', 'requests', 'bs4']
+    install_requires=['ase', 'pyparsing', 'requests', 'bs4'],
+    python_requires='>=3.5'
 )
