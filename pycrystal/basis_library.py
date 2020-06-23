@@ -46,29 +46,41 @@ def download_basis_library():
 
             parts = [item for item in linebreak.split(basis.text) if len(item) > 2]
 
-            # Correct three mis-formats in the BS library at the CRYSTAL website
+            # Correct mis-formats in the BS library at the CRYSTAL website
             if page == 'sulphur' and '10.1002/jcc.23153' in parts[1]:
                 # "1 0" -> "1.0"
                 parts[0] = parts[0].replace("\r\n0 3 1 0.0 1 0\r\n 0.5207010100 1.00000000000000", "\r\n0 3 1 0.0 1.0\r\n 0.5207010100 1.00000000000000")
+
             elif page == 'sulphur' and '10.1002/jcc.26013' in parts[1]:
                 # "1 0" -> "1.0"
                 parts[0] = parts[0].replace("\r\n0 3 1 0.0 1 0\r\n  0.4107010100     1.0000000000000", "\r\n0 3 1 0.0 1.0\r\n  0.4107010100     1.0000000000000")
+
             elif page == 'titanium' and 'Mahmoud' in parts[1]:
                 # remove "Ti"
                 parts[0] = parts[0].replace("Ti\r\n22 9\r\n", "22 9\r\n")
 
-            # NB. Hg and Bi have unexpected comments
-            # NB. Tl has wrong INPUT
+            elif page == 'bismuth' and 'weihrich' in title:
+                # remove comment
+                parts[0] = parts[0].replace("ECP modified from Hay and Wadt, JCP 82, 284 (1985)", "")
+
+            elif page == 'mercury' and 'weihrich' in title:
+                # remove comments
+                parts[0] = parts[0].replace("ECP modified from Hay and Wadt, JCP 82, 1985", "")
+
+            elif page == 'thallium' and 'Bachhuber' in title:
+                # fix INPUT
+                parts[0] = parts[0].replace("13. 6 5 6 6 6 0 0", "13. 6 5 6 6 6 0")
+
+            elif page == 'oxygen' and 'corno' in title:
+                # remove comments
+                parts[0] = parts[0].replace("same as gatti_1994", "").replace("gatti_1994 modified", "")
+
             # NB. sometimes the comments get included afterwards
 
             parsed = CRYSTOUT.parse_bs_input(parts[0], as_d12=False)
             gbasis = dict(
-                data=parts[0],
-                meta=str(
-                    " ".join(parts[1:])
-                    .replace("\n", " ").replace("\r", "")
-                    .strip().encode('ascii', 'ignore')
-                ),
+                data=parts[0].strip(),
+                meta=" ".join(parts[1:]).replace("\n", " ").replace("\r", "").strip(),
                 title=title
             )
             element = list(parsed['bs'].keys())[0]
