@@ -118,6 +118,18 @@ def test_elastic():
     assert info['elastic']['elastic_moduli'][0] == [659.2238, -404.2543, -249.8055, 0.0, 0.0, 0.0]
 
 
+def test_elastic_bug_2():
+    """Elastic constants calculation (one more)"""
+    test_file = os.path.join(DATA_DIR, '2324.out')
+    parser = CRYSTOUT(test_file)
+    info = parser.info
+    assert info['prog'] == '17 1.0.2'                         # CRYSTAL version
+    assert info['finished'] == 2                            # finished without errors
+    assert info['energy'] == -6.3910338752478E+03 * Ha      # energy in eV
+    assert info['k'] == '8x8x8'                             # Monkhorst-Pack net
+    assert info['elastic']['K_V'] == -122.44
+
+
 def test_band_gap():
     """Elastic constants calculation"""
     test_file = os.path.join(DATA_DIR, '1674.out')
