@@ -39,6 +39,7 @@ class CRYSTOUT_Error(Exception):
         self.msg = msg
         self.code = code
 
+
     def __str__(self):
         return repr(self.msg)
 
@@ -130,6 +131,7 @@ class CRYSTOUT(object):
     # NB non-periodic component(s) are assigned 500 A in CRYSTAL
     PERIODIC_LIMIT = 50
 
+
     def __init__(self, filename, **kwargs):
 
         self.data = ''              # file contents
@@ -142,6 +144,7 @@ class CRYSTOUT(object):
             'techs': [],
             'finished': 0x0,
             'duration': None,
+            'timestamp': None,      # time of calc start, in Unix time fmt
             'input': None,
             'structures': [],       # list of valid ASE objects
             'energy': None,         # in eV
@@ -232,7 +235,7 @@ class CRYSTOUT(object):
             raise CRYSTOUT_Error('Though this file looks similar to CRYSTAL output, its format is unknown!')
 
         if self.crystal_calc:
-            self.info['duration'] = self.get_duration()
+            self.info['duration'], self.info['timestamp'] = self.get_timings()
             self.comment, self.info['input'], self.info['prog'] = self.get_input_and_meta(raw_data[0:parts_pointer[0]])
             self.molecular_case = ' MOLECULAR CALCULATION' in self.data
             self.info['energy'] = self.get_etot()
@@ -299,20 +302,25 @@ class CRYSTOUT(object):
         if self.properties_calc and not self.crystal_calc:
             raise CRYSTOUT_Error('PROPERTIES output with insufficient information omitted!')
 
+
     def warning(self, msg):
         self.info['warns'].append(msg)
+
 
     def __repr__(self):
         return repr(self.info)
 
+
     def __getitem__(self, key):
         return self.info.get(key)
+
 
     @staticmethod
     def detect(test_string):
         if "*                              MAIN AUTHORS" in test_string:
             return True
         return False
+
 
     @staticmethod
     def acceptable(filename):
@@ -336,6 +344,7 @@ class CRYSTOUT(object):
 
         return False
 
+
     @staticmethod
     def is_properties(piece_of_data):
         if (" RESTART WITH NEW K POINTS NET" in piece_of_data
@@ -344,6 +353,7 @@ class CRYSTOUT(object):
             return True
         else:
             return False
+
 
     def get_cart2frac(self):
         matrix = []
@@ -368,6 +378,7 @@ class CRYSTOUT(object):
                 raise CRYSTOUT_Error('Unable to extract cartesian vectors!')
 
         return matrix
+
 
     def get_structures(self):
         structures = []
@@ -457,6 +468,7 @@ class CRYSTOUT(object):
 
         return structures
 
+
     def get_conduction(self): # FIXME: check for errors in CRYSTAL17 outputs
         result = []
         states = self.patterns['conduction_states'].findall(self.data)
@@ -501,6 +513,7 @@ class CRYSTOUT(object):
                 self.warning('No energy found!')
                 return None
 
+
     def get_number(self, pat_name):
         num = self.patterns[pat_name].search(self.data)
 
@@ -508,12 +521,14 @@ class CRYSTOUT(object):
             return int(num.groups()[0])
         return None
 
+
     def get_detot(self):
         de = self.patterns['dEtot'].search(self.data)
         if de is not None and de.groups()[0]:
             # it might happen that DE is equal to NaN
             return float(de.groups()[0]) * Hartree
         return None
+
 
     def get_convergence(self):
         """
@@ -531,6 +546,7 @@ class CRYSTOUT(object):
         conv_ion_re = self.patterns['ion_converge'].search(self.data)
         conv_ion = False if conv_ion_re is None else bool(conv_ion_re.groups())
         return conv_el, conv_ion
+
 
     def get_phonons(self):
         if not "U   U  EEEE  N   N   CCC  Y   Y" in self.data:
@@ -608,6 +624,7 @@ class CRYSTOUT(object):
             bz_irreps[BZ_point_coord] = irreps
         return bz_modes, bz_irreps, ir_active, raman_active
 
+
     def get_ph_eigvecs(self):
         if not self.info['phonons']['modes']:
             return None
@@ -683,6 +700,7 @@ class CRYSTOUT(object):
 
         return bz_eigvecs
 
+
     def get_k_degeneracy(self):
         ph_k_degeneracy = self.patterns['ph_k_degeneracy'].search(self.data)
         if ph_k_degeneracy is None:
@@ -721,6 +739,7 @@ class CRYSTOUT(object):
 
         return k_degeneracy_data
 
+
     def get_elastic(self, pattern):
         constants = []
         const_rows = self.patterns[pattern].findall(self.data)
@@ -736,11 +755,13 @@ class CRYSTOUT(object):
             constants[-1] += [float(row[i:i + 9]) for i in range(0, 9*(6-i_row), 9)]
         return constants
 
+
     def get_effective_elastic_moduli(self):
         moduli = self.patterns['effective_moduli'].findall(self.data)
         if not moduli:
             return [None, None, None, None, None, None, None, None]
         return [float(x) for x in moduli[0].split()]
+
 
     def decide_charges(self):
         charges, magmoms = [], []
@@ -804,6 +825,7 @@ class CRYSTOUT(object):
         else:
             self.warning('No magmoms available!')
 
+
     def get_input_and_meta(self, inputdata):
         version = None
         inputdata = re.sub(' PROCESS(.{32})WORKING\n', '', inputdata) # Warning! MPI statuses may spoil valuable data
@@ -851,6 +873,7 @@ class CRYSTOUT(object):
 
         return comment, keywords, version
 
+
     def decide_finished(self):
         if self.info['duration'] and not 'TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT ERR' in self.data:
             self.info['finished'] = 0x2
@@ -859,6 +882,7 @@ class CRYSTOUT(object):
             if len(err) > 1:
                 self.warning('Error: ' + err[1].split('\n')[0] + '!')
             self.info['finished'] = 0x1
+
 
     def get_ph_sym_disps(self):
         symdisps = self.patterns['symdisps'].search(self.data)
@@ -885,10 +909,12 @@ class CRYSTOUT(object):
                 raise CRYSTOUT_Error('Cannot find valid displacement data in FREQCALC output!')
             return disps, magnitude
 
+
     def get_static_dielectric_tensor(self):
         # TODO
         return "\n VIBRATIONAL CONTRIBUTIONS TO THE STATIC DIELECTRIC TENSOR:\n" in self.data or \
                "\n VIBRATIONAL CONTRIBUTIONS TO THE STATIC POLARIZABILITY TENSOR:\n" in self.data
+
 
     def get_bs(self):
         gbasis = {'bs': {}, 'ecp': {}}
@@ -1019,6 +1045,7 @@ class CRYSTOUT(object):
             gbasis['bs']['X'] = copy.deepcopy(gbasis['bs'][replaced])
 
         return self.correct_bs_ghost(gbasis)
+
 
     @staticmethod
     def parse_bs_input(text, as_d12=True, then=lambda x: x):
@@ -1183,6 +1210,7 @@ class CRYSTOUT(object):
 
         return then(gbasis)
 
+
     def correct_bs_ghost(self, gbasis):
         # ghost cannot be in pseudopotential
         atoms = []
@@ -1196,6 +1224,7 @@ class CRYSTOUT(object):
                 gbasis['bs'][k] = copy.deepcopy(gbasis['bs']['X'])
 
         return gbasis
+
 
     def decide_method(self):
 
@@ -1404,7 +1433,8 @@ class CRYSTOUT(object):
             elif 0.01 < f:
                 self.info['techs'].append('smearing>0.01au')
 
-    def get_duration(self):
+
+    def get_timings(self):
         starting = self.patterns['starting'].search(self.data)
         ending = self.patterns['ending'].search(self.data)
 
@@ -1415,14 +1445,16 @@ class CRYSTOUT(object):
             starting = starting.group(1).replace("DATE", "").replace("TIME", "").strip()[:-2]
             ending = ending.group(1).replace("DATE", "").replace("TIME", "").strip()[:-2]
 
-            start = time.strptime(starting, "%d %m %Y  %H:%M:%S")
-            end = time.strptime(ending, "%d %m %Y  %H:%M:%S")
-            duration = "%2.2f" % ((time.mktime(end) - time.mktime(start)) / 3600)
+            start = time.mktime(time.strptime(starting, "%d %m %Y  %H:%M:%S"))
+            end = time.mktime(time.strptime(ending, "%d %m %Y  %H:%M:%S"))
+            duration = "%2.2f" % ((end - start) / 3600)
         else:
             self.warning("No timings available!")
+            start = None
             duration = None
 
-        return duration
+        return duration, start
+
 
     def decide_scfdata(self):
         if self.info['input'] is not None and "ONELOG" in self.info['input']:
@@ -1528,6 +1560,7 @@ class CRYSTOUT(object):
         self.info['ncycles'] = ncycles
         self.info['optgeom'] = optgeom
 
+
     def get_zpe(self):
         if "\n E0            :" in self.data:
             zpe = self.data.split("\n E0            :")[1].split("\n", 1)[0].split()[0] # AU
@@ -1539,6 +1572,7 @@ class CRYSTOUT(object):
                 return zpe * Hartree
         else:
             return None
+
 
     def get_td(self):
         td = {'t': [], 'p': [], 'pv': [], 'ts': [], 'et': [], 'C': [], 'S': []}
