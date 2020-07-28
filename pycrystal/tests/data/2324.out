@@ -926,7 +926,7 @@ ENTHALPY: -6.3910338678644E+03
 
     K_V     G_V     K_R     G_R     K_H     G_H    E_H      v_H
 
-   39.65    9.51   39.61    2.12   39.63    5.82   16.64   0.430
+ -122.44-1070.00   39.61    2.12   39.63    5.82   16.64   0.430
 
  SEISMIC VELOCITIES BY CHRISTOFFEL EQUATION (km/s)
 
