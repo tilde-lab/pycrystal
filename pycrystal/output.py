@@ -664,8 +664,8 @@ class CRYSTOUT(object):
             bz_irreps[BZ_point_coord] = irreps
 
         # move IR intensities into an *active* container
-        if ir_intens:
-            assert len(ir_active) == len(ir_intens)
+        #if ir_intens:
+        #    assert len(ir_active) == len(ir_intens)
         # this condition fails for zero intensities, attributed to the modes which are however marked as IR-active
         #for n, item in enumerate(ir_intens):
         #    assert bool(item) == bool(ir_active[n]) or abs(bz_modes['0 0 0'][n]) < 15 # translation mode value around zero
@@ -681,10 +681,10 @@ class CRYSTOUT(object):
                 if len(line.split()) < 6:
                     continue
                 m1, m2 = [int(x) - 1 for x in line[:10].split('-')]
-                assert (m2 - m1) < 3
-                irrep = line[10:30].split('(')[1].replace(')', '').strip().replace('"', "''")
-                assert bz_irreps['0 0 0'][m1] == irrep and bz_irreps['0 0 0'][m2] == irrep
-                assert raman_active[m1] and raman_active[m2]
+                #assert (m2 - m1) < 3
+                #irrep = line[10:30].split('(')[1].replace(')', '').strip().replace('"', "''")
+                #assert bz_irreps['0 0 0'][m1] == irrep and bz_irreps['0 0 0'][m2] == irrep
+                #assert raman_active[m1] and raman_active[m2]
                 tot, par, perp = [float(x) for x in line[30:].split()]
                 raman_active[m1] = dict(tot=tot, par=par, perp=perp)
                 raman_active[m2] = dict(tot=tot, par=par, perp=perp)
@@ -692,9 +692,9 @@ class CRYSTOUT(object):
                 if len(line.split()) < 9:
                     continue
                 m1, m2 = [int(x) - 1 for x in line[:10].split('-')]
-                assert (m2 - m1) < 3
-                irrep = line[10:30].split('(')[1].replace(')', '').strip().replace('"', "''")
-                assert bz_irreps['0 0 0'][m1] == irrep and bz_irreps['0 0 0'][m2] == irrep
+                #assert (m2 - m1) < 3
+                #irrep = line[10:30].split('(')[1].replace(')', '').strip().replace('"', "''")
+                #assert bz_irreps['0 0 0'][m1] == irrep and bz_irreps['0 0 0'][m2] == irrep
                 xx, xy, xz, yy, yz, zz = [float(x) for x in line[30:].split()]
                 raman_active[m1].update(dict(xx=xx, xy=xy, xz=xz, yy=yy, yz=yz, zz=zz))
                 raman_active[m2].update(dict(xx=xx, xy=xy, xz=xz, yy=yy, yz=yz, zz=zz))
@@ -912,7 +912,11 @@ class CRYSTOUT(object):
         charges = self.patterns['born_charges'].findall(self.data)
         for n in range(len(charges)):
             el = charges[n][0].split()[-1].strip().capitalize()
-            born_charges.setdefault(el, []).append(float(charges[n][1]))
+            try:
+                born_charges.setdefault(el, []).append(float(charges[n][1]))
+            except ValueError:
+                self.warning('Unrecoverable problem with Born charges!')
+                return {}
 
         return {el: list(set(chglist)) for el, chglist in born_charges.items()}
 
