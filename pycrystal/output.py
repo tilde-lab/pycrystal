@@ -143,7 +143,7 @@ class CRYSTOUT(object):
                                      r" \| ([-.\d\s]*) \|\n"
                                      r" \| ([-.\d\s]*) \|\n"
                                      r" \| ([-.\d\s]*) \|\n"),
-        'effective_moduli': re.compile(r"K_V\s*G_V.*\n\n([-.\d\s]*)"),
+        'effective_moduli': re.compile(r"K_V\s*G_V.*\n\n([-.\d\s\*]*)"),
     }
 
     # this is the limiting distance,
@@ -645,7 +645,11 @@ class CRYSTOUT(object):
                                 raman_active.extend([ val[n] == 'A' ] * mplr)
                             c += 1
                         elif val[n].endswith(')') and has_ir_intens:
-                            ir_intens.extend([ float(val[n].replace('(', '').replace(')', '')) ] * mplr) # KM/MOL
+                            try:
+                                ir_intens.extend([ float(val[n].replace('(', '').replace(')', '')) ] * mplr) # KM/MOL
+                            except ValueError:
+                                ir_intens, has_ir_intens = False, False
+                                self.warning('Unrecoverable problem with IR intensities!')
 
             if not kpoints:
                 BZ_point_coord = '0 0 0'
@@ -662,8 +666,9 @@ class CRYSTOUT(object):
         # move IR intensities into an *active* container
         if ir_intens:
             assert len(ir_active) == len(ir_intens)
-        for n, item in enumerate(ir_intens):
-            assert bool(item) == bool(ir_active[n]) or abs(bz_modes['0 0 0'][n]) < 15 # translation mode value around zero
+        # this condition fails for zero intensities, attributed to the modes which are however marked as IR-active
+        #for n, item in enumerate(ir_intens):
+        #    assert bool(item) == bool(ir_active[n]) or abs(bz_modes['0 0 0'][n]) < 15 # translation mode value around zero
         if ir_intens:
             ir_active = [item or False for item in ir_intens]
 
@@ -676,8 +681,8 @@ class CRYSTOUT(object):
                 if len(line.split()) < 6:
                     continue
                 m1, m2 = [int(x) - 1 for x in line[:10].split('-')]
-                assert (m2 - m1) < 2
-                irrep = line[10:30].split('(')[1].replace(')', '').strip()
+                assert (m2 - m1) < 3
+                irrep = line[10:30].split('(')[1].replace(')', '').strip().replace('"', "''")
                 assert bz_irreps['0 0 0'][m1] == irrep and bz_irreps['0 0 0'][m2] == irrep
                 assert raman_active[m1] and raman_active[m2]
                 tot, par, perp = [float(x) for x in line[30:].split()]
@@ -687,8 +692,8 @@ class CRYSTOUT(object):
                 if len(line.split()) < 9:
                     continue
                 m1, m2 = [int(x) - 1 for x in line[:10].split('-')]
-                assert (m2 - m1) < 2
-                irrep = line[10:30].split('(')[1].replace(')', '').strip()
+                assert (m2 - m1) < 3
+                irrep = line[10:30].split('(')[1].replace(')', '').strip().replace('"', "''")
                 assert bz_irreps['0 0 0'][m1] == irrep and bz_irreps['0 0 0'][m2] == irrep
                 xx, xy, xz, yy, yz, zz = [float(x) for x in line[30:].split()]
                 raman_active[m1].update(dict(xx=xx, xy=xy, xz=xz, yy=yy, yz=yz, zz=zz))
@@ -832,7 +837,11 @@ class CRYSTOUT(object):
         moduli = self.patterns['effective_moduli'].findall(self.data)
         if not moduli:
             return [None, None, None, None, None, None, None, None]
-        return [float(moduli[0][n:n + 8]) for n in range(0, len(moduli[0]), 8) if moduli[0][n:n + 8].strip()]
+        return [
+            float('NaN' if '*' in moduli[0][n:n + 8] else moduli[0][n:n + 8])
+            for n in range(0, len(moduli[0]), 8)
+            if moduli[0][n:n + 8].strip()
+        ]
 
 
     def decide_charges(self):
@@ -1005,15 +1014,19 @@ class CRYSTOUT(object):
         if refrind is not None:
             indices = []
             for item in refrind.group().split():
-                if '+' in item or 'NaN' in item:
+                if '+' in item or '-' in item or 'NaN' in item:
                     indices.append(float(item))
-            assert len(indices) == 3
+            #assert len(indices) == 3
             refrind = indices
 
         if birefringence is not None:
             birefringence = birefringence.group()
             mult = 1. if 'POSITIVE' in birefringence else  -1.
-            birefringence = float(birefringence.split('=')[-1].split()[0]) * mult
+            try:
+                birefringence = float(birefringence.split('=')[-1].split()[0]) * mult
+            except ValueError:
+                birefringence = None
+                self.warning('Unrecoverable problem with birefringence!')
 
         return refrind, birefringence
 
