@@ -3,7 +3,7 @@ CRYSTAL ab initio code utilities
 
 ![PyPI](https://img.shields.io/pypi/v/pycrystal.svg?style=flat)
 
-![CRYSTAL ab initio code with the LCAO Gaussian basis sets, by Turin university](https://raw.githubusercontent.com/tilde-lab/pycrystal/master/unito_crystal_logo.jpg "CRYSTAL17 ab initio LCAO code with the Gaussian basis sets, Torino")
+![CRYSTAL ab initio code with the LCAO Gaussian basis sets, by Turin university](https://raw.githubusercontent.com/tilde-lab/pycrystal/master/crystal-dft-redrawn-logo.svg "CRYSTAL17 ab initio LCAO code with the Gaussian basis sets, Torino")
 
 Intro
 ------
