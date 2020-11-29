@@ -9,10 +9,11 @@
 
 
 import os
+import pytest
 from ase.units import Ha
 
 from pprint import pprint
-from pycrystal import CRYSTOUT
+from pycrystal import CRYSTOUT, CRYSTOUT_Error
 from pycrystal.tests import TEST_DIR
 
 DATA_DIR = os.path.join(TEST_DIR, 'data')
@@ -90,6 +91,7 @@ def test_freqcalc():
     assert info['phonons']['zpe'] == 0.09020363263183974
     assert info['phonons']['td']['t'][0] == 298.15
 
+
 def test_spin():
     """Spin calculation"""
     test_file = os.path.join(DATA_DIR, 'test37.out')
@@ -128,6 +130,15 @@ def test_elastic_bug_2():
     assert info['energy'] == -6.3910338752478E+03 * Ha      # energy in eV
     assert info['k'] == '8x8x8'                             # Monkhorst-Pack net
     assert info['elastic']['K_V'] == -122.44
+
+
+def test_failed_elastic():
+    """Failed elastic constants calculation"""
+    test_file = os.path.join(DATA_DIR, 'failed_elastic.out')
+
+    with pytest.raises(CRYSTOUT_Error) as ex:
+        CRYSTOUT(test_file)
+        assert 'Inadequate elastic calculation' in ex.msg
 
 
 def test_band_gap():

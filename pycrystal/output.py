@@ -39,7 +39,6 @@ class CRYSTOUT_Error(Exception):
         self.msg = msg
         self.code = code
 
-
     def __str__(self):
         return repr(self.msg)
 
@@ -101,7 +100,7 @@ class CRYSTOUT(object):
         'gamma_freqs': re.compile(r"\(HARTREE\*\*2\)\s*\(CM\*\*-1\)\s*\(THZ\)\s*\(KM/MOL\)(.+?)"
                                   r"NORMAL MODES NORMALIZED TO CLASSICAL AMPLITUDES", re.DOTALL),
         'ph_eigvecs': re.compile(r"NORMAL MODES NORMALIZED TO CLASSICAL AMPLITUDES(.+?)\*{79}", re.DOTALL),
-        'raman_intens': re.compile(r"\<RAMAN\>\n\n(.*)\<RAMAN\>\n\n", re.DOTALL),
+        'raman_intens': re.compile(r"<RAMAN>\n\n(.*)<RAMAN>\n\n", re.DOTALL),
         'needed_disp': re.compile(r"\d{1,4}\s{2,6}(\d{1,4})\s{1,3}\w{1,2}\s{11,12}(\w{1,2})\s{11,12}\d{1,2}"),
         'symdisps': re.compile(r"N {3}LABEL SYMBOL DISPLACEMENT {5} SYM.(.*)NUMBER OF IRREDUCIBLE ATOMS",
                                re.DOTALL),
@@ -143,7 +142,7 @@ class CRYSTOUT(object):
                                      r" \| ([-.\d\s]*) \|\n"
                                      r" \| ([-.\d\s]*) \|\n"
                                      r" \| ([-.\d\s]*) \|\n"),
-        'effective_moduli': re.compile(r"K_V\s*G_V.*\n\n([-.\d\s\*]*)"),
+        'effective_moduli': re.compile(r"K_V\s*G_V.*\n\n([-.\d\s*]*)"),
     }
 
     # this is the limiting distance,
@@ -151,7 +150,6 @@ class CRYSTOUT(object):
     # be careful, as this has no physical meaning
     # NB non-periodic component(s) are assigned 500 A in CRYSTAL
     PERIODIC_LIMIT = 50
-
 
     def __init__(self, filename, **kwargs):
 
@@ -314,7 +312,7 @@ class CRYSTOUT(object):
             self.info['elastic']['elastic_constants'] = self.get_elastic('elastic_constants')
             self.info['elastic']['elastic_moduli'] = self.get_elastic('elastic_moduli')
 
-            if self.info['elastic']['elastic_moduli'] and ' OPTIMIZE THE STRUCTURE AND RE-RUN\n' in self.data:
+            if ' OPTIMIZE THE STRUCTURE AND RE-RUN\n' in self.data:
                 raise CRYSTOUT_Error('Inadequate elastic calculation: additional optimization needed')
 
             k_v, g_v, k_r, g_r, k, g, e, v = self.get_effective_elastic_moduli()
@@ -333,25 +331,20 @@ class CRYSTOUT(object):
         if self.properties_calc and not self.crystal_calc:
             raise CRYSTOUT_Error('PROPERTIES output with insufficient information omitted!')
 
-
     def warning(self, msg):
         self.info['warns'].append(msg)
-
 
     def __repr__(self):
         return repr(self.info)
 
-
     def __getitem__(self, key):
         return self.info.get(key)
-
 
     @staticmethod
     def detect(test_string):
         if "*                              MAIN AUTHORS" in test_string:
             return True
         return False
-
 
     @staticmethod
     def acceptable(filename):
@@ -375,7 +368,6 @@ class CRYSTOUT(object):
 
         return False
 
-
     @staticmethod
     def is_properties(piece_of_data):
         if (" RESTART WITH NEW K POINTS NET" in piece_of_data
@@ -384,7 +376,6 @@ class CRYSTOUT(object):
             return True
         else:
             return False
-
 
     def get_cart2frac(self):
         matrix = []
@@ -409,7 +400,6 @@ class CRYSTOUT(object):
                 raise CRYSTOUT_Error('Unable to extract cartesian vectors!')
 
         return matrix
-
 
     def get_structures(self):
         structures = []
@@ -499,7 +489,6 @@ class CRYSTOUT(object):
 
         return structures
 
-
     def get_conduction(self):  # FIXME: check for errors in CRYSTAL17 outputs
         result = []
         states = self.patterns['conduction_states'].findall(self.data)
@@ -544,7 +533,6 @@ class CRYSTOUT(object):
                 self.warning('No energy found!')
                 return None
 
-
     def get_number(self, pat_name):
         num = self.patterns[pat_name].search(self.data)
 
@@ -552,14 +540,12 @@ class CRYSTOUT(object):
             return int(num.groups()[0])
         return None
 
-
     def get_detot(self):
         de = self.patterns['dEtot'].search(self.data)
         if de is not None and de.groups()[0]:
             # it might happen that DE is equal to NaN
             return float(de.groups()[0]) * Hartree
         return None
-
 
     def get_convergence(self):
         """
@@ -577,7 +563,6 @@ class CRYSTOUT(object):
         conv_ion_re = self.patterns['ion_converge'].search(self.data)
         conv_ion = False if conv_ion_re is None else bool(conv_ion_re.groups())
         return conv_el, conv_ion
-
 
     def get_phonons(self):
         if "U   U  EEEE  N   N   CCC  Y   Y" not in self.data:
@@ -640,13 +625,13 @@ class CRYSTOUT(object):
                     for n in range(-4, 0):
                         if val[n] in ['A', 'I']:
                             if c == 0:
-                                ir_active.extend([ val[n] == 'A' ] * mplr)
+                                ir_active.extend([val[n] == 'A'] * mplr)
                             else:
-                                raman_active.extend([ val[n] == 'A' ] * mplr)
+                                raman_active.extend([val[n] == 'A'] * mplr)
                             c += 1
                         elif val[n].endswith(')') and has_ir_intens:
                             try:
-                                ir_intens.extend([ float(val[n].replace('(', '').replace(')', '')) ] * mplr) # KM/MOL
+                                ir_intens.extend([float(val[n].replace('(', '').replace(')', ''))] * mplr)  # KM/MOL
                             except ValueError:
                                 ir_intens, has_ir_intens = False, False
                                 self.warning('Unrecoverable problem with IR intensities!')
@@ -664,11 +649,12 @@ class CRYSTOUT(object):
             bz_irreps[BZ_point_coord] = irreps
 
         # move IR intensities into an *active* container
-        #if ir_intens:
-        #    assert len(ir_active) == len(ir_intens)
+        # if ir_intens:
+        #     assert len(ir_active) == len(ir_intens)
         # this condition fails for zero intensities, attributed to the modes which are however marked as IR-active
-        #for n, item in enumerate(ir_intens):
-        #    assert bool(item) == bool(ir_active[n]) or abs(bz_modes['0 0 0'][n]) < 15 # translation mode value around zero
+        # for n, item in enumerate(ir_intens):
+        #     # translation mode value around zero
+        #     assert bool(item) == bool(ir_active[n]) or abs(bz_modes['0 0 0'][n]) < 15
         if ir_intens:
             ir_active = [item or False for item in ir_intens]
 
@@ -677,30 +663,29 @@ class CRYSTOUT(object):
         raman_data = self.patterns['raman_intens'].search(self.data)
         if raman_data is not None:
             parts = raman_data.group().split('ARBITRARY UNITS')
-            for line in parts[1].split('\n\n')[1].splitlines(): # POLYCRYSTALLINE ISOTROPIC INTENSITIES
+            for line in parts[1].split('\n\n')[1].splitlines():  # POLYCRYSTALLINE ISOTROPIC INTENSITIES
                 if len(line.split()) < 6:
                     continue
                 m1, m2 = [int(x) - 1 for x in line[:10].split('-')]
-                #assert (m2 - m1) < 3
-                #irrep = line[10:30].split('(')[1].replace(')', '').strip().replace('"', "''")
-                #assert bz_irreps['0 0 0'][m1] == irrep and bz_irreps['0 0 0'][m2] == irrep
-                #assert raman_active[m1] and raman_active[m2]
+                # assert (m2 - m1) < 3
+                # irrep = line[10:30].split('(')[1].replace(')', '').strip().replace('"', "''")
+                # assert bz_irreps['0 0 0'][m1] == irrep and bz_irreps['0 0 0'][m2] == irrep
+                # assert raman_active[m1] and raman_active[m2]
                 tot, par, perp = [float(x) for x in line[30:].split()]
                 raman_active[m1] = dict(tot=tot, par=par, perp=perp)
                 raman_active[m2] = dict(tot=tot, par=par, perp=perp)
-            for line in parts[2].split('\n\n')[1].splitlines(): # SINGLE CRYSTAL DIRECTIONAL INTENSITIES
+            for line in parts[2].split('\n\n')[1].splitlines():  # SINGLE CRYSTAL DIRECTIONAL INTENSITIES
                 if len(line.split()) < 9:
                     continue
                 m1, m2 = [int(x) - 1 for x in line[:10].split('-')]
-                #assert (m2 - m1) < 3
-                #irrep = line[10:30].split('(')[1].replace(')', '').strip().replace('"', "''")
-                #assert bz_irreps['0 0 0'][m1] == irrep and bz_irreps['0 0 0'][m2] == irrep
+                # assert (m2 - m1) < 3
+                # irrep = line[10:30].split('(')[1].replace(')', '').strip().replace('"', "''")
+                # assert bz_irreps['0 0 0'][m1] == irrep and bz_irreps['0 0 0'][m2] == irrep
                 xx, xy, xz, yy, yz, zz = [float(x) for x in line[30:].split()]
                 raman_active[m1].update(dict(xx=xx, xy=xy, xz=xz, yy=yy, yz=yz, zz=zz))
                 raman_active[m2].update(dict(xx=xx, xy=xy, xz=xz, yy=yy, yz=yz, zz=zz))
 
         return bz_modes, bz_irreps, ir_active, raman_active
-
 
     def get_ph_eigvecs(self):
         if not self.info['phonons']['modes']:
@@ -777,7 +762,6 @@ class CRYSTOUT(object):
 
         return bz_eigvecs
 
-
     def get_k_degeneracy(self):
         ph_k_degeneracy = self.patterns['ph_k_degeneracy'].search(self.data)
         if ph_k_degeneracy is None:
@@ -816,7 +800,6 @@ class CRYSTOUT(object):
 
         return k_degeneracy_data
 
-
     def get_elastic(self, pattern):
         constants = []
         const_rows = self.patterns[pattern].findall(self.data)
@@ -832,7 +815,6 @@ class CRYSTOUT(object):
             constants[-1] += [float(row[n:n + 9]) for n in range(0, 9 * (6 - i_row), 9)]
         return constants
 
-
     def get_effective_elastic_moduli(self):
         moduli = self.patterns['effective_moduli'].findall(self.data)
         if not moduli:
@@ -842,7 +824,6 @@ class CRYSTOUT(object):
             for n in range(0, len(moduli[0]), 8)
             if moduli[0][n:n + 8].strip()
         ]
-
 
     def decide_charges(self):
         charges, magmoms = [], []
@@ -880,7 +861,7 @@ class CRYSTOUT(object):
                     if val[1] in symbols:
                         val[3] = pseudo_charges[val[1]] - float(val[3])
                     elif val[1] == 'Xx':
-                        val[3] = -float(val[3]) # TODO this needs checking
+                        val[3] = -float(val[3])  # TODO this needs checking
                     else:
                         raise CRYSTOUT_Error('Unexpected atomic symbol: ' + val[1])
                     charges.append(val[3])
@@ -906,7 +887,6 @@ class CRYSTOUT(object):
         else:
             self.warning('No magmoms available!')
 
-
     def get_born_charges(self):
         born_charges = {}
         charges = self.patterns['born_charges'].findall(self.data)
@@ -919,7 +899,6 @@ class CRYSTOUT(object):
                 return {}
 
         return {el: list(set(chglist)) for el, chglist in born_charges.items()}
-
 
     def get_input_and_meta(self, inputdata):
         version = None
@@ -968,16 +947,14 @@ class CRYSTOUT(object):
 
         return comment, keywords, version
 
-
     def decide_finished(self):
-        if self.info['duration'] and not 'TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT ERR' in self.data:
+        if self.info['duration'] and 'TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT ERR' not in self.data:
             self.info['finished'] = 0x2
         else:
             err = self.data.split(' ERROR **** ')
             if len(err) > 1:
                 self.warning('Error: ' + err[1].split('\n')[0] + '!')
             self.info['finished'] = 0x1
-
 
     def get_ph_sym_disps(self):
         symdisps = self.patterns['symdisps'].search(self.data)
@@ -1004,12 +981,10 @@ class CRYSTOUT(object):
                 raise CRYSTOUT_Error('Cannot find valid displacement data in FREQCALC output!')
             return disps, magnitude
 
-
     def get_static_dielectric_tensor(self):
         # TODO
         return "\n VIBRATIONAL CONTRIBUTIONS TO THE STATIC DIELECTRIC TENSOR:\n" in self.data or \
                "\n VIBRATIONAL CONTRIBUTIONS TO THE STATIC POLARIZABILITY TENSOR:\n" in self.data
-
 
     def get_optics(self):
         refrind = self.patterns['refrind'].search(self.data)
@@ -1020,12 +995,12 @@ class CRYSTOUT(object):
             for item in refrind.group().split():
                 if '+' in item or '-' in item or 'NaN' in item:
                     indices.append(float(item))
-            #assert len(indices) == 3
+            # assert len(indices) == 3
             refrind = indices
 
         if birefringence is not None:
             birefringence = birefringence.group()
-            mult = 1. if 'POSITIVE' in birefringence else  -1.
+            mult = 1. if 'POSITIVE' in birefringence else -1.
             try:
                 birefringence = float(birefringence.split('=')[-1].split()[0]) * mult
             except ValueError:
@@ -1034,14 +1009,13 @@ class CRYSTOUT(object):
 
         return refrind, birefringence
 
-
     def get_bs(self):
         gbasis = {'bs': {}, 'ecp': {}}
 
         if " ATOM   X(AU)   Y(AU)   Z(AU)  N. TYPE" in self.data:
-            bs = self.data.split(" ATOM   X(AU)   Y(AU)   Z(AU)  N. TYPE") # CRYSTAL<14
+            bs = self.data.split(" ATOM   X(AU)   Y(AU)   Z(AU)  N. TYPE")  # CRYSTAL<14
         else:
-            bs = self.data.split(" ATOM  X(AU)  Y(AU)  Z(AU)    NO. TYPE  EXPONENT ") # CRYSTAL14
+            bs = self.data.split(" ATOM  X(AU)  Y(AU)  Z(AU)    NO. TYPE  EXPONENT ")  # CRYSTAL14
 
         if len(bs) == 1:
             if not self.info['input']:
@@ -1167,7 +1141,6 @@ class CRYSTOUT(object):
 
         return self.correct_bs_ghost(gbasis)
 
-
     @staticmethod
     def parse_bs_input(text, as_d12=True, then=lambda x: x):
         """
@@ -1250,7 +1223,7 @@ class CRYSTOUT(object):
 
             else:
                 try:
-                    [float(x.replace("D", "E")) for x in line.split()] # sanitary check
+                    [float(x.replace("D", "E")) for x in line.split()]  # sanitary check
                 except ValueError:
                     read = False
                     continue
@@ -1331,7 +1304,6 @@ class CRYSTOUT(object):
 
         return then(gbasis)
 
-
     def correct_bs_ghost(self, gbasis):
         # ghost cannot be in pseudopotential
         atoms = []
@@ -1345,7 +1317,6 @@ class CRYSTOUT(object):
                 gbasis['bs'][k] = copy.deepcopy(gbasis['bs']['X'])
 
         return gbasis
-
 
     def decide_method(self):
 
@@ -1554,7 +1525,6 @@ class CRYSTOUT(object):
             elif 0.01 < f:
                 self.info['techs'].append('smearing>0.01au')
 
-
     def get_timings(self):
         starting = self.patterns['starting'].search(self.data)
         ending = self.patterns['ending'].search(self.data)
@@ -1575,7 +1545,6 @@ class CRYSTOUT(object):
             duration = None
 
         return duration, start
-
 
     def decide_scfdata(self):
         if self.info['input'] is not None and "ONELOG" in self.info['input']:
@@ -1679,7 +1648,6 @@ class CRYSTOUT(object):
         self.info['ncycles'] = ncycles
         self.info['optgeom'] = optgeom
 
-
     def get_zpe(self):
         if "\n E0            :" in self.data:
             zpe = self.data.split("\n E0            :")[1].split("\n", 1)[0].split()[0]  # AU
@@ -1691,7 +1659,6 @@ class CRYSTOUT(object):
                 return zpe * Hartree
         else:
             return None
-
 
     def get_td(self):
         td = {'t': [], 'p': [], 'pv': [], 'ts': [], 'et': [], 'C': [], 'S': []}
