@@ -75,6 +75,10 @@ def download_basis_library():
                 # remove comments
                 parts[0] = parts[0].replace("same as gatti_1994", "").replace("gatti_1994 modified", "")
 
+            elif page == 'plutonium' and '_NO_G_' in title:
+                # fix Pu ECP format
+                parts[0] = parts[0].replace("\n294 11", "\n294 9")
+
             # NB. sometimes the comments get included afterwards
 
             parsed = CRYSTOUT.parse_bs_input(parts[0], as_d12=False)
