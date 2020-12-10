@@ -77,7 +77,7 @@ def download_basis_library():
 
             elif page == 'plutonium' and '_NO_G_' in title:
                 # fix Pu ECP format
-                parts[0] = parts[0].replace("\n294 11", "\n294 9")
+                parts[0] = parts[0].replace("294 11", "294 9")
 
             # NB. sometimes the comments get included afterwards
 
