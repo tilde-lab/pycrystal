@@ -1425,7 +1425,7 @@ class CRYSTOUT(object):
             kset = self.data.split('\n SHRINK. FACT.(MONKH.) ', 1)[-1].split()
             if len(kset) < 4:
                 self.warning('Unknown k-points format!')
-            self.info['k'] = "x".join(kset[:3])
+            self.info['k'] = tuple([int(item) for item in kset[:3]])
 
         # Perturbation part
         if "* *        COUPLED-PERTURBED KOHN-SHAM CALCULATION (CPKS)         * *" in self.data:
@@ -1435,22 +1435,22 @@ class CRYSTOUT(object):
 
         # Tolerances part
         if 'COULOMB OVERLAP TOL         (T1)' in self.data:
-            t = [int(self.data.split('COULOMB OVERLAP TOL         (T1)', 1)[-1].split("\n", 1)[0].split('**')[-1]),
-                 int(self.data.split('COULOMB PENETRATION TOL     (T2)', 1)[-1].split("\n", 1)[0].split('**')[-1]),
-                 int(self.data.split('EXCHANGE OVERLAP TOL        (T3)', 1)[-1].split("\n", 1)[0].split('**')[-1]),
-                 int(self.data.split('EXCHANGE PSEUDO OVP (F(G))  (T4)', 1)[-1].split("\n", 1)[0].split('**')[-1]),
-                 int(self.data.split('EXCHANGE PSEUDO OVP (P(G))  (T5)', 1)[-1].split("\n", 1)[0].split('**')[-1])]
-            for n, item in enumerate(t):
+            tol = [int(self.data.split('COULOMB OVERLAP TOL         (T1)', 1)[-1].split("\n", 1)[0].split('**')[-1]),
+                   int(self.data.split('COULOMB PENETRATION TOL     (T2)', 1)[-1].split("\n", 1)[0].split('**')[-1]),
+                   int(self.data.split('EXCHANGE OVERLAP TOL        (T3)', 1)[-1].split("\n", 1)[0].split('**')[-1]),
+                   int(self.data.split('EXCHANGE PSEUDO OVP (F(G))  (T4)', 1)[-1].split("\n", 1)[0].split('**')[-1]),
+                   int(self.data.split('EXCHANGE PSEUDO OVP (P(G))  (T5)', 1)[-1].split("\n", 1)[0].split('**')[-1])]
+            for n, item in enumerate(tol):
                 if item <= 0:
                     continue
-                self.warning('Tolerance T%s > 0, assuming default.' % n)
+                self.warning('Tolerance T%s > 0, assuming default!' % n)  # expected to happen only <= CRYSTAL09
                 if n == 4:
-                    t[n] = -12
+                    tol[n] = -12  # CRYSTAL09
                 else:
-                    t[n] = -6
+                    tol[n] = -6  # CRYSTAL09
 
-            self.info['tol'] = t
-            self.info['techs'].append("biel.intgs 10<sup>" + ",".join(map(str, t)) + "</sup>")  # TODO
+            self.info['tol'] = tuple(tol)
+            self.info['techs'].append("biel.intgs 10<sup>" + ",".join(map(str, tol)) + "</sup>")  # TODO
 
         # Speed-up techniques part
         if '\n WEIGHT OF F(I) IN F(I+1)' in self.data:
