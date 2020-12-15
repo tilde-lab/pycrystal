@@ -489,7 +489,7 @@ class CRYSTOUT(object):
 
         return structures
 
-    def get_conduction(self):  # FIXME: check for errors in CRYSTAL17 outputs
+    def get_conduction(self):
         result = []
         states = self.patterns['conduction_states'].findall(self.data)
         for state in states:
@@ -497,13 +497,13 @@ class CRYSTOUT(object):
             if state[0] == "INSULATING":
                 # dealing with band gaps
                 try:
-                    top = self.patterns['top_valence'].search(self.data).groups()
-                    bottom = self.patterns['bottom_virtual'].search(self.data).groups()
+                    top = self.patterns['top_valence'].search(state[1]).groups()
+                    bottom = self.patterns['bottom_virtual'].search(state[1]).groups()
                 except AttributeError:
                     continue
                 state_dict['top_valence'] = int(top[0])
                 state_dict['bottom_virtual'] = int(bottom[0])
-                gap_re = self.patterns['band_gap'].search(self.data)
+                gap_re = self.patterns['band_gap'].search(state[1])
                 if gap_re is not None:
                     bg_type, bg = gap_re.groups()
                     state_dict['band_gap'] = float(bg)
@@ -514,7 +514,10 @@ class CRYSTOUT(object):
                     state_dict["band_gap"] = (float(bottom[2]) - float(top[2])) * Hartree
             else:
                 # dealing with Fermi energies
-                state_dict['e_fermi'] = float(self.patterns['e_fermi'].search(self.data).groups()[0])
+                try:
+                    state_dict['e_fermi'] = float(self.patterns['e_fermi'].search(state[1]).groups()[0])
+                except ValueError:
+                    state_dict['e_fermi'] = None # NaN
                 state_dict['e_fermi_units'] = 'Ha'
             result.append(state_dict)
         return result
