@@ -363,6 +363,7 @@ class CRYSTOUT(object):
                     f.close()
                 return True
             counter += 1
+
         if open_close:
             f.close()
 
@@ -678,6 +679,7 @@ class CRYSTOUT(object):
                 # assert bz_irreps['0 0 0'][m1] == irrep and bz_irreps['0 0 0'][m2] == irrep
                 # assert raman_active[m1] and raman_active[m2]
                 tot, par, perp = [float(x) for x in line[30:].split()]
+                tot, par, perp = [None if math.isnan(x) else x for x in [tot, par, perp]]
                 raman_active[m1] = dict(tot=tot, par=par, perp=perp)
                 raman_active[m2] = dict(tot=tot, par=par, perp=perp)
             for line in parts[2].split('\n\n')[1].splitlines():  # SINGLE CRYSTAL DIRECTIONAL INTENSITIES
@@ -688,6 +690,7 @@ class CRYSTOUT(object):
                 # irrep = line[10:30].split('(')[1].replace(')', '').strip().replace('"', "''")
                 # assert bz_irreps['0 0 0'][m1] == irrep and bz_irreps['0 0 0'][m2] == irrep
                 xx, xy, xz, yy, yz, zz = [float(x) for x in line[30:].split()]
+                xx, xy, xz, yy, yz, zz = [None if math.isnan(x) else x for x in [xx, xy, xz, yy, yz, zz]]
                 raman_active[m1].update(dict(xx=xx, xy=xy, xz=xz, yy=yy, yz=yz, zz=zz))
                 raman_active[m2].update(dict(xx=xx, xy=xy, xz=xz, yy=yy, yz=yz, zz=zz))
 
@@ -735,8 +738,8 @@ class CRYSTOUT(object):
                             freqs_container.append([])  # 6 (or 3) columns
                     for k in range(len(vectordata)):
                         vectordata[k] = float(vectordata[k])
-                        if vectordata[k] != vectordata[k]:  # test NaN
-                            raise CRYSTOUT_Error('Eigenvector error: NaN occured!')
+                        if math.isnan(vectordata[k]):
+                            raise CRYSTOUT_Error('Phonon eigenvector error: NaN occured!')
                         freqs_container[k].append(vectordata[k])
 
                 for fn in range(len(freqs_container)):
