@@ -145,11 +145,11 @@ class CRYSTOUT(object):
         'effective_moduli': re.compile(r"K_V\s*G_V.*\n\n([-.\d\s*]*)"),
     }
 
-    # this is the limiting distance,
+    # this is the limiting cell vectors length (no physical meaning)
     # if more, the direction is considered non-periodic
-    # be careful, as this has no physical meaning
-    # NB non-periodic component(s) are assigned 500 A in CRYSTAL
-    PERIODIC_LIMIT = 50
+    # NB non-periodic component(s) are assigned to 500 A in CRYSTAL
+    # TODO what if non-periodicity is modeled with the large cell vectors like in PW codes?
+    PERIODIC_LIMIT = 300
 
     def __init__(self, filename, **kwargs):
 
@@ -485,7 +485,7 @@ class CRYSTOUT(object):
                 structures.append(Atoms(symbols=symbols, cell=matrix, scaled_positions=atompos, pbc=pbc))
             else:
                 structures.append(
-                    Atoms(symbols=symbols, cell=[self.PERIODIC_LIMIT, self.PERIODIC_LIMIT, self.PERIODIC_LIMIT],
+                    Atoms(symbols=symbols, cell=[self.PERIODIC_LIMIT] * 3,
                           positions=atompos, pbc=False))
 
         return structures
@@ -1454,9 +1454,9 @@ class CRYSTOUT(object):
                     continue
                 self.warning('Tolerance T%s > 0, assuming default!' % n)  # expected to happen only <= CRYSTAL09
                 if n == 4:
-                    tol[n] = -12  # CRYSTAL09
+                    tol[n] = -12  # default for CRYSTAL09-17
                 else:
-                    tol[n] = -6  # CRYSTAL09
+                    tol[n] = -6  # default for CRYSTAL09-17
 
             self.info['tol'] = tuple(tol)
             self.info['techs'].append("biel.intgs 10<sup>" + ",".join(map(str, tol)) + "</sup>")  # TODO
