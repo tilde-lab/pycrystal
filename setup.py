@@ -2,7 +2,7 @@ from setuptools import setup
 
 setup(
     name='pycrystal',
-    version='1.0.10',
+    version='1.0.11',
     author='Evgeny Blokhin, Maxim Losev, Andrey Sobolev',
     author_email='support@tilde.pro',
     description='Utilities for ab initio modeling suite CRYSTAL',
