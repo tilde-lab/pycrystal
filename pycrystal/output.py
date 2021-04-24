@@ -99,7 +99,7 @@ class CRYSTOUT(object):
         'freqs': re.compile(r"DISPERSION K POINT(.+?)FREQ\(CM\*\*-1\)", re.DOTALL),
         'gamma_freqs': re.compile(r"\(HARTREE\*\*2\)\s*\(CM\*\*-1\)\s*\(THZ\)\s*\(KM/MOL\)(.+?)"
                                   r"NORMAL MODES NORMALIZED TO CLASSICAL AMPLITUDES", re.DOTALL),
-        'ph_eigvecs': re.compile(r"NORMAL MODES NORMALIZED TO CLASSICAL AMPLITUDES(.+?)\*{79}", re.DOTALL),
+        'ph_eigvecs': re.compile(r"NORMAL MODES NORMALIZED TO CLASSICAL AMPLITUDES(.+?)(T|H|S){30}", re.DOTALL), # NB T can be {79}
         'raman_intens': re.compile(r"<RAMAN>\n\n(.*)<RAMAN>\n\n", re.DOTALL),
         'needed_disp': re.compile(r"\d{1,4}\s{2,6}(\d{1,4})\s{1,3}\w{1,2}\s{11,12}(\w{1,2})\s{11,12}\d{1,2}"),
         'symdisps': re.compile(r"N {3}LABEL SYMBOL DISPLACEMENT {5} SYM.(.*)NUMBER OF IRREDUCIBLE ATOMS",
@@ -705,7 +705,7 @@ class CRYSTOUT(object):
         if eigvecsp:
             eigvecsp = eigvecsp.group(1)
             parts = eigvecsp.split("DISPERSION K POINT")
-            parts[0] = parts[0].split("LO-TO SPLITTING")[0]  # no lo-to splitting account at the moment
+            parts[0] = parts[0].split("LO-TO SPLITTING")[0]  # no lo-to splitting accounted at the moment
             for bzpoint in parts:
                 eigvecdata.append(bzpoint.split("FREQ(CM**-1)"))
         else:
@@ -719,12 +719,12 @@ class CRYSTOUT(object):
                 rawdata = [_f for _f in item.strip().splitlines() if _f]
                 freqs_container = []
                 involved_atoms = []
-                for j in rawdata:
-                    if " R( " in j or " C( " in j:  # k-coords
-                        coords = j[20:-18].strip().split()
+                for deck in rawdata:
+                    if " R( " in deck or " C( " in deck:  # k-coords
+                        coords = deck.split('(')[-1].split(')')[0].split()
                         kpoints.append(" ".join(coords))
                         continue
-                    vectordata = j.split()
+                    vectordata = deck.split()
                     if vectordata[0] == 'AT.':
                         involved_atoms.append(int(vectordata[1]))
                         vectordata = vectordata[4:]
@@ -743,12 +743,12 @@ class CRYSTOUT(object):
                         freqs_container[k].append(vectordata[k])
 
                 for fn in range(len(freqs_container)):
-                    for at in natseq:
-                        if at in involved_atoms:
+                    for n_at in natseq:
+                        if n_at in involved_atoms:
                             continue
                         # insert fake zero vectors for atoms which are not involved in a vibration
                         for _ in range(3):
-                            freqs_container[fn].insert((at - 1) * 3, 0)
+                            freqs_container[fn].insert((n_at - 1) * 3, 0)
                     ph_eigvecs.append(freqs_container[fn])
 
                 if 'ANTI-PHASE' in item:
