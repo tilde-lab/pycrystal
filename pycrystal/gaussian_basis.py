@@ -10,8 +10,10 @@ import copy
 import math
 from pprint import pformat
 
-from pyparsing import LineStart, LineEnd, Regex, alphas, alphanums, upcaseTokens, \
-    Word, Keyword, CaselessKeyword, Literal, Group, SkipTo, OneOrMore, NotAny, Optional
+from pyparsing import LineStart, LineEnd, Regex, alphas, alphanums, Word, \
+    Keyword, CaselessKeyword, Literal, Group, SkipTo, OneOrMore, NotAny, Optional
+from pyparsing.pyparsing_common import upcaseTokens
+
 from ase.data import chemical_symbols, atomic_numbers
 import numpy as np
 
