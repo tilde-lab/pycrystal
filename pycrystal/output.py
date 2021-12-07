@@ -709,6 +709,7 @@ class CRYSTOUT(object):
             for bzpoint in parts:
                 eigvecdata.append(bzpoint.split("FREQ(CM**-1)"))
         else:
+            self.warning('Cannot get eigenvectors, unexpected format!')
             return None
 
         natseq = list(range(1, len(self.info['structures'][-1]) + 1))
@@ -753,7 +754,7 @@ class CRYSTOUT(object):
 
                 if 'ANTI-PHASE' in item:
                     self.warning(
-                        'Phase and anti-phase eigenvectors found at k=(%s), the latter will be omitted' % kpoints[-1])
+                        'Phase and anti-phase eigenvectors found at k=(%s), the latter will be omitted!' % kpoints[-1])
                     break
 
             if len(ph_eigvecs) != len(self.info['phonons']['modes']['0 0 0']):
@@ -1617,7 +1618,7 @@ class CRYSTOUT(object):
                 n += 1
 
         # print len(criteria[0]), len(criteria[1]), len(criteria[2]), len(criteria[3]), len(energies)
-        # ORDER of values: geometry, then energy, then tolerances
+        # ORDER of values: geometry, energy, tolerances
         if criteria[-1]:
             if len(criteria[0]) - len(criteria[2]) == 1 and len(criteria[1]) - len(
                     criteria[3]) == 1:  # if no restart, then 1st cycle has no treshold t3 and t4
