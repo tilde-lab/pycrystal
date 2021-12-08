@@ -6,12 +6,13 @@ import requests
 from bs4 import BeautifulSoup
 
 from pycrystal import CRYSTOUT
-from ase.data import atomic_names
+from ase.data import atomic_names, chemical_symbols
 
 
 altnames = {'sulfur': 'sulphur', 'molybdenum': 'molibdenum', 'technetium': 'technecium'} # NB spelling
 known_page_names = [name.lower() for name in atomic_names[1:]]
 known_page_names = [altnames[name] if name in altnames else name for name in known_page_names]
+ref_page_names = [None] + known_page_names[:] # PS from zero-th element
 linebreak = re.compile("(\r\n|\n){2}")
 
 
@@ -45,6 +46,7 @@ def download_basis_library():
                 title = basis.findPrevious('font').text.strip()
 
             parts = [item for item in linebreak.split(basis.text) if len(item) > 2]
+            page = page.split('_')[0] # PS such as http://www.crystal.unito.it/Basis_Sets/oxygen_baranek.html
 
             # Correct mis-formats in the BS library at the CRYSTAL website
             if page == 'sulphur' and '10.1002/jcc.23153' in parts[1]:
@@ -79,7 +81,13 @@ def download_basis_library():
                 # fix Pu ECP format
                 parts[0] = parts[0].replace("294 11", "294 9")
 
+            elif page == 'polonium' and 'TZVP_rev2' in title:
+                # fix Po
+                parts[0] = parts[0].replace("282 12", "284 12")
+
             # NB. sometimes the comments get included afterwards
+
+            expected_element = chemical_symbols[ref_page_names.index(page)]
 
             parsed = CRYSTOUT.parse_bs_input(parts[0], as_d12=False)
             gbasis = dict(
@@ -88,6 +96,8 @@ def download_basis_library():
                 title=title
             )
             element = list(parsed['bs'].keys())[0]
+            assert expected_element == element, "%s is on the page of %s" % (element, expected_element)
+
             library.setdefault(element, []).append(gbasis)
 
     return library
@@ -99,8 +109,8 @@ if __name__ == "__main__":
     import pickle
     from ase.data import chemical_symbols
 
-    expect_absent = {'He', 'Kr', 'Xe', 'Po', 'At', 'Rn', 'Fr', 'Ra', 'Fm', 'Md', 'No', 'Lr', 'Rf'}
-    CACHE_FILE = 'bs_library.pkl'
+    expect_absent = {'He', 'Kr', 'Xe', 'At', 'Rn', 'Fr', 'Ra', 'Fm', 'Md', 'No', 'Lr', 'Rf'}
+    CACHE_FILE = 'bs_library_test.pkl'
 
     if os.path.exists(CACHE_FILE):
         with open(CACHE_FILE, 'rb') as f:
