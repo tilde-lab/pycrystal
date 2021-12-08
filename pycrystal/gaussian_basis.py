@@ -10,10 +10,10 @@ import copy
 import math
 from pprint import pformat
 
-from pyparsing import LineStart, LineEnd, Regex, alphas, alphanums, Word, \
-    Keyword, CaselessKeyword, Literal, Group, SkipTo, OneOrMore, NotAny, Optional
-from pyparsing.pyparsing_common import upcaseTokens
-
+from pyparsing import (
+    LineStart, LineEnd, Regex, alphas, alphanums, Word, Keyword, CaselessKeyword,
+    Literal, Group, SkipTo, OneOrMore, NotAny, Optional, pyparsing_common as ppc
+)
 from ase.data import chemical_symbols, atomic_numbers
 import numpy as np
 
@@ -41,7 +41,7 @@ Number.setParseAction(convertnum)
 NaN = Keyword('NaN').setParseAction(lambda t: np.nan_to_num(np.nan))
 
 Str = Word(alphas)
-Str.setParseAction(upcaseTokens)
+Str.setParseAction(ppc.upcaseTokens)
 StrNum = Regex('[a-zA-Z]') + Word(alphanums)
 
 # Literals
@@ -75,8 +75,8 @@ l = CaselessKeyword('S') | CaselessKeyword('P') | CaselessKeyword('D') \
     | CaselessKeyword('F') | CaselessKeyword('G')
 l_sp = CaselessKeyword('SP')
 
-shell = Group(l.setParseAction(upcaseTokens) + Number + Number)
-shell_sp = Group(l_sp.setParseAction(upcaseTokens) + Number + Number)
+shell = Group(l.setParseAction(ppc.upcaseTokens) + Number + Number)
+shell_sp = Group(l_sp.setParseAction(ppc.upcaseTokens) + Number + Number)
 
 exponent = Group(Number + Number)
 exponent_sp = Group(Number + Number + Number)
