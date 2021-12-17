@@ -154,7 +154,7 @@ class CRYSTOUT(object):
     def __init__(self, filename, **kwargs):
 
         self.data = ''              # file contents
-        self.pdata = None
+        self.pdata = None           # PROPERTIES part
         self.properties_calc, self.crystal_calc = False, False
 
         self.info = {
@@ -247,15 +247,15 @@ class CRYSTOUT(object):
                 self.data = raw_data[parts_pointer[0]: parts_pointer[1]]
                 self.pdata = raw_data[parts_pointer[1]:]
                 self.properties_calc, self.crystal_calc = True, True
+
         elif len(parts_pointer) == 0:
-            if not CRYSTOUT.is_properties(raw_data[parts_pointer[0]:]):
-                self.data = raw_data[parts_pointer[0]:]
-                self.crystal_calc = True
-            else:
-                self.pdata = raw_data[parts_pointer[0]:]
-                self.properties_calc = True
-        else:
-            self.properties_calc, self.crystal_calc = False, False
+            try:
+                if not CRYSTOUT.is_properties(raw_data[parts_pointer[0]:]):
+                    self.data, self.crystal_calc = raw_data[parts_pointer[0]:], True
+                else:
+                    self.pdata, self.properties_calc = raw_data[parts_pointer[0]:], True
+            except IndexError:
+                pass
 
         if not self.crystal_calc and not self.properties_calc:
             raise CRYSTOUT_Error('Although this looks similar to CRYSTAL output, the format is unknown!')
