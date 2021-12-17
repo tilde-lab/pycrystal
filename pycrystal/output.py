@@ -247,16 +247,18 @@ class CRYSTOUT(object):
                 self.data = raw_data[parts_pointer[0]: parts_pointer[1]]
                 self.pdata = raw_data[parts_pointer[1]:]
                 self.properties_calc, self.crystal_calc = True, True
-        else:
+        elif len(parts_pointer) == 0:
             if not CRYSTOUT.is_properties(raw_data[parts_pointer[0]:]):
                 self.data = raw_data[parts_pointer[0]:]
                 self.crystal_calc = True
             else:
                 self.pdata = raw_data[parts_pointer[0]:]
                 self.properties_calc = True
+        else:
+            self.properties_calc, self.crystal_calc = False, False
 
         if not self.crystal_calc and not self.properties_calc:
-            raise CRYSTOUT_Error('Though this file looks similar to CRYSTAL output, its format is unknown!')
+            raise CRYSTOUT_Error('Although this looks similar to CRYSTAL output, the format is unknown!')
 
         if self.crystal_calc:
             self.info['duration'], self.info['timestamp'] = self.get_timings()
