@@ -248,14 +248,11 @@ class CRYSTOUT(object):
                 self.pdata = raw_data[parts_pointer[1]:]
                 self.properties_calc, self.crystal_calc = True, True
 
-        elif len(parts_pointer) == 0:
-            try:
-                if not CRYSTOUT.is_properties(raw_data[parts_pointer[0]:]):
-                    self.data, self.crystal_calc = raw_data[parts_pointer[0]:], True
-                else:
-                    self.pdata, self.properties_calc = raw_data[parts_pointer[0]:], True
-            except IndexError:
-                pass
+        elif len(parts_pointer) == 1:
+            if not CRYSTOUT.is_properties(raw_data[parts_pointer[0]:]):
+                self.data, self.crystal_calc = raw_data[parts_pointer[0]:], True
+            else:
+                self.pdata, self.properties_calc = raw_data[parts_pointer[0]:], True
 
         if not self.crystal_calc and not self.properties_calc:
             raise CRYSTOUT_Error('Although this looks similar to CRYSTAL output, the format is unknown!')
