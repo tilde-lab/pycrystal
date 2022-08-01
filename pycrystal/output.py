@@ -341,7 +341,7 @@ class CRYSTOUT(object):
 
     @staticmethod
     def detect(test_string):
-        if "*                              MAIN AUTHORS" in test_string:
+        if b"*                              MAIN AUTHORS" in test_string:
             return True
         return False
 
@@ -349,14 +349,14 @@ class CRYSTOUT(object):
     def acceptable(filename):
         open_close = isinstance(filename, (str, PurePath))
         if open_close:
-            f = open(filename, 'r')
+            f = open(filename, 'rb')
         else:
             f = filename
 
         counter = 0
 
         while counter < 700:
-            fingerprint = f.readline()
+            fingerprint = f.read(32768)
             if CRYSTOUT.detect(fingerprint):
                 if open_close:
                     f.close()
