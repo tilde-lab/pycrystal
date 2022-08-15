@@ -341,9 +341,11 @@ class CRYSTOUT(object):
 
     @staticmethod
     def detect(test_string):
-        if b"*                              MAIN AUTHORS" in test_string:
-            return True
-        return False
+        needle = "*                              MAIN AUTHORS"
+        try:
+            return test_string.decode().find(needle) != -1
+        except (UnicodeDecodeError, AttributeError):
+            return test_string.find(         needle) != -1
 
     @staticmethod
     def acceptable(filename):
