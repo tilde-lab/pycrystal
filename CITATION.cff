@@ -1,0 +1,28 @@
+cff-version: 1.2.0
+title: pycrystal
+type: software
+license: MIT
+authors:
+  - given-names: Andrey
+    family-names: Sobolev
+    orcid: 'https://orcid.org/0000-0001-5086-6601'
+  - given-names: Maxim
+    family-names: Losev
+  - given-names: Evgeny
+    family-names: Blokhin
+    orcid: 'https://orcid.org/0000-0002-5333-3947'
+doi: 10.5281/zenodo.7693500
+url: 'https://github.com/tilde-lab/pycrystal'
+repository-artifact: 'https://pypi.org/project/pycrystal'
+keywords:
+  - crystal structure
+  - first-principles
+  - crystallography
+  - gaussian LCAO
+  - computational chemistry
+  - materials science
+  - atomistic simulations
+  - ab initio
+  - computational materials
+  - crystal ab initio
+  - EMSL basis set
