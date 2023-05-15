@@ -27,6 +27,6 @@ setup(
     ],
     keywords='materials informatics crystal structures crystal-structure crystallography CRYSTAL ab-initio ab-initio-simulations first-principles materials-science',
     packages=['pycrystal'],
-    install_requires=['ase', 'pyparsing', 'requests', 'bs4'],
+    install_requires=['ase', 'pyparsing', 'requests', 'beautifulsoup4'],
     python_requires='>=3.5'
 )
