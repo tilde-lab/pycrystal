@@ -39,10 +39,14 @@ try:
 except (IndexError, OSError):
     sys.exit("USAGE: <script> <file>")
 
+#CRYSTOUT.PERIODIC_LIMIT = 30
+
 assert CRYSTOUT.acceptable(sys.argv[1])
 result = CRYSTOUT(sys.argv[1])
 pprint(result.info)
 ```
+
+Mind `CRYSTOUT.PERIODIC_LIMIT` value which has to be fine-tuned while dealing with the molecules (e.g. saving them in the other formats).
 
 Also, for any basis set taken from [EMSL](https://bse.pnl.gov) in Gaussian'94 format:
 

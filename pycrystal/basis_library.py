@@ -25,7 +25,7 @@ def download_basis_library():
             break
         page = known_page_names.pop(0)
 
-        r = requests.get('http://www.crystal.unito.it/Basis_Sets/%s.html' % page)
+        r = requests.get('https://www.crystal.unito.it/Basis_Sets/%s.html' % page)
         if r.status_code != 200:
             logging.warning("NO PAGE FOR %s" % page)
             continue
