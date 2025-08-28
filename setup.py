@@ -1,12 +1,13 @@
+
 from setuptools import setup
 
 setup(
     name='pycrystal',
-    version='1.0.16',
+    version='1.1.0',
     author='Evgeny Blokhin, Maxim Losev, Andrey Sobolev',
     author_email='support@tilde.pro',
     description='Utilities for ab initio modeling suite CRYSTAL',
-    long_description='The pycrystal Python utilities are good for quick CRYSTAL logs parsing, getting the maximum information, and presenting it in a systematic machine-readable way, as well as preparing and handling the Gaussian LCAO basis sets.',
+    long_description='The pycrystal utility is good for quick CRYSTAL logs parsing, getting the maximum information, and presenting it in a systematic machine-readable way, as well as preparing and handling the Gaussian LCAO basis sets.',
     url='https://github.com/tilde-lab/pycrystal',
     license='MIT',
     classifiers=[
@@ -27,6 +28,11 @@ setup(
     ],
     keywords='materials informatics crystal structures crystal-structure crystallography CRYSTAL ab-initio ab-initio-simulations first-principles materials-science',
     packages=['pycrystal'],
-    install_requires=['ase', 'pyparsing', 'requests', 'beautifulsoup4'],
-    python_requires='>=3.5'
+    install_requires=[
+        'ase',
+        'pyparsing',
+        'requests',
+        'beautifulsoup4'
+    ],
+    python_requires='>=3.5',
 )
