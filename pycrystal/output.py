@@ -161,10 +161,10 @@ class CRYSTOUT(object):
 
         self.info = {
             'warns': [],
-            'prog': None,           # code version
+            'program': None,        # code version
             'techs': [],
-            'finished': 0x0,
-            'duration': None,
+            'finished': None,       # can be None, False, and True
+            'duration': None,       # in hours
             'timestamp': None,      # time of calc start, in Unix time fmt
             'input': None,
             'structures': [],       # list of valid ASE objects
@@ -264,7 +264,7 @@ class CRYSTOUT(object):
             raise CRYSTOUT_Error('PROPERTIES output with insufficient information omitted')
 
         self.info['duration'], self.info['timestamp'] = self.get_timings()
-        self.comment, self.info['input'], self.info['prog'] = self.get_input_and_meta(raw_data[0:parts_pointer[0]])
+        self.comment, self.info['input'], self.info['program'] = self.get_input_and_meta(raw_data[0:parts_pointer[0]])
         self.molecular_case = ' MOLECULAR CALCULATION' in self.data
         self.info['energy'] = self.get_etot()
         self.info['e_accuracy'] = self.get_detot()
@@ -961,12 +961,12 @@ class CRYSTOUT(object):
 
     def decide_finished(self):
         if self.info['duration'] and 'TTTTTTTTTTTTTTTTTTTTTTTTTTTTTT ERR' not in self.data:
-            self.info['finished'] = 0x2
+            self.info['finished'] = True
         else:
             err = self.data.split(' ERROR **** ')
             if len(err) > 1:
                 self.warning('Error: ' + err[1].split('\n')[0])
-            self.info['finished'] = 0x1
+            self.info['finished'] = False
 
     def get_ph_sym_disps(self):
         symdisps = self.patterns['symdisps'].search(self.data)
@@ -1550,7 +1550,7 @@ class CRYSTOUT(object):
 
             start = time.mktime(time.strptime(starting, "%d %m %Y  %H:%M:%S"))
             end = time.mktime(time.strptime(ending, "%d %m %Y  %H:%M:%S"))
-            duration = "%2.2f" % ((end - start) / 3600)
+            duration = (end - start) / 3600
         else:
             self.warning("No timings available")
             start = None
